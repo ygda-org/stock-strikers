@@ -8,7 +8,7 @@ const SPEED = 100
 const BULLET = preload("uid://ckwbgunr68qm")
 
 func _ready(): # probably load stats from gamestate right
-	pass
+	GameState.player = self
 
 func _process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")

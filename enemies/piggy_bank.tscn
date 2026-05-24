@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b73ufdvihi6ks"]
+
+[ext_resource type="Script" uid="uid://bwiab73l8k60v" path="res://enemies/piggy_bank.gd" id="1_2331h"]
+[ext_resource type="Texture2D" uid="uid://b1g2ww2wqlf74" path="res://icon.svg" id="2_bgkm8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jby03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bgkm8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uri2p"]
+size = Vector2(16, 16)
+
+[node name="PiggyBank" type="CharacterBody2D" unique_id=104104915]
+script = ExtResource("1_2331h")
+pig_speed = 50
+bullet_speed = 100
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1990987845]
+scale = Vector2(0.15624999, 0.15624999)
+sprite_frames = SubResource("SpriteFrames_jby03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016995054]
+shape = SubResource("RectangleShape2D_uri2p")
+
+[node name="Timer" type="Timer" parent="." unique_id=1607294646]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=731618996]
+position = Vector2(-14, 14)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
