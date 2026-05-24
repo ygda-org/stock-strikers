@@ -46,7 +46,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(10, 12)
 
-[node name="Player" type="CharacterBody2D" unique_id=453716687]
+[node name="Player" type="CharacterBody2D" unique_id=453716687 groups=["Player"]]
+motion_mode = 1
 script = ExtResource("1_rkbax")
 acceleration_curve = SubResource("Curve_rkbax")
 
@@ -59,3 +60,8 @@ shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1856256124]
 zoom = Vector2(2, 2)
+
+[node name="InvincibleTimer" type="Timer" parent="." unique_id=793505322]
+one_shot = true
+
+[connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]

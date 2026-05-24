@@ -7,6 +7,10 @@ const SPEED = 100
 
 const BULLET = preload("uid://ckwbgunr68qm")
 
+var invincible: bool = false
+
+@onready var collision_shape:CollisionShape2D = $CollisionShape2D
+@onready var itimer:Timer = $InvincibleTimer
 func _ready(): # probably load stats from gamestate right
 	GameState.player = self
 
@@ -27,6 +31,13 @@ func _process(delta):
 		shoot()
 	
 	move_and_slide()
+	if !invincible:
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var body = collision.get_collider()
+			if body.is_in_group("Enemies"):
+				hurt()
+				break
 
 func shoot():
 	var target_position = get_global_mouse_position()
@@ -34,3 +45,11 @@ func shoot():
 	bullet.velocity = (target_position-global_position).normalized()*100 # idk bullet shoot speed for now
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
+func hurt():
+	invincible = true
+	itimer.start()
+	
+
+func _on_invincible_timer_timeout() -> void:
+	invincible = false
+	

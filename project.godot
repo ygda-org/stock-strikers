@@ -24,6 +24,11 @@ GameState="*uid://c68mu4sl0ig8k"
 window/size/viewport_width=800
 window/size/viewport_height=600
 
+[global_group]
+
+Enemies="they hurt"
+Player="you control it"
+
 [input]
 
 move_up={

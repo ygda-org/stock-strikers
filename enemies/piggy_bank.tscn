@@ -17,7 +17,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uri2p"]
 size = Vector2(16, 16)
 
-[node name="PiggyBank" type="CharacterBody2D" unique_id=104104915]
+[node name="PiggyBank" type="CharacterBody2D" unique_id=104104915 groups=["Enemies"]]
+motion_mode = 1
 script = ExtResource("1_2331h")
 pig_speed = 50
 bullet_speed = 100
