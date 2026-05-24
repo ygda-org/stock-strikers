@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://3smqvhstcant"]
+
+[ext_resource type="Texture2D" uid="uid://bwi24esx3pfoh" path="res://assets/player/temp_player.png" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://0qxu5cgclrkf" path="res://player/player.gd" id="1_rkbax"]
+
+[sub_resource type="Curve" id="Curve_rkbax"]
+_data = [Vector2(0, 0.96554005), 0.0, 0.13398005, 0, 0, Vector2(0.4835391, 0.8966202), -0.35741645, -0.35741645, 0, 0, Vector2(0.9238683, 0.24188197), -1.6946889, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
+atlas = ExtResource("1_oul6g")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
+atlas = ExtResource("1_oul6g")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
+atlas = ExtResource("1_oul6g")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjkh3"]
+atlas = ExtResource("1_oul6g")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6k8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkbax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1dw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw30f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjkh3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
+size = Vector2(10, 12)
+
+[node name="Player" type="CharacterBody2D" unique_id=453716687]
+script = ExtResource("1_rkbax")
+acceleration_curve = SubResource("Curve_rkbax")
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1229762298]
+sprite_frames = SubResource("SpriteFrames_g6k8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860238636]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1856256124]
+zoom = Vector2(2, 2)
