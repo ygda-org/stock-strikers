@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cucnwrrct1sth"]
+
+[ext_resource type="Script" uid="uid://b74ka0t3jr5nc" path="res://main/startup_scene.gd" id="1_xetgx"]
+[ext_resource type="Texture2D" uid="uid://h0xyy4m70sl0" path="res://assets/YGDA Logo.png" id="2_32o42"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu3u1"]
+atlas = ExtResource("2_32o42")
+region = Rect2(0, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o57gb"]
+atlas = ExtResource("2_32o42")
+region = Rect2(192, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0t41"]
+atlas = ExtResource("2_32o42")
+region = Rect2(0, 128, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpoyx"]
+atlas = ExtResource("2_32o42")
+region = Rect2(192, 128, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3puv"]
+atlas = ExtResource("2_32o42")
+region = Rect2(0, 256, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqa1e"]
+atlas = ExtResource("2_32o42")
+region = Rect2(192, 256, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrt3t"]
+atlas = ExtResource("2_32o42")
+region = Rect2(0, 384, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32hai"]
+atlas = ExtResource("2_32o42")
+region = Rect2(192, 384, 192, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32o42"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu3u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o57gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0t41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpoyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3puv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqa1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrt3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32hai")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_32o42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fu3u1"]
+resource_name = "startup"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.6667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0t41"]
+_data = {
+&"RESET": SubResource("Animation_32o42"),
+&"startup": SubResource("Animation_fu3u1")
+}
+
+[node name="StartupScene" type="Node2D" unique_id=1576029353]
+script = ExtResource("1_xetgx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1850577195]
+offset_left = -1312.0
+offset_top = -982.0
+offset_right = 1326.0
+offset_bottom = 873.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1588431678]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_32o42")
+frame = 7
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1801516933]
+libraries/ = SubResource("AnimationLibrary_o0t41")
+autoplay = &"startup"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1656101066]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
