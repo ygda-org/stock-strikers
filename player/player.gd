@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var acceleration_curve: Curve
-const ACCELERATION = 1500
+const ACCELERATION = 3000
 const DECELERATION = 120
 const SPEED = 100
 
@@ -14,11 +14,14 @@ func _process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_dir.x:
 		velocity.x = velocity.x + acceleration_curve.sample(abs(velocity.x/SPEED)) * input_dir.x * ACCELERATION * delta
+	else:
+		velocity.x = 0
 	if input_dir.y:
 		velocity.y = velocity.y + acceleration_curve.sample(abs(velocity.y/SPEED)) * input_dir.y * ACCELERATION * delta
+	else:
+		velocity.y = 0
 	velocity = velocity.limit_length(SPEED)
-	if not input_dir:
-		velocity = lerp(velocity, Vector2.ZERO, DECELERATION * delta)
+		#velocity = lerp(velocity, Vector2.ZERO, DECELERATION * delta)
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()

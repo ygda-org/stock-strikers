@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://0qxu5cgclrkf" path="res://player/player.gd" id="1_rkbax"]
 
 [sub_resource type="Curve" id="Curve_rkbax"]
-_data = [Vector2(0, 0.96554005), 0.0, 0.13398005, 0, 0, Vector2(0.4835391, 0.8966202), -0.35741645, -0.35741645, 0, 0, Vector2(0.9238683, 0.24188197), -1.6946889, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.095427394), 0.0, 0.13398005, 0, 0, Vector2(0.14197531, 1), 0.044540852, 0.044540852, 0, 0, Vector2(0.82510287, 0.99999994), 0.11418762, 0.0, 0, 0, Vector2(1, 0.3883366), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("1_oul6g")
