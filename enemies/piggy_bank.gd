@@ -3,7 +3,7 @@ extends CharacterBody2D
 const BULLET = preload("uid://ckwbgunr68qm")
 @export var pig_speed: int
 @export var bullet_speed: int
-@export var kb_decel: int
+@export var kb_decel: float
 @onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $Anim
 @onready var marker: Marker2D = $Marker2D
@@ -20,13 +20,13 @@ func _physics_process(delta: float) -> void:
 		var distance = GameState.player.global_position - global_position  
 		velocity = distance.normalized() * pig_speed
 	if is_knockback:
-		velocity -= (-1*velocity).normalized() * kb_decel * delta
-		is_knockback = velocity.length()>-1 and velocity.length()<1
+		velocity = lerp(velocity, Vector2.ZERO, kb_decel * delta)
+		is_knockback = !(velocity.length()>-10 and velocity.length()<10)
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
 		if body.is_in_group("Player"):
-			knockback(1000)
+			knockback(300)
 	move_and_slide()
 	
 	
