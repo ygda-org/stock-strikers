@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://6i6mv001enok"]
+
+[ext_resource type="Script" uid="uid://dbl54bs86upm2" path="res://main/main_menu.gd" id="1_c75ke"]
+
+[node name="StartMenu" type="Control" unique_id=1499241315]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c75ke")
+
+[node name="Main" type="Control" parent="." unique_id=1967442790]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Main" unique_id=1567831811]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 250.0
+offset_right = 166.0
+offset_bottom = 281.0
+text = "Start Game"
+
+[node name="Credits" type="Button" parent="Main" unique_id=643673050]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 336.0
+offset_right = 126.0
+offset_bottom = 367.0
+text = "Credits"
+
+[node name="Credits" type="Control" parent="." unique_id=957842868]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="Credits" unique_id=1509909068]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 483.0
+offset_right = 149.0
+offset_bottom = 514.0
+text = "Go Back"
+
+[node name="Label" type="Label" parent="Credits" unique_id=1373214616]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 551.0
+offset_right = 578.0
+offset_bottom = 574.0
+text = "Made using Godot: https://godotengine.org/license/"
+
+[connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Credits/Back" to="." method="_on_back_pressed"]
