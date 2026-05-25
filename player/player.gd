@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var acceleration_curve: Curve
+
 const ACCELERATION = 3000
 const DECELERATION = 120
 const SPEED = 100
@@ -29,15 +30,15 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-	
+		
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		if body.is_in_group("Player"):
+			if !invincible:
+				invincible = true
 	move_and_slide()
-	if !invincible:
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
-			var body = collision.get_collider()
-			if body.is_in_group("Enemies"):
-				hurt()
-				break
+	
 
 func shoot():
 	var target_position = get_global_mouse_position()
@@ -46,10 +47,10 @@ func shoot():
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
 func hurt():
-	invincible = true
+	set_collision_layer_value(1,false)
 	itimer.start()
 	
 
 func _on_invincible_timer_timeout() -> void:
 	invincible = false
-	
+	set_collision_layer_value(1,true)

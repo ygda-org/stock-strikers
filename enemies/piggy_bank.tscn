@@ -18,6 +18,8 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="PiggyBank" type="CharacterBody2D" unique_id=104104915 groups=["Enemies"]]
+collision_layer = 2
+collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_2331h")
 pig_speed = 50

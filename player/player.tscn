@@ -47,6 +47,7 @@ animations = [{
 size = Vector2(10, 12)
 
 [node name="Player" type="CharacterBody2D" unique_id=453716687 groups=["Player"]]
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_rkbax")
 acceleration_curve = SubResource("Curve_rkbax")

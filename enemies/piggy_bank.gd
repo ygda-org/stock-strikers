@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal hurt_player
+
 const BULLET = preload("uid://ckwbgunr68qm")
 @export var pig_speed: int
 @export var bullet_speed: int
@@ -26,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
 		if body.is_in_group("Player"):
+			body.hurt()
 			knockback(300)
 	move_and_slide()
 	
