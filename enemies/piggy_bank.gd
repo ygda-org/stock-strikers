@@ -28,8 +28,9 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
 		if body.is_in_group("Player"):
-			body.hurt()
+			body.hurt(10)
 			knockback(300)
+			break
 	move_and_slide()
 	
 	
