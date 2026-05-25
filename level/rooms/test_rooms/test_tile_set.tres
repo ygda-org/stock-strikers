@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://bvywrq4cr5yba"]
 
 [ext_resource type="Texture2D" uid="uid://c5gl6pqytuy00" path="res://assets/tempoary_assets/programmer_art-terrain.png" id="1_4ks28"]
+[ext_resource type="Texture2D" uid="uid://c1txvs2g6cr7y" path="res://assets/tempoary_assets/YGDA-ProgrammerArt-3.png.png" id="2_2rkwj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rkwj"]
 texture = ExtResource("1_4ks28")
@@ -43,6 +44,7 @@ texture = ExtResource("1_4ks28")
 6:3/0 = 0
 7:3/0 = 0
 8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:3/0 = 0
 0:4/0 = 0
 1:4/0 = 0
@@ -57,5 +59,44 @@ texture = ExtResource("1_4ks28")
 5:5/0 = 0
 6:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86w2t"]
+texture = ExtResource("2_2rkwj")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, -8, 8)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+2:3/size_in_atlas = Vector2i(1, 3)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, -8, 8)
+1:3/size_in_atlas = Vector2i(1, 3)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, -8, 8)
+0:3/size_in_atlas = Vector2i(1, 3)
+0:3/0 = 0
+
 [resource]
+physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_2rkwj")
+sources/1 = SubResource("TileSetAtlasSource_86w2t")

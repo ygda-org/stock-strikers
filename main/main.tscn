@@ -17,6 +17,7 @@ color = Color(0, 0, 0, 1)
 [node name="Level" parent="." unique_id=494579793 instance=ExtResource("3_xwkvk")]
 
 [node name="Player" parent="." unique_id=453716687 instance=ExtResource("1_53q0u")]
+position = Vector2(128, 128)
 
 [node name="PiggyBank" parent="." unique_id=644549125 instance=ExtResource("2_pjrb6")]
-position = Vector2(38, -117)
+position = Vector2(156, 126)

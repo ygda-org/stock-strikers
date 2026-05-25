@@ -45,6 +45,7 @@ func shoot():
 	bullet.velocity = (target_position-global_position).normalized()*100 # idk bullet shoot speed for now
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
+
 func hurt():
 	set_collision_layer_value(1,false)
 	itimer.start()
