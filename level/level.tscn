@@ -4,3 +4,15 @@
 
 [node name="Level" type="Node2D" unique_id=494579793]
 script = ExtResource("1_7lnir")
+
+[node name="Effects" type="Node2D" parent="." unique_id=590405655]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Effects" unique_id=174833500]
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Effects" unique_id=1071405058]
+offset_left = -938.0
+offset_top = -868.0
+offset_right = 1725.0
+offset_bottom = 1017.0
+color = Color(0.25490198, 0.22352941, 0.22352941, 1)

@@ -38,6 +38,8 @@ func _ready() -> void:
 
 func generate() -> void:
 	for child in get_children():
+		if child.name == "Effects":
+			continue
 		child.queue_free()
 	var seed = randi() % 100000
 	print('seed:', seed)
