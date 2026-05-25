@@ -31,14 +31,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 		
+	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
 		if body.is_in_group("Player"):
 			if !invincible:
 				invincible = true
-	move_and_slide()
-	
 
 func shoot():
 	var target_position = get_global_mouse_position()
