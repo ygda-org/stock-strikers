@@ -69,4 +69,5 @@ func _on_timer_timeout() -> void:
 		var bul_distance = GameState.player.global_position - marker.global_position
 		var bul_position = marker.global_position
 		bullet.initialize(bul_distance,bul_position,bullet_damage)
+		bullet.target = GameState.player.global_position
 	
