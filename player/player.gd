@@ -141,6 +141,8 @@ func create_bullet_to_spawn(dmg):
 	bullet.damage = dmg
 	bullet.scale = Vector2(bullet_size, bullet_size)
 	bullet.knockback = knockback
+	if "ricochet" in other_effects_list:
+		bullet.ricochet = other_effects_strengths["ricochet"]
 	return bullet
 
 ###########################################

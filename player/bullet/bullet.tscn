@@ -16,7 +16,7 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_473kp"]
 radius = 4.0
 
-[node name="Bullet" type="Area2D" unique_id=1287440256 groups=["Attack"]]
+[node name="Bullet" type="CharacterBody2D" unique_id=1260105909 groups=["Attack"]]
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_txs3d")
@@ -26,5 +26,3 @@ texture = SubResource("GradientTexture2D_txs3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=659429602]
 shape = SubResource("CircleShape2D_473kp")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

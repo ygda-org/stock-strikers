@@ -1,25 +1,32 @@
-extends Area2D
+extends CharacterBody2D
 
-var velocity = Vector2(0,0)
 var damage = 0
 var knockback = 20
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+var ricochet = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	for body in get_overlapping_bodies():
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var body = collision.get_collider()
 		if body.is_in_group("Enemies"):
 			body.hurt(damage)
 			body.knockback(self,knockback)
 		if body.is_in_group("Player"):
-			continue
-		hit()
+			pass
+		else:
+			hit(collision.get_normal())
 	position += velocity * delta
 
-func hit():
-	self.queue_free()
-	pass
+func hit(norm):
+	if not ricochet:
+		self.queue_free()
+	else:
+		ricochet -= 1
+		if norm.x:
+			velocity.x *= -1
+		elif norm.y:
+			velocity.y *= -1
+		else:
+			print('aAahaadhafahfasuifhaiofw')
