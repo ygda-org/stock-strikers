@@ -109,11 +109,11 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 theme_override_font_sizes/font_size = 12
-text = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market, overtaking Nintendo (NTDOY) and Microsoft (MSFT)"
+text = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market"
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="VBoxContainer" unique_id=1521882151]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 theme_override_styles/panel = SubResource("StyleBoxTexture_v1w4h")
@@ -134,7 +134,7 @@ theme_override_constants/margin_bottom = 1
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("1_l2qqs")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 16
 text = "+20 damage"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=979023355]
@@ -143,7 +143,7 @@ layout_mode = 2
 theme = ExtResource("1_l2qqs")
 
 [node name="NumberDisplay" type="SpinBox" parent="VBoxContainer/HBoxContainer" unique_id=242017968]
-custom_minimum_size = Vector2(60, 22)
+custom_minimum_size = Vector2(60, 26)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 value = 1.0
