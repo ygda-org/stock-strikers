@@ -1,8 +1,7 @@
 extends Area2D
 
 var velocity = Vector2(0,0)
-var damage = 0
-var knockback = 0
+var damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,15 +10,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	for body in get_overlapping_bodies():
-		if body.is_in_group("Enemies"):
-			body.hurt(damage)
-			body.knockback(knockback)
-		if body.is_in_group("Player"):
-			continue
-		hit()
 	position += velocity * delta
-
-func hit():
-	self.queue_free()
-	pass

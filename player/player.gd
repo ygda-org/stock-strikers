@@ -81,10 +81,10 @@ func shoot():
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
 
-func hurt(damage:int):
+func hurt(hp_damage:int):
 	set_collision_layer_value(1,false)
 	itimer.start()
-	current_health -= damage
+	current_health -= hp_damage
 	player_hp_update.emit(max_health,current_health)
 	
 
