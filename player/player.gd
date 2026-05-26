@@ -60,10 +60,7 @@ func _process(delta):
 	damage = process_damage_multipliers(damage)
 	$Camera2D.position = (get_global_mouse_position() - global_position)/5
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
-		$DodgeDur.start()
-		$DodgeInvincibilityDur.start()
-		set_collision_layer_value(1,false)
-		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
+		dodge()
 	if (not $DodgeDur.is_stopped()) or (not $ExtraEffects/RecoilTimer.is_stopped()):
 		move_and_slide()
 		return
@@ -112,6 +109,13 @@ func hurt(hp_damage:int):
 		current_health -= hp_damage
 		player_hp_update.emit(max_health,current_health)
 	
+func dodge():
+	$DodgeDur.start()
+	$DodgeInvincibilityDur.start()
+	set_collision_layer_value(1,false)
+	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
+	if "roll_bullets" in other_effects_list:
+		roll_bullets()
 
 func _on_invincible_timer_timeout() -> void:
 	invincible = false
@@ -133,6 +137,7 @@ func create_bullet_to_spawn(dmg):
 	bullet.damage = dmg
 	bullet.scale = Vector2(bullet_size, bullet_size)
 	bullet.knockback = knockback
+	return bullet
 
 ###########################################
 # past this point is special effects
@@ -167,3 +172,9 @@ func money_shield_take_damage(dmg):
 func recoil():
 	$ExtraEffects/RecoilTimer.start()
 	velocity -= (get_global_mouse_position() - global_position).normalized()*other_effects_strengths["recoil"]
+
+func roll_bullets():
+	var bullet = create_bullet_to_spawn(damage*other_effects_strengths["roll_bullets"])
+	bullet.velocity = -velocity/2
+	get_parent().add_child(bullet)
+	bullet.global_position = global_position
