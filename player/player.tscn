@@ -72,6 +72,8 @@ shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1856256124]
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
 
 [node name="InvincibleTimer" type="Timer" parent="." unique_id=793505322]
 one_shot = true

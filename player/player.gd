@@ -56,6 +56,7 @@ func _ready(): # probably load stats from gamestate right
 func _process(delta):
 	damage = base_damage
 	damage = process_damage_multipliers(damage)
+	$Camera2D.position = (get_global_mouse_position() - global_position)/5
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
 		$DodgeDur.start()
 		$DodgeInvincibilityDur.start()
