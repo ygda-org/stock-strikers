@@ -23,6 +23,7 @@ var base_damage: int
 var bullet_speed: int
 var bullet_size: float
 var roll_speed: float
+var knockback: float
 
 var other_effects_list: Array[String] = []
 var other_effects_strengths: Dictionary[String, float] = {}
@@ -45,6 +46,7 @@ func _ready(): # probably load stats from gamestate right
 	$DodgeDur.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
 	roll_speed = PlayerStats.current_stats[Stock.stats.ROLL_SPEED]
 	$DodgeCD.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_CD]
+	knockback = PlayerStats.current_stats[Stock.stats.KNOCKBACK]
 	
 	for stock in PlayerStats.stocks: # other effects will need to be added manually
 		if stock.changed_stat == Stock.stats.OTHER and stock.other_effect_name:
@@ -91,10 +93,7 @@ func _process(delta):
 func shoot():
 	$ShotCD.start()
 	var target_position = get_global_mouse_position()
-	var bullet = BULLET.instantiate()
-	bullet.velocity = (target_position-global_position).normalized()*bullet_speed
-	bullet.damage = damage
-	bullet.scale = Vector2(bullet_size, bullet_size)
+	var bullet = create_bullet_to_spawn(damage)
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
 	if "triple_shot" in other_effects_list:
@@ -127,7 +126,13 @@ func _on_dodge_invincibility_dur_timeout():
 	if not invincible:
 		set_collision_layer_value(1,true)
 
-
+## creates a bullet and sets its initial values. Does not add child.
+func create_bullet_to_spawn(dmg):
+	var bullet = BULLET.instantiate()
+	bullet.velocity = (get_global_mouse_position()-global_position).normalized()*bullet_speed
+	bullet.damage = dmg
+	bullet.scale = Vector2(bullet_size, bullet_size)
+	bullet.knockback = knockback
 
 ###########################################
 # past this point is special effects
@@ -141,16 +146,12 @@ func process_damage_multipliers(dmg):
 
 func triple_shot(target_position):
 	var dmg_multiplier = other_effects_strengths["triple_shot"]
-	var bullet2 = BULLET.instantiate()
+	var bullet2 = create_bullet_to_spawn(dmg_multiplier * damage)
 	bullet2.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(PI/4)
-	bullet2.damage = damage * dmg_multiplier
-	bullet2.scale = Vector2(bullet_size, bullet_size)
 	get_parent().add_child(bullet2)
 	bullet2.global_position = global_position
-	var bullet3 = BULLET.instantiate()
+	var bullet3 = create_bullet_to_spawn(dmg_multiplier * damage)
 	bullet3.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(-PI/4)
-	bullet3.damage = damage * dmg_multiplier
-	bullet3.scale = Vector2(bullet_size, bullet_size)
 	get_parent().add_child(bullet3)
 	bullet3.global_position = global_position
 
