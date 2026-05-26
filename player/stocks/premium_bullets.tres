@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://lyaxvtt3ierm"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_cmhsi"]
+
+[resource]
+script = ExtResource("1_cmhsi")
+changed_stat = 12
+change_amount = 2.0
+other_effect_name = "premium_bullets"
+stock_name = "Premium Bullets"
+stock_description = "Bullets cost money, change amount dmg multi"
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"

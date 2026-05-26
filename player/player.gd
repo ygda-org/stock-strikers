@@ -8,6 +8,8 @@ const ACCELERATION = 3000
 const DECELERATION = 120
 
 const RECOIL_STRENGTH = 100
+const PREMIUM_BULLET_COST = 2
+const MONEY_LEAK = 1
 
 const BULLET = preload("uid://ckwbgunr68qm")
 
@@ -55,6 +57,9 @@ func _ready(): # probably load stats from gamestate right
 			
 			if stock.other_effect_name == "extrafire":
 				$ExtraEffects/ExtraFireCD.start()
+			if stock.other_effect_name == "money_leak":
+				speed *= other_effects_strengths["money_leak"]
+				$ExtraEffects/MoneyLeakCD.start()
 
 	current_health = max_health
 
@@ -146,6 +151,8 @@ func create_bullet_to_spawn(dmg):
 	bullet.knockback = knockback
 	if "ricochet" in other_effects_list:
 		bullet.ricochet = other_effects_strengths["ricochet"]
+	if "premium_bullets" in other_effects_list:
+		PlayerStats.money -= PREMIUM_BULLET_COST
 	return bullet
 
 ###########################################
@@ -155,6 +162,8 @@ func create_bullet_to_spawn(dmg):
 func process_damage_multipliers(dmg):
 	if "money_damage_increase" in other_effects_list:
 		dmg *= other_effects_strengths["money_damage_increase"] * PlayerStats.money
+	if "premium_bullets" in other_effects_list:
+		dmg *= other_effects_strengths["premium_bullets"]
 	# space for the rest of 'em
 	return dmg
 
@@ -201,3 +210,6 @@ func teleport():
 
 func _on_extra_fire_cd_timeout():
 	shoot()
+
+func _on_money_leak_cd_timeout():
+	PlayerStats.money -= MONEY_LEAK
