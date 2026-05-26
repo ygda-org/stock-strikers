@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://cpn4wboo43nvd"]
 
 [ext_resource type="Texture2D" uid="uid://bqw6yg4h10b0o" path="res://assets/tempoary_assets/elevator.png" id="1_nhbi5"]
+[ext_resource type="Texture2D" uid="uid://c624yv0rmuxws" path="res://assets/tempoary_assets/monitor.png" id="2_4mvcn"]
+[ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="3_svwi6"]
+[ext_resource type="PackedScene" uid="uid://c4m8hryyag1e6" path="res://gui/stock_option.tscn" id="4_ivxw8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhbi5"]
-bg_color = Color(0.41, 0.24155831, 0.06149999, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mvcn"]
+bg_color = Color(0.100799985, 0.48, 0.48, 1)
 
 [node name="ElevatorGui" type="Control" unique_id=241942387]
 layout_mode = 3
@@ -17,24 +16,72 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=585213761]
-modulate = Color(0.48, 0.48, 0.48, 1)
+[node name="Background" type="TextureRect" parent="." unique_id=585213761]
+self_modulate = Color(0.44, 0.44, 0.44, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_nhbi5")
 
-[node name="Panel" type="Panel" parent="." unique_id=341669870]
+[node name="Panel" type="Panel" parent="Background" unique_id=136564686]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -305.0
-offset_top = -187.75
-offset_right = 305.0
-offset_bottom = 187.75
+offset_left = -325.0
+offset_top = -182.5
+offset_right = 325.0
+offset_bottom = 182.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nhbi5")
+theme_override_styles/panel = SubResource("StyleBoxFlat_4mvcn")
+
+[node name="Monitor" type="TextureRect" parent="Background" unique_id=1570154785]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("2_4mvcn")
+
+[node name="Panel" type="Panel" parent="." unique_id=655216269]
+layout_mode = 0
+offset_left = 391.0
+offset_top = 164.0
+offset_right = 698.0
+offset_bottom = 438.0
+theme = ExtResource("3_svwi6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=613968743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer" unique_id=1317748422]
+layout_mode = 2
+theme = ExtResource("3_svwi6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer" unique_id=919951880]
+layout_mode = 2
+
+[node name="StockOption" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1011788072 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+
+[node name="StockOption2" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=893599749 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+
+[node name="StockOption3" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=234600546 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+
+[node name="StockOption4" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1821929115 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+
+[node name="StockOption5" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=437835960 instance=ExtResource("4_ivxw8")]
+layout_mode = 2

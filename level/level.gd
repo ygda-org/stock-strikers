@@ -24,6 +24,7 @@ var tile_width := 16
 var starting_room : PackedScene = null
 
 var max_room_count := 10
+var min_room_count := 4
 
 var room_cord_neighbors : Dictionary[Vector2, Array] = {}
 
@@ -42,6 +43,7 @@ func generate() -> void:
 			continue
 		child.queue_free()
 	var seed = randi() % 100000
+	seed = 64197
 	print('seed:', seed)
 	seed(seed)
 	generate_placement()
@@ -72,7 +74,8 @@ func generate_placement():
 			var num := randf()
 			#If condition met (dependent on num of preexisiting neighbors)
 			# then add the direction and the opposing one
-			if neighbor_ct == 1 and num > 0.5:
+			#Or... if we are below minimum, force atleast one expansion
+			if neighbor_ct == 1 and (num > 0.5 or room_cord_neighbors.keys().size() <= min_room_count - 2):
 				room_cord_neighbors[loc].append(d)
 				if loc + d not in room_cord_neighbors:
 					room_cord_neighbors[loc + d] = []
