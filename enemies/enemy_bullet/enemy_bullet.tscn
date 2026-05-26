@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ckwbgunr68qm"]
+[gd_scene format=3 uid="uid://elmhj6ii3asu"]
 
-[ext_resource type="Script" uid="uid://ctusbnr2jhnq7" path="res://player/bullet/bullet.gd" id="1_txs3d"]
+[ext_resource type="Script" uid="uid://bsufej18f31v6" path="res://enemies/enemy_bullet/enemy_bullet.gd" id="1_nybal"]
 
 [sub_resource type="Gradient" id="Gradient_473kp"]
 offsets = PackedFloat32Array(0, 0.55, 0.605, 1)
@@ -16,15 +16,13 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_473kp"]
 radius = 4.0
 
-[node name="Bullet" type="Area2D" unique_id=1287440256 groups=["Attack"]]
-collision_layer = 8
-collision_mask = 6
-script = ExtResource("1_txs3d")
+[node name="EnemyBullet" type="Area2D" unique_id=1287440256 groups=["Ouchies"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_nybal")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2083750046]
 texture = SubResource("GradientTexture2D_txs3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=659429602]
 shape = SubResource("CircleShape2D_473kp")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

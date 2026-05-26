@@ -2,23 +2,29 @@ extends CharacterBody2D
 
 signal hurt_player
 
-const BULLET = preload("uid://ckwbgunr68qm")
+const BULLET = preload("uid://elmhj6ii3asu")
 @export var pig_speed: int
 @export var bullet_speed: int
 @export var kb_decel: float
 @onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $Anim
 @onready var marker: Marker2D = $Marker2D
-
+@onready var health_bar: ProgressBar = $HealthBar
+var max_health := 30
+var current_health := 30
 var is_knockback:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
 	animated_sprite_2d.play("hop")
+	health_bar.max_value = max_health
+	health_bar.value = current_health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if current_health <= 0:
+		die()
 	if GameState.player and !is_knockback:
 		var distance = GameState.player.global_position - global_position  
 		velocity = distance.normalized() * pig_speed
@@ -27,13 +33,14 @@ func _physics_process(delta: float) -> void:
 		if (velocity.length()>-10 and velocity.length()<10):
 			is_knockback = false
 			animated_sprite_2d.play("hop")
+	var player_got_hit = false
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
-		if body.is_in_group("Player"):
+		if body.is_in_group("Player") and !player_got_hit:
 			body.hurt(10)
 			knockback(300)
-			break
+			player_got_hit = true
 	move_and_slide()
 	
 	
@@ -42,13 +49,17 @@ func knockback(speed:int):
 		velocity = (GameState.player.global_position - global_position).normalized() * speed * -1
 		is_knockback = true
 		animated_sprite_2d.stop()
+func hurt(health):
+	current_health -= health
+	health_bar.value = current_health
 
+func die():
+	self.queue_free()
 func _on_timer_timeout() -> void:
 	if GameState.player and !is_knockback:
 		var bullet = BULLET.instantiate()
 		get_parent().add_child(bullet)
 		var distance = GameState.player.global_position - global_position
-		var offset = (marker.global_position - global_position).abs()
 		bullet.velocity = distance.normalized() * bullet_speed
-		bullet.global_position = global_position + (distance.normalized() * offset)
+		bullet.global_position = marker.global_position
 	
