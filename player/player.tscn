@@ -86,8 +86,13 @@ one_shot = true
 [node name="DodgeCD" type="Timer" parent="." unique_id=1007386018]
 one_shot = true
 
+[node name="DodgeInvincibilityDur" type="Timer" parent="." unique_id=608031570]
+wait_time = 0.2
+one_shot = true
+
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=439129887]
 texture = SubResource("GradientTexture2D_rkbax")
 
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
 [connection signal="timeout" from="DodgeDur" to="." method="_on_dodge_dur_timeout"]
+[connection signal="timeout" from="DodgeInvincibilityDur" to="." method="_on_dodge_invincibility_dur_timeout"]

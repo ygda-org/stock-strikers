@@ -10,6 +10,7 @@ const DECELERATION = 120
 const BULLET = preload("uid://ckwbgunr68qm")
 
 var invincible: bool = false
+var roll_invincible: bool = false
 var current_health: int
 
 var max_health: int
@@ -44,6 +45,8 @@ func _ready(): # probably load stats from gamestate right
 func _process(delta):
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
 		$DodgeDur.start()
+		$DodgeInvincibilityDur.start()
+		set_collision_layer_value(1,false)
 		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
 	if not $DodgeDur.is_stopped():
 		move_and_slide()
@@ -95,3 +98,8 @@ func _on_invincible_timer_timeout() -> void:
 
 func _on_dodge_dur_timeout():
 	$DodgeCD.start()
+
+
+func _on_dodge_invincibility_dur_timeout():
+	if not invincible:
+		set_collision_layer_value(1,true)

@@ -14,6 +14,7 @@ enum stats {
 	ROLL_DURATION,
 	ROLL_SPEED,
 	ROLL_CD,
+	ROLL_INVINCIBILITY_DUR,
 	OTHER
 }
 ## stat to be changed. OTHER can be implemented to whatever
