@@ -1,7 +1,9 @@
 extends Node
 # this script will handle all the player money, stock, loan stuff
 
-const BASE_STATS = [100, 100, 0, 20, 0.5, 100, 1, 0.3, 250, 0.5, 0.2, null] # parallel array to enum in resource
+var money = 10
+
+const BASE_STATS = [100, 100, 0, 20, 0.5, 100, 1, 0.3, 250, 0.5, 0.2, 1, null] # parallel array to enum in resource
 var current_stats = []
 
 var stocks: Array[Stock] = []
