@@ -101,6 +101,9 @@ texture = SubResource("GradientTexture2D_rkbax")
 wait_time = 0.2
 one_shot = true
 
+[node name="TeleportCheck" type="RayCast2D" parent="ExtraEffects" unique_id=346635291]
+collision_mask = 4
+
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
 [connection signal="timeout" from="DodgeDur" to="." method="_on_dodge_dur_timeout"]
 [connection signal="timeout" from="DodgeInvincibilityDur" to="." method="_on_dodge_invincibility_dur_timeout"]

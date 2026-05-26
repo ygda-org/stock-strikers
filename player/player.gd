@@ -184,4 +184,11 @@ func roll_bullets():
 	bullet.global_position = global_position
 
 func teleport():
-	position += velocity.normalized() * other_effects_strengths["teleport"]
+	var target_tp_pos = velocity.normalized() * other_effects_strengths["teleport"]
+	var raycast = $ExtraEffects/TeleportCheck
+	raycast.target_position = target_tp_pos
+	raycast.force_raycast_update()
+	if raycast.is_colliding():
+		position = raycast.get_collision_point()
+	else:
+		position += target_tp_pos
