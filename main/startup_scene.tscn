@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b74ka0t3jr5nc" path="res://main/startup_scene.gd" id="1_xetgx"]
 [ext_resource type="Texture2D" uid="uid://h0xyy4m70sl0" path="res://assets/YGDA Logo.png" id="2_32o42"]
+[ext_resource type="AudioStream" uid="uid://cd7ply2cu1box" path="res://assets/audio/ygda sting.wav" id="3_fu3u1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu3u1"]
 atlas = ExtResource("2_32o42")
@@ -140,6 +141,10 @@ libraries/ = SubResource("AnimationLibrary_o0t41")
 autoplay = &"startup"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1656101066]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=710184482]
+stream = ExtResource("3_fu3u1")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
