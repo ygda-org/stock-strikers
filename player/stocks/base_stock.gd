@@ -24,3 +24,7 @@ enum stats {
 @export var change_amount: float
 ## if other, fill in name of effect. Otherwise leave blank
 @export var other_effect_name: String
+## name of stock to be displayed in shop
+@export var stock_name: String
+## description of stock and effects in shop
+@export var stock_description: String
