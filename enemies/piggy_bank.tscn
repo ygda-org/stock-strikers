@@ -68,7 +68,6 @@ kb_decel = 4.0
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1990987845]
 sprite_frames = SubResource("SpriteFrames_jby03")
 animation = &"hop"
-frame_progress = 0.1976219
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016995054]
 position = Vector2(-1, 5)
@@ -77,9 +76,7 @@ shape = SubResource("RectangleShape2D_uri2p")
 [node name="Timer" type="Timer" parent="." unique_id=1607294646]
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=731618996]
-position = Vector2(-20, 18)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1694728407]
+position = Vector2(-1, 0)
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=357274723]
 anchors_preset = 8
@@ -95,4 +92,5 @@ grow_horizontal = 2
 grow_vertical = 2
 show_percentage = false
 
+[connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

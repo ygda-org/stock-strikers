@@ -13,6 +13,7 @@ const BULLET = preload("uid://elmhj6ii3asu")
 var max_health := 30
 var current_health := 30
 var is_knockback:bool = false
+var is_stunned:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
@@ -25,13 +26,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if current_health <= 0:
 		die()
-	if GameState.player and !is_knockback:
+	if GameState.player and !is_stunned:
 		var distance = GameState.player.global_position - global_position  
 		velocity = distance.normalized() * pig_speed
 	if is_knockback:
 		velocity = lerp(velocity, Vector2.ZERO, kb_decel * delta)
 		if (velocity.length()>-10 and velocity.length()<10):
 			is_knockback = false
+			is_stunned = false
 			animated_sprite_2d.play("hop")
 	var player_got_hit = false
 	for i in get_slide_collision_count():
@@ -48,15 +50,18 @@ func knockback(speed:int):
 	if GameState.player and !is_knockback:
 		velocity = (GameState.player.global_position - global_position).normalized() * speed * -1
 		is_knockback = true
+		is_stunned = true
 		animated_sprite_2d.stop()
 func hurt(health):
 	current_health -= health
 	health_bar.value = current_health
 
 func die():
-	self.queue_free()
+	is_stunned = true
+	queue_free()
+
 func _on_timer_timeout() -> void:
-	if GameState.player and !is_knockback:
+	if GameState.player and !is_stunned:
 		var bullet = BULLET.instantiate()
 		get_parent().add_child(bullet)
 		var distance = GameState.player.global_position - global_position

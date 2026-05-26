@@ -15,4 +15,4 @@ position = Vector2(128, 128)
 [node name="BattleGui" parent="Player" unique_id=437198166 instance=ExtResource("4_c651c")]
 
 [node name="PiggyBank" parent="." unique_id=644549125 instance=ExtResource("2_pjrb6")]
-position = Vector2(38, -117)
+position = Vector2(129, 145)
