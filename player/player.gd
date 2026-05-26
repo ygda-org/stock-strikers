@@ -7,6 +7,8 @@ signal player_hp_update(max_health,current_health)
 const ACCELERATION = 3000
 const DECELERATION = 120
 
+const RECOIL_STRENGTH = 100
+
 const BULLET = preload("uid://ckwbgunr68qm")
 
 var invincible: bool = false
@@ -21,7 +23,6 @@ var base_damage: int
 var bullet_speed: int
 var bullet_size: float
 var roll_speed: float
-var money_damage_multiplier: int 
 
 var other_effects_list: Array[String] = []
 var other_effects_strengths: Dictionary[String, float] = {}
@@ -44,7 +45,6 @@ func _ready(): # probably load stats from gamestate right
 	$DodgeDur.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
 	roll_speed = PlayerStats.current_stats[Stock.stats.ROLL_SPEED]
 	$DodgeCD.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_CD]
-	money_damage_multiplier = PlayerStats.current_stats[Stock.stats.MONEY_DAMAGE_INCREASE]
 	
 	for stock in PlayerStats.stocks: # other effects will need to be added manually
 		if stock.changed_stat == Stock.stats.OTHER and stock.other_effect_name:
@@ -62,7 +62,7 @@ func _process(delta):
 		$DodgeInvincibilityDur.start()
 		set_collision_layer_value(1,false)
 		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
-	if not $DodgeDur.is_stopped():
+	if (not $DodgeDur.is_stopped()) or (not $ExtraEffects/RecoilTimer.is_stopped()):
 		move_and_slide()
 		return
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -99,6 +99,8 @@ func shoot():
 	bullet.global_position = global_position
 	if "triple_shot" in other_effects_list:
 		triple_shot(target_position)
+	if "recoil" in other_effects_list:
+		recoil()
 
 func hurt(hp_damage:int):
 	if !invincible:
@@ -132,15 +134,13 @@ func _on_dodge_invincibility_dur_timeout():
 ###########################################
 
 func process_damage_multipliers(dmg):
-	if money_damage_multiplier != 1:
-		dmg *= money_damage_multiplier * PlayerStats.money
+	if "money_damage_increase" in other_effects_list:
+		dmg *= other_effects_strengths["money_damage_increase"] * PlayerStats.money
 	# space for the rest of 'em
 	return dmg
 
 func triple_shot(target_position):
 	var dmg_multiplier = other_effects_strengths["triple_shot"]
-	if dmg_multiplier == -1:
-		assert("ASDHAIDHODHWPIOFHJWEOP")
 	var bullet2 = BULLET.instantiate()
 	bullet2.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(PI/4)
 	bullet2.damage = damage * dmg_multiplier
@@ -162,3 +162,7 @@ func money_shield_take_damage(dmg):
 	if PlayerStats.money < 0:
 		current_health += int(PlayerStats.money/multiplier)
 		PlayerStats.money = 0
+
+func recoil():
+	$ExtraEffects/RecoilTimer.start()
+	velocity -= (get_global_mouse_position() - global_position).normalized()*other_effects_strengths["recoil"]
