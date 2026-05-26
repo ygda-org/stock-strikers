@@ -3,7 +3,7 @@ extends Node
 
 var money = 10
 
-const BASE_STATS = [100, 100, 0, 20, 0.5, 100, 1, 0.3, 250, 0.5, 0.2, 1, null] # parallel array to enum in resource
+const BASE_STATS = [100, 100, 0, 20, 0.5, 200, 1, 0.3, 250, 0.5, 0.2, 1, null] # parallel array to enum in resource
 var current_stats = []
 
 var stocks: Array[Stock] = []

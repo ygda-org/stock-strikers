@@ -43,14 +43,14 @@ func _physics_process(delta: float) -> void:
 		var body = collision.get_collider()
 		if body.is_in_group("Player") and !player_got_hit:
 			body.hurt(10)
-			knockback(300)
+			knockback(body,300)
 			player_got_hit = true
 	move_and_slide()
 	
 	
-func knockback(speed:int):
-	if GameState.player and !is_knockback:
-		velocity = (GameState.player.global_position - global_position).normalized() * speed * -1
+func knockback(object,speed:int):
+	if !is_knockback:
+		velocity = (object.global_position - global_position).normalized() * speed * -1
 		is_knockback = true
 		is_stunned = true
 		animated_sprite_2d.stop()
