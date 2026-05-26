@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cieei6rv0memb"]
+
+[ext_resource type="Texture2D" uid="uid://bns3f7mtejy8g" path="res://assets/enemies/piggybank/bullet/coin.png" id="1_v4geu"]
+
+[node name="PiggyShadow" type="Node2D" unique_id=2085220053]
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1090067931]
+modulate = Color(0.078431375, 0.078431375, 0.078431375, 0.5176471)
+texture = ExtResource("1_v4geu")
