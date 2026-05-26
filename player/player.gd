@@ -52,6 +52,9 @@ func _ready(): # probably load stats from gamestate right
 		if stock.changed_stat == Stock.stats.OTHER and stock.other_effect_name:
 			other_effects_list.append(stock.other_effect_name)
 			other_effects_strengths[stock.other_effect_name] = stock.change_amount
+			
+			if stock.other_effect_name == "extrafire":
+				$ExtraEffects/ExtraFireCD.start()
 
 	current_health = max_health
 
@@ -194,3 +197,7 @@ func teleport():
 		position = raycast.get_collision_point()
 	else:
 		position += target_tp_pos
+
+
+func _on_extra_fire_cd_timeout():
+	shoot()
