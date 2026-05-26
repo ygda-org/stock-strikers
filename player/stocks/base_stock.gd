@@ -21,3 +21,5 @@ enum stats {
 @export var changed_stat: stats
 ## amount to change stat by
 @export var change_amount: float
+## if other, fill in name of effect. Otherwise leave blank
+@export var other_effect_name: String

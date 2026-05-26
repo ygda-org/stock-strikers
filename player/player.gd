@@ -21,8 +21,12 @@ var bullet_speed: int
 var bullet_size: float
 var roll_speed: float
 
+var other_effects_list: Array[String] = []
+var other_effects_strengths: Array[float] = []
+
 @onready var collision_shape:CollisionShape2D = $CollisionShape2D
 @onready var itimer:Timer = $InvincibleTimer
+
 func _ready(): # probably load stats from gamestate right
 	GameState.player = self
 	player_hp_update.emit(max_health,current_health)
@@ -38,7 +42,11 @@ func _ready(): # probably load stats from gamestate right
 	$DodgeDur.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
 	roll_speed = PlayerStats.current_stats[Stock.stats.ROLL_SPEED]
 	$DodgeCD.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_CD]
-
+	
+	for stock in PlayerStats.stocks: # other effects will need to be added manually
+		if stock.changed_stat == Stock.stats.OTHER and stock.other_effect_name:
+			other_effects_list.append(stock.other_effect_name)
+			other_effects_strengths.append(stock.change_amount)
 
 	current_health = max_health
 
@@ -78,11 +86,13 @@ func shoot():
 	$ShotCD.start()
 	var target_position = get_global_mouse_position()
 	var bullet = BULLET.instantiate()
-	bullet.velocity = (target_position-global_position).normalized()*bullet_speed # idk bullet shoot speed for now
+	bullet.velocity = (target_position-global_position).normalized()*bullet_speed
 	bullet.damage = damage
 	bullet.scale = Vector2(bullet_size, bullet_size)
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
+	if "triple_shot" in other_effects_list:
+		triple_shot(target_position)
 
 func hurt(hp_damage:int):
 	set_collision_layer_value(1,false)
@@ -103,3 +113,26 @@ func _on_dodge_dur_timeout():
 func _on_dodge_invincibility_dur_timeout():
 	if not invincible:
 		set_collision_layer_value(1,true)
+
+
+
+###########################################
+# past this point is special effects
+###########################################
+
+func triple_shot(target_position):
+	var dmg_multiplier = other_effects_strengths[other_effects_list.find("triple_shot")]
+	if dmg_multiplier == -1:
+		assert("ASDHAIDHODHWPIOFHJWEOP")
+	var bullet2 = BULLET.instantiate()
+	bullet2.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(PI/4)
+	bullet2.damage = damage * dmg_multiplier
+	bullet2.scale = Vector2(bullet_size, bullet_size)
+	get_parent().add_child(bullet2)
+	bullet2.global_position = global_position
+	var bullet3 = BULLET.instantiate()
+	bullet3.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(-PI/4)
+	bullet3.damage = damage * dmg_multiplier
+	bullet3.scale = Vector2(bullet_size, bullet_size)
+	get_parent().add_child(bullet3)
+	bullet3.global_position = global_position
