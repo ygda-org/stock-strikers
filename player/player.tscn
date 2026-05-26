@@ -46,6 +46,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(10, 12)
 
+[sub_resource type="Gradient" id="Gradient_xwkvk"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rkbax"]
+gradient = SubResource("Gradient_xwkvk")
+width = 288
+height = 288
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Player" type="CharacterBody2D" unique_id=453716687 groups=["Player"]]
 collision_mask = 4
 motion_mode = 1
@@ -74,6 +85,9 @@ one_shot = true
 
 [node name="DodgeCD" type="Timer" parent="." unique_id=1007386018]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=439129887]
+texture = SubResource("GradientTexture2D_rkbax")
 
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
 [connection signal="timeout" from="DodgeDur" to="." method="_on_dodge_dur_timeout"]
