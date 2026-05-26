@@ -1,0 +1,18 @@
+extends Resource
+
+class_name Stock
+
+## stats easily changeable. Always have OTHER at the end
+enum stats {
+	HEALTH,
+	MOVE_SPEED,
+	VISION,
+	DAMAGE,
+	BULLET_SPEED,
+	BULLET_SIZE,
+	OTHER
+}
+## stat to be changed. OTHER can be implemented to whatever
+@export var changed_stat: stats
+## amount to change stat by
+@export var change_amount: float

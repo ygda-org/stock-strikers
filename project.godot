@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*uid://c68mu4sl0ig8k"
+PlayerStats="*uid://dhx2tphh0mfdf"
 
 [display]
 
@@ -25,7 +26,7 @@ window/size/viewport_width=800
 window/size/viewport_height=600
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="uid://bqpa3h531yr0h"
+mouse_cursor/custom_image="uid://d3414q25aheqi"
 
 [global_group]
 

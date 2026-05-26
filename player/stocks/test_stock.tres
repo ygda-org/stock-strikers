@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://b6jx4aesji2f6"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_5b6ha"]
+
+[resource]
+script = ExtResource("1_5b6ha")
+changed_stat = 1
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"
