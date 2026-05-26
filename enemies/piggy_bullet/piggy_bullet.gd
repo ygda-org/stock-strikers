@@ -1,13 +1,16 @@
 extends Area2D
 
 var distance:Vector2
+var target:Vector2
 var velocity:Vector2 
 @export var time:float
 @export var acceleration:Vector2
 @onready var timer:Timer = $Timer
 var initialized:bool = false
+var shot:bool = false
 const EXPLOSION = preload("uid://cvtvn3pfuio1q")
 var damage
+var g_delta:float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,25 +18,31 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if initialized:
+	if shot:
+		global_position += velocity * delta
 		velocity += acceleration * delta
-		position += velocity * delta
+	if initialized and !shot:
+		shoot(delta)
 	
 func initialize(new_distance:Vector2,new_position:Vector2,d:int):
 	distance = new_distance
 	global_position = new_position
 	damage = d
 	timer.wait_time = time
-	velocity.y = (distance.y - 24)/time + (1/2)*(acceleration.length()*time)
-	velocity.x = distance.x/time
 	initialized = true
+func shoot(delta:float):
+	var steps = time/delta
+	velocity.y = (distance.y)/time - 0.5*acceleration.y*delta*(steps-1)
+	velocity.x = distance.x/time
 	timer.start()
-	
+	shot = true 
 
-
-func _on_timer_timeout() -> void:
+func die():
+	global_position = target
 	var explosion = EXPLOSION.instantiate()
 	get_parent().add_child(explosion)
 	explosion.global_position = global_position
 	explosion.initialize(damage)
 	queue_free()
+func _on_timer_timeout() -> void:
+	die()

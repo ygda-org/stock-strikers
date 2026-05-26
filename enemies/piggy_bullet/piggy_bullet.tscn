@@ -11,7 +11,7 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_nybal")
 time = 1.0
-acceleration = Vector2(0, 50)
+acceleration = Vector2(0, 500)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2083750046]
 texture = ExtResource("2_oeemf")
