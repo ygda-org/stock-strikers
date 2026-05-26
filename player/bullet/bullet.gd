@@ -24,9 +24,4 @@ func hit(norm):
 		self.queue_free()
 	else:
 		ricochet -= 1
-		if norm.x:
-			velocity.x *= -1
-		elif norm.y:
-			velocity.y *= -1
-		else:
-			print('aAahaadhafahfasuifhaiofw')
+		velocity = velocity.bounce(norm)
