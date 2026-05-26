@@ -8,8 +8,12 @@ enum stats {
 	MOVE_SPEED,
 	VISION,
 	DAMAGE,
+	FIRE_RATE,
 	BULLET_SPEED,
 	BULLET_SIZE,
+	ROLL_DURATION,
+	ROLL_SPEED,
+	ROLL_CD,
 	OTHER
 }
 ## stat to be changed. OTHER can be implemented to whatever

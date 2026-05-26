@@ -65,4 +65,15 @@ zoom = Vector2(2, 2)
 [node name="InvincibleTimer" type="Timer" parent="." unique_id=793505322]
 one_shot = true
 
+[node name="ShotCD" type="Timer" parent="." unique_id=1790230249]
+wait_time = 0.5
+one_shot = true
+
+[node name="DodgeDur" type="Timer" parent="." unique_id=1679648440]
+one_shot = true
+
+[node name="DodgeCD" type="Timer" parent="." unique_id=1007386018]
+one_shot = true
+
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
+[connection signal="timeout" from="DodgeDur" to="." method="_on_dodge_dur_timeout"]

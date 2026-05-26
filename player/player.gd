@@ -18,6 +18,7 @@ var vision: int # no implementation yet
 var damage: int
 var bullet_speed: int
 var bullet_size: float
+var roll_speed: float
 
 @onready var collision_shape:CollisionShape2D = $CollisionShape2D
 @onready var itimer:Timer = $InvincibleTimer
@@ -30,13 +31,23 @@ func _ready(): # probably load stats from gamestate right
 	speed = PlayerStats.current_stats[Stock.stats.MOVE_SPEED]
 	vision = PlayerStats.current_stats[Stock.stats.VISION]
 	damage = PlayerStats.current_stats[Stock.stats.DAMAGE]
+	$ShotCD.wait_time = PlayerStats.current_stats[Stock.stats.FIRE_RATE]
 	bullet_speed = PlayerStats.current_stats[Stock.stats.BULLET_SPEED]
 	bullet_size = PlayerStats.current_stats[Stock.stats.BULLET_SIZE]
-	
-	
+	$DodgeDur.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
+	roll_speed = PlayerStats.current_stats[Stock.stats.ROLL_SPEED]
+	$DodgeCD.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_CD]
+
+
 	current_health = max_health
 
 func _process(delta):
+	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
+		$DodgeDur.start()
+		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
+	if not $DodgeDur.is_stopped():
+		move_and_slide()
+		return
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_dir.x:
 		velocity.x = velocity.x + acceleration_curve.sample(abs(velocity.x/speed)) * input_dir.x * ACCELERATION * delta
@@ -49,9 +60,9 @@ func _process(delta):
 	velocity = velocity.limit_length(speed)
 		#velocity = lerp(velocity, Vector2.ZERO, DECELERATION * delta)
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped():
 		shoot()
-		
+	
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -61,6 +72,7 @@ func _process(delta):
 				invincible = true
 
 func shoot():
+	$ShotCD.start()
 	var target_position = get_global_mouse_position()
 	var bullet = BULLET.instantiate()
 	bullet.velocity = (target_position-global_position).normalized()*bullet_speed # idk bullet shoot speed for now
@@ -79,3 +91,7 @@ func hurt(damage:int):
 func _on_invincible_timer_timeout() -> void:
 	invincible = false
 	set_collision_layer_value(1,true)
+
+
+func _on_dodge_dur_timeout():
+	$DodgeCD.start()
