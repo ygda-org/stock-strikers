@@ -110,12 +110,16 @@ func hurt(hp_damage:int):
 		player_hp_update.emit(max_health,current_health)
 	
 func dodge():
+	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
+	if not velocity:
+		return
 	$DodgeDur.start()
 	$DodgeInvincibilityDur.start()
 	set_collision_layer_value(1,false)
-	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
 	if "roll_bullets" in other_effects_list:
 		roll_bullets()
+	if "teleport" in other_effects_list:
+		teleport()
 
 func _on_invincible_timer_timeout() -> void:
 	invincible = false
@@ -178,3 +182,6 @@ func roll_bullets():
 	bullet.velocity = -velocity/2
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
+
+func teleport():
+	position += velocity.normalized() * other_effects_strengths["teleport"]

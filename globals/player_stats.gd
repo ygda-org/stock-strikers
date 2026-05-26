@@ -6,7 +6,7 @@ var money = 10
 const BASE_STATS = [100, 100, 0, 20, 0.5, 200, 1, 0.3, 250, 0.5, 0.2, 20, null] # parallel array to enum in resource
 var current_stats = []
 
-var stocks: Array[Stock] = [load("res://player/stocks/recoil.tres"), load("res://player/stocks/roll_bullets.tres")]
+var stocks: Array[Stock] = [load("res://player/stocks/teleport.tres")]
 var extra_effects: Array[String] # do stirng for now, can change
 
 ## currently called by player, updates player's stats before next run
