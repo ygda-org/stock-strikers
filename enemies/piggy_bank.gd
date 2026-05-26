@@ -5,6 +5,7 @@ signal hurt_player
 const BULLET = preload("uid://elmhj6ii3asu")
 @export var pig_speed: int
 @export var bullet_speed: int
+@export var bullet_damage: int
 @export var kb_decel: float
 @onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $Anim
@@ -13,7 +14,8 @@ const BULLET = preload("uid://elmhj6ii3asu")
 var max_health := 30
 var current_health := 30
 var is_knockback:bool = false
-var is_stunned:bool = false
+var is_stunned:bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
@@ -61,10 +63,10 @@ func die():
 	queue_free()
 
 func _on_timer_timeout() -> void:
-	if GameState.player and !is_stunned:
+	if GameState.player:
 		var bullet = BULLET.instantiate()
 		get_parent().add_child(bullet)
-		var distance = GameState.player.global_position - global_position
-		bullet.velocity = distance.normalized() * bullet_speed
-		bullet.global_position = marker.global_position
+		var bul_distance = GameState.player.global_position - marker.global_position
+		var bul_position = marker.global_position
+		bullet.initialize(bul_distance,bul_position,bullet_damage)
 	

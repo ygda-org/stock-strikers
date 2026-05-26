@@ -100,13 +100,15 @@ func shoot():
 		triple_shot(target_position)
 
 func hurt(hp_damage:int):
-	if "money_shield" in other_effects_list:
-		money_shield_take_damage(hp_damage)
-		return
-	set_collision_layer_value(1,false)
-	itimer.start()
-	current_health -= hp_damage
-	player_hp_update.emit(max_health,current_health)
+	if !invincible:
+		if "money_shield" in other_effects_list:
+			money_shield_take_damage(hp_damage)
+			return
+		set_collision_layer_value(1,false)
+		invincible = true
+		itimer.start()
+		current_health -= hp_damage
+		player_hp_update.emit(max_health,current_health)
 	
 
 func _on_invincible_timer_timeout() -> void:

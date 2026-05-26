@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://elmhj6ii3asu"]
+
+[ext_resource type="Script" uid="uid://bsufej18f31v6" path="res://enemies/piggy_bullet/piggy_bullet.gd" id="1_nybal"]
+[ext_resource type="Texture2D" uid="uid://bns3f7mtejy8g" path="res://assets/enemies/piggybank/bullet/coin.png" id="2_oeemf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_473kp"]
+radius = 4.0
+
+[node name="EnemyBullet" type="Area2D" unique_id=1287440256 groups=["Ouchies"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_nybal")
+time = 1.0
+acceleration = Vector2(0, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2083750046]
+texture = ExtResource("2_oeemf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=659429602]
+shape = SubResource("CircleShape2D_473kp")
+
+[node name="Timer" type="Timer" parent="." unique_id=1149225713]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

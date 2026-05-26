@@ -63,6 +63,7 @@ motion_mode = 1
 script = ExtResource("1_2331h")
 pig_speed = 50
 bullet_speed = 100
+bullet_damage = 20
 kb_decel = 4.0
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1990987845]
