@@ -1,8 +1,39 @@
 [gd_resource type="Theme" format=3 uid="uid://qlk0jixls6nn"]
 
 [ext_resource type="Texture2D" uid="uid://bw7bnogec8q7l" path="res://assets/tempoary_assets/windows95_uibox.png" id="1_kff6g"]
+[ext_resource type="Texture2D" uid="uid://cr86sr5oos60a" path="res://assets/tempoary_assets/button_pressed.png" id="2_4aqo3"]
 [ext_resource type="Texture2D" uid="uid://b6vt4te58eg6g" path="res://assets/tempoary_assets/windows95_indentbox.png" id="2_6uw2k"]
 [ext_resource type="FontFile" uid="uid://c5ud1mm20glbo" path="res://assets/tempoary_assets/W95F.otf" id="2_8v75k"]
+[ext_resource type="Texture2D" uid="uid://c0iss3c1knqn" path="res://assets/tempoary_assets/down_arrow.png" id="4_baieu"]
+[ext_resource type="Texture2D" uid="uid://cxolcowgvwoa1" path="res://assets/tempoary_assets/up_arrow.png" id="5_ytuhu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytuhu"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mnb1"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_baieu"]
+texture = ExtResource("2_4aqo3")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsgwn"]
+texture = ExtResource("2_6uw2k")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svwi6"]
 texture = ExtResource("1_kff6g")
@@ -22,6 +53,62 @@ texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bappw"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xm6u6"]
+texture = ExtResource("2_4aqo3")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wtjw"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhyom"]
+texture = ExtResource("2_4aqo3")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wuk24"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2cir"]
+texture = ExtResource("2_4aqo3")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7g60"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2twep"]
+texture = ExtResource("2_4aqo3")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivxw8"]
 texture = ExtResource("1_kff6g")
@@ -46,10 +133,37 @@ texture_margin_bottom = 2.0
 
 [resource]
 default_font = ExtResource("2_8v75k")
-default_font_size = 24
+Button/styles/hover = SubResource("StyleBoxTexture_ytuhu")
+Button/styles/normal = SubResource("StyleBoxTexture_2mnb1")
+Button/styles/pressed = SubResource("StyleBoxTexture_baieu")
 Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/font_sizes/font_size = 8
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/constants/minimum_character_width = 1
+LineEdit/font_sizes/font_size = 12
+LineEdit/fonts/font = ExtResource("2_8v75k")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_fsgwn")
 Panel/styles/panel = SubResource("StyleBoxTexture_svwi6")
 ScrollContainer/styles/panel = SubResource("StyleBoxTexture_4aqo3")
+SpinBox/constants/buttons_width = 16
+SpinBox/icons/down = ExtResource("4_baieu")
+SpinBox/icons/down_disabled = ExtResource("4_baieu")
+SpinBox/icons/down_hover = ExtResource("4_baieu")
+SpinBox/icons/down_pressed = ExtResource("4_baieu")
+SpinBox/icons/up = ExtResource("5_ytuhu")
+SpinBox/icons/up_disabled = ExtResource("5_ytuhu")
+SpinBox/icons/up_hover = ExtResource("5_ytuhu")
+SpinBox/icons/up_pressed = ExtResource("5_ytuhu")
+SpinBox/styles/down_background = SubResource("StyleBoxTexture_bappw")
+SpinBox/styles/down_background_disabled = SubResource("StyleBoxTexture_xm6u6")
+SpinBox/styles/down_background_hovered = SubResource("StyleBoxTexture_0wtjw")
+SpinBox/styles/down_background_pressed = SubResource("StyleBoxTexture_mhyom")
+SpinBox/styles/up_background = SubResource("StyleBoxTexture_wuk24")
+SpinBox/styles/up_background_disabled = SubResource("StyleBoxTexture_h2cir")
+SpinBox/styles/up_background_hovered = SubResource("StyleBoxTexture_t7g60")
+SpinBox/styles/up_background_pressed = SubResource("StyleBoxTexture_2twep")
+VBoxContainer/constants/separation = 1
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_ivxw8")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_rmfxv")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_2dwxg")

@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="1_l2qqs"]
 [ext_resource type="Texture2D" uid="uid://b6vt4te58eg6g" path="res://assets/tempoary_assets/windows95_indentbox.png" id="2_kmgha"]
 [ext_resource type="Texture2D" uid="uid://bowv2axo270vl" path="res://assets/tempoary_assets/stock_graph_1.png" id="3_kmgha"]
+[ext_resource type="FontFile" uid="uid://b2r2akjuqowjn" path="res://assets/tempoary_assets/PressStart2P.ttf" id="4_xlh3x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlh3x"]
 texture = ExtResource("2_kmgha")
@@ -14,15 +15,22 @@ texture_margin_bottom = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1w4h"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1w4h"]
+texture = ExtResource("2_kmgha")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
 [node name="StockOption" type="Control" unique_id=1011788072]
-custom_minimum_size = Vector2(225, 100)
+custom_minimum_size = Vector2(360, 160)
 layout_mode = 3
-anchor_right = 0.28100002
-anchor_bottom = 0.16700001
-offset_right = 0.19998169
-offset_bottom = -0.20000458
+anchor_right = 0.45000002
+anchor_bottom = 0.26700002
+offset_bottom = -0.2000122
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_l2qqs")
 
 [node name="Background" type="Panel" parent="." unique_id=1924012865]
 layout_mode = 1
@@ -39,9 +47,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 10.0
-offset_top = -40.0
-offset_right = 90.0
-offset_bottom = 40.0
+offset_top = -70.0
+offset_right = 150.0
+offset_bottom = 70.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xlh3x")
 
@@ -52,15 +60,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.0
-offset_top = -39.0
-offset_right = 39.0
-offset_bottom = 39.0
+offset_left = -69.0
+offset_top = -69.0
+offset_right = 69.0
+offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_v1w4h")
 
 [node name="TextureRect" type="TextureRect" parent="StockDisplay" unique_id=1514197177]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -79,9 +88,62 @@ stretch_mode = 4
 
 [node name="Title" type="Label" parent="." unique_id=1534166836]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 13.0
-offset_right = 158.0
-offset_bottom = 37.0
+offset_left = 152.0
+offset_top = 10.0
+offset_right = 281.0
+offset_bottom = 34.0
 theme = ExtResource("1_l2qqs")
+theme_override_fonts/font = ExtResource("4_xlh3x")
+theme_override_font_sizes/font_size = 32
 text = "YGDA"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1558107968]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 43.0
+offset_right = 353.0
+offset_bottom = 155.0
+
+[node name="Desc" type="Label" parent="VBoxContainer" unique_id=1961908399]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_l2qqs")
+theme_override_font_sizes/font_size = 12
+text = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market, overtaking Nintendo (NTDOY) and Microsoft (MSFT)"
+autowrap_mode = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=1521882151]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme = ExtResource("1_l2qqs")
+theme_override_styles/panel = SubResource("StyleBoxTexture_v1w4h")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel" unique_id=157983895]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer" unique_id=1936898777]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_l2qqs")
+theme_override_font_sizes/font_size = 12
+text = "+20 damage"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=979023355]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme = ExtResource("1_l2qqs")
+
+[node name="NumberDisplay" type="SpinBox" parent="VBoxContainer/HBoxContainer" unique_id=242017968]
+custom_minimum_size = Vector2(60, 22)
+layout_mode = 2
+theme = ExtResource("1_l2qqs")
+value = 1.0
