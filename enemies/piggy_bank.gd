@@ -14,6 +14,7 @@ var is_knockback:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
+	animated_sprite_2d.play("hop")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,7 +24,9 @@ func _physics_process(delta: float) -> void:
 		velocity = distance.normalized() * pig_speed
 	if is_knockback:
 		velocity = lerp(velocity, Vector2.ZERO, kb_decel * delta)
-		is_knockback = !(velocity.length()>-10 and velocity.length()<10)
+		if (velocity.length()>-10 and velocity.length()<10):
+			is_knockback = false
+			animated_sprite_2d.play("hop")
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
@@ -38,6 +41,7 @@ func knockback(speed:int):
 	if GameState.player and !is_knockback:
 		velocity = (GameState.player.global_position - global_position).normalized() * speed * -1
 		is_knockback = true
+		animated_sprite_2d.stop()
 
 func _on_timer_timeout() -> void:
 	if GameState.player and !is_knockback:
