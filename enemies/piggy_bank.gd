@@ -11,7 +11,11 @@ const BULLET = preload("uid://elmhj6ii3asu")
 @onready var animated_sprite_2d: AnimatedSprite2D = $Anim
 @onready var marker: Marker2D = $Marker2D
 @onready var health_bar: ProgressBar = $HealthBar
+var rng = RandomNumberGenerator.new()
 var max_health := 30
+var barrage_times := 5
+var regular_times := 3
+var times := 0
 var current_health := 30
 var is_knockback:bool = false
 var is_stunned:bool = true
@@ -61,13 +65,26 @@ func hurt(health):
 func die():
 	is_stunned = true
 	queue_free()
-
+func shoot(target):
+	var bullet = BULLET.instantiate()
+	get_parent().add_child(bullet)
+	var bul_distance = target - marker.global_position
+	var bul_position = marker.global_position
+	bullet.initialize(bul_distance,bul_position,bullet_damage)
+	bullet.target = target
 func _on_timer_timeout() -> void:
-	if GameState.player:
-		var bullet = BULLET.instantiate()
-		get_parent().add_child(bullet)
-		var bul_distance = GameState.player.global_position - marker.global_position
-		var bul_position = marker.global_position
-		bullet.initialize(bul_distance,bul_position,bullet_damage)
-		bullet.target = GameState.player.global_position
+	if GameState.player and times < 3:
+		shoot(GameState.player.global_position)
+		times += 1
+		timer.start()
+		return
+	if GameState.player and times >= regular_times:
+		shoot(GameState.player.global_position)
+		await get_tree().create_timer(0.3).timeout
+		for i in barrage_times:
+			shoot(GameState.player.global_position + Vector2(rng.randf_range(-30,30),rng.randf_range(-30,30)))
+			await get_tree().create_timer(0.3).timeout
+		times = 0
+		timer.start()
+		return
 	

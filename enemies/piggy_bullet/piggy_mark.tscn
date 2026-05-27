@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bv5nn35mxxf8r"]
+
+[ext_resource type="Script" uid="uid://datmwiwy84ht" path="res://enemies/piggy_bullet/piggy_mark.gd" id="1_c267d"]
+[ext_resource type="Texture2D" uid="uid://br7y7wvn0mc1a" path="res://assets/enemies/piggybank/bullet/flash.png" id="2_888mb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj67y"]
+atlas = ExtResource("2_888mb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljnfk"]
+atlas = ExtResource("2_888mb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5632"]
+atlas = ExtResource("2_888mb")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ue72"]
+atlas = ExtResource("2_888mb")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulcdy"]
+atlas = ExtResource("2_888mb")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odxja"]
+atlas = ExtResource("2_888mb")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cap0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj67y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljnfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5632")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ue72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulcdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odxja")
+}],
+"loop": false,
+"name": &"flash",
+"speed": 6.0
+}]
+
+[node name="PiggyMark" type="Node2D" unique_id=335051012]
+script = ExtResource("1_c267d")
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=2044171733]
+sprite_frames = SubResource("SpriteFrames_cap0s")
+animation = &"flash"
+frame = 5
+frame_progress = 1.0

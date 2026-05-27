@@ -8,10 +8,12 @@ var shadow_velocity:Vector2
 @export var acceleration:Vector2
 @onready var timer:Timer = $Timer
 const SHADOW = preload("uid://cieei6rv0memb")
+const EXPLOSION = preload("uid://cvtvn3pfuio1q")
+const MARK = preload("uid://bv5nn35mxxf8r")
 var shadow
 var initialized:bool = false
 var shot:bool = false
-const EXPLOSION = preload("uid://cvtvn3pfuio1q")
+
 var damage
 var g_delta:float
 
@@ -37,6 +39,10 @@ func initialize(new_distance:Vector2,new_position:Vector2,d:int):
 	timer.wait_time = time
 	initialized = true
 func shoot(delta:float):
+	var mark = MARK.instantiate()
+	get_parent().add_child(mark)
+	mark.global_position = target
+	mark.flash(time)
 	var steps = time/delta
 	velocity.y = (distance.y)/time - 0.5*acceleration.y*delta*(steps-1)
 	velocity.x = distance.x/time

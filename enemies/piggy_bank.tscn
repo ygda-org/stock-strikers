@@ -75,6 +75,7 @@ position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_uri2p")
 
 [node name="Timer" type="Timer" parent="." unique_id=1607294646]
+one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=731618996]
 position = Vector2(-1, 0)
