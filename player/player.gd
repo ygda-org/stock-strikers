@@ -162,6 +162,8 @@ func create_bullet_to_spawn(dmg):
 		bullet.bleed = other_effects_strengths["bleed"]
 	if "homing" in other_effects_list:
 		bullet.homing = other_effects_strengths["homing"]
+	if "vampire" in other_effects_list:
+		bullet.vampire = other_effects_strengths["vampire"]
 	return bullet
 
 ###########################################
