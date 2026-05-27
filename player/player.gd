@@ -166,13 +166,15 @@ func create_bullet_to_spawn(dmg):
 ###########################################
 
 func process_damage_multipliers(dmg):
+	var additive_dmg_mult = 1
 	if "money_damage_increase" in other_effects_list:
-		dmg += other_effects_strengths["money_damage_increase"] * PlayerStats.money
+		additive_dmg_mult += other_effects_strengths["money_damage_increase"] * PlayerStats.money
 	if "premium_bullets" in other_effects_list:
-		dmg *= other_effects_strengths["premium_bullets"]
-	if "desperation" in other_effects_list:
+		additive_dmg_mult += other_effects_strengths["premium_bullets"]
+	if "desperation" in other_effects_list: # not additive cuz hech yeah YGDA
 		dmg *= other_effects_strengths["desperation"] * ((max_health-current_health)/max_health)
 	# space for the rest of 'em
+	dmg *= additive_dmg_mult
 	return dmg
 
 func triple_shot(target_position):
