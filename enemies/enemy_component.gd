@@ -3,6 +3,7 @@ extends Node2D
 @onready var animation = get_parent().get_node_or_null("AnimatedSprite2D")
 @onready var parent = get_parent()
 @onready var health_bar: ProgressBar = $HealthBar
+@export var money_on_kill: int = 1
 @export var kb_decel: float = 4
 @export var self_collision_kb: float = 300
 var is_knockback:bool = false
@@ -59,6 +60,10 @@ func hurt(health, bleed = 0):
 		$BleedTimer.start()
 
 func die():
+	var money_gain = money_on_kill
+	if "perfection" in GameState.player.other_effects_list:
+		money_gain *= GameState.player.other_effects_strengths["perfection"]
+	PlayerStats.money += money_gain
 	is_stunned = true
 	parent.queue_free()
 

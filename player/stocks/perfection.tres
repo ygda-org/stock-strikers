@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_vpcoa")
 changed_stat = 12
+change_amount = 2.0
 other_effect_name = "perfection"
 stock_name = "Perfection"
 stock_description = "dmg, hit = lose money"

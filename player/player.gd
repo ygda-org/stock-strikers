@@ -167,7 +167,7 @@ func create_bullet_to_spawn(dmg):
 
 func process_damage_multipliers(dmg):
 	if "money_damage_increase" in other_effects_list:
-		dmg *= other_effects_strengths["money_damage_increase"] * PlayerStats.money
+		dmg += other_effects_strengths["money_damage_increase"] * PlayerStats.money
 	if "premium_bullets" in other_effects_list:
 		dmg *= other_effects_strengths["premium_bullets"]
 	if "desperation" in other_effects_list:
