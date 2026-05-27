@@ -8,6 +8,9 @@ extends Node2D
 var is_knockback:bool = false
 var is_stunned:bool = false
 
+var current_bleed = 0
+var bleed_count
+
 @export var max_health := 30
 @export var contact_damage: int = 10
 @onready var current_health = max_health
@@ -42,12 +45,28 @@ func knockback(object,speed:float):
 		if animation:
 			animation.stop()
 
-func hurt(health):
+func hurt(health, bleed = 0):
 	current_health -= health
 	health_bar.value = current_health
 	if current_health <= 0:
 		die()
+	if bleed:
+		current_bleed += bleed
+		bleed_count = 4
+		$BleedTimer.start()
 
 func die():
 	is_stunned = true
 	parent.queue_free()
+
+
+func _on_bleed_timer_timeout():
+	current_health -= current_bleed
+	health_bar.value = current_health
+	if current_health <= 0:
+		die()
+	bleed_count -= 1
+	if bleed_count <= 0:
+		current_bleed = 0
+		return
+	$BleedTimer.start()

@@ -4,6 +4,7 @@ var damage = 0
 var knockback = 20
 
 var ricochet = 0
+var bleed = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -12,7 +13,7 @@ func _process(delta):
 		var body = collision.get_collider()
 		if body.is_in_group("Enemies"):
 			var enemy_component = body.find_child("EnemyComponent")
-			enemy_component.hurt(damage)
+			enemy_component.hurt(damage, bleed)
 			enemy_component.knockback(self,knockback)
 		if body.is_in_group("Player"):
 			pass

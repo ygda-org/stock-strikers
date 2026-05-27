@@ -155,6 +155,8 @@ func create_bullet_to_spawn(dmg):
 		bullet.ricochet = other_effects_strengths["ricochet"]
 	if "premium_bullets" in other_effects_list:
 		PlayerStats.money -= PREMIUM_BULLET_COST
+	if "bleed" in other_effects_list:
+		bullet.bleed = other_effects_strengths["bleed"]
 	return bullet
 
 ###########################################
