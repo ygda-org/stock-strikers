@@ -37,6 +37,8 @@ func process_collisions(collisions):
 			body.hurt(contact_damage)
 			knockback(body,self_collision_kb)
 			player_got_hit = true
+			if "thorns" in body.other_effects_list:
+				hurt(body.other_effects_strengths["thorns"], 0)
 
 func knockback(object,speed:float):
 	if !is_knockback:
