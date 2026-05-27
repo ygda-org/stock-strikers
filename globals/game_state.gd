@@ -3,10 +3,15 @@ var player
 
 var enemies = []
 
+var in_game : bool = false
+
 var stock_options : Array[Stock] = []
 
 func _process(_delta):
 	clear_enemies()
+	if enemies.size() == 0 and in_game:
+		get_tree().change_scene_to_file("res://gui/elevator_gui.tscn")
+		in_game = false
 
 func generate_stock_options():
 	var dir_name := "res://player/stocks/"
