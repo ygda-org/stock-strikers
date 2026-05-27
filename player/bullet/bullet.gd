@@ -11,8 +11,9 @@ func _process(delta):
 	if collision:
 		var body = collision.get_collider()
 		if body.is_in_group("Enemies"):
-			body.hurt(damage)
-			body.knockback(self,knockback)
+			var enemy_component = body.find_child("EnemyComponent")
+			enemy_component.hurt(damage)
+			enemy_component.knockback(self,knockback)
 		if body.is_in_group("Player"):
 			pass
 		else:

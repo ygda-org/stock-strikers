@@ -111,6 +111,8 @@ func hurt(hp_damage:int):
 		if "money_shield" in other_effects_list:
 			money_shield_take_damage(hp_damage)
 			return
+		if "perfection" in other_effects_list:
+			perfection_hit()
 		set_collision_layer_value(1,false)
 		invincible = true
 		itimer.start()
@@ -213,3 +215,6 @@ func _on_extra_fire_cd_timeout():
 
 func _on_money_leak_cd_timeout():
 	PlayerStats.money -= MONEY_LEAK
+
+func perfection_hit():
+	PlayerStats.money = int(PlayerStats.money * 0.1)

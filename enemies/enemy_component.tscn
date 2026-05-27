@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dh8i3pi010sjg"]
+
+[ext_resource type="Script" uid="uid://bp6yp3tp6amlh" path="res://enemies/enemy_component.gd" id="1_exhe8"]
+
+[node name="EnemyComponent" type="Node2D" unique_id=741055310]
+script = ExtResource("1_exhe8")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=723046078]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = 19.0
+offset_right = 10.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
