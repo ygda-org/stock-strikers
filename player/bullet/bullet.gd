@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var speed = 100
+
 var damage = 0
 var knockback = 20
 
@@ -33,7 +35,8 @@ func _process(delta):
 	if guiding:
 		var target = get_global_mouse_position()
 		velocity += ((target - global_position).normalized() * guiding * delta * 100).project(velocity.normalized()-(target - global_position).normalized())
-	position += velocity * delta
+	if velocity.length() < speed:
+		velocity = velocity.normalized() * speed
 
 func hit(norm):
 	if not ricochet:

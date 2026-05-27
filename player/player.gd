@@ -151,6 +151,7 @@ func _on_dodge_invincibility_dur_timeout():
 func create_bullet_to_spawn(dmg):
 	var bullet = BULLET.instantiate()
 	bullet.velocity = (get_global_mouse_position()-global_position).normalized()*bullet_speed
+	bullet.speed = bullet_speed
 	bullet.damage = dmg
 	bullet.scale = Vector2(bullet_size, bullet_size)
 	bullet.knockback = knockback
