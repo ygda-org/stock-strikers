@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_mc8hk")
 changed_stat = 12
+stat_unit = "hp per s"
 change_amount = 2.0
 other_effect_name = "bleed"
+company_ticker = "BLED"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

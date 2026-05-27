@@ -7,4 +7,5 @@ script = ExtResource("1_j2j1s")
 changed_stat = 12
 change_amount = 2.0
 other_effect_name = "strong_single_shots"
+company_ticker = "STRB"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

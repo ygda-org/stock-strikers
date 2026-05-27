@@ -9,4 +9,5 @@ change_amount = 2.0
 other_effect_name = "premium_bullets"
 stock_name = "Premium Bullets"
 stock_description = "Bullets cost money, change amount dmg multi"
+company_ticker = "PREB"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

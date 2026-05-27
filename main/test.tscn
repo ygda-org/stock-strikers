@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bc0jt0mv0svyp"]
+
+[ext_resource type="Texture2D" uid="uid://d28nn2p255elc" path="res://assets/enemies/wallet/dollarbill.png" id="1_8nrhl"]
+
+[node name="Test" type="Node2D" unique_id=67124652]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1033749753]
+emitting = false
+amount = 16
+texture = ExtResource("1_8nrhl")
+lifetime = 2.0
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(16, 16)
+direction = Vector2(1, 1)
+spread = 116.89
+gravity = Vector2(0, 20)
+initial_velocity_min = 4.75
+initial_velocity_max = 4.75
+angular_velocity_min = -113.96
+angular_velocity_max = 53.89
+radial_accel_max = 6.45
+angle_max = 674.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8

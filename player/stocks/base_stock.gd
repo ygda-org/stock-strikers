@@ -20,6 +20,8 @@ enum stats {
 }
 ## stat to be changed. OTHER can be implemented to whatever
 @export var changed_stat: stats
+## For display purposes. px/s, health, $, etc
+@export var stat_unit : String = "temp"
 ## amount to change stat by
 @export var change_amount: float
 ## if other, fill in name of effect. Otherwise leave blank
@@ -27,4 +29,8 @@ enum stats {
 ## name of stock to be displayed in shop
 @export var stock_name: String
 ## description of stock and effects in shop
-@export var stock_description: String
+@export var stock_description: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"
+## describes the effect, used in the tooltip
+@export var effect_description : String = "Lorem Ispum"
+## company ticker (EX: YGDA, APPL, etc)
+@export var company_ticker : String = "AAAA"

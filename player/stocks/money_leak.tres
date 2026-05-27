@@ -8,4 +8,5 @@ changed_stat = 12
 other_effect_name = "money_leak"
 stock_name = "Money Leak"
 stock_description = "change amout move speed, lose money on timer"
+company_ticker = "MNLK"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

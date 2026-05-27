@@ -23,6 +23,16 @@ texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_welxv"]
+texture = ExtResource("2_kmgha")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g105g"]
+bg_color = Color(1, 1, 0.5058824, 1)
+
 [node name="StockOption" type="Control" unique_id=1011788072]
 custom_minimum_size = Vector2(360, 160)
 layout_mode = 3
@@ -31,6 +41,7 @@ anchor_bottom = 0.26700002
 offset_bottom = -0.2000122
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_l2qqs")
 script = ExtResource("2_v1w4h")
 
@@ -41,6 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_l2qqs")
 
 [node name="StockDisplay" type="Panel" parent="." unique_id=968934865]
@@ -105,21 +117,30 @@ offset_left = 154.0
 offset_top = 43.0
 offset_right = 353.0
 offset_bottom = 155.0
+mouse_filter = 2
 
 [node name="Desc" type="Label" parent="VBoxContainer" unique_id=1961908399]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(50, 52)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 theme_override_font_sizes/font_size = 12
 text = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market"
 autowrap_mode = 3
+clip_text = true
 
 [node name="EffectRow" type="HBoxContainer" parent="VBoxContainer" unique_id=612997778]
 layout_mode = 2
+mouse_filter = 2
+
+[node name="InfoButton" type="Button" parent="VBoxContainer/EffectRow" unique_id=620645840]
+layout_mode = 2
+toggle_mode = true
+text = " ? "
 
 [node name="Panel" type="Panel" parent="VBoxContainer/EffectRow" unique_id=1521882151]
 custom_minimum_size = Vector2(160, 19)
 layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("1_l2qqs")
 theme_override_styles/panel = SubResource("StyleBoxTexture_v1w4h")
 
@@ -130,6 +151,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
@@ -161,7 +183,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Volatility: "
 
-[node name="Label" type="Label" parent="VBoxContainer/VolatitlityRow" unique_id=1499526226]
+[node name="VolatilityAmount" type="Label" parent="VBoxContainer/VolatitlityRow" unique_id=1499526226]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
@@ -186,3 +208,39 @@ value = 1.0
 [node name="BuyButton" type="Button" parent="VBoxContainer/BuyingRow" unique_id=127888415]
 layout_mode = 2
 text = "BUY"
+
+[node name="Tooltip" type="Panel" parent="." unique_id=460809676]
+visible = false
+layout_mode = 0
+offset_left = 180.0
+offset_top = 66.0
+offset_right = 329.0
+offset_bottom = 151.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_welxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltip" unique_id=1438476390]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Panel" type="Panel" parent="Tooltip/MarginContainer" unique_id=1526851892]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g105g")
+
+[node name="TooltipDesc" type="Label" parent="Tooltip/MarginContainer" unique_id=1950617849]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+autowrap_mode = 3
+clip_text = true
+
+[connection signal="toggled" from="VBoxContainer/EffectRow/InfoButton" to="." method="_on_info_button_toggled"]

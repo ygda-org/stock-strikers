@@ -7,4 +7,5 @@ script = ExtResource("1_xnius")
 changed_stat = 12
 change_amount = 1.5
 other_effect_name = "money_damage_increase"
+company_ticker = "$$^^"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

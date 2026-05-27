@@ -7,4 +7,5 @@ script = ExtResource("1_drjel")
 changed_stat = 12
 change_amount = 150.0
 other_effect_name = "recoil"
+company_ticker = "RCOL"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

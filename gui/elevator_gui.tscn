@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://c624yv0rmuxws" path="res://assets/tempoary_assets/monitor.png" id="2_4mvcn"]
 [ext_resource type="Texture2D" uid="uid://bw7bnogec8q7l" path="res://assets/tempoary_assets/windows95_uibox.png" id="3_2dwxg"]
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="3_svwi6"]
-[ext_resource type="PackedScene" uid="uid://c4m8hryyag1e6" path="res://gui/stock_option.tscn" id="4_ivxw8"]
 [ext_resource type="Texture2D" uid="uid://tp2aemj1cblw" path="res://assets/tempoary_assets/penguin.png" id="4_jra5y"]
 [ext_resource type="FontFile" uid="uid://b2r2akjuqowjn" path="res://assets/tempoary_assets/PressStart2P.ttf" id="4_rmfxv"]
 [ext_resource type="Texture2D" uid="uid://cmw80urymyqxg" path="res://assets/tempoary_assets/frogdaq.png" id="4_w5gor"]
@@ -115,7 +114,7 @@ layout_mode = 2
 
 [node name="StartButton" type="Button" parent="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer" unique_id=1687193267]
 layout_mode = 2
-button_mask = 0
+toggle_mode = true
 icon = ExtResource("4_jra5y")
 
 [node name="PermButton" type="Button" parent="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer" unique_id=769714251]
@@ -195,9 +194,11 @@ layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="StockPanel/MarginContainer/VBoxContainer" unique_id=487963153]
 layout_mode = 2
-current_tab = 0
+mouse_filter = 2
+current_tab = 1
 
 [node name="Trending Stocks" type="ScrollContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1317748422]
+visible = false
 custom_minimum_size = Vector2(0, 198)
 layout_mode = 2
 theme = ExtResource("3_svwi6")
@@ -206,45 +207,15 @@ metadata/_tab_index = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks" unique_id=919951880]
 layout_mode = 2
 
-[node name="StockOption" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=1011788072 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-
-[node name="StockOption2" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=893599749 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-
-[node name="StockOption3" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=234600546 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-
-[node name="StockOption4" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=1821929115 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-
-[node name="StockOption5" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=437835960 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-
 [node name="Your Stocks" type="ScrollContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1693536885]
-visible = false
 custom_minimum_size = Vector2(0, 198)
 layout_mode = 2
+mouse_filter = 2
 metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks" unique_id=221374261]
 layout_mode = 2
-
-[node name="StockOption" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=1928746032 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-is_shop_stock = false
-
-[node name="StockOption2" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=1584029328 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-is_shop_stock = false
-
-[node name="StockOption3" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=1324155646 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-is_shop_stock = false
-
-[node name="StockOption4" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=866893973 instance=ExtResource("4_ivxw8")]
-layout_mode = 2
-is_shop_stock = false
+mouse_filter = 2
 
 [node name="PermPanel" type="Panel" parent="." unique_id=1795233922]
 layout_mode = 0
@@ -415,6 +386,7 @@ offset_left = 417.0
 offset_top = 218.0
 offset_right = 658.0
 offset_bottom = 418.0
+mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
 [node name="MarginContainer" type="MarginContainer" parent="MoneyPanel" unique_id=1829289274]
@@ -506,6 +478,7 @@ layout_mode = 2
 [node name="DebtOption2" parent="MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=493351013 instance=ExtResource("12_68ai3")]
 layout_mode = 2
 
+[connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/PermButton" to="." method="_on_perm_button_pressed"]
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StockButton" to="." method="_on_stock_button_pressed"]
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/MoneyButton" to="." method="_on_money_button_pressed"]

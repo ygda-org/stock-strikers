@@ -7,4 +7,5 @@ script = ExtResource("1_tuxxr")
 changed_stat = 11
 change_amount = 0.5
 other_effect_name = "triple_shot"
+company_ticker = "TRIS"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

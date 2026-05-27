@@ -5,7 +5,11 @@
 [resource]
 script = ExtResource("1_oq8hp")
 changed_stat = 12
+stat_unit = "other"
 change_amount = 3.0
 other_effect_name = "desperation"
 stock_name = "YGDA"
+stock_description = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market"
+effect_description = "As your health approaches 0, your damage is multiplied, approaching the max"
+company_ticker = "YGDA"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

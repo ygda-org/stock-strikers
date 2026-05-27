@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource("1_dsaer")
 changed_stat = 11
+stat_unit = "px"
 change_amount = 20.0
+company_ticker = "BUKB"
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"
