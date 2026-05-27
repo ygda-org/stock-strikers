@@ -3,7 +3,7 @@ extends Node2D
 @onready var animation = get_parent().get_node_or_null("AnimatedSprite2D")
 @onready var parent = get_parent()
 @onready var health_bar: ProgressBar = $HealthBar
-@export var money_on_kill: int = 1
+@export var money_on_kill: int = 40
 @export var kb_decel: float = 4
 @export var self_collision_kb: float = 300
 var is_knockback:bool = false
@@ -15,6 +15,8 @@ var bleed_count
 @export var max_health := 30
 @export var contact_damage: int = 10
 @onready var current_health = max_health
+
+const COIN = preload("uid://d1hijr3si4jyw")
 
 func _ready():
 	health_bar.max_value = max_health
@@ -63,10 +65,16 @@ func die():
 	var money_gain = money_on_kill
 	if "perfection" in GameState.player.other_effects_list:
 		money_gain *= GameState.player.other_effects_strengths["perfection"]
-	PlayerStats.money += money_gain
+	drop_coins(money_gain)
 	is_stunned = true
 	parent.queue_free()
 
+func drop_coins(money_gain):
+	for i in range(int(money_gain/10)):
+		var coin = COIN.instantiate()
+		coin.target_position = global_position + Vector2(20, 0).rotated(randf_range(0, 2*PI))
+		parent.get_parent().add_child(coin)
+		coin.global_position = global_position
 
 func _on_bleed_timer_timeout():
 	current_health -= current_bleed
