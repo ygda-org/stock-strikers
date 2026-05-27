@@ -10,8 +10,7 @@ var stocks: Array[Stock] = [
 	load("res://player/stocks/guided_shots.tres"),
 	load("res://player/stocks/homing.tres"),
 	load("res://player/stocks/perfection.tres"),
-	load("res://player/stocks/money_leak.tres"),
-	load("res://player/stocks/recoil.tres"),
+	load("res://player/stocks/recoil.tres")
 ]
 var extra_effects: Array[String] # do stirng for now, can change
 

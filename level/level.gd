@@ -1,6 +1,6 @@
 extends Node2D
 
-var pool : Array[PackedScene] = [
+"""var pool : Array[PackedScene] = [
 	preload("res://level/rooms/test_rooms/test_room_E.tscn"),
 	preload("res://level/rooms/test_rooms/test_room_EW.tscn"),
 	preload("res://level/rooms/test_rooms/test_room_N.tscn"),
@@ -16,8 +16,8 @@ var pool : Array[PackedScene] = [
 	preload("res://level/rooms/test_rooms/test_room_SEW.tscn"),
 	preload("res://level/rooms/test_rooms/test_room_SW.tscn"),
 	preload("res://level/rooms/test_rooms/test_room_W.tscn"),
-]
-
+]"""
+var pool = []
 var room_size := Vector2(16,16)
 var tile_width := 16
 
@@ -32,8 +32,21 @@ var directions = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for room_file in DirAccess.get_files_at("res://level/rooms/room_for_real/"):
+		pool.append(load("res://level/rooms/room_for_real/" + room_file))
+	var start_state
 	if starting_room == null:
 		starting_room = pool.pick_random()
+	var c = 5
+	while c > 1:
+		c = 0
+		starting_room = pool.pick_random()
+		start_state = starting_room.get_state()
+		for i in range(start_state.get_node_property_count(0)):
+			if start_state.get_node_property_name(0,i) in "has_northhas_easthas_southhas_west":
+				c += 1
+	for i in range(start_state.get_node_property_count(0)):
+		print(start_state.get_node_property_name(0,i))
 	randomize()
 	generate()
 

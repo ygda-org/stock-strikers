@@ -10,9 +10,9 @@ script = ExtResource("1_7lnir")
 [node name="CanvasModulate" type="CanvasModulate" parent="Effects" unique_id=174833500]
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="Effects" unique_id=1071405058]
-offset_left = -938.0
-offset_top = -868.0
-offset_right = 1725.0
-offset_bottom = 1017.0
-color = Color(0.25490198, 0.22352941, 0.22352941, 1)
+[node name="ColorRect" type="ColorRect" parent="Effects" unique_id=712306499]
+offset_left = -12545.0
+offset_top = -8769.0
+offset_right = 21031.0
+offset_bottom = 12570.0
+color = Color(0.011764706, 0, 0.18431373, 1)

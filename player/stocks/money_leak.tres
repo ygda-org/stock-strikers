@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_semd1")
 changed_stat = 12
+change_amount = 2.0
 other_effect_name = "money_leak"
 stock_name = "Money Leak"
 stock_description = "change amout move speed, lose money on timer"
