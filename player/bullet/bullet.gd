@@ -6,6 +6,7 @@ var knockback = 20
 var ricochet = 0
 var bleed = 0
 var homing = 0
+var vampire = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,6 +17,9 @@ func _process(delta):
 			var enemy_component = body.find_child("EnemyComponent")
 			enemy_component.hurt(damage, bleed)
 			enemy_component.knockback(self,knockback)
+			if vampire:
+				GameState.player.current_health += vampire * damage
+				GameState.player.player_hp_update.emit(GameState.player.max_health, GameState.player.current_health)
 		if body.is_in_group("Player"):
 			pass
 		else:
