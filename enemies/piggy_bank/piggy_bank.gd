@@ -8,7 +8,7 @@ const BULLET = preload("uid://elmhj6ii3asu")
 @export var bullet_damage: int
 
 @onready var timer: Timer = $Timer
-@onready var animated_sprite_2d: AnimatedSprite2D = $Anim
+@onready var animation: AnimatedSprite2D = $Anim
 @onready var marker: Marker2D = $Marker2D
 @onready var enemy_component = $EnemyComponent
 var rng = RandomNumberGenerator.new()
@@ -21,8 +21,7 @@ var times := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d.play("hop")
-
+	animation.play("hop")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -34,7 +33,8 @@ func _physics_process(delta: float) -> void:
 		collisions.append(get_slide_collision(i))
 	enemy_component.process_collisions(collisions)
 	move_and_slide()
-
+	choose_anim(velocity)
+	
 func shoot(target):
 	var bullet = BULLET.instantiate()
 	get_parent().add_child(bullet)
@@ -42,6 +42,19 @@ func shoot(target):
 	var bul_position = marker.global_position
 	bullet.initialize(bul_distance,bul_position,bullet_damage)
 	bullet.target = target
+	
+func choose_anim(vel:Vector2):
+	if vel.angle() > PI/2 or vel.angle() < -PI/2:
+		if not animation.animation == "hop":
+			animation.play("hop")
+		animation.flip_h = false
+		return
+	if vel.angle() < PI/2 or vel.angle() > -PI/2:
+		if not animation.animation == "hop":
+			animation.play("hop")
+		animation.flip_h = true
+		return
+	
 func _on_timer_timeout() -> void:
 	if GameState.player and times < 3:
 		shoot(GameState.player.global_position)
@@ -57,4 +70,3 @@ func _on_timer_timeout() -> void:
 		times = 0
 		timer.start()
 		return
-	

@@ -67,6 +67,7 @@ func die():
 		money_gain *= GameState.player.other_effects_strengths["perfection"]
 	drop_coins(money_gain)
 	is_stunned = true
+	GameState.enemies.erase(get_parent())
 	parent.queue_free()
 
 func drop_coins(money_gain):

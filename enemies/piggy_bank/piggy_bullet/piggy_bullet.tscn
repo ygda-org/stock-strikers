@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://elmhj6ii3asu"]
 
-[ext_resource type="Script" uid="uid://bsufej18f31v6" path="res://enemies/piggy_bullet/piggy_bullet.gd" id="1_nybal"]
+[ext_resource type="Script" uid="uid://bsufej18f31v6" path="res://enemies/piggy_bank/piggy_bullet/piggy_bullet.gd" id="1_nybal"]
 [ext_resource type="Texture2D" uid="uid://bns3f7mtejy8g" path="res://assets/enemies/piggybank/bullet/coin.png" id="2_oeemf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_473kp"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bv5nn35mxxf8r"]
 
-[ext_resource type="Script" uid="uid://datmwiwy84ht" path="res://enemies/piggy_bullet/piggy_mark.gd" id="1_c267d"]
+[ext_resource type="Script" uid="uid://datmwiwy84ht" path="res://enemies/piggy_bank/piggy_bullet/piggy_mark.gd" id="1_c267d"]
 [ext_resource type="Texture2D" uid="uid://br7y7wvn0mc1a" path="res://assets/enemies/piggybank/bullet/flash.png" id="2_888mb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qj67y"]

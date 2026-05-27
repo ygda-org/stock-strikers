@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpn4wboo43nvd"]
 
-[ext_resource type="Script" uid="uid://c5cae0htj8ybr" path="res://gui/elevator_gui.gd" id="1_biksv"]
+[ext_resource type="Script" path="res://gui/elevator_gui.gd" id="1_biksv"]
 [ext_resource type="Texture2D" uid="uid://bqw6yg4h10b0o" path="res://assets/tempoary_assets/elevator.png" id="1_nhbi5"]
 [ext_resource type="Texture2D" uid="uid://c624yv0rmuxws" path="res://assets/tempoary_assets/monitor.png" id="2_4mvcn"]
 [ext_resource type="Texture2D" uid="uid://bw7bnogec8q7l" path="res://assets/tempoary_assets/windows95_uibox.png" id="3_2dwxg"]

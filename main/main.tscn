@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dqak3awcpfb8w"]
 
 [ext_resource type="PackedScene" uid="uid://3smqvhstcant" path="res://player/player.tscn" id="1_53q0u"]
-[ext_resource type="PackedScene" uid="uid://b73ufdvihi6ks" path="res://enemies/piggy_bank.tscn" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://b73ufdvihi6ks" path="res://enemies/piggy_bank/piggy_bank.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://bf3hx2y400gmf" path="res://level/level.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://dr63yl5l5a3ww" path="res://gui/battle_gui.tscn" id="4_c651c"]
+[ext_resource type="PackedScene" uid="uid://dmtq0eq4tnvrw" path="res://enemies/wallet/wallet.tscn" id="5_3wy1v"]
 
 [node name="Main" type="Node2D" unique_id=426619736]
 
@@ -16,3 +17,6 @@ position = Vector2(128, 128)
 
 [node name="PiggyBank" parent="." unique_id=644549125 instance=ExtResource("2_pjrb6")]
 position = Vector2(129, 145)
+
+[node name="Wallet" parent="." unique_id=378164138 instance=ExtResource("5_3wy1v")]
+position = Vector2(129, 99)

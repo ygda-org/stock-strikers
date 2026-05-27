@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://b73ufdvihi6ks"]
 
-[ext_resource type="Script" uid="uid://bwiab73l8k60v" path="res://enemies/piggy_bank.gd" id="1_2331h"]
+[ext_resource type="Script" uid="uid://bwiab73l8k60v" path="res://enemies/piggy_bank/piggy_bank.gd" id="1_2331h"]
 [ext_resource type="Texture2D" uid="uid://cj4vii85ujy4j" path="res://assets/enemies/piggybank/jumpt.png" id="2_2331h"]
 [ext_resource type="PackedScene" uid="uid://dh8i3pi010sjg" path="res://enemies/enemy_component.tscn" id="3_bgkm8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bgkm8"]
-atlas = ExtResource("2_2331h")
-region = Rect2(0, 0, 35, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe0bt"]
 atlas = ExtResource("2_2331h")
@@ -28,12 +24,13 @@ region = Rect2(35, 32, 35, 32)
 atlas = ExtResource("2_2331h")
 region = Rect2(70, 32, 35, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgkm8"]
+atlas = ExtResource("2_2331h")
+region = Rect2(0, 0, 35, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_jby03"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bgkm8")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oe0bt")
 }, {
@@ -52,6 +49,14 @@ animations = [{
 "loop": true,
 "name": &"hop",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgkm8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uri2p"]
@@ -62,13 +67,13 @@ collision_layer = 2
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_2331h")
-pig_speed = 50
+pig_speed = 10
 bullet_speed = 100
 bullet_damage = 20
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1990987845]
 sprite_frames = SubResource("SpriteFrames_jby03")
-animation = &"hop"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016995054]
 position = Vector2(-1, 5)
