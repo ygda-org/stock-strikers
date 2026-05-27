@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dnt1y0yhe38ki"]
+
+[ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="1_ernkl"]
+[ext_resource type="FontFile" uid="uid://c5ud1mm20glbo" path="res://assets/tempoary_assets/W95F.otf" id="2_i7p6p"]
+
+[node name="DebtOption" type="Control" unique_id=563598521]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 3
+anchor_right = 0.25
+anchor_bottom = 0.125
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ernkl")
+
+[node name="Background" type="Panel" parent="." unique_id=1253802745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=1386771304]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer" unique_id=2098844935]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer" unique_id=1309261384]
+layout_mode = 2
+text = "Date: 1/1/1980 00:00"
+
+[node name="Title" type="Label" parent="Background/MarginContainer/VBoxContainer" unique_id=835861042]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i7p6p")
+theme_override_font_sizes/font_size = 16
+text = "Smasnug Cellphone "
+
+[node name="Amount" type="Label" parent="Background/MarginContainer/VBoxContainer" unique_id=1747404430]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "$500"
+
+[node name="Button" type="Button" parent="Background/MarginContainer/VBoxContainer" unique_id=1174367045]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_vertical = 8
+text = "PAY"
