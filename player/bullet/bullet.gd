@@ -7,6 +7,7 @@ var ricochet = 0
 var bleed = 0
 var homing = 0
 var vampire = 0
+var guiding = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,6 +30,9 @@ func _process(delta):
 		if target:
 			target = target.global_position
 			velocity += ((target - global_position).normalized() * homing * delta * 100).project(velocity.normalized()-(target - global_position).normalized())
+	if guiding:
+		var target = get_global_mouse_position()
+		velocity += ((target - global_position).normalized() * guiding * delta * 100).project(velocity.normalized()-(target - global_position).normalized())
 	position += velocity * delta
 
 func hit(norm):

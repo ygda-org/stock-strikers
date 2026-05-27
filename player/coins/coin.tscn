@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b2pmeddjyvcr8" path="res://player/coins/coin.gd" id="1_owlkr"]
 
 [sub_resource type="Gradient" id="Gradient_ejwbi"]
-offsets = PackedFloat32Array(0, 0.50240386, 0.5456731, 1)
+offsets = PackedFloat32Array(0, 0.71875, 0.72836536, 1)
 colors = PackedColorArray(0.7947236, 0.7568569, 0.25235754, 1, 0.79607844, 0.75686276, 0.2509804, 1, 0.79607844, 0.75686276, 0.2509804, 0, 0.81960785, 0.6156863, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vp1ru"]
