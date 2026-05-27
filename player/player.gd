@@ -60,6 +60,9 @@ func _ready(): # probably load stats from gamestate right
 			if stock.other_effect_name == "money_leak":
 				speed *= other_effects_strengths["money_leak"]
 				$ExtraEffects/MoneyLeakCD.start()
+			if stock.other_effect_name == "strong_single_shots":
+				base_damage *= stock.change_amount
+				$ShotCD.wait_time = $ShotCD.wait_time / 2
 
 	current_health = max_health
 
@@ -225,4 +228,4 @@ func _on_money_leak_cd_timeout():
 	PlayerStats.money -= MONEY_LEAK
 
 func perfection_hit():
-	PlayerStats.money = int(PlayerStats.money * 0.1)
+	PlayerStats.money = int(PlayerStats.money * 0.9)
