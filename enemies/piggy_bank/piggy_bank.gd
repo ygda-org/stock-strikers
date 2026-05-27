@@ -21,7 +21,7 @@ var times := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animation.play("hop")
+	animation.play("side")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -44,17 +44,22 @@ func shoot(target):
 	bullet.target = target
 	
 func choose_anim(vel:Vector2):
-	if vel.angle() > PI/2 or vel.angle() < -PI/2:
-		if not animation.animation == "hop":
-			animation.play("hop")
+	if vel.angle() > (3*PI)/4 or vel.angle() < -PI/2:
+		if not animation.animation == "side":
+			animation.play("side")
 		animation.flip_h = false
 		return
-	if vel.angle() < PI/2 or vel.angle() > -PI/2:
-		if not animation.animation == "hop":
-			animation.play("hop")
+	if vel.angle() < (PI)/4 and vel.angle() > -PI/2:
+		if not animation.animation == "side":
+			animation.play("side")
 		animation.flip_h = true
 		return
-	
+	if vel.angle() > PI/4 and vel.angle() < (3*PI)/4:
+		if not animation.animation == "front":
+			animation.play("front")
+		animation.flip_h = false
+		return
+
 func _on_timer_timeout() -> void:
 	if GameState.player and times < 3:
 		shoot(GameState.player.global_position)
