@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="1_l2qqs"]
 [ext_resource type="Texture2D" uid="uid://b6vt4te58eg6g" path="res://assets/tempoary_assets/windows95_indentbox.png" id="2_kmgha"]
+[ext_resource type="Script" uid="uid://dq0yvv7najiab" path="res://gui/stock_option.gd" id="2_v1w4h"]
 [ext_resource type="Texture2D" uid="uid://bowv2axo270vl" path="res://assets/tempoary_assets/stock_graph_1.png" id="3_kmgha"]
 [ext_resource type="FontFile" uid="uid://b2r2akjuqowjn" path="res://assets/tempoary_assets/PressStart2P.ttf" id="4_xlh3x"]
 
@@ -31,6 +32,7 @@ offset_bottom = -0.2000122
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_l2qqs")
+script = ExtResource("2_v1w4h")
 
 [node name="Background" type="Panel" parent="." unique_id=1924012865]
 layout_mode = 1
@@ -112,16 +114,16 @@ theme_override_font_sizes/font_size = 12
 text = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market"
 autowrap_mode = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=612997778]
+[node name="EffectRow" type="HBoxContainer" parent="VBoxContainer" unique_id=612997778]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2" unique_id=1521882151]
+[node name="Panel" type="Panel" parent="VBoxContainer/EffectRow" unique_id=1521882151]
 custom_minimum_size = Vector2(160, 19)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 theme_override_styles/panel = SubResource("StyleBoxTexture_v1w4h")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/Panel" unique_id=157983895]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/EffectRow/Panel" unique_id=157983895]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,14 +135,14 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Panel/MarginContainer" unique_id=1936898777]
+[node name="Effect" type="Label" parent="VBoxContainer/EffectRow/Panel/MarginContainer" unique_id=1936898777]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("1_l2qqs")
 theme_override_font_sizes/font_size = 16
 text = "+20 damage"
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1232994059]
+[node name="PerTag" type="Label" parent="VBoxContainer/EffectRow" unique_id=1232994059]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
@@ -150,22 +152,37 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 16
 text = "per"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=979023355]
+[node name="VolatitlityRow" type="HBoxContainer" parent="VBoxContainer" unique_id=34677134]
+visible = false
+layout_mode = 2
+
+[node name="Volatility" type="Label" parent="VBoxContainer/VolatitlityRow" unique_id=1973258930]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Volatility: "
+
+[node name="Label" type="Label" parent="VBoxContainer/VolatitlityRow" unique_id=1499526226]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "HIGH"
+
+[node name="BuyingRow" type="HBoxContainer" parent="VBoxContainer" unique_id=979023355]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1710291029]
+[node name="DividendCost" type="Label" parent="VBoxContainer/BuyingRow" unique_id=1710291029]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Cost: $20 *"
 
-[node name="NumberDisplay" type="SpinBox" parent="VBoxContainer/HBoxContainer" unique_id=242017968]
+[node name="Dividends" type="SpinBox" parent="VBoxContainer/BuyingRow" unique_id=242017968]
 custom_minimum_size = Vector2(60, 26)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 value = 1.0
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=127888415]
+[node name="BuyButton" type="Button" parent="VBoxContainer/BuyingRow" unique_id=127888415]
 layout_mode = 2
 text = "BUY"

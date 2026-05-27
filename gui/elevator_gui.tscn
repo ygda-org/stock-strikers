@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpn4wboo43nvd"]
 
-[ext_resource type="Script" path="res://gui/elevator_gui.gd" id="1_biksv"]
+[ext_resource type="Script" uid="uid://c5cae0htj8ybr" path="res://gui/elevator_gui.gd" id="1_biksv"]
 [ext_resource type="Texture2D" uid="uid://bqw6yg4h10b0o" path="res://assets/tempoary_assets/elevator.png" id="1_nhbi5"]
 [ext_resource type="Texture2D" uid="uid://c624yv0rmuxws" path="res://assets/tempoary_assets/monitor.png" id="2_4mvcn"]
 [ext_resource type="Texture2D" uid="uid://bw7bnogec8q7l" path="res://assets/tempoary_assets/windows95_uibox.png" id="3_2dwxg"]
@@ -190,28 +190,61 @@ theme_override_font_sizes/font_size = 10
 text = "FrogDaq"
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="StockPanel/MarginContainer/VBoxContainer" unique_id=1317748422]
-custom_minimum_size = Vector2(0, 235)
+[node name="Spacer" type="Label" parent="StockPanel/MarginContainer/VBoxContainer" unique_id=82528552]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="StockPanel/MarginContainer/VBoxContainer" unique_id=487963153]
+layout_mode = 2
+current_tab = 0
+
+[node name="Trending Stocks" type="ScrollContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1317748422]
+custom_minimum_size = Vector2(0, 198)
 layout_mode = 2
 theme = ExtResource("3_svwi6")
+metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StockPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=919951880]
+[node name="VBoxContainer" type="VBoxContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks" unique_id=919951880]
 layout_mode = 2
 
-[node name="StockOption" parent="StockPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1011788072 instance=ExtResource("4_ivxw8")]
+[node name="StockOption" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=1011788072 instance=ExtResource("4_ivxw8")]
 layout_mode = 2
 
-[node name="StockOption2" parent="StockPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=893599749 instance=ExtResource("4_ivxw8")]
+[node name="StockOption2" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=893599749 instance=ExtResource("4_ivxw8")]
 layout_mode = 2
 
-[node name="StockOption3" parent="StockPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=234600546 instance=ExtResource("4_ivxw8")]
+[node name="StockOption3" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=234600546 instance=ExtResource("4_ivxw8")]
 layout_mode = 2
 
-[node name="StockOption4" parent="StockPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1821929115 instance=ExtResource("4_ivxw8")]
+[node name="StockOption4" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=1821929115 instance=ExtResource("4_ivxw8")]
 layout_mode = 2
 
-[node name="StockOption5" parent="StockPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=437835960 instance=ExtResource("4_ivxw8")]
+[node name="StockOption5" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer" unique_id=437835960 instance=ExtResource("4_ivxw8")]
 layout_mode = 2
+
+[node name="Your Stocks" type="ScrollContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1693536885]
+visible = false
+custom_minimum_size = Vector2(0, 198)
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks" unique_id=221374261]
+layout_mode = 2
+
+[node name="StockOption" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=1928746032 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+is_shop_stock = false
+
+[node name="StockOption2" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=1584029328 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+is_shop_stock = false
+
+[node name="StockOption3" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=1324155646 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+is_shop_stock = false
+
+[node name="StockOption4" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer" unique_id=866893973 instance=ExtResource("4_ivxw8")]
+layout_mode = 2
+is_shop_stock = false
 
 [node name="PermPanel" type="Panel" parent="." unique_id=1795233922]
 layout_mode = 0

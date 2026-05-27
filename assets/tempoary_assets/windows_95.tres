@@ -116,6 +116,40 @@ texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_el21k"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 1, 16, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwe8g"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 13.0
+texture_margin_top = 3.0
+texture_margin_right = 13.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 16, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ua0l5"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 13.0
+texture_margin_top = 3.0
+texture_margin_right = 13.0
+texture_margin_bottom = 3.0
+expand_margin_top = 3.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 16, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_21uxi"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 13.0
+texture_margin_top = 3.0
+texture_margin_right = 13.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 16, 13)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivxw8"]
 texture = ExtResource("1_kff6g")
 texture_margin_left = 2.0
@@ -175,6 +209,15 @@ SpinBox/styles/up_background = SubResource("StyleBoxTexture_wuk24")
 SpinBox/styles/up_background_disabled = SubResource("StyleBoxTexture_h2cir")
 SpinBox/styles/up_background_hovered = SubResource("StyleBoxTexture_t7g60")
 SpinBox/styles/up_background_pressed = SubResource("StyleBoxTexture_2twep")
+TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
+TabContainer/constants/side_margin = 0
+TabContainer/font_sizes/font_size = 18
+TabContainer/styles/panel = SubResource("StyleBoxTexture_el21k")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_vwe8g")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_ua0l5")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_21uxi")
 VBoxContainer/constants/separation = 1
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_ivxw8")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_rmfxv")
