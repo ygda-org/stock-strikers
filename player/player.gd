@@ -168,6 +168,8 @@ func process_damage_multipliers(dmg):
 		dmg *= other_effects_strengths["money_damage_increase"] * PlayerStats.money
 	if "premium_bullets" in other_effects_list:
 		dmg *= other_effects_strengths["premium_bullets"]
+	if "desperation" in other_effects_list:
+		dmg *= other_effects_strengths["desperation"] * ((max_health-current_health)/max_health)
 	# space for the rest of 'em
 	return dmg
 
