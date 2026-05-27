@@ -18,6 +18,7 @@ var bleed_count
 func _ready():
 	health_bar.max_value = max_health
 	health_bar.value = current_health
+	GameState.enemies.append(get_parent())
 
 func _process(delta):
 	if is_knockback:

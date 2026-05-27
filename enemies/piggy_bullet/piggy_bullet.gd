@@ -9,7 +9,7 @@ var shadow_velocity:Vector2
 @onready var timer:Timer = $Timer
 const SHADOW = preload("uid://cieei6rv0memb")
 const EXPLOSION = preload("uid://cvtvn3pfuio1q")
-const MARK = preload("uid://bv5nn35mxxf8r")
+const MARK = preload("res://enemies/piggy_bullet/piggy_mark.tscn")
 var shadow
 var initialized:bool = false
 var shot:bool = false

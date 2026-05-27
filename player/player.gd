@@ -157,6 +157,8 @@ func create_bullet_to_spawn(dmg):
 		PlayerStats.money -= PREMIUM_BULLET_COST
 	if "bleed" in other_effects_list:
 		bullet.bleed = other_effects_strengths["bleed"]
+	if "homing" in other_effects_list:
+		bullet.homing = other_effects_strengths["homing"]
 	return bullet
 
 ###########################################
