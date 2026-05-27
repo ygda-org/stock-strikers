@@ -34,19 +34,8 @@ var directions = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT]
 func _ready() -> void:
 	for room_file in DirAccess.get_files_at("res://level/rooms/room_for_real/"):
 		pool.append(load("res://level/rooms/room_for_real/" + room_file))
-	var start_state
 	if starting_room == null:
 		starting_room = pool.pick_random()
-	var c = 5
-	while c > 1:
-		c = 0
-		starting_room = pool.pick_random()
-		start_state = starting_room.get_state()
-		for i in range(start_state.get_node_property_count(0)):
-			if start_state.get_node_property_name(0,i) in "has_northhas_easthas_southhas_west":
-				c += 1
-	for i in range(start_state.get_node_property_count(0)):
-		print(start_state.get_node_property_name(0,i))
 	randomize()
 	generate()
 
