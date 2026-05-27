@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dqak3awcpfb8w"]
 
 [ext_resource type="PackedScene" uid="uid://3smqvhstcant" path="res://player/player.tscn" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://cs0jx82kumrnd" path="res://main/main.gd" id="1_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://b73ufdvihi6ks" path="res://enemies/piggy_bank/piggy_bank.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://bf3hx2y400gmf" path="res://level/level.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://dr63yl5l5a3ww" path="res://gui/battle_gui.tscn" id="4_c651c"]
 [ext_resource type="PackedScene" uid="uid://dmtq0eq4tnvrw" path="res://enemies/wallet/wallet.tscn" id="5_3wy1v"]
 
 [node name="Main" type="Node2D" unique_id=426619736]
+script = ExtResource("1_kfbq2")
 
 [node name="Level" parent="." unique_id=494579793 instance=ExtResource("3_xwkvk")]
 
