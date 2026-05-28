@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://d3y00wb06iul4"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_hufh3"]
+
+[resource]
+script = ExtResource("1_hufh3")
+changed_stat = 12
+change_amount = 0.2
+other_effect_name = "octo_shot"
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"
