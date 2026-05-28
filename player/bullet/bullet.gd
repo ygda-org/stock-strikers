@@ -31,11 +31,11 @@ func _process(delta):
 		var target = get_nearest_enemy()
 		if target:
 			target = target.global_position
-			velocity += ((target - global_position).normalized() * homing * delta * 100).project(velocity.normalized()-(target - global_position).normalized())
+			velocity += ((target - global_position).normalized() * homing * delta * 100).project(velocity.normalized()-(target - global_position))#.normalized())
 	if guiding:
 		var target = get_global_mouse_position()
-		velocity += ((target - global_position).normalized() * guiding * delta * 100).project(velocity.normalized()-(target - global_position).normalized())
-	if velocity.length() < speed:
+		velocity += ((target - global_position).normalized() * guiding * delta * 100).project(velocity.normalized()-(target - global_position))#.normalized())
+	if velocity.length() != speed:
 		velocity = velocity.normalized() * speed
 
 func hit(norm):
