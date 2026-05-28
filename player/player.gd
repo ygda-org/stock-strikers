@@ -108,6 +108,11 @@ func shoot():
 		triple_shot(target_position)
 	if "recoil" in other_effects_list:
 		recoil()
+	if "extra_random_shots" in other_effects_list:
+		var rando_bullet = create_bullet_to_spawn(damage * other_effects_strengths["extra_random_shots"])
+		get_parent().add_child(rando_bullet)
+		rando_bullet.global_position = global_position
+		rando_bullet.velocity = bullet.velocity.rotated(randf_range(0,2*PI))
 
 func hurt(hp_damage:int):
 	if !invincible:
