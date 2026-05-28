@@ -36,6 +36,7 @@ func update_owned_stocks():
 		option.effect_name = s.stat_unit
 		option.desc = s.stock_description
 		option.tooltip_desc = s.effect_description
+		option.cost_per = s.change_amount * s.cost_multi
 		your_stocks_holder.add_child(option)
 
 func update_trendings_stocks():
@@ -50,6 +51,7 @@ func update_trendings_stocks():
 		option.effect_name = s.stat_unit
 		option.desc = s.stock_description
 		option.tooltip_desc = s.effect_description
+		option.cost_per = s.change_amount * s.cost_multi
 		#option.effect_name = s.changed_stat
 		your_stocks_holder.add_child(option)
 

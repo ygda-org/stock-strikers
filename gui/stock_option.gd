@@ -37,6 +37,7 @@ func _ready() -> void:
 	$VBoxContainer/Desc.text = desc
 	$VBoxContainer/EffectRow/Panel/MarginContainer/Effect.text = str(effect_amount) + " " + effect_name
 	$Tooltip/MarginContainer/TooltipDesc.text = tooltip_desc
+	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(cost_per) + " *"
 	if not is_shop_stock:
 		$VBoxContainer/BuyingRow/Dividends.visible = false
 		$VBoxContainer/EffectRow/PerTag.text = 'total'

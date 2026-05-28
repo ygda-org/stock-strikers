@@ -194,10 +194,9 @@ layout_mode = 2
 [node name="TabContainer" type="TabContainer" parent="StockPanel/MarginContainer/VBoxContainer" unique_id=487963153]
 layout_mode = 2
 mouse_filter = 2
-current_tab = 1
+current_tab = 0
 
 [node name="Trending Stocks" type="ScrollContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1317748422]
-visible = false
 custom_minimum_size = Vector2(0, 198)
 layout_mode = 2
 theme = ExtResource("3_svwi6")
@@ -207,6 +206,7 @@ metadata/_tab_index = 0
 layout_mode = 2
 
 [node name="Your Stocks" type="ScrollContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1693536885]
+visible = false
 custom_minimum_size = Vector2(0, 198)
 layout_mode = 2
 mouse_filter = 2

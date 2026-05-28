@@ -34,3 +34,5 @@ enum stats {
 @export var effect_description : String = "Lorem Ispum"
 ## company ticker (EX: YGDA, APPL, etc)
 @export var company_ticker : String = "AAAA"
+## Cost multiplier. Price is directly proportional to change amount
+@export var cost_multi : float = 2.0
