@@ -8,6 +8,7 @@ extends Node2D
 @export var self_collision_kb: float = 300
 var is_knockback:bool = false
 var is_stunned:bool = false
+var is_alive:bool = true
 
 var current_bleed = 0
 var bleed_count
@@ -27,6 +28,7 @@ func _process(delta):
 	if is_knockback:
 		parent.velocity = lerp(parent.velocity, Vector2.ZERO, kb_decel * delta)
 		if parent.velocity.length() < 10:
+			parent.velocity = Vector2.ZERO
 			is_knockback = false
 			is_stunned = false
 			if animation:
@@ -62,12 +64,17 @@ func hurt(health, bleed = 0):
 		$BleedTimer.start()
 
 func die():
+	is_alive = false
+	if parent.has_method("die"):
+		parent.die()
+		if parent.has_signal("death_anim_complete"):
+			await parent.death_anim_complete
 	var money_gain = money_on_kill
 	if "perfection" in GameState.player.other_effects_list:
 		money_gain *= GameState.player.other_effects_strengths["perfection"]
 	drop_coins(money_gain)
 	is_stunned = true
-	GameState.enemies.erase(get_parent())
+	GameState.enemies.erase(parent)
 	parent.queue_free()
 
 func drop_coins(money_gain):

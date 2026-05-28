@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://diupkd5kr2tpw"]
+
+[ext_resource type="Script" uid="uid://dgl1nyw0q2ujf" path="res://enemies/credit_card/credit_card.gd" id="1_e8unp"]
+[ext_resource type="PackedScene" uid="uid://dh8i3pi010sjg" path="res://enemies/enemy_component.tscn" id="2_5f34s"]
+[ext_resource type="Texture2D" uid="uid://dwwjlae8phbky" path="res://assets/enemies/credit_card/fly.png" id="3_t3xd4"]
+[ext_resource type="Texture2D" uid="uid://cxavrtqngsasf" path="res://assets/enemies/credit_card/shadow.png" id="4_s1cob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6othy"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dajs6"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vd6s"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aftw6"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e11t"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp27p"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daute"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhbpq"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myola"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mogg"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrhkj"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bajn3"]
+atlas = ExtResource("3_t3xd4")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0srin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6othy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dajs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vd6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aftw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e11t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp27p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daute")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhbpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myola")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mogg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrhkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bajn3")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e38rg"]
+size = Vector2(14, 8)
+
+[node name="CreditCard" type="CharacterBody2D" unique_id=391192466 groups=["Enemies"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_e8unp")
+card_speed = 20
+
+[node name="EnemyComponent" parent="." unique_id=741055310 instance=ExtResource("2_5f34s")]
+position = Vector2(1, -12)
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1084560480]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_0srin")
+animation = &"fly"
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1195258754]
+texture = ExtResource("4_s1cob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1710013614]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_e38rg")

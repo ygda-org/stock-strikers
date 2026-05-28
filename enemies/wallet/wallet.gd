@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
+signal death_anim_complete
+
 var wallet_speed: int = 50
 var bullet_speed: int = 100
 var bullet_damage: int = 5
 
 @onready var animation:AnimatedSprite2D = $Anim
 @onready var enemy_component = $EnemyComponent
+@onready var hurtbox:CollisionShape2D = $CollisionShape2D
 
 const BULLET = preload("uid://b3rg1vs3nw1es")
 # Called when the node enters the scene tree for the first time.
@@ -14,15 +17,16 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	if GameState.player and !enemy_component.is_stunned:
+func _physics_process(_delta: float) -> void:
+	if GameState.player and !enemy_component.is_stunned and enemy_component.is_alive:
 		velocity = (GameState.player.global_position - global_position).normalized() * wallet_speed
 	var collisions = [] # need these 4 lines in every enemy's physics process
 	for i in get_slide_collision_count():
 		collisions.append(get_slide_collision(i))
 	enemy_component.process_collisions(collisions)
 	move_and_slide()
-	choose_anim(velocity)
+	if !enemy_component.is_stunned and enemy_component.is_alive:
+		choose_anim(velocity)
 
 func choose_anim(vel:Vector2):
 	if vel.angle() > (3*PI)/4 or vel.angle() < -(3*PI)/4:
@@ -45,6 +49,15 @@ func choose_anim(vel:Vector2):
 			animation.play("front")
 		animation.flip_h = false
 		return
+
+func die():
+	hurtbox.disabled = true
+	enemy_component.is_stunned = true
+	animation.play("death")
+	animation.flip_h = false
+	await animation.animation_finished
+	death_anim_complete.emit()
+	return
 
 func shoot():
 	if GameState.player:

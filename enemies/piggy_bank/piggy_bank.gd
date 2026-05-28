@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal hurt_player
-
 const BULLET = preload("uid://elmhj6ii3asu")
 @export var pig_speed: int
 @export var bullet_speed: int
@@ -24,7 +22,7 @@ func _ready() -> void:
 	animation.play("side")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if GameState.player and !enemy_component.is_stunned:
 		var distance = GameState.player.global_position - global_position  
 		velocity = distance.normalized() * pig_speed

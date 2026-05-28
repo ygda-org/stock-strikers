@@ -40,7 +40,7 @@ func _process(delta):
 
 func hit(norm):
 	if not ricochet:
-		self.queue_free()
+		self.call_deferred("queue_free")
 	else:
 		ricochet -= 1
 		velocity = velocity.bounce(norm)
