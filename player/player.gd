@@ -251,3 +251,6 @@ func octo_shot():
 		get_parent().add_child(bullet)
 		bullet.global_position = global_position
 		bullet.velocity = bullet.velocity.rotated(i*PI/4 + PI/4)
+
+func berserk_kill():
+	base_damage *= other_effects_strengths["berserk"]
