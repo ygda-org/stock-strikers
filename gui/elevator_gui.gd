@@ -19,7 +19,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	pass
+	update_balance()
+
+func update_balance():
+	$MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/Balance.text = '$' + str(PlayerStats.money)
 
 func update_owned_stocks():
 	var your_stocks_holder : VBoxContainer = $"StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer"

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c7ievlotd7oph" path="res://assets/tempoary_assets/sahara.png" id="5_kne5f"]
 [ext_resource type="Texture2D" uid="uid://bkhodffw8f468" path="res://assets/tempoary_assets/lowercasetwo.png" id="6_kne5f"]
 [ext_resource type="Texture2D" uid="uid://b6vt4te58eg6g" path="res://assets/tempoary_assets/windows95_indentbox.png" id="11_fjy6l"]
-[ext_resource type="PackedScene" uid="uid://dnt1y0yhe38ki" path="res://gui/debt_option.tscn" id="12_68ai3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2mul"]
 texture = ExtResource("3_2dwxg")
@@ -470,12 +469,6 @@ custom_minimum_size = Vector2(0, 133)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=570998583]
-layout_mode = 2
-
-[node name="DebtOption" parent="MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=563598521 instance=ExtResource("12_68ai3")]
-layout_mode = 2
-
-[node name="DebtOption2" parent="MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=493351013 instance=ExtResource("12_68ai3")]
 layout_mode = 2
 
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
