@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*uid://c68mu4sl0ig8k"
 PlayerStats="*uid://dhx2tphh0mfdf"
+SfxManager="*uid://bffbhh8mo48ok"
 
 [display]
 
