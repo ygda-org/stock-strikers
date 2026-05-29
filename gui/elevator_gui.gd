@@ -16,6 +16,7 @@ func _ready() -> void:
 	GameState.generate_stock_options()
 	update_trendings_stocks()
 	update_owned_stocks()
+	PlayerStats.stocks_modified.connect(update_owned_stocks)
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
@@ -30,13 +31,8 @@ func update_owned_stocks():
 		c.queue_free()
 	for s : Stock in PlayerStats.stocks:
 		var option : StockOption = STOCK_OPTION.instantiate()
+		option.stock = s
 		option.is_shop_stock = false
-		option.title = s.company_ticker
-		option.effect_amount = s.change_amount
-		option.effect_name = s.stat_unit
-		option.desc = s.stock_description
-		option.tooltip_desc = s.effect_description
-		option.cost_per = s.change_amount * s.cost_multi
 		your_stocks_holder.add_child(option)
 
 func update_trendings_stocks():
@@ -45,14 +41,8 @@ func update_trendings_stocks():
 		c.queue_free()
 	for s : Stock in GameState.stock_options:
 		var option : StockOption = STOCK_OPTION.instantiate()
+		option.stock = s
 		option.is_shop_stock = true
-		option.title = s.company_ticker
-		option.effect_amount = s.change_amount
-		option.effect_name = s.stat_unit
-		option.desc = s.stock_description
-		option.tooltip_desc = s.effect_description
-		option.cost_per = s.change_amount * s.cost_multi
-		#option.effect_name = s.changed_stat
 		your_stocks_holder.add_child(option)
 
 func _on_perm_button_pressed() -> void:

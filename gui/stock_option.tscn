@@ -33,6 +33,9 @@ texture_margin_bottom = 2.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g105g"]
 bg_color = Color(1, 1, 0.5058824, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_welxv"]
+bg_color = Color(0, 0, 0, 0.5294118)
+
 [node name="StockOption" type="Control" unique_id=1011788072]
 custom_minimum_size = Vector2(360, 160)
 layout_mode = 3
@@ -138,7 +141,7 @@ toggle_mode = true
 text = " ? "
 
 [node name="Panel" type="Panel" parent="VBoxContainer/EffectRow" unique_id=1521882151]
-custom_minimum_size = Vector2(160, 19)
+custom_minimum_size = Vector2(144, 19)
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("1_l2qqs")
@@ -243,4 +246,15 @@ text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 autowrap_mode = 3
 clip_text = true
 
+[node name="Disable" type="Panel" parent="." unique_id=1662939779]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_welxv")
+
 [connection signal="toggled" from="VBoxContainer/EffectRow/InfoButton" to="." method="_on_info_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/BuyingRow/BuyButton" to="." method="_on_buy_button_pressed"]

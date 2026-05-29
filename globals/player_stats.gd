@@ -9,6 +9,8 @@ var current_stats = []
 var stocks: Array[Stock] = []
 var extra_effects: Array[String] # do stirng for now, can change
 
+signal stocks_modified
+
 ## currently called by player, updates player's stats before next run
 func update_stats():
 	current_stats = BASE_STATS.duplicate() # copy base stats into stats every time
@@ -16,3 +18,11 @@ func update_stats():
 		if stock.changed_stat == Stock.stats.OTHER:
 			continue # add functionality here
 		current_stats[stock.changed_stat] += stock.change_amount
+
+func add_stock(s : Stock):
+	stocks.append(s)
+	stocks_modified.emit()
+
+func remove_stock(s : Stock):
+	stocks.remove_at(stocks.find(s))
+	stocks_modified.emit()

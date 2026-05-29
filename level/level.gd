@@ -45,6 +45,7 @@ func generate() -> void:
 			continue
 		child.queue_free()
 	var seed = randi() % 100000
+	seed = 32396
 	print('seed:', seed)
 	seed(seed)
 	generate_placement()
