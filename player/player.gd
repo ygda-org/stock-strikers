@@ -108,6 +108,10 @@ func shoot():
 		triple_shot(target_position)
 	if "recoil" in other_effects_list:
 		recoil()
+	if "extra_random_shots" in other_effects_list:
+		extra_random_shot()
+	if "octo_shot" in other_effects_list:
+		octo_shot()
 
 func hurt(hp_damage:int):
 	if !invincible:
@@ -234,3 +238,19 @@ func _on_money_leak_cd_timeout():
 
 func perfection_hit():
 	PlayerStats.money = int(PlayerStats.money * 0.9)
+
+func extra_random_shot():
+	var rando_bullet = create_bullet_to_spawn(damage * other_effects_strengths["extra_random_shots"])
+	get_parent().add_child(rando_bullet)
+	rando_bullet.global_position = global_position
+	rando_bullet.velocity = rando_bullet.velocity.rotated(randf_range(0,2*PI))
+
+func octo_shot():
+	for i in range(7):
+		var bullet = create_bullet_to_spawn(damage * other_effects_strengths["octo_shot"])
+		get_parent().add_child(bullet)
+		bullet.global_position = global_position
+		bullet.velocity = bullet.velocity.rotated(i*PI/4 + PI/4)
+
+func berserk_kill():
+	base_damage *= other_effects_strengths["berserk"]

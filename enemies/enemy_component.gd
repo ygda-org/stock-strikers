@@ -72,6 +72,8 @@ func die():
 	var money_gain = money_on_kill
 	if "perfection" in GameState.player.other_effects_list:
 		money_gain *= GameState.player.other_effects_strengths["perfection"]
+	if "berserk" in GameState.player.other_effects_list:
+		GameState.player.berserk_kill()
 	drop_coins(money_gain)
 	is_stunned = true
 	GameState.enemies.erase(parent)
