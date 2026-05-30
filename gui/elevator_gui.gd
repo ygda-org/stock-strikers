@@ -34,6 +34,8 @@ func update_owned_stocks():
 		option.stock = s
 		option.is_shop_stock = false
 		your_stocks_holder.add_child(option)
+		option.cost_per *= PlayerStats.stock_to_mult[s]
+		option.update_value()
 
 func update_trendings_stocks():
 	var your_stocks_holder : VBoxContainer = $"StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer"

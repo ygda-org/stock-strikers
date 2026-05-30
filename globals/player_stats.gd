@@ -7,6 +7,7 @@ const BASE_STATS = [100, 100, 0, 20, 0.5, 200, 1, 0.3, 250, 0.5, 0.2, 20, null] 
 var current_stats = []
 
 var stocks: Array[Stock] = []
+var stock_to_mult : Dictionary[Stock, int] = {}
 var extra_effects: Array[String] # do stirng for now, can change
 
 signal stocks_modified
@@ -17,10 +18,11 @@ func update_stats():
 	for stock in stocks:
 		if stock.changed_stat == Stock.stats.OTHER:
 			continue # add functionality here
-		current_stats[stock.changed_stat] += stock.change_amount
+		current_stats[stock.changed_stat] += stock.change_amount * stock_to_mult[stock]
 
-func add_stock(s : Stock):
+func add_stock(s : Stock, mult : int):
 	stocks.append(s)
+	stock_to_mult[s] = mult
 	stocks_modified.emit()
 
 func remove_stock(s : Stock):

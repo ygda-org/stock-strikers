@@ -65,6 +65,8 @@ func _process(delta: float) -> void:
 func _on_info_button_toggled(toggled_on: bool) -> void:
 	$Tooltip.visible = toggled_on
 
+func update_value():
+	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(cost_per)
 
 func _on_buy_button_pressed() -> void:
 	var dividend_ct : SpinBox = $VBoxContainer/BuyingRow/Dividends
@@ -74,7 +76,9 @@ func _on_buy_button_pressed() -> void:
 			return
 		$Disable.visible = true
 		PlayerStats.money -= dividend_ct.value * cost_per
-		PlayerStats.add_stock(stock)
+		PlayerStats.add_stock(stock, int(dividend_ct.value))
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
 	else:
-		pass
+		PlayerStats.money += cost_per
+		PlayerStats.remove_stock(stock)
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)

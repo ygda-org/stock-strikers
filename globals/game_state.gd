@@ -7,6 +7,11 @@ var in_game : bool = false
 
 var stock_options : Array[Stock] = []
 
+func _ready() -> void:
+	var chosen_seed = randi() % 100000
+	print('seed:', chosen_seed)
+	seed(chosen_seed)
+
 func _process(_delta):
 	clear_enemies()
 	if enemies.size() == 0 and in_game:
