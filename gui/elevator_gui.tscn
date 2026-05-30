@@ -145,9 +145,9 @@ texture = ExtResource("2_4mvcn")
 
 [node name="StockPanel" type="Panel" parent="." unique_id=655216269]
 layout_mode = 0
-offset_left = 289.0
+offset_left = 251.0
 offset_top = 151.0
-offset_right = 698.0
+offset_right = 660.0
 offset_bottom = 416.0
 theme = ExtResource("3_svwi6")
 
@@ -380,10 +380,10 @@ text = "BUY BUY BUY ($1000)"
 
 [node name="MoneyPanel" type="Panel" parent="." unique_id=1104745353]
 layout_mode = 0
-offset_left = 417.0
-offset_top = 218.0
-offset_right = 658.0
-offset_bottom = 418.0
+offset_left = 448.0
+offset_top = 231.0
+offset_right = 689.0
+offset_bottom = 431.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
