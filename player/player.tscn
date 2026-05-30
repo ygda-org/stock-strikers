@@ -75,6 +75,9 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
+[node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=439129887]
+texture = SubResource("GradientTexture2D_rkbax")
+
 [node name="InvincibleTimer" type="Timer" parent="." unique_id=793505322]
 one_shot = true
 
@@ -91,9 +94,6 @@ one_shot = true
 [node name="DodgeInvincibilityDur" type="Timer" parent="." unique_id=608031570]
 wait_time = 0.2
 one_shot = true
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=439129887]
-texture = SubResource("GradientTexture2D_rkbax")
 
 [node name="ExtraEffects" type="Node2D" parent="." unique_id=502570079]
 

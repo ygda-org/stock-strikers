@@ -23,12 +23,15 @@ var tile_width := 16
 
 var starting_room : PackedScene = null
 
-var max_room_count := 10
+var max_room_count := 8
 var min_room_count := 4
 
 var room_cord_neighbors : Dictionary[Vector2, Array] = {}
+var rooms_after_placement: Dictionary[Vector2, Node2D]
 
 var directions = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT]
+
+const TOP_FIX = preload("uid://cuiyvc7560r16")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,6 +41,7 @@ func _ready() -> void:
 		starting_room = pool.pick_random()
 	randomize()
 	generate()
+	check_top_replacements()
 
 func generate() -> void:
 	for child in get_children():
@@ -107,20 +111,15 @@ func place_rooms():
 			if needs_down != room.has_south:
 				continue
 			room.position = k * 16 * 16
+			room.z_index = k.y
+			rooms_after_placement[k] = room
 			add_child(room)
 			break
 
-#func _process(delta: float) -> void:
-	#var input = Input.get_vector("move_left","move_right","move_up","move_down")
-	#
-	#var cam : Camera2D = get_child(0)
-	#
-	#cam.position += input * 200 * delta
-	#
-	#if Input.is_action_pressed("ui_up"):
-		#cam.zoom += Vector2(delta, delta)
-	#if Input.is_action_pressed("ui_down"):
-		#cam.zoom -= Vector2(delta, delta)
-	#
-	#if Input.is_action_just_pressed("ui_accept"):
-		#generate()
+func check_top_replacements():
+	for coord in rooms_after_placement.keys():
+		var above = Vector2(coord.x, coord.y-1)
+		if above in room_cord_neighbors.keys() and not rooms_after_placement[coord].has_north and rooms_after_placement[coord].north_edge_fix:
+			var top_fix = TOP_FIX.instantiate()
+			top_fix.position = coord * 16 * 16
+			add_child(top_fix)

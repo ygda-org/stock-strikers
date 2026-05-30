@@ -67,6 +67,7 @@ func _ready(): # probably load stats from gamestate right
 	current_health = max_health
 
 func _process(delta):
+	z_index = position.y/256
 	damage = base_damage
 	damage = process_damage_multipliers(damage)
 	$Camera2D.position = (get_global_mouse_position() - global_position)/5

@@ -7,4 +7,6 @@ class_name Room
 @export var has_east : bool = false
 @export var has_west : bool = false
 
+@export var north_edge_fix: bool = false
+
 @export var spawns: Array[Vector2]

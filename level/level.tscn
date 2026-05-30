@@ -11,6 +11,7 @@ script = ExtResource("1_7lnir")
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Effects" unique_id=712306499]
+z_index = -20
 offset_left = -12545.0
 offset_top = -8769.0
 offset_right = 21031.0
