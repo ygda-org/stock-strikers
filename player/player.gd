@@ -129,6 +129,7 @@ func hurt(hp_damage:int):
 	
 func dodge():
 	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
+	squash(velocity.normalized(), 0.7)
 	if not velocity:
 		return
 	$DodgeDur.start()
@@ -151,6 +152,11 @@ func _on_dodge_dur_timeout():
 func _on_dodge_invincibility_dur_timeout():
 	if not invincible:
 		set_collision_layer_value(1,true)
+
+func squash(dir, strength):
+	var tween = get_tree().create_tween()
+	tween.tween_property($Anim, "scale", Vector2(1,1)-strength*dir.normalized(), 0.15)
+	tween.tween_property($Anim, "scale", Vector2(1,1), 0.1)
 
 ## creates a bullet and sets its initial values. Does not add child.
 func create_bullet_to_spawn(dmg):
