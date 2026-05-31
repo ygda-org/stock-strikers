@@ -35,13 +35,10 @@ func shoot(target,delta):
 	if not laser:
 		laser_point = Vector2.DOWN * (GameState.player.global_position - global_position)
 		laser = LASER.instantiate()
-		get_parent().add_child(laser)
+		add_child(laser)
 		laser.global_position = marker.global_position
 		laser.initialize(laser_point,bullet_damage)
 	laser_point = lerp(laser_point,target,2 * delta)
 	laser.target = laser_point
-	laser.global_position = global_position + (laser_point - global_position).normalized() * (marker.global_position-global_position).length()
+	laser.position = (laser_point - global_position).normalized()
 	laser.rotation = (laser.global_position - global_position).angle() + PI/2.0
-	
-	
-	
