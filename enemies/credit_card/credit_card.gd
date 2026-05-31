@@ -2,9 +2,14 @@ extends CharacterBody2D
 
 @onready var enemy_component = $EnemyComponent
 @onready var animation:AnimatedSprite2D = $Anim
+@onready var marker:Marker2D = $Marker2D
 
-@export var card_speed: int
-@export var bullet_damage: int
+const LASER = preload("uid://csveghgjktsk8")
+var laser
+var card_speed: int = 20
+var bullet_damage: int = 5
+
+var laser_point
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation.play("fly")
@@ -15,6 +20,7 @@ func _process(delta: float) -> void:
 	if GameState.player and !enemy_component.is_stunned:
 		var distance = GameState.player.global_position - global_position  
 		velocity = distance.normalized() * card_speed
+		shoot(GameState.player.global_position,delta)
 		
 	var collisions = [] # need these 4 lines in every enemy's physics process
 	for i in get_slide_collision_count():
@@ -23,3 +29,19 @@ func _process(delta: float) -> void:
 	pass
 	
 	move_and_slide()
+
+
+func shoot(target,delta):
+	if not laser:
+		laser_point = Vector2.DOWN * (GameState.player.global_position - global_position)
+		laser = LASER.instantiate()
+		get_parent().add_child(laser)
+		laser.global_position = marker.global_position
+		laser.initialize(laser_point,bullet_damage)
+	laser_point = lerp(laser_point,target,2 * delta)
+	laser.target = laser_point
+	laser.global_position = global_position + (laser_point - global_position).normalized() * (marker.global_position-global_position).length()
+	laser.rotation = (laser.global_position - global_position).angle() + PI/2.0
+	
+	
+	

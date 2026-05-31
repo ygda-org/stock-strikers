@@ -104,19 +104,24 @@ size = Vector2(14, 8)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_e8unp")
-card_speed = 20
 
 [node name="EnemyComponent" parent="." unique_id=741055310 instance=ExtResource("2_5f34s")]
-position = Vector2(1, -12)
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1084560480]
-position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_0srin")
 animation = &"fly"
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1195258754]
+position = Vector2(0, 13)
 texture = ExtResource("4_s1cob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1710013614]
-position = Vector2(0, -17)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_e38rg")
+
+[node name="LaserOn" type="Timer" parent="." unique_id=1190639134]
+
+[node name="LaserOff" type="Timer" parent="." unique_id=1291843462]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=917342485]
+position = Vector2(-9, 8)
