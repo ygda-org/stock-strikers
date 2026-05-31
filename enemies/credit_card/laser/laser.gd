@@ -15,14 +15,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if initialized:
-		raycast.target_position = target*100
+		raycast.target_position = Vector2.UP * 100 * target.length()
 		raycast.force_raycast_update()
 		var distance = (raycast.get_collision_point()-global_position).length()
 		var scalar = distance/anim.sprite_frames.get_frame_texture("laser",0).get_height()
 		anim.scale.y = scalar
 		anim.position.y = -distance/2.0
 		collider.scale.y = scalar
-		anim.position.y = -distance/2.0
+		collider.position.y = -distance/2.0
 		for body in get_overlapping_bodies():
 			if body.is_in_group("Player"):
 				body.hurt(damage)
