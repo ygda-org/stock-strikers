@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animation:AnimatedSprite2D = $Anim
 @onready var marker:Marker2D = $Marker2D
 
+
 const LASER = preload("uid://csveghgjktsk8")
 var laser
 var card_speed: int = 20
@@ -40,5 +41,5 @@ func shoot(target,delta):
 		laser.initialize(laser_point,bullet_damage)
 	laser_point = lerp(laser_point,target,2 * delta)
 	laser.target = laser_point
-	laser.position = (laser_point - global_position).normalized()
+	laser.position = (laser_point - global_position).normalized() * (marker.global_position - global_position).length()
 	laser.rotation = (laser.global_position - global_position).angle() + PI/2.0

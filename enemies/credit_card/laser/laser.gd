@@ -4,6 +4,9 @@ extends Area2D
 @onready var anim = $AnimatedSprite2D
 @onready var collider = $CollisionShape2D
 
+const LASER_PARTICLES = preload("uid://3ga6sf78d6y4")
+
+var laser_particles
 var initialized:bool = false
 var target
 var damage
@@ -23,6 +26,7 @@ func _process(delta: float) -> void:
 		anim.position.y = -distance/2.0
 		collider.scale.y = scalar
 		collider.position.y = -distance/2.0
+		laser_particles.position.y = -distance
 		for body in get_overlapping_bodies():
 			if body.is_in_group("Player"):
 				body.hurt(damage)
@@ -31,6 +35,9 @@ func initialize(new_target,new_damage):
 	target = new_target
 	damage = new_damage
 	initialized = true
+	laser_particles = LASER_PARTICLES.instantiate()
+	add_child(laser_particles)
+	
 
 func die():
 	queue_free()

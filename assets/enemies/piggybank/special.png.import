@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lwebw2ig43as"
-path="res://.godot/imported/binary.png-a57bf06ef443b6cb7f2b701c3297cf33.ctex"
+uid="uid://b84i17jeycd11"
+path="res://.godot/imported/special.png-c1b870bc7729c22461c0d0d9f305d04b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/credit_card/laser/binary.png"
-dest_files=["res://.godot/imported/binary.png-a57bf06ef443b6cb7f2b701c3297cf33.ctex"]
+source_file="res://assets/enemies/piggybank/special.png"
+dest_files=["res://.godot/imported/special.png-c1b870bc7729c22461c0d0d9f305d04b.ctex"]
 
 [params]
 
