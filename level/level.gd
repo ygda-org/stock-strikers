@@ -32,6 +32,7 @@ var rooms_after_placement: Dictionary[Vector2, Node2D]
 var directions = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT]
 
 const TOP_FIX = preload("uid://cuiyvc7560r16")
+const TOP_FIX_ENTRANCE = preload("uid://c8rfeoo72jgoo")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -119,7 +120,12 @@ func place_rooms():
 func check_top_replacements():
 	for coord in rooms_after_placement.keys():
 		var above = Vector2(coord.x, coord.y-1)
-		if above in room_cord_neighbors.keys() and not rooms_after_placement[coord].has_north and rooms_after_placement[coord].north_edge_fix:
-			var top_fix = TOP_FIX.instantiate()
-			top_fix.position = coord * 16 * 16
-			add_child(top_fix)
+		if above in room_cord_neighbors.keys() and rooms_after_placement[coord].north_edge_fix:
+			if not rooms_after_placement[coord].has_north:
+				var top_fix = TOP_FIX.instantiate()
+				top_fix.position = coord * 16 * 16
+				add_child(top_fix)
+			else:
+				var top_fix = TOP_FIX_ENTRANCE.instantiate()
+				top_fix.position = coord * 16 * 16
+				add_child(top_fix)
