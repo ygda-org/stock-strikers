@@ -10,7 +10,7 @@ var stocks: Array[Stock] = []
 var stock_to_mult : Dictionary[Stock, int] = {}
 var extra_effects: Array[String]
 
-var permanent_upgrades
+var permanent_upgrades = [Upgrade]
 
 signal stocks_modified
 
