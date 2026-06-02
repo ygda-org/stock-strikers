@@ -8,7 +8,9 @@ var current_stats = []
 
 var stocks: Array[Stock] = []
 var stock_to_mult : Dictionary[Stock, int] = {}
-var extra_effects: Array[String] # do stirng for now, can change
+var extra_effects: Array[String]
+
+var permanent_upgrades
 
 signal stocks_modified
 
@@ -28,3 +30,9 @@ func add_stock(s : Stock, mult : int):
 func remove_stock(s : Stock):
 	stocks.remove_at(stocks.find(s))
 	stocks_modified.emit()
+
+func add_permanent_upgrade(u: Upgrade):
+	permanent_upgrades.append(u)
+
+func remove_permanent_upgrade(u: Upgrade):
+	permanent_upgrades.remove_at(permanent_upgrades.find(u))
