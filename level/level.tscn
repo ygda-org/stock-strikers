@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bf3hx2y400gmf"]
 
 [ext_resource type="Script" uid="uid://cck8w0x1v3laq" path="res://level/level.gd" id="1_7lnir"]
+[ext_resource type="PackedScene" uid="uid://d1hijr3si4jyw" path="res://player/coins/coin.tscn" id="2_5gx2l"]
 
 [node name="Level" type="Node2D" unique_id=494579793]
 script = ExtResource("1_7lnir")
@@ -17,3 +18,7 @@ offset_top = -8769.0
 offset_right = 21031.0
 offset_bottom = 12570.0
 color = Color(0.011764706, 0, 0.18431373, 1)
+
+[node name="Coin" parent="Effects" unique_id=1596568995 instance=ExtResource("2_5gx2l")]
+z_index = 100
+position = Vector2(3, 0)
