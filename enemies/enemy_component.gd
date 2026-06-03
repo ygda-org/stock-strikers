@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name EnemyComponent
+
 @onready var animation = get_parent().get_node_or_null("AnimatedSprite2D")
 @onready var parent = get_parent()
 @onready var health_bar: ProgressBar = $HealthBar
