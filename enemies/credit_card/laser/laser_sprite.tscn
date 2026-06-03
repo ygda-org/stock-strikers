@@ -22,9 +22,8 @@ gradient = SubResource("Gradient_kbtut")
 position = Vector2(22, 21)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1373090812]
-visible = false
 material = SubResource("ShaderMaterial_o3cdo")
-points = PackedVector2Array(11, 26, 0, 0, 16, 5, 20, 10, 16, 12)
+points = PackedVector2Array(11, 26, 0, 0, 16, 5, 25, 11, 16, 12)
 width = 1.0
 texture_mode = 1
 round_precision = 1

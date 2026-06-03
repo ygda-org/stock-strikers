@@ -9,4 +9,10 @@ class_name Room
 
 @export var north_edge_fix: bool = false
 
-@export var spawns: Array[Vector2]
+@export var spawns: Array[Vector2] = [Vector2(128,128)]
+
+@onready var center : Vector2 = position + Vector2(128,128)
+
+func _process(delta: float) -> void:
+	var sq_dist_to_player := (GameState.player.position - center).length_squared()
+	

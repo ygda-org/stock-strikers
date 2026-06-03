@@ -25,6 +25,15 @@ func _ready():
 	GameState.enemies.append(get_parent())
 	if Upgrade.modifiers.MONEY_ON_KILL in PlayerStats.permanent_upgrades_loaded:
 		money_on_kill *= PlayerStats.permanent_upgrades_loaded[Upgrade.modifiers.MONEY_ON_KILL]
+	disable()
+
+func enable():
+	parent.process_mode = Node.PROCESS_MODE_ALWAYS
+	pass
+
+func disable():
+	parent.process_mode = Node.PROCESS_MODE_DISABLED
+	pass
 
 func _process(delta):
 	if is_knockback:
