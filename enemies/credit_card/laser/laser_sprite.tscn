@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://htjyu5re4675"]
+
+[ext_resource type="Shader" uid="uid://1spxx6ydklks" path="res://enemies/credit_card/laser/laser_sprite.gdshader" id="1_kbtut"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3cdo"]
+shader = ExtResource("1_kbtut")
+shader_parameter/green_point = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlycm"]
+shader = ExtResource("1_kbtut")
+shader_parameter/green_point = 0.25
+
+[sub_resource type="Gradient" id="Gradient_kbtut"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rlycm"]
+gradient = SubResource("Gradient_kbtut")
+
+[node name="LaserSprite" type="Node2D" unique_id=303556020]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1682147191]
+position = Vector2(22, 21)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1373090812]
+visible = false
+material = SubResource("ShaderMaterial_o3cdo")
+points = PackedVector2Array(11, 26, 0, 0, 16, 5, 20, 10, 16, 12)
+width = 1.0
+texture_mode = 1
+round_precision = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1586405843]
+material = SubResource("ShaderMaterial_rlycm")
+texture = SubResource("GradientTexture2D_rlycm")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
