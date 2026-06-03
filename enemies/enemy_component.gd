@@ -23,6 +23,8 @@ func _ready():
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	GameState.enemies.append(get_parent())
+	if Upgrade.modifiers.MONEY_ON_KILL in PlayerStats.permanent_upgrades_loaded:
+		money_on_kill *= PlayerStats.permanent_upgrades_loaded[Upgrade.modifiers.MONEY_ON_KILL]
 
 func _process(delta):
 	if is_knockback:

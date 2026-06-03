@@ -10,7 +10,8 @@ var stocks: Array[Stock] = []
 var stock_to_mult : Dictionary[Stock, int] = {}
 var extra_effects: Array[String]
 
-var permanent_upgrades = [Upgrade]
+var permanent_upgrades: Array[Upgrade] = []
+var permanent_upgrades_loaded: Dictionary[int, float]
 
 signal stocks_modified
 
@@ -21,6 +22,9 @@ func update_stats():
 		if stock.changed_stat == Stock.stats.OTHER:
 			continue # add functionality here
 		current_stats[stock.changed_stat] += stock.change_amount * stock_to_mult[stock]
+	for upgrade in permanent_upgrades: # adding this here lol no better place :D
+		permanent_upgrades_loaded[upgrade.modified] = upgrade.change_amount
+
 
 func add_stock(s : Stock, mult : int):
 	stocks.append(s)
