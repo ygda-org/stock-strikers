@@ -42,12 +42,17 @@ func shoot(target):
 	bullet.target = target
 	
 func choose_anim(vel:Vector2):
-	if vel.angle() > (3*PI)/4 or vel.angle() < -PI/2:
+	if vel.angle() > (3*PI)/4 or vel.angle() < -(3*PI)/4:
 		if not animation.animation == "side":
 			animation.play("side")
 		animation.flip_h = false
 		return
-	if vel.angle() < (PI)/4 and vel.angle() > -PI/2:
+	if vel.angle() < (3*PI)/4 and vel.angle() < -PI/4:
+		if not animation.animation == "back":
+			animation.play("back")
+		animation.flip_h = false
+		return
+	if vel.angle() < (PI)/4 and vel.angle() > -PI/4:
 		if not animation.animation == "side":
 			animation.play("side")
 		animation.flip_h = true
