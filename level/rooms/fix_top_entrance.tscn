@@ -3,6 +3,6 @@
 [ext_resource type="TileSet" uid="uid://by732a8y26a0o" path="res://assets/level/level_tileset.tres" id="1_10qbl"]
 
 [node name="FixTopEntrance" type="TileMapLayer" unique_id=1453433017]
-z_index = 5
+z_index = 100
 tile_map_data = PackedByteArray("AAAAAP3/AwAGAAMAABABAP3/AwAFAAAAAAACAP3/AwAFAAAAAAADAP3/AwAFAAAAAAAEAP3/AwAFAAAAAAAFAP3/AwAGAAAAAAAKAP3/AwAEAAAAAAALAP3/AwAFAAAAAAAMAP3/AwAFAAAAAAANAP3/AwAFAAAAAAAOAP3/AwAFAAAAAAAPAP3/AwAGAAMAAAA=")
 tile_set = ExtResource("1_10qbl")
