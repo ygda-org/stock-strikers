@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 const LASER = preload("uid://csveghgjktsk8")
 var laser
-var card_speed: int = 20
+var speed: int = 20
 var bullet_damage: int = 5
 
 var laser_point
@@ -20,7 +20,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if GameState.player and !enemy_component.is_stunned:
 		var distance = GameState.player.global_position - global_position  
-		velocity = distance.normalized() * card_speed
+		velocity = distance.normalized() * speed
 		shoot(GameState.player.global_position,delta)
 		
 	var collisions = [] # need these 4 lines in every enemy's physics process

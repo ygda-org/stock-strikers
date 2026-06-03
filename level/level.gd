@@ -36,12 +36,21 @@ const TOP_FIX_ENTRANCE = preload("uid://c8rfeoo72jgoo")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(PlayerStats.permanent_upgrades_loaded.keys())
+	if "max_room_ct" in PlayerStats.permanent_upgrades_loaded.keys():
+		max_room_count += int(PlayerStats.permanent_upgrades_loaded["max_room_ct"])
+	if "min_room_ct" in PlayerStats.permanent_upgrades_loaded.keys():
+		min_room_count += int(PlayerStats.permanent_upgrades_loaded["min_room_ct"])
 	for room_file in DirAccess.get_files_at("res://level/rooms/room_for_real/"):
 		pool.append(load("res://level/rooms/room_for_real/" + room_file))
 	if starting_room == null:
 		starting_room = pool.pick_random()
 	randomize()
 	generate()
+	if "no_four_split" in PlayerStats.permanent_upgrades_loaded.keys():
+		while check_four_split():
+			randomize()
+			generate()
 	check_top_replacements()
 
 func generate() -> void:
@@ -129,3 +138,9 @@ func check_top_replacements():
 				var top_fix = TOP_FIX_ENTRANCE.instantiate()
 				top_fix.position = coord * 16 * 16
 				add_child(top_fix)
+
+func check_four_split(): # returns true if has four split
+	for k in room_cord_neighbors.keys():
+		if k.has_north and k.has_east and k.has_south and k.has_west:
+			return true
+	return false

@@ -25,8 +25,13 @@ func _ready():
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	GameState.enemies.append(get_parent())
-	if Upgrade.modifiers.MONEY_ON_KILL in PlayerStats.permanent_upgrades_loaded:
-		money_on_kill *= PlayerStats.permanent_upgrades_loaded[Upgrade.modifiers.MONEY_ON_KILL]
+	if "money_on_kill" in PlayerStats.permanent_upgrades_loaded:
+		money_on_kill *= PlayerStats.permanent_upgrades_loaded["money_on_kill"]
+	if "enemy_move_speed" in PlayerStats.permanent_upgrades_loaded and "speed" in get_parent():
+		get_parent().speed *= PlayerStats.permanent_upgrades_loaded["enemy_move_speed"]
+	if "enemies_produce_light" in PlayerStats.permanent_upgrades_loaded:
+		$PointLight2D.enabled = true
+		$PointLight2D.scale *= PlayerStats.permanent_upgrades_loaded["enemies_produce_light"]
 	disable()
 
 func enable():

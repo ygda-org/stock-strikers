@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_lb5gl")
 modified = 9
+name = "max_room_ct"
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

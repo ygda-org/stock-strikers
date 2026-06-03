@@ -21,3 +21,4 @@ enum modifiers {
 @export var modified: modifiers
 ## either additive or multiplicative depending on upgrade (or even a 1 or 0 bool)
 @export var change_amount: float
+@export var name: String

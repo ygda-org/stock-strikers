@@ -10,10 +10,13 @@ var stocks: Array[Stock] = []
 var stock_to_mult : Dictionary[Stock, int] = {}
 var extra_effects: Array[String]
 
-var permanent_upgrades: Array[Upgrade] = []
-var permanent_upgrades_loaded: Dictionary[int, float]
+var permanent_upgrades: Array[Upgrade] = [load("uid://crghvea6e7g7h")]
+var permanent_upgrades_loaded: Dictionary[String, float]
 
 signal stocks_modified
+
+func _ready():
+	reload_upgrades()
 
 ## currently called by player, updates player's stats before next run
 func update_stats():
@@ -22,8 +25,7 @@ func update_stats():
 		if stock.changed_stat == Stock.stats.OTHER:
 			continue # add functionality here
 		current_stats[stock.changed_stat] += stock.change_amount * stock_to_mult[stock]
-	for upgrade in permanent_upgrades: # adding this here lol no better place :D
-		permanent_upgrades_loaded[upgrade.modified] = upgrade.change_amount
+	
 
 
 func add_stock(s : Stock, mult : int):
@@ -37,6 +39,12 @@ func remove_stock(s : Stock):
 
 func add_permanent_upgrade(u: Upgrade):
 	permanent_upgrades.append(u)
+	reload_upgrades()
 
 func remove_permanent_upgrade(u: Upgrade):
 	permanent_upgrades.remove_at(permanent_upgrades.find(u))
+	reload_upgrades()
+
+func reload_upgrades():
+	for upgrade in permanent_upgrades: # adding this here lol no better place :D
+		permanent_upgrades_loaded[upgrade.name] = upgrade.change_amount

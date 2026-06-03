@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_s2uf6")
 modified = 7
+name = "no_four_split"
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

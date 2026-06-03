@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bp6yp3tp6amlh" path="res://enemies/enemy_component.gd" id="1_exhe8"]
 
+[sub_resource type="Gradient" id="Gradient_exhe8"]
+offsets = PackedFloat32Array(0, 0.6729323)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fqvkt"]
+gradient = SubResource("Gradient_exhe8")
+width = 192
+height = 192
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
 [node name="EnemyComponent" type="Node2D" unique_id=741055310]
 script = ExtResource("1_exhe8")
 
@@ -21,5 +33,11 @@ show_percentage = false
 
 [node name="BleedTimer" type="Timer" parent="." unique_id=843158090]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=869295767]
+enabled = false
+energy = 0.7
+blend_mode = 2
+texture = SubResource("GradientTexture2D_fqvkt")
 
 [connection signal="timeout" from="BleedTimer" to="." method="_on_bleed_timer_timeout"]
