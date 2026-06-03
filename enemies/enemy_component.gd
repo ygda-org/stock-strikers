@@ -38,6 +38,8 @@ func disable():
 	pass
 
 func _process(delta):
+	parent.z_index = position.y/256
+	
 	if is_knockback:
 		parent.velocity = lerp(parent.velocity, Vector2.ZERO, kb_decel * delta)
 		if parent.velocity.length() < 10:
