@@ -36,7 +36,6 @@ const TOP_FIX_ENTRANCE = preload("uid://c8rfeoo72jgoo")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(PlayerStats.permanent_upgrades_loaded.keys())
 	if "max_room_ct" in PlayerStats.permanent_upgrades_loaded.keys():
 		max_room_count += int(PlayerStats.permanent_upgrades_loaded["max_room_ct"])
 	if "min_room_ct" in PlayerStats.permanent_upgrades_loaded.keys():
