@@ -7,4 +7,7 @@ script = ExtResource("1_x3n63")
 modified = 4
 change_amount = 0.7
 name = "enemy_move_speed"
+display_name = "Enemy tranquilizer"
+attribute_text = "Decreases movement speed of enemies."
+flavor_text = "Speed kills."
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

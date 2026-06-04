@@ -321,9 +321,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "+20 Damage"
 
-[node name="Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1298725552]
+[node name="Upgrade1Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1298725552]
 layout_mode = 2
-text = "BUY BUY BUY ($1000)"
+text = "BUY BUY BUY ($\\s)"
 
 [node name="Upgrade2" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1348818133]
 custom_minimum_size = Vector2(0, 71)
@@ -374,9 +374,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "+20 Damage"
 
-[node name="Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=576159107]
+[node name="Upgrade2Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=576159107]
 layout_mode = 2
-text = "BUY BUY BUY ($1000)"
+text = "BUY BUY BUY ($\\s)"
 
 [node name="MoneyPanel" type="Panel" parent="." unique_id=1104745353]
 layout_mode = 0
@@ -474,3 +474,5 @@ layout_mode = 2
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/PermButton" to="." method="_on_perm_button_pressed"]
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StockButton" to="." method="_on_stock_button_pressed"]
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/MoneyButton" to="." method="_on_money_button_pressed"]
+[connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button" to="." method="_on_upgrade_1_button_pressed"]
+[connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button" to="." method="_on_upgrade_2_button_pressed"]

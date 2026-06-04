@@ -21,4 +21,10 @@ enum modifiers {
 @export var modified: modifiers
 ## either additive or multiplicative depending on upgrade (or even a 1 or 0 bool)
 @export var change_amount: float
+## internal processing name
 @export var name: String
+
+@export var display_name: String
+@export var attribute_text: String
+@export var flavor_text: String
+@export var cost: float

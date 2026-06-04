@@ -6,4 +6,7 @@
 script = ExtResource("1_s2uf6")
 modified = 7
 name = "no_four_split"
+display_name = "No Four Way Branch"
+attribute_text = "Removes possibility to have a four way branch on a floor."
+flavor_text = "Branching paths are just so slow."
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

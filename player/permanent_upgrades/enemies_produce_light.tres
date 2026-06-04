@@ -7,4 +7,7 @@ script = ExtResource("1_euv6u")
 modified = 6
 change_amount = 1.0
 name = "enemies_produce_light"
+display_name = "Luminescent enemies"
+attribute_text = "Makes enemies produce light."
+flavor_text = "For those who don't have night vision."
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

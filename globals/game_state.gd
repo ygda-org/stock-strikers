@@ -16,13 +16,17 @@ var enemy_rate : Dictionary[Variant, float]= {
 var in_game : bool = false
 
 var stock_options : Array[Stock] = []
+var upgrade_options: Array[Upgrade] # size 2
 
 var all_stocks : Array[Stock] = []
+var all_upgrades: Array[Upgrade]
 
 func _ready() -> void:
 	var chosen_seed = randi() % 100000
 	print('seed:', chosen_seed)
 	seed(chosen_seed)
+	get_all_stocks()
+	get_all_upgrades()
 
 func _process(_delta):
 	clear_enemies()
@@ -40,9 +44,22 @@ func get_all_stocks():
 			continue
 		all_stocks.append(load(dir_name + file_name))
 
+func get_all_upgrades():
+	var dir_name := "res://player/permanent_upgrades/"
+	var dir := DirAccess.open(dir_name)
+	var file_names := dir.get_files()
+	for file_name in file_names:
+		if 'tres' not in file_name:
+			continue
+		all_upgrades.append(load(dir_name + file_name))
+
 func generate_stock_options():
 	all_stocks.shuffle()
 	stock_options = all_stocks.slice(0, 5)
+
+func generate_upgrade_options():
+	all_upgrades.shuffle()
+	upgrade_options = all_upgrades.slice(0,2)
 
 func clear_enemies():
 	var indices = []
