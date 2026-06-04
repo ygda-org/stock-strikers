@@ -15,12 +15,15 @@ class_name Room
 @onready var center : Vector2 = position + Vector2(128,128)
 
 var room_entered := false
+var has_enemies := true
+var my_enemies : Array = []
 
 func _ready() -> void:
 	for poz in spawns:
 		var enemy : CharacterBody2D = select_enemy().instantiate()
 		enemy.position = poz
 		add_child(enemy)
+		my_enemies.append(enemy)
 
 func select_enemy():
 	var cum_percent : float = 0
@@ -32,8 +35,14 @@ func select_enemy():
 	print('Warning: Total Enemy rates likely dont add to 100%' )
 
 func _process(delta: float) -> void:
-	if room_entered:
+	if not has_enemies:
 		return
+
+	if room_entered:
+		if has_enemies and not check_enemies():
+			on_all_enemies_dead()
+		return
+
 	var sq_dist_to_player := (GameState.player.position - center).length_squared()
 	# 128**2 = 16384
 	if sq_dist_to_player < 16384:
@@ -42,4 +51,14 @@ func _process(delta: float) -> void:
 			if child is TileMapLayer:
 				continue
 			var e_comp : EnemyComponent = child.find_child("EnemyComponent")
-			e_comp.enable()
+			if e_comp != null:
+				e_comp.enable()
+
+func check_enemies():
+	for e in my_enemies:
+		if e != null:
+			return true
+	return false
+
+func on_all_enemies_dead():
+	has_enemies = false
