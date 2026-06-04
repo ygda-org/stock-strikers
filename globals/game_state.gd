@@ -17,8 +17,11 @@ var in_game : bool = false
 
 var stock_options : Array[Stock] = []
 
+var all_stocks : Array[Stock] = []
+
 func _ready() -> void:
 	var chosen_seed = randi() % 100000
+	chosen_seed = 89323
 	print('seed:', chosen_seed)
 	seed(chosen_seed)
 
@@ -28,18 +31,19 @@ func _process(_delta):
 		get_tree().change_scene_to_file("res://gui/elevator_gui.tscn")
 		in_game = false
 
-func generate_stock_options():
+func get_all_stocks():
 	var dir_name := "res://player/stocks/"
 	# This "open" method returns an instance for accessing your dir
 	var dir := DirAccess.open(dir_name)
 	var file_names := dir.get_files()
-	var resources: Array[Stock] = []
 	for file_name in file_names:
 		if 'tres' not in file_name:
 			continue
-		resources.append(load(dir_name + file_name))
-	resources.shuffle()
-	stock_options = resources.slice(0, 5)
+		all_stocks.append(load(dir_name + file_name))
+
+func generate_stock_options():
+	all_stocks.shuffle()
+	stock_options = all_stocks.slice(0, 5)
 
 func clear_enemies():
 	var indices = []
@@ -52,3 +56,6 @@ func clear_enemies():
 			break
 		enemies.remove_at(i - j)
 		j += 1
+
+func on_room_clear():
+	pass
