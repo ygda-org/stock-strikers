@@ -2,35 +2,30 @@
 
 [ext_resource type="Script" uid="uid://ba6t5i6nk78wv" path="res://gui/health_bar.gd" id="1_a4qft"]
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="2_ma5vl"]
-[ext_resource type="PackedScene" uid="uid://4b17bv4t0hy5" path="res://gui/stock_timer.tscn" id="3_qfb1t"]
+[ext_resource type="PackedScene" uid="uid://4b17bv4t0hy5" path="res://gui/ticker_tape.tscn" id="3_qfb1t"]
 
 [node name="BattleGui" type="CanvasLayer" unique_id=100503230]
 
 [node name="HealthBar" type="Control" parent="." unique_id=2089629803]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_a4qft")
 
 [node name="Bar" type="ProgressBar" parent="HealthBar" unique_id=1499703614]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 533.0
-offset_right = 398.0
-offset_bottom = 569.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_right = 275.0
+offset_bottom = 40.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("2_ma5vl")
 value = 100.0
 
-[node name="StockTimer" parent="." unique_id=52366453 instance=ExtResource("3_qfb1t")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="TickerTape" parent="." unique_id=52366453 instance=ExtResource("3_qfb1t")]

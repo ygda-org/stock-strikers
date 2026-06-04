@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://b8sif1nv6mpov"
+path="res://.godot/imported/StckStrkrFont.png-f55216fa556dd8b52074c9d6ee63e613.fontdata"
+
+[deps]
+
+source_file="res://assets/tempoary_assets/StckStrkrFont.png"
+dest_files=["res://.godot/imported/StckStrkrFont.png-f55216fa556dd8b52074c9d6ee63e613.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("65-90")
+kerning_pairs=PackedStringArray()
+columns=6
+rows=5
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

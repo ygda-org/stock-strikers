@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://4b17bv4t0hy5"]
+
+[ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="1_fbhv2"]
+
+[node name="TickerTape" type="Control" unique_id=52366453]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 3
+anchor_right = 0.187
+anchor_bottom = 1.0
+offset_right = 0.3999939
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fbhv2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=285014133]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83300006
+anchor_bottom = 0.20700002
+offset_right = 0.049987793
+offset_bottom = -0.2000122
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true

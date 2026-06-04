@@ -22,6 +22,7 @@ var bleed_count
 const COIN = preload("uid://d1hijr3si4jyw")
 
 func _ready():
+	parent.z_as_relative = false
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	GameState.enemies.append(get_parent())

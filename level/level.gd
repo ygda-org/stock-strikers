@@ -128,15 +128,16 @@ func place_rooms():
 func check_top_replacements():
 	for coord in rooms_after_placement.keys():
 		var above = Vector2(coord.x, coord.y-1)
-		if above in room_cord_neighbors.keys() and rooms_after_placement[coord].north_edge_fix and rooms_after_placement[coord].full_size and rooms_after_placement[Vector2(coord.x, coord.y-1)].full_size:
-			if not rooms_after_placement[coord].has_north:
-				var top_fix = TOP_FIX.instantiate()
-				top_fix.position = coord * 16 * 16
-				add_child(top_fix)
-			else:
-				var top_fix = TOP_FIX_ENTRANCE.instantiate()
-				top_fix.position = coord * 16 * 16
-				add_child(top_fix)
+		if above in room_cord_neighbors.keys() and rooms_after_placement[coord].north_edge_fix:
+			if above in rooms_after_placement.keys() and rooms_after_placement[coord].full_size and rooms_after_placement[above].full_size:
+				if not rooms_after_placement[coord].has_north:
+					var top_fix = TOP_FIX.instantiate()
+					top_fix.position = coord * 16 * 16
+					add_child(top_fix)
+				else:
+					var top_fix = TOP_FIX_ENTRANCE.instantiate()
+					top_fix.position = coord * 16 * 16
+					add_child(top_fix)
 
 func check_four_split(): # returns true if has four split
 	for k in room_cord_neighbors.keys():

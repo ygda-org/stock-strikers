@@ -21,7 +21,6 @@ var all_stocks : Array[Stock] = []
 
 func _ready() -> void:
 	var chosen_seed = randi() % 100000
-	chosen_seed = 89323
 	print('seed:', chosen_seed)
 	seed(chosen_seed)
 
