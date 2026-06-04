@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://drm365q6gg1o6" path="res://globals/audio/sfx_settings.gd" id="2_d580q"]
 [ext_resource type="AudioStream" uid="uid://bvksuuyv4utcm" path="res://assets/audio/sfx/buy_success.mp3" id="3_npaok"]
 [ext_resource type="AudioStream" uid="uid://d2ef5wxs536yc" path="res://assets/audio/sfx/buy_fail.wav" id="4_sx6ju"]
+[ext_resource type="AudioStream" uid="uid://dsdiignjerl3g" path="res://assets/audio/sfx/coin.wav" id="5_npaok"]
 
 [sub_resource type="Resource" id="Resource_pbncl"]
 script = ExtResource("2_d580q")
@@ -17,9 +18,17 @@ label = 1
 stream = ExtResource("4_sx6ju")
 metadata/_custom_type_script = "uid://drm365q6gg1o6"
 
+[sub_resource type="Resource" id="Resource_sx6ju"]
+script = ExtResource("2_d580q")
+label = 2
+stream = ExtResource("5_npaok")
+volume = 2.0
+metadata/_custom_type_script = "uid://drm365q6gg1o6"
+
 [node name="SfxManager" type="Node" unique_id=936414398]
 script = ExtResource("1_dtfen")
 sound_effect_dict = Dictionary[int, ExtResource("2_d580q")]({
 0: SubResource("Resource_pbncl"),
-1: SubResource("Resource_5ixn8")
+1: SubResource("Resource_5ixn8"),
+2: SubResource("Resource_sx6ju")
 })

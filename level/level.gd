@@ -128,7 +128,7 @@ func place_rooms():
 func check_top_replacements():
 	for coord in rooms_after_placement.keys():
 		var above = Vector2(coord.x, coord.y-1)
-		if above in room_cord_neighbors.keys() and rooms_after_placement[coord].north_edge_fix:
+		if above in room_cord_neighbors.keys() and rooms_after_placement[coord].north_edge_fix and rooms_after_placement[coord].full_size and rooms_after_placement[Vector2(coord.x, coord.y-1)].full_size:
 			if not rooms_after_placement[coord].has_north:
 				var top_fix = TOP_FIX.instantiate()
 				top_fix.position = coord * 16 * 16

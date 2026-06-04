@@ -5,6 +5,7 @@ class_name SFXSettings
 enum SFX_LABEL{
 	BuySuccess,
 	BuyFail,
+	Coin,
 }
 
 @export var label : SFX_LABEL

@@ -8,6 +8,7 @@ class_name Room
 @export var has_west : bool = false
 
 @export var north_edge_fix: bool = false
+@export var full_size: bool = false
 
 @export var spawns: Array[Vector2] = [Vector2(128,128)]
 
