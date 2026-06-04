@@ -70,7 +70,8 @@ func _process(delta):
 	z_index = position.y/256
 	damage = base_damage
 	damage = process_damage_multipliers(damage)
-	$Camera2D.position = (get_global_mouse_position() - global_position)/5
+	var mouse_pos_diff = get_global_mouse_position() - global_position
+	$Camera2D.position = Vector2(mouse_pos_diff.x/5, mouse_pos_diff.y/4)
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
 		dodge()
 	if (not $DodgeDur.is_stopped()) or (not $ExtraEffects/RecoilTimer.is_stopped()):
