@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bc5j7m306p35j"]
+
+[ext_resource type="PackedScene" uid="uid://cpn4wboo43nvd" path="res://gui/elevator_gui.tscn" id="1_fkxky"]
+[ext_resource type="Script" uid="uid://71u4w7v5iss7" path="res://main/tutorial/tutorial_elevator.gd" id="1_vll30"]
+
+[node name="TutorialElevator" type="Control" unique_id=916280041]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vll30")
+
+[node name="ElevatorGui" parent="." unique_id=241942387 instance=ExtResource("1_fkxky")]
+layout_mode = 1
+
+[node name="Label1" type="Label" parent="." unique_id=1685920504]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 33.0
+offset_right = 587.0
+offset_bottom = 108.0
+text = "Welcome to the elevator! Here you can buy and sell stocks, or take out loans to buy permanent upgrades."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="." unique_id=1662075078]
+visible = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 470.0
+offset_right = 756.0
+offset_bottom = 493.0
+text = "Access different tabs here. And press the Penguin to leave the elevator and start the next level."
+
+[node name="Label3" type="Label" parent="." unique_id=1270262131]
+visible = false
+layout_mode = 0
+offset_left = 503.0
+offset_top = 106.0
+offset_right = 741.0
+offset_bottom = 216.0
+text = "This is FrogDaq. Here you can see what stocks are available for purchase, or view your own to sell them."
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="." unique_id=1094032973]
+visible = false
+layout_mode = 0
+offset_left = 503.0
+offset_top = 106.0
+offset_right = 741.0
+offset_bottom = 216.0
+text = "Stocks give effects that change after every room. They're risky, but they can really pay off if you choose smartly."
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="." unique_id=1966859338]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = 188.0
+offset_right = 104.0
+offset_bottom = 497.0
+text = "This is Sahara. These upgrades are permanent and unchanging, but expensive."
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="." unique_id=1089536442]
+visible = false
+layout_mode = 0
+offset_top = 155.0
+offset_right = 98.0
+offset_bottom = 542.0
+text = "If you don't have the money to buy from Sahara, it will prompt you if you want to take out a loan. Loans incur constant interest though, so watch out."
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="." unique_id=846683805]
+visible = false
+layout_mode = 0
+offset_left = 485.0
+offset_top = 431.0
+offset_right = 774.0
+offset_bottom = 818.0
+text = "Finally, here is LowercaseTwo. You can view your current money and see and pay off your debts."
+autowrap_mode = 2
+
+[node name="Label8" type="Label" parent="." unique_id=1854510950]
+visible = false
+layout_mode = 0
+offset_left = 278.0
+offset_top = 74.0
+offset_right = 521.0
+offset_bottom = 149.0
+text = "I'll give you some stocks and upgrades to try out in another level."
+autowrap_mode = 2

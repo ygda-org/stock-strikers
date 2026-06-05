@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://bjg1ol0qd3xfm"]
+
+[ext_resource type="Script" uid="uid://dhtdvijthhjmy" path="res://main/tutorial/tutorial.gd" id="1_oqsdr"]
+[ext_resource type="PackedScene" uid="uid://cl8dxjs2b7ovw" path="res://level/rooms/room_for_real/e1.tscn" id="1_wkvwr"]
+[ext_resource type="PackedScene" uid="uid://j8x542c82i0j" path="res://level/rooms/room_for_real/sw3.tscn" id="2_6c8fo"]
+[ext_resource type="PackedScene" uid="uid://3smqvhstcant" path="res://player/player.tscn" id="3_o1bt0"]
+[ext_resource type="PackedScene" uid="uid://jmo7a4vi356i" path="res://level/rooms/room_for_real/ne1.tscn" id="4_4autc"]
+[ext_resource type="PackedScene" uid="uid://bj8jigk37cq0h" path="res://level/rooms/fix_top_entrance_3n.tscn" id="5_74prr"]
+[ext_resource type="PackedScene" uid="uid://4gta4sudsr53" path="res://level/rooms/room_for_real/w1.tscn" id="6_74prr"]
+[ext_resource type="PackedScene" uid="uid://cq7h3giq4ix6y" path="res://level/rooms/elevator.tscn" id="8_2df2v"]
+[ext_resource type="PackedScene" uid="uid://b73ufdvihi6ks" path="res://enemies/piggy_bank/piggy_bank.tscn" id="9_oay10"]
+[ext_resource type="PackedScene" uid="uid://diupkd5kr2tpw" path="res://enemies/credit_card/credit_card.tscn" id="10_h7g1w"]
+[ext_resource type="PackedScene" uid="uid://dmtq0eq4tnvrw" path="res://enemies/wallet/wallet.tscn" id="11_h7g1w"]
+[ext_resource type="AudioStream" uid="uid://bop2wwbu67egg" path="res://assets/audio/battle theme 1.ogg" id="12_2wm1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2df2v"]
+size = Vector2(52, 37.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7g1w"]
+size = Vector2(28, 73)
+
+[node name="Tutorial" type="Node2D" unique_id=160116059]
+script = ExtResource("1_oqsdr")
+
+[node name="Gameplay" type="Node2D" parent="." unique_id=378043576]
+
+[node name="Rooms" type="Node2D" parent="Gameplay" unique_id=124953340]
+
+[node name="E1" parent="Gameplay/Rooms" unique_id=320221663 instance=ExtResource("1_wkvwr")]
+
+[node name="Sw3" parent="Gameplay/Rooms" unique_id=625981681 instance=ExtResource("2_6c8fo")]
+position = Vector2(256, 0)
+
+[node name="Ne1" parent="Gameplay/Rooms" unique_id=694800837 instance=ExtResource("4_4autc")]
+position = Vector2(256, 256)
+
+[node name="FixTopEntrance3n" parent="Gameplay/Rooms" unique_id=1273190774 instance=ExtResource("5_74prr")]
+position = Vector2(256, 256)
+
+[node name="W1" parent="Gameplay/Rooms" unique_id=1287023855 instance=ExtResource("6_74prr")]
+position = Vector2(512, 256)
+
+[node name="Text" type="Control" parent="Gameplay" unique_id=1147624723]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Gameplay/Text" unique_id=1745670129]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 72.0
+offset_bottom = 44.0
+text = "WASD to move"
+
+[node name="Label2" type="Label" parent="Gameplay/Text" unique_id=796895677]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 76.0
+offset_right = 586.0
+offset_bottom = 125.0
+text = "Aim with 
+mouse, left
+click to shoot"
+
+[node name="Label3" type="Label" parent="Gameplay/Text" unique_id=984681061]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 503.0
+offset_right = 502.0
+offset_bottom = 526.0
+text = "Defeat every enemy in the level!"
+
+[node name="Label4" type="Label" parent="Gameplay/Text" unique_id=515657075]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 301.0
+offset_right = 981.0
+offset_bottom = 402.0
+text = "End the level
+by finding and
+entering the
+elevator"
+
+[node name="Elevator" parent="Gameplay" unique_id=229577095 instance=ExtResource("8_2df2v")]
+position = Vector2(632, 255)
+monitoring = false
+monitorable = false
+
+[node name="End" type="Area2D" parent="Gameplay" unique_id=1107209101]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/End" unique_id=2020402464]
+position = Vector2(632, 289)
+shape = SubResource("RectangleShape2D_2df2v")
+
+[node name="ColorRect" type="ColorRect" parent="Gameplay" unique_id=684629900]
+z_index = -1000
+offset_left = -209.0
+offset_top = -163.0
+offset_right = 1248.0
+offset_bottom = 1022.0
+color = Color(0.011764706, 0, 0.18431373, 1)
+
+[node name="CreditCard" parent="Gameplay" unique_id=391192466 instance=ExtResource("10_h7g1w")]
+position = Vector2(391, 428)
+
+[node name="Wallet" parent="Gameplay" unique_id=378164138 instance=ExtResource("11_h7g1w")]
+position = Vector2(385, 191)
+
+[node name="Node2D" type="Node2D" parent="Gameplay" unique_id=1819161010]
+
+[node name="Player" parent="Gameplay/Node2D" unique_id=453716687 instance=ExtResource("3_o1bt0")]
+position = Vector2(80, 108)
+
+[node name="Piggies" type="Node2D" parent="." unique_id=518429511]
+
+[node name="PiggyBank" parent="Piggies" unique_id=104104915 instance=ExtResource("9_oay10")]
+position = Vector2(712, 297)
+
+[node name="PiggyBank2" parent="Piggies" unique_id=89554802 instance=ExtResource("9_oay10")]
+position = Vector2(731, 456)
+
+[node name="PiggyActivation" type="Area2D" parent="." unique_id=1757360759]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PiggyActivation" unique_id=109658520]
+position = Vector2(514, 385)
+shape = SubResource("RectangleShape2D_h7g1w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=412327227]
+stream = ExtResource("12_2wm1q")
+autoplay = true
+
+[connection signal="body_entered" from="Gameplay/End" to="." method="_on_end_body_entered"]
+[connection signal="body_entered" from="PiggyActivation" to="." method="_on_piggy_activation_body_entered"]

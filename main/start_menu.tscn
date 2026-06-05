@@ -33,6 +33,14 @@ offset_right = 126.0
 offset_bottom = 367.0
 text = "Credits"
 
+[node name="Tutorial" type="Button" parent="Main" unique_id=414135059]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 294.0
+offset_right = 141.0
+offset_bottom = 325.0
+text = "Tutorial"
+
 [node name="Credits" type="Control" parent="." unique_id=957842868]
 visible = false
 anchors_preset = 0
@@ -62,4 +70,5 @@ playback_type = 1
 
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Main/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Credits/Back" to="." method="_on_back_pressed"]
