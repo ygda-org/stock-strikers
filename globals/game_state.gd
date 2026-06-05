@@ -6,11 +6,13 @@ var enemies = []
 const CREDIT_CARD = preload("uid://diupkd5kr2tpw")
 const PIGGY_BANK = preload("uid://b73ufdvihi6ks")
 const WALLET = preload("uid://dmtq0eq4tnvrw")
+const MONEY_BAG = preload("uid://cqybob226gurn")
 
 var enemy_rate : Dictionary[Variant, float]= {
-	CREDIT_CARD : 0.5,
-	PIGGY_BANK : 0.1,
-	WALLET : 0.4,
+	CREDIT_CARD : 0.25,
+	PIGGY_BANK : 0.25,
+	WALLET : 0.25,
+	MONEY_BAG : 0.25,
 }
 
 var in_game : bool = false
