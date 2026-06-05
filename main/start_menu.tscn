@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6i6mv001enok"]
 
 [ext_resource type="Script" uid="uid://dbl54bs86upm2" path="res://main/main_menu.gd" id="1_c75ke"]
+[ext_resource type="AudioStream" uid="uid://cws2b4vinhrl8" path="res://assets/audio/menu-intro.mp3" id="2_tus5k"]
 
 [node name="StartMenu" type="Control" unique_id=1499241315]
 layout_mode = 3
@@ -53,6 +54,10 @@ offset_top = 551.0
 offset_right = 578.0
 offset_bottom = 574.0
 text = "Made using Godot: https://godotengine.org/license/"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=422114820]
+stream = ExtResource("2_tus5k")
+playback_type = 1
 
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main/Credits" to="." method="_on_credits_pressed"]
