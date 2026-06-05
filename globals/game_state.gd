@@ -111,6 +111,8 @@ func on_room_clear():
 			range = s.high_volatile_range
 		var delta = randf_range(range.x,range.y)
 		delta = round(delta * 100.0)/100.0
+		if "stock_market_volatility" in PlayerStats.permanent_upgrades_loaded.keys():
+			delta *= PlayerStats.permanent_upgrades_loaded["stock_market_volatility"]
 		s.change_amount += delta
 		last_stock_dir[s] = sign(delta)
 		update_stock_tickers.emit()

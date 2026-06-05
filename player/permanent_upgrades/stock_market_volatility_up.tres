@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://c1fn0t6imyvxd"]
+
+[ext_resource type="Script" uid="uid://b84t6wgyld4v8" path="res://player/permanent_upgrades/base_upgrade.gd" id="1_q3db8"]
+
+[resource]
+script = ExtResource("1_q3db8")
+modified = 10
+change_amount = 1.4
+name = "stock_market_volatility"
+display_name = "Stock Volatility"
+attribute_text = "Increases volatility of all stocks."
+flavor_text = "No risk, no reward"
+metadata/_custom_type_script = "uid://b84t6wgyld4v8"

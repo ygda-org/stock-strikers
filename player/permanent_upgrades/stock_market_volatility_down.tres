@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bc631dr4yw316"]
+
+[ext_resource type="Script" uid="uid://b84t6wgyld4v8" path="res://player/permanent_upgrades/base_upgrade.gd" id="1_rtu2w"]
+
+[resource]
+script = ExtResource("1_rtu2w")
+modified = 10
+change_amount = 0.6
+name = "stock_market_volatility"
+display_name = "Stock Volatility Down"
+attribute_text = "Decreases volatility of all stocks."
+flavor_text = "Slow and steady"
+metadata/_custom_type_script = "uid://b84t6wgyld4v8"
