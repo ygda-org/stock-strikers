@@ -20,6 +20,7 @@ script = ExtResource("1_kfbq2")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1169206716]
 stream = SubResource("AudioStreamRandomizer_0i4oc")
 autoplay = true
+playback_type = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=850065133]
 offset_left = 125.0
