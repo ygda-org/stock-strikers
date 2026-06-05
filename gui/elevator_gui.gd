@@ -24,7 +24,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	update_balance()
-	# updating every frame rn, optimize later
+
+func update_debt_options() -> void:
 	for child in $MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer.get_children():
 		child.queue_free()
 	for debt in PlayerStats.debts:
@@ -117,6 +118,7 @@ func buy_upgrade(upgrade, button) -> void:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
 		PlayerStats.permanent_upgrades.append(upgrade)
 		button.disabled = true
+		update_debt_options()
 		return
 	if PlayerStats.money > upgrade.cost:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
@@ -136,3 +138,4 @@ func pay_debt(debt_node):
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
 	else:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuyFail) 
+	update_debt_options()

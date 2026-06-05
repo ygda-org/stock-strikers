@@ -90,6 +90,7 @@ offset_right = 316.0
 offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.101960786, 0.47843137, 0.47843137, 1)
 
 [node name="Taskbar" type="Panel" parent="Background/DesktopBg" unique_id=1114086752]
@@ -101,6 +102,7 @@ anchor_bottom = 1.0
 offset_top = -29.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme = ExtResource("3_svwi6")
 theme_override_styles/panel = SubResource("StyleBoxTexture_d2mul")
 
@@ -111,6 +113,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 2
@@ -118,6 +121,7 @@ theme_override_constants/margin_bottom = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/DesktopBg/Taskbar/MarginContainer" unique_id=888939278]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="StartButton" type="Button" parent="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer" unique_id=1687193267]
 layout_mode = 2
@@ -157,6 +161,7 @@ offset_left = 251.0
 offset_top = 151.0
 offset_right = 660.0
 offset_bottom = 416.0
+mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
 [node name="MarginContainer" type="MarginContainer" parent="StockPanel" unique_id=613968743]
@@ -229,6 +234,7 @@ offset_left = 107.0
 offset_top = 200.0
 offset_right = 464.0
 offset_bottom = 434.0
+mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
 [node name="MarginContainer" type="MarginContainer" parent="PermPanel" unique_id=239765326]
@@ -283,6 +289,7 @@ text = "  Premium One week Shipping
 [node name="Upgrade1" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1045849536]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_68ai3")
 
 [node name="MarginContainer" type="MarginContainer" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1" unique_id=233975656]
@@ -337,6 +344,7 @@ script = ExtResource("12_h2vk8")
 [node name="Upgrade2" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1348818133]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_h2vk8")
 
 [node name="MarginContainer" type="MarginContainer" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2" unique_id=133222310]
@@ -404,6 +412,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
@@ -411,10 +420,12 @@ theme_override_constants/margin_bottom = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MoneyPanel/MarginContainer" unique_id=889668910]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="MoneyPanel/MarginContainer/VBoxContainer" unique_id=2121596233]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
+mouse_filter = 2
 color = Color(0, 0, 0.5019608, 1)
 
 [node name="Label" type="Label" parent="MoneyPanel/MarginContainer/VBoxContainer/ColorRect" unique_id=679777444]
@@ -436,6 +447,7 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MoneyPanel/MarginContainer/VBoxContainer" unique_id=1633994926]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2139372109]
 layout_mode = 2
@@ -476,9 +488,11 @@ text = " Outstanding Payments:"
 [node name="ScrollContainer" type="ScrollContainer" parent="MoneyPanel/MarginContainer/VBoxContainer" unique_id=1489582342]
 custom_minimum_size = Vector2(0, 133)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=570998583]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=539520674]
 stream = SubResource("AudioStreamPlaylist_m6y2a")
