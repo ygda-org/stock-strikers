@@ -4,13 +4,15 @@
 [ext_resource type="Script" uid="uid://cs0jx82kumrnd" path="res://main/main.gd" id="1_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://bf3hx2y400gmf" path="res://level/level.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://dr63yl5l5a3ww" path="res://gui/battle_gui.tscn" id="4_c651c"]
+[ext_resource type="AudioStream" uid="uid://bfv8s6qs7u8jq" path="res://assets/audio/battle theme 3.ogg" id="5_4dugh"]
 [ext_resource type="AudioStream" uid="uid://bop2wwbu67egg" path="res://assets/audio/battle theme 1.ogg" id="8_67ri8"]
 [ext_resource type="AudioStream" uid="uid://dgue3pw7p162h" path="res://assets/audio/battle theme 2.ogg" id="9_grrlh"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0i4oc"]
-streams_count = 2
+streams_count = 3
 stream_0/stream = ExtResource("8_67ri8")
 stream_1/stream = ExtResource("9_grrlh")
+stream_2/stream = ExtResource("5_4dugh")
 
 [node name="Main" type="Node2D" unique_id=426619736]
 script = ExtResource("1_kfbq2")
