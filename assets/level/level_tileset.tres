@@ -195,6 +195,7 @@ texture = ExtResource("5_qae0t")
 texture = ExtResource("6_bn71f")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-8, -4)
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
 3:2/size_in_atlas = Vector2i(1, 2)
