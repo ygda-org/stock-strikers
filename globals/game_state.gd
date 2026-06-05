@@ -30,8 +30,10 @@ signal update_stock_tickers
 var all_stocks : Array[Stock] = []
 var all_upgrades: Array[Upgrade]
 
+var chosen_seed : int
+
 func _ready() -> void:
-	var chosen_seed = randi() % 100000
+	chosen_seed = randi() % 100000
 	print('seed:', chosen_seed)
 	seed(chosen_seed)
 	get_all_stocks()
@@ -108,6 +110,7 @@ func on_room_clear():
 		elif stock_to_volatility[s] == "HIGH":
 			range = s.high_volatile_range
 		var delta = randf_range(range.x,range.y)
+		delta = round(delta * 100.0)/100.0
 		s.change_amount += delta
 		last_stock_dir[s] = sign(delta)
 		update_stock_tickers.emit()

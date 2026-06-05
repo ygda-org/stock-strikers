@@ -5,6 +5,7 @@ extends CanvasLayer
 func _ready() -> void:
 	GameState.update_stock_tickers.connect(on_update_stock_tickers)
 	on_update_stock_tickers()
+	$DebugSeed.text = "DEBUG: " + str(GameState.chosen_seed)
 
 func on_update_stock_tickers():
 	var half : int = int(PlayerStats.stocks.size()/2.0)

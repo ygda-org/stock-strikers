@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwi24esx3pfoh" path="res://assets/player/temp_player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://0qxu5cgclrkf" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://7u643g6c80mh" path="res://assets/player/coolmathgirl.png" id="3_g1dw6"]
 
 [sub_resource type="Curve" id="Curve_rkbax"]
 _data = [Vector2(0, 0.095427394), 0.0, 0.13398005, 0, 0, Vector2(0.14197531, 1), 0.044540852, 0.044540852, 0, 0, Vector2(0.82510287, 0.99999994), 0.11418762, 0.0, 0, 0, Vector2(1, 0.3883366), 0.0, 0.0, 0, 0]
@@ -23,6 +24,22 @@ region = Rect2(32, 0, 16, 24)
 atlas = ExtResource("1_oul6g")
 region = Rect2(48, 0, 16, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
+atlas = ExtResource("3_g1dw6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
+atlas = ExtResource("3_g1dw6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
+atlas = ExtResource("3_g1dw6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg6s5"]
+atlas = ExtResource("3_g1dw6")
+region = Rect2(32, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g6k8r"]
 animations = [{
 "frames": [{
@@ -41,13 +58,31 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6k8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boad6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgyib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg6s5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(10, 12)
 
 [sub_resource type="Gradient" id="Gradient_xwkvk"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.7610777, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.7028912, 0.7028912, 0.7028912, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rkbax"]
 gradient = SubResource("Gradient_xwkvk")
@@ -65,6 +100,8 @@ acceleration_curve = SubResource("Curve_rkbax")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1229762298]
 sprite_frames = SubResource("SpriteFrames_g6k8r")
+animation = &"walk"
+frame_progress = 0.91728705
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860238636]
 position = Vector2(0, 4)
@@ -76,6 +113,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=439129887]
+visible = false
 texture = SubResource("GradientTexture2D_rkbax")
 
 [node name="InvincibleTimer" type="Timer" parent="." unique_id=793505322]

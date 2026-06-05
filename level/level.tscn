@@ -8,6 +8,7 @@ script = ExtResource("1_7lnir")
 [node name="Effects" type="Node2D" parent="." unique_id=590405655]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Effects" unique_id=174833500]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Effects" unique_id=712306499]
