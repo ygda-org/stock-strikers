@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dr63yl5l5a3ww"]
 
 [ext_resource type="Script" uid="uid://ba6t5i6nk78wv" path="res://gui/health_bar.gd" id="1_a4qft"]
+[ext_resource type="Script" uid="uid://dov2y3r3umw5w" path="res://gui/battle_gui.gd" id="1_ed4v4"]
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="2_ma5vl"]
 [ext_resource type="PackedScene" uid="uid://4b17bv4t0hy5" path="res://gui/ticker_tape.tscn" id="3_qfb1t"]
 
 [node name="BattleGui" type="CanvasLayer" unique_id=100503230]
+script = ExtResource("1_ed4v4")
 
 [node name="HealthBar" type="Control" parent="." unique_id=2089629803]
 layout_mode = 3
@@ -29,3 +31,14 @@ theme = ExtResource("2_ma5vl")
 value = 100.0
 
 [node name="TickerTape" parent="." unique_id=52366453 instance=ExtResource("3_qfb1t")]
+
+[node name="TickerTape2" parent="." unique_id=1307250929 instance=ExtResource("3_qfb1t")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -125.0
+offset_right = 0.0
+offset_bottom = 300.0
+grow_horizontal = 0
+grow_vertical = 1

@@ -35,6 +35,7 @@ func update_owned_stocks():
 		var option : StockOption = STOCK_OPTION.instantiate()
 		option.stock = s
 		option.is_shop_stock = false
+		option.volatility = GameState.stock_to_volatility[s]
 		your_stocks_holder.add_child(option)
 		option.cost_per *= PlayerStats.stock_to_mult[s]
 		option.update_value()

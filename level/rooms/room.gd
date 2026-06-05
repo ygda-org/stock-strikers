@@ -62,3 +62,4 @@ func check_enemies():
 
 func on_all_enemies_dead():
 	has_enemies = false
+	GameState.on_room_clear()

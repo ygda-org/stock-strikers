@@ -18,6 +18,15 @@ var in_game : bool = false
 var stock_options : Array[Stock] = []
 var upgrade_options: Array[Upgrade] # size 2
 
+var stock_to_volatility : Dictionary[Stock, String] = {
+	
+}
+var last_stock_dir : Dictionary[Stock, int] = {
+	
+}
+
+signal update_stock_tickers
+
 var all_stocks : Array[Stock] = []
 var all_upgrades: Array[Upgrade]
 
@@ -26,6 +35,7 @@ func _ready() -> void:
 	print('seed:', chosen_seed)
 	seed(chosen_seed)
 	get_all_stocks()
+	roll_volitility()
 	get_all_upgrades()
 
 func _process(_delta):
@@ -33,6 +43,16 @@ func _process(_delta):
 	if enemies.size() == 0 and in_game:
 		get_tree().change_scene_to_file("res://gui/elevator_gui.tscn")
 		in_game = false
+
+func roll_volitility():
+	for stock : Stock in all_stocks:
+		var rand_num = randf()
+		if rand_num < 0.5:
+			stock_to_volatility[stock] = "LOW"
+		elif rand_num < 0.85:
+			stock_to_volatility[stock] = "MED"
+		else:
+			stock_to_volatility[stock] = "HIGH"
 
 func get_all_stocks():
 	var dir_name := "res://player/stocks/"
@@ -74,4 +94,16 @@ func clear_enemies():
 		j += 1
 
 func on_room_clear():
-	pass
+	print('ROOM ERADICATED')
+	for s : Stock in all_stocks:
+		var range : Vector2
+		if stock_to_volatility[s] == "LOW":
+			range = s.low_volatile_range
+		elif stock_to_volatility[s] == "MED":
+			range = s.med_volatile_range
+		elif stock_to_volatility[s] == "HIGH":
+			range = s.high_volatile_range
+		var delta = randf_range(range.x,range.y)
+		s.change_amount += delta
+		last_stock_dir[s] = sign(delta)
+		update_stock_tickers.emit()

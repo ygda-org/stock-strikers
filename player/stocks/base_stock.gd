@@ -18,6 +18,11 @@ enum stats {
 	KNOCKBACK,
 	OTHER
 }
+
+@export var high_volatile_range : Vector2 = Vector2(-10,10)
+@export var med_volatile_range : Vector2 = Vector2(-5,5)
+@export var low_volatile_range : Vector2 = Vector2(-1,1)
+
 ## stat to be changed. OTHER can be implemented to whatever
 @export var changed_stat: stats
 ## For display purposes. px/s, health, $, etc

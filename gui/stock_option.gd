@@ -18,18 +18,7 @@ var effect_name : String = "BOO"
 var cost_per : float = 0.01
 var tooltip_desc : String = "COOL DESC OSDKPOSDK"
 
-### Owned Stocks
-enum rate {
-	STABLE,
-	LOWFALL,
-	LOWRISE,
-	MEDFALL,
-	MEDRISE,
-	HIGHFALL,
-	HIGHRISE,
-	CHAOTIC
-}
-var volatility : rate = rate.STABLE
+var volatility : String
 var value_total : float = 0.01
 
 # Called when the node enters the scene tree for the first time.
