@@ -1,21 +1,78 @@
 [gd_scene format=3 uid="uid://cq7h3giq4ix6y"]
 
 [ext_resource type="Script" uid="uid://bi7vyd1do2cpe" path="res://level/rooms/elevator.gd" id="1_e4fox"]
-[ext_resource type="Texture2D" uid="uid://b1g2ww2wqlf74" path="res://icon.svg" id="2_7xou8"]
+[ext_resource type="Texture2D" uid="uid://blsasboijncf2" path="res://assets/level/elevator.png" id="2_7xou8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4mq5"]
 size = Vector2(31, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4mq5"]
+atlas = ExtResource("2_7xou8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vb4f"]
+atlas = ExtResource("2_7xou8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7gpt"]
+atlas = ExtResource("2_7xou8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lovo4"]
+atlas = ExtResource("2_7xou8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omtid"]
+atlas = ExtResource("2_7xou8")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owwup"]
+atlas = ExtResource("2_7xou8")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n33pc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4mq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vb4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7gpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lovo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omtid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owwup")
+}],
+"loop": false,
+"name": &"open",
+"speed": 6.0
+}]
 
 [node name="Elevator" type="Area2D" unique_id=229577095]
 z_index = 101
 script = ExtResource("1_e4fox")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2147006150]
+offset_left = -12.0
+offset_top = -13.0
+offset_right = 12.0
+offset_bottom = 16.0
+color = Color(0, 0, 0, 1)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427081414]
 position = Vector2(0.5, 9)
 shape = SubResource("RectangleShape2D_i4mq5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=586642745]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_7xou8")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1318342901]
+sprite_frames = SubResource("SpriteFrames_n33pc")
+animation = &"open"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
