@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c7ievlotd7oph" path="res://assets/tempoary_assets/sahara.png" id="5_kne5f"]
 [ext_resource type="Texture2D" uid="uid://bkhodffw8f468" path="res://assets/tempoary_assets/lowercasetwo.png" id="6_kne5f"]
 [ext_resource type="Texture2D" uid="uid://b6vt4te58eg6g" path="res://assets/tempoary_assets/windows95_indentbox.png" id="11_fjy6l"]
+[ext_resource type="AudioStream" uid="uid://cxpuyn8efbu2u" path="res://assets/audio/startupsoundforshoptheme.mp3" id="12_biksv"]
+[ext_resource type="AudioStream" uid="uid://bi6csoumhltrx" path="res://assets/audio/breakthebank_shoptheme_2.mp3" id="13_h2vk8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2mul"]
 texture = ExtResource("3_2dwxg")
@@ -49,6 +51,11 @@ texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_m6y2a"]
+stream_count = 2
+stream_0 = ExtResource("12_biksv")
+stream_1 = ExtResource("13_h2vk8")
 
 [node name="ElevatorGui" type="Control" unique_id=241942387]
 layout_mode = 3
@@ -469,6 +476,11 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=570998583]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=539520674]
+stream = SubResource("AudioStreamPlaylist_m6y2a")
+autoplay = true
+playback_type = 1
 
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/PermButton" to="." method="_on_perm_button_pressed"]
