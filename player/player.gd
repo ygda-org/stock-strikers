@@ -56,6 +56,7 @@ func _ready(): # probably load stats from gamestate right
 			other_effects_strengths[stock.other_effect_name] = stock.change_amount
 			
 			if stock.other_effect_name == "extrafire":
+				$ExtraEffects/ExtraFireCD.wait_time = stock.change_amount
 				$ExtraEffects/ExtraFireCD.start()
 			if stock.other_effect_name == "money_leak":
 				speed *= other_effects_strengths["money_leak"]
