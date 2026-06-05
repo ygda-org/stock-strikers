@@ -33,6 +33,7 @@ var directions = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT]
 
 const TOP_FIX = preload("uid://cuiyvc7560r16")
 const TOP_FIX_ENTRANCE = preload("uid://c8rfeoo72jgoo")
+const TOP_FIX_ENTRANCE3 = preload("uid://bj8jigk37cq0h")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -135,15 +136,16 @@ func check_top_replacements():
 	for coord in rooms_after_placement.keys():
 		var above = Vector2(coord.x, coord.y-1)
 		if above in room_cord_neighbors.keys() and rooms_after_placement[coord].north_edge_fix:
-			if above in rooms_after_placement.keys() and rooms_after_placement[coord].full_size and rooms_after_placement[above].full_size:
+			if rooms_after_placement[coord].full_size:
+				var top_fix
 				if not rooms_after_placement[coord].has_north:
-					var top_fix = TOP_FIX.instantiate()
-					top_fix.position = coord * 16 * 16
-					add_child(top_fix)
+					top_fix = TOP_FIX.instantiate()
+				elif above in rooms_after_placement.keys() and rooms_after_placement[above].full_size:
+					top_fix = TOP_FIX_ENTRANCE.instantiate()
 				else:
-					var top_fix = TOP_FIX_ENTRANCE.instantiate()
-					top_fix.position = coord * 16 * 16
-					add_child(top_fix)
+					top_fix = TOP_FIX_ENTRANCE3.instantiate()
+				top_fix.position = coord * 16 * 16
+				add_child(top_fix)
 
 func check_four_split(): # returns true if has four split
 	for k in room_cord_neighbors.keys():

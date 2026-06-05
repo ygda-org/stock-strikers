@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bj8jigk37cq0h"]
+
+[ext_resource type="TileSet" uid="uid://by732a8y26a0o" path="res://assets/level/level_tileset.tres" id="1_c8wl6"]
+
+[node name="FixTopEntrance3n" type="TileMapLayer" unique_id=1273190774]
+z_index = 100
+tile_map_data = PackedByteArray(0, 0, 4, 0, 253, 255, 3, 0, 5, 0, 4, 0, 0, 16, 5, 0, 253, 255, 3, 0, 6, 0, 0, 0, 0, 0, 10, 0, 253, 255, 3, 0, 4, 0, 0, 0, 0, 0, 11, 0, 253, 255, 3, 0, 5, 0, 4, 0, 0, 0)
+tile_set = ExtResource("1_c8wl6")
