@@ -130,6 +130,7 @@ func buy_upgrade(upgrade, button) -> void:
 
 func pay_debt(debt_node):
 	if PlayerStats.money >= debt_node.debt_resource.debt:
+		PlayerStats.money -= debt_node.debt_resource.debt
 		PlayerStats.debts.remove_at(PlayerStats.debts.find(debt_node.debt_resource))
 		debt_node.queue_free()
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
