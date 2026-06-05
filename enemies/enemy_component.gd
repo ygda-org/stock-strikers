@@ -59,6 +59,8 @@ func process_collisions(collisions):
 	var player_got_hit = false
 	for i in len(collisions):
 		var body = collisions[i].get_collider()
+		if !body:
+			continue
 		if body.is_in_group("Player") and !player_got_hit:
 			body.hurt(contact_damage)
 			knockback(body,self_collision_kb)
