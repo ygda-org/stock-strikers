@@ -40,9 +40,13 @@ func _ready() -> void:
 
 func _process(_delta):
 	clear_enemies()
-	if enemies.size() == 0 and in_game:
-		get_tree().change_scene_to_file("res://gui/elevator_gui.tscn")
-		in_game = false
+	#if enemies.size() == 0 and in_game:
+	#	get_tree().change_scene_to_file("res://gui/elevator_gui.tscn")
+	#	in_game = false
+
+func cleared_floor():
+	in_game = false
+	get_tree().change_scene_to_file("res://gui/elevator_gui.tscn")
 
 func roll_volitility():
 	for stock : Stock in all_stocks:

@@ -102,6 +102,7 @@ func generate_placement():
 				continue
 
 func place_rooms():
+	var elevator_placed = false
 	for k in room_cord_neighbors.keys():
 		var dirs = room_cord_neighbors[k]
 		var needs_left : bool = Vector2.LEFT in dirs
@@ -122,6 +123,11 @@ func place_rooms():
 			room.position = k * 16 * 16
 			room.z_index = k.y
 			rooms_after_placement[k] = room
+			if room.full_size and not room.has_north and (not elevator_placed or randi()%2):
+				var elevator = load("uid://cq7h3giq4ix6y").instantiate()
+				room.add_child(elevator)
+				elevator.position.x += 128
+				elevator_placed = true
 			add_child(room)
 			break
 

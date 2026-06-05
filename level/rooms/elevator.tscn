@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cq7h3giq4ix6y"]
+
+[ext_resource type="Script" uid="uid://bi7vyd1do2cpe" path="res://level/rooms/elevator.gd" id="1_e4fox"]
+[ext_resource type="Texture2D" uid="uid://b1g2ww2wqlf74" path="res://icon.svg" id="2_7xou8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4mq5"]
+size = Vector2(31, 38)
+
+[node name="Elevator" type="Area2D" unique_id=229577095]
+z_index = 101
+script = ExtResource("1_e4fox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427081414]
+position = Vector2(0.5, 9)
+shape = SubResource("RectangleShape2D_i4mq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=586642745]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_7xou8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
