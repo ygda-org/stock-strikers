@@ -9,4 +9,5 @@ name = "money_on_kill"
 display_name = "Money Extractor"
 attribute_text = "Increases money gained from defeating enemies."
 flavor_text = "Wherever these coins come from, there's more."
+cost = 100.0
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

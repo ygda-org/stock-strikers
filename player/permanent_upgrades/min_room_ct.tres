@@ -10,4 +10,5 @@ name = "min_room_ct"
 display_name = "placeholder"
 attribute_text = "Decreases minimum possible number of rooms on a floor."
 flavor_text = "Gotta go fast!"
+cost = 100.0
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bkhodffw8f468" path="res://assets/tempoary_assets/lowercasetwo.png" id="6_kne5f"]
 [ext_resource type="Texture2D" uid="uid://b6vt4te58eg6g" path="res://assets/tempoary_assets/windows95_indentbox.png" id="11_fjy6l"]
 [ext_resource type="AudioStream" uid="uid://cxpuyn8efbu2u" path="res://assets/audio/startupsoundforshoptheme.mp3" id="12_biksv"]
+[ext_resource type="Script" uid="uid://bfdam4gm8l713" path="res://gui/upgrade_button.gd" id="12_h2vk8"]
 [ext_resource type="AudioStream" uid="uid://bi6csoumhltrx" path="res://assets/audio/breakthebank_shoptheme_2.mp3" id="13_h2vk8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2mul"]
@@ -331,6 +332,7 @@ text = "+20 Damage"
 [node name="Upgrade1Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1298725552]
 layout_mode = 2
 text = "BUY BUY BUY ($\\s)"
+script = ExtResource("12_h2vk8")
 
 [node name="Upgrade2" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1348818133]
 custom_minimum_size = Vector2(0, 71)
@@ -384,6 +386,7 @@ text = "+20 Damage"
 [node name="Upgrade2Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=576159107]
 layout_mode = 2
 text = "BUY BUY BUY ($\\s)"
+script = ExtResource("12_h2vk8")
 
 [node name="MoneyPanel" type="Panel" parent="." unique_id=1104745353]
 layout_mode = 0

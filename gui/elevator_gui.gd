@@ -10,6 +10,7 @@ extends Control
 @onready var money_button : Button = $Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/MoneyButton
 
 const STOCK_OPTION = preload("uid://c4m8hryyag1e6")
+const DEBT_OPTION = preload("uid://dnt1y0yhe38ki")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,17 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	update_balance()
+	# updating every frame rn, optimize later
+	for child in $MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer.get_children():
+		child.queue_free()
+	for debt in PlayerStats.debts:
+		var debt_option = DEBT_OPTION.instantiate()
+		var debt_vbox = debt_option.get_node("Background/MarginContainer/VBoxContainer")
+		debt_vbox.get_node("Label").text = debt.time
+		debt_vbox.get_node("Title").text = debt.title
+		debt_vbox.get_node("Amount").text = str(debt.debt)
+		debt_option.debt_resource = debt
+		$MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer.add_child(debt_option)
 
 func update_balance():
 	$MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/Balance.text = '$' + str(PlayerStats.money)
@@ -87,21 +99,39 @@ func _on_start_button_pressed() -> void:
 
 func _on_upgrade_1_button_pressed():
 	var upgrade = GameState.upgrade_options[0]
-	if buy_upgrade(upgrade):
-		$PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button.disabled = true
+	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button)
 
 func _on_upgrade_2_button_pressed():
 	var upgrade = GameState.upgrade_options[0]
-	if buy_upgrade(upgrade):
-		$PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button.disabled = true
+	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button)
 
 
-func buy_upgrade(upgrade) -> bool: # returns true if successfully buys
-	if PlayerStats.money > upgrade.cost: # later, do loan
+func buy_upgrade(upgrade, button) -> void:
+	if button.showing_loan:
+		var loan = Loan.new()
+		loan.time = "blahblah"
+		loan.title = upgrade.name
+		loan.debt += upgrade.cost - PlayerStats.money
+		PlayerStats.money = 0
+		PlayerStats.debts.append(loan)
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
+		PlayerStats.permanent_upgrades.append(upgrade)
+		button.disabled = true
+		return
+	if PlayerStats.money > upgrade.cost:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
 		PlayerStats.money -= upgrade.cost
 		PlayerStats.permanent_upgrades.append(upgrade)
-		return true
+		button.disabled = true
+	else:
+		button.text = "Not enough money! Take out loan?"
+		button.showing_loan = true
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuyFail) 
+
+func pay_debt(debt_node):
+	if PlayerStats.money >= debt_node.debt_resource.debt:
+		PlayerStats.debts.remove_at(PlayerStats.debts.find(debt_node.debt_resource))
+		debt_node.queue_free()
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
 	else:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuyFail) 
-		return false

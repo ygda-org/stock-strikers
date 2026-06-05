@@ -10,4 +10,5 @@ name = "max_room_ct"
 display_name = "placeholder"
 attribute_text = "Decreases maximum possible number of rooms on a floor."
 flavor_text = "No more long floors!"
+cost = 100.0
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

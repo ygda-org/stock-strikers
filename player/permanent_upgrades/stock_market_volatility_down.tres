@@ -10,4 +10,5 @@ name = "stock_market_volatility"
 display_name = "Stock Volatility Down"
 attribute_text = "Decreases volatility of all stocks."
 flavor_text = "Slow and steady"
+cost = 100.0
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

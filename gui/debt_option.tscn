@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dnt1y0yhe38ki"]
 
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="1_ernkl"]
+[ext_resource type="Script" uid="uid://20obkhpmoudd" path="res://gui/debt_option.gd" id="2_3i1w1"]
 [ext_resource type="FontFile" uid="uid://c5ud1mm20glbo" path="res://assets/tempoary_assets/W95F.otf" id="2_i7p6p"]
 
 [node name="DebtOption" type="Control" unique_id=563598521]
@@ -11,6 +12,7 @@ anchor_bottom = 0.125
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ernkl")
+script = ExtResource("2_3i1w1")
 
 [node name="Background" type="Panel" parent="." unique_id=1253802745]
 layout_mode = 1
@@ -55,3 +57,5 @@ custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_vertical = 8
 text = "PAY"
+
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

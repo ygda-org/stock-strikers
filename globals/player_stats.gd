@@ -2,6 +2,8 @@ extends Node
 # this script will handle all the player money, stock, loan stuff
 
 var money = 10
+var debts = []
+const INTEREST_RATE = 1.05
 
 const BASE_STATS = [100, 100, 0, 20, 0.5, 200, 1, 0.3, 250, 0.5, 0.2, 20, null] # parallel array to enum in resource
 var current_stats = []
@@ -48,3 +50,7 @@ func remove_permanent_upgrade(u: Upgrade):
 func reload_upgrades():
 	for upgrade in permanent_upgrades: # adding this here lol no better place :D
 		permanent_upgrades_loaded[upgrade.name] = upgrade.change_amount
+
+func interest():
+	for debt in debts:
+		debt.debt = debt.debt * INTEREST_RATE

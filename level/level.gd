@@ -152,3 +152,7 @@ func check_four_split(): # returns true if has four split
 		if k.has_north and k.has_east and k.has_south and k.has_west:
 			return true
 	return false
+
+
+func _on_debt_timer_timeout():
+	PlayerStats.interest()
