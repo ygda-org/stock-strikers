@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tgfxwo8lycrf"
-path="res://.godot/imported/Shiny Coin - 12 fps.png-2911b5b6434d93591110e4d635a01897.ctex"
+uid="uid://dv8lfn0wfoca1"
+path="res://.godot/imported/Shiny Copper Coin - 12 fps.png-29dc6956d18aec0a0fa81a0c92e5e2cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/Shiny Coin - 12 fps.png"
-dest_files=["res://.godot/imported/Shiny Coin - 12 fps.png-2911b5b6434d93591110e4d635a01897.ctex"]
+source_file="res://assets/enemies/Shiny Copper Coin - 12 fps.png"
+dest_files=["res://.godot/imported/Shiny Copper Coin - 12 fps.png-29dc6956d18aec0a0fa81a0c92e5e2cf.ctex"]
 
 [params]
 

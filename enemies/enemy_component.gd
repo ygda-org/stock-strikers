@@ -101,8 +101,22 @@ func die():
 	parent.queue_free()
 
 func drop_coins(money_gain):
-	for i in range(int(money_gain/10)):
+	#for i in range(int(money_gain/10)):
+	#	var coin = COIN.instantiate()
+	#	coin.target_position = global_position + Vector2(20, 0).rotated(randf_range(0, 2*PI))
+	#	parent.get_parent().add_child(coin)
+	#	coin.global_position = global_position
+	while money_gain > 0:
 		var coin = COIN.instantiate()
+		if money_gain >= 25:
+			coin.value = 25
+			money_gain -= 25
+		elif money_gain >= 10:
+			coin.value = 10
+			money_gain -= 10
+		else:
+			coin.value = 1
+			money_gain -= 1
 		coin.target_position = global_position + Vector2(20, 0).rotated(randf_range(0, 2*PI))
 		parent.get_parent().add_child(coin)
 		coin.global_position = global_position

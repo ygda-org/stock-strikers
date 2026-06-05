@@ -4,6 +4,14 @@ var target_position = Vector2.ZERO
 
 var value = 10
 
+func _ready():
+	if value == 25:
+		$AnimatedSprite2D.play("gold")
+	elif value == 10:
+		$AnimatedSprite2D.play("silver")
+	else:
+		$AnimatedSprite2D.play("copper")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	global_position = global_position.lerp(target_position, delta)
