@@ -33,6 +33,7 @@ var all_stocks : Array[Stock] = []
 var all_upgrades: Array[Upgrade]
 
 var chosen_seed : int
+var doors = []
 
 func _ready() -> void:
 	chosen_seed = randi() % 100000
@@ -101,8 +102,14 @@ func clear_enemies():
 		enemies.remove_at(i - j)
 		j += 1
 
-func on_room_clear():
+func on_room_clear(room_pos):
 	print('ROOM ERADICATED')
+	room_pos += Vector2(128,128)
+	for door in doors:
+		if not door:
+			continue
+		if (door.global_position - room_pos).length() < 140:
+			door.open()
 	for s : Stock in all_stocks:
 		var range : Vector2
 		if stock_to_volatility[s] == "LOW":

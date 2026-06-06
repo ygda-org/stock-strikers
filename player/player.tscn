@@ -102,6 +102,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=453716687 groups=["Player"]]
+collision_layer = 9
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_rkbax")

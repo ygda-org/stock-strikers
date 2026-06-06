@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d3ft6b0qtjr4v"]
+
+[ext_resource type="Script" uid="uid://dbj2ln4rgbvq3" path="res://level/rooms/door.gd" id="1_47wkk"]
+[ext_resource type="Texture2D" uid="uid://deg3c1cpbj1yx" path="res://assets/level/decor.png" id="1_b1jtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47wkk"]
+size = Vector2(32, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d67pe"]
+size = Vector2(4, 32)
+
+[node name="Door" type="Node2D" unique_id=931643308]
+z_index = 100
+script = ExtResource("1_47wkk")
+
+[node name="Vertical" type="Sprite2D" parent="." unique_id=1163885865]
+position = Vector2(0, -8)
+texture = ExtResource("1_b1jtc")
+region_enabled = true
+region_rect = Rect2(64, 56, 32, 40)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vertical" unique_id=1355523214]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical/StaticBody2D" unique_id=1180020660]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_47wkk")
+
+[node name="Horizontal" type="Sprite2D" parent="." unique_id=109848438]
+texture = ExtResource("1_b1jtc")
+region_enabled = true
+region_rect = Rect2(96, 64, 8, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Horizontal" unique_id=99685876]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal/StaticBody2D" unique_id=1219439581]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_d67pe")

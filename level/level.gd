@@ -35,6 +35,8 @@ const TOP_FIX = preload("uid://cuiyvc7560r16")
 const TOP_FIX_ENTRANCE = preload("uid://c8rfeoo72jgoo")
 const TOP_FIX_ENTRANCE3 = preload("uid://bj8jigk37cq0h")
 
+const DOOR = preload("uid://d3ft6b0qtjr4v")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if "max_room_ct" in PlayerStats.permanent_upgrades_loaded.keys():
@@ -52,6 +54,7 @@ func _ready() -> void:
 			randomize()
 			generate()
 	check_top_replacements()
+	place_doors()
 
 func generate() -> void:
 	for child in get_children():
@@ -153,6 +156,29 @@ func check_four_split(): # returns true if has four split
 			return true
 	return false
 
+func place_doors():
+	for room_cord in rooms_after_placement.keys():
+		var room = rooms_after_placement[room_cord]
+		var placements = []
+		var orientations = []
+		if room.has_north:
+			placements.append(room_cord*256+Vector2(128,0))
+			orientations.append(0)
+		if room.has_east:
+			placements.append(room_cord*256+room_cord*256+Vector2(256,128))
+			orientations.append(1)
+		if room.has_south:
+			placements.append(room_cord*256+room_cord*256+Vector2(128,256))
+			orientations.append(0)
+		if room.has_west:
+			placements.append(room_cord*256+Vector2(0,128))
+			orientations.append(1)
+		for i in range(len(placements)):
+			var door = DOOR.instantiate()
+			door.orientation = orientations[i]
+			add_child(door)
+			door.global_position = placements[i]
+			
 
 func _on_debt_timer_timeout():
 	PlayerStats.interest()

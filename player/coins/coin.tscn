@@ -152,6 +152,8 @@ animations = [{
 }]
 
 [node name="Coin" type="Area2D" unique_id=1596568995]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_owlkr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1751047254]
