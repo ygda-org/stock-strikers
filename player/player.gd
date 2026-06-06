@@ -8,8 +8,8 @@ const ACCELERATION = 3000
 const DECELERATION = 120
 
 const RECOIL_STRENGTH = 100
-const PREMIUM_BULLET_COST = 2
-const MONEY_LEAK = 1
+const PREMIUM_BULLET_COST = 3
+const MONEY_LEAK = 5
 
 const BULLET = preload("uid://ckwbgunr68qm")
 
