@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://bpoh5n0cdm2du"]
 
+[ext_resource type="Script" uid="uid://wrjoobv26rcv" path="res://main/tutorial/tutorial_2.gd" id="1_rp4o8"]
+[ext_resource type="PackedScene" uid="uid://dqak3awcpfb8w" path="res://main/main.tscn" id="2_rp4o8"]
+
 [node name="Tutorial2" type="Node2D" unique_id=1245368737]
+script = ExtResource("1_rp4o8")
+
+[node name="Main" parent="." unique_id=426619736 instance=ExtResource("2_rp4o8")]
+
+[node name="Label" type="Label" parent="." unique_id=442370978]
+offset_left = 5.0
+offset_top = 307.0
+offset_right = 118.0
+offset_bottom = 408.0
+text = "Whenever you clear a room, stocks will update!"
+autowrap_mode = 2

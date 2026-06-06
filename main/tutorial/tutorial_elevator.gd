@@ -19,9 +19,10 @@ func _process(_delta):
 			PlayerStats.debts.append(loan)
 			SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
 			PlayerStats.add_permanent_upgrade(upgrade)
-			PlayerStats.add_stock(load("uid://b33t7ajrees8m"), 1.0)
+			PlayerStats.add_stock(load("uid://b33t7ajrees8m"), 1)
+			PlayerStats.add_stock(load("uid://duk4i08a0rvu4"), 1)
 			PlayerStats.stocks_modified.emit()
-			get_tree().call_deferred("change_scene_to_file", "uid://dqak3awcpfb8w")
+			get_tree().call_deferred("change_scene_to_file", "uid://bpoh5n0cdm2du")
 
 func next_text():
 	get_node("Label" + str(current_text)).queue_free()

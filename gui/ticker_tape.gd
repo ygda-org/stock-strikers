@@ -14,6 +14,8 @@ func update_stocks(stocks : Array[Stock]):
 	for child in $Panel/MarginContainer/VBoxContainer.get_children():
 		child.queue_free()
 	for s : Stock in stocks:
+		if s not in GameState.last_stock_dir.keys():
+			continue
 		var ticker : StockTicker = STOCK_TICKER.instantiate()
 		ticker.set_ticker(s.company_ticker)
 		if GameState.last_stock_dir[s] == 1:

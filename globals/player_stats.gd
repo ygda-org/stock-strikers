@@ -54,3 +54,9 @@ func reload_upgrades():
 func interest():
 	for debt in debts:
 		debt.debt = debt.debt * INTEREST_RATE
+
+func reset_stats():
+	money = 10
+	debts = []
+	stocks = []
+	permanent_upgrades = []

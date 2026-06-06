@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tuxxr")
-changed_stat = 11
+changed_stat = 12
 change_amount = 0.5
 other_effect_name = "triple_shot"
 company_ticker = "TRIS"

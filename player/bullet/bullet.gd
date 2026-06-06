@@ -53,5 +53,6 @@ func get_nearest_enemy():
 	for e in GameState.enemies:
 		var distance = (e.global_position-global_position).length()
 		if distance < min_dist:
+			min_dist = distance
 			min_enemy = e
 	return min_enemy
