@@ -73,7 +73,6 @@ func _process(delta):
 	damage = process_damage_multipliers(damage)
 	var mouse_pos_diff = get_global_mouse_position() - global_position
 	$Camera2D.position = Vector2(mouse_pos_diff.x/5, mouse_pos_diff.y/5)
-	$Anim.play("walk")
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
 		dodge()
 	if (not $DodgeDur.is_stopped()) or (not $ExtraEffects/RecoilTimer.is_stopped()):
@@ -85,8 +84,13 @@ func _process(delta):
 	else:
 		velocity.x = 0
 	if input_dir.y:
+		if input_dir.y > 0:
+			$Anim.play("Forward")
+		else:
+			$Anim.play("Backward")
 		velocity.y = velocity.y + acceleration_curve.sample(abs(velocity.y/speed)) * input_dir.y * ACCELERATION * delta
 	else:
+		$Anim.play("idle")
 		velocity.y = 0
 	velocity = velocity.limit_length(speed)
 		#velocity = lerp(velocity, Vector2.ZERO, DECELERATION * delta)

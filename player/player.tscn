@@ -1,28 +1,29 @@
 [gd_scene format=3 uid="uid://3smqvhstcant"]
 
-[ext_resource type="Texture2D" uid="uid://bwi24esx3pfoh" path="res://assets/player/temp_player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://0qxu5cgclrkf" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://b5dnm7xh6c81j" path="res://assets/player/coolmathgirl_run_bkd.png" id="2_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://7u643g6c80mh" path="res://assets/player/coolmathgirl.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://bhsmle1vkndsf" path="res://assets/player/player.png" id="4_yw30f"]
 
 [sub_resource type="Curve" id="Curve_rkbax"]
 _data = [Vector2(0, 0.095427394), 0.0, 0.13398005, 0, 0, Vector2(0.14197531, 1), 0.044540852, 0.044540852, 0, 0, Vector2(0.82510287, 0.99999994), 0.11418762, 0.0, 0, 0, Vector2(1, 0.3883366), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
-atlas = ExtResource("1_oul6g")
-region = Rect2(0, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
-atlas = ExtResource("1_oul6g")
-region = Rect2(16, 0, 16, 24)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
-atlas = ExtResource("1_oul6g")
-region = Rect2(32, 0, 16, 24)
+atlas = ExtResource("2_g1dw6")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjkh3"]
-atlas = ExtResource("1_oul6g")
-region = Rect2(48, 0, 16, 24)
+atlas = ExtResource("2_g1dw6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
+atlas = ExtResource("2_g1dw6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
+atlas = ExtResource("2_g1dw6")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
 atlas = ExtResource("3_g1dw6")
@@ -44,20 +45,20 @@ region = Rect2(32, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rkbax")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g1dw6")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_yw30f")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qjkh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t03j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ieo8")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"Backward",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -73,8 +74,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_hg6s5")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"Forward",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yw30f")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 0.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
@@ -100,8 +109,7 @@ acceleration_curve = SubResource("Curve_rkbax")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1229762298]
 sprite_frames = SubResource("SpriteFrames_g6k8r")
-animation = &"walk"
-frame_progress = 0.91728705
+animation = &"Forward"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860238636]
 position = Vector2(0, 4)
