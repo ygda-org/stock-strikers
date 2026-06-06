@@ -21,5 +21,5 @@ tile_map_data = PackedByteArray("AAAPAAUAAAACAAUAAAACAAAAAAACAAUAAAADAAAAAAACAAU
 tile_set = ExtResource("1_qt8ik")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=154445550]
-tile_map_data = PackedByteArray("AAAEAAAAAgAJAAEAAAA=")
+tile_map_data = PackedByteArray("AAAEAAAAAgAJAAEAAAAAAAYAAQAGAAAAAAAAAAkAAQAGAAAAAAAPAAYAAQAGAAAAAAAPAAkAAQAGAAAAAAAJAA8AAQAGAAAAAAAGAA8AAQAGAAAAAAA=")
 tile_set = ExtResource("1_qt8ik")
