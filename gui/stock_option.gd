@@ -63,7 +63,7 @@ func update_value():
 func _on_buy_button_pressed() -> void:
 	var dividend_ct : SpinBox = $VBoxContainer/BuyingRow/Dividends
 	if is_shop_stock:
-		if dividend_ct.value * cost_per > PlayerStats.money:
+		if dividend_ct.value * cost_per > PlayerStats.money or int(PlayerStats.get_total_debt()) > 0:
 			SfxManager.create_audio(SFXSettings.SFX_LABEL.BuyFail)
 			return
 		$Disable.visible = true
