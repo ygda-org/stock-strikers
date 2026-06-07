@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://binxmp80thlnp"]
+
+[ext_resource type="Script" uid="uid://blxuvnkha507w" path="res://main/minimap.gd" id="1_t8u0j"]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" unique_id=2111251254]
+offset_right = 125.0
+offset_bottom = 125.0
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=23340335]
+handle_input_locally = false
+size = Vector2i(125, 125)
+render_target_update_mode = 4
+script = ExtResource("1_t8u0j")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=584937704]
+offset = Vector2(300, 250)
+zoom = Vector2(0.2, 0.2)

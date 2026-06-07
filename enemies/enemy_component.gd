@@ -43,7 +43,22 @@ func disable():
 	parent.process_mode = Node.PROCESS_MODE_DISABLED
 	pass
 
+func align_enemy_marker():
+	var from_p_to_self : Vector2 = global_position - GameState.player.camera.global_position
+	var marker_offset : Vector2
+	#if abs(from_p_to_self.x) < abs(from_p_to_self.y):
+		#marker_offset.y = 50 * sign(from_p_to_self.y)
+		#marker_offset.x = 50 * from_p_to_self.x/from_p_to_self.y * sign(from_p_to_self.x)
+	#else:
+		#marker_offset.x = 50 * sign(from_p_to_self.x)
+		#marker_offset.y = 50 * from_p_to_self.y/from_p_to_self.x * sign(from_p_to_self.y)
+	marker_offset = from_p_to_self.normalized() * 100
+	$EnemyMarker.global_position = GameState.player.camera.global_position + marker_offset
+	$EnemyMarker.rotation = marker_offset.angle()
+
 func _process(delta):
+	align_enemy_marker()
+	
 	parent.z_index = position.y/256
 	
 	if is_knockback:
@@ -139,3 +154,11 @@ func set_scalar(s):
 	contact_damage *= s
 	if "bullet_damage" in get_parent():
 		get_parent().bullet_damage *= s/6
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	$EnemyMarker.visible = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	$EnemyMarker.visible = true

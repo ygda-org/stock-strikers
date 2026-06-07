@@ -35,6 +35,7 @@ var other_effects_strengths: Dictionary[String, float] = {}
 
 @onready var collision_shape:CollisionShape2D = $CollisionShape2D
 @onready var itimer:Timer = $InvincibleTimer
+@onready var camera : Camera2D = $Camera2D
 
 func _ready(): # probably load stats from gamestate right
 	GameState.player = self

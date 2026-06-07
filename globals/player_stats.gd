@@ -63,6 +63,7 @@ func reset_stats():
 	debts = []
 	stocks = []
 	permanent_upgrades = []
+	GameState.cleared_floors = 0
 
 func get_total_debt():
 	var debt = 0

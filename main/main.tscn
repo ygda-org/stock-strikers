@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dr63yl5l5a3ww" path="res://gui/battle_gui.tscn" id="4_c651c"]
 [ext_resource type="AudioStream" uid="uid://bfv8s6qs7u8jq" path="res://assets/audio/battle theme 3.ogg" id="5_4dugh"]
 [ext_resource type="AudioStream" uid="uid://bop2wwbu67egg" path="res://assets/audio/battle theme 1.ogg" id="8_67ri8"]
+[ext_resource type="PackedScene" uid="uid://binxmp80thlnp" path="res://main/minimap.tscn" id="8_grrlh"]
 [ext_resource type="AudioStream" uid="uid://dgue3pw7p162h" path="res://assets/audio/battle theme 2.ogg" id="9_grrlh"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0i4oc"]
@@ -39,3 +40,10 @@ render_target_update_mode = 4
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=453716687 instance=ExtResource("1_53q0u")]
 position = Vector2(128, 128)
+
+[node name="SubViewportContainer2" parent="." unique_id=2111251254 instance=ExtResource("8_grrlh")]
+visible = false
+offset_left = 675.0
+offset_top = 475.0
+offset_right = 800.0
+offset_bottom = 600.0
