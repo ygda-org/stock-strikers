@@ -20,7 +20,7 @@ offset_bottom = 12570.0
 color = Color(0.011764706, 0, 0.18431373, 1)
 
 [node name="DebtTimer" type="Timer" parent="Effects" unique_id=1515513589]
-wait_time = 10.0
+wait_time = 15.0
 autostart = true
 
 [connection signal="timeout" from="Effects/DebtTimer" to="." method="_on_debt_timer_timeout"]
