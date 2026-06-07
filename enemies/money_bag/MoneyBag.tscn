@@ -166,4 +166,6 @@ position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_024g7")
 
 [node name="EnemyComponent" parent="." unique_id=741055310 instance=ExtResource("2_r0k21")]
+money_on_kill = 60
+max_health = 35
 contact_damage = 5

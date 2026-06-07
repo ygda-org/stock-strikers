@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://bpnrkxj57n4sk"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_dhle4"]
+
+[resource]
+script = ExtResource("1_dhle4")
+high_volatile_range = Vector2(-1, 1)
+med_volatile_range = Vector2(-0.5, 0.5)
+low_volatile_range = Vector2(-0.2, 0.2)
+changed_stat = 3
+change_amount = 5.0
+company_ticker = "DAMG"
+cost_multi = 15.0
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"

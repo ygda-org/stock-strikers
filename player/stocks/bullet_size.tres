@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://d3erxrhtbtiik"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_b0sx6"]
+
+[resource]
+script = ExtResource("1_b0sx6")
+high_volatile_range = Vector2(-0.03, 0.03)
+med_volatile_range = Vector2(-0.02, 0.02)
+low_volatile_range = Vector2(-0.01, 0.01)
+changed_stat = 6
+change_amount = 0.1
+company_ticker = "BTSZ"
+cost_multi = 550.0
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"

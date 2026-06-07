@@ -215,6 +215,8 @@ motion_mode = 1
 script = ExtResource("1_o0k6a")
 
 [node name="EnemyComponent" parent="." unique_id=741055310 instance=ExtResource("1_j73lj")]
+money_on_kill = 45
+max_health = 55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=411897232]
 position = Vector2(0, 3)

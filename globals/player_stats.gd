@@ -5,7 +5,7 @@ var money = 10
 var debts = []
 const INTEREST_RATE = 1.05
 
-const BASE_STATS = [100, 100, 0, 20, 0.5, 200, 1, 0.3, 250, 0.5, 0.2, 20, null] # parallel array to enum in resource
+const BASE_STATS = [100, 100, 0, 20, 0, 200, 1, 0.3, 250, 0, 0.2, 20, null] # parallel array to enum in resource
 var current_stats = []
 
 var stocks: Array[Stock] = []

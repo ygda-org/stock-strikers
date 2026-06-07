@@ -114,6 +114,7 @@ collision_mask = 4
 script = ExtResource("1_e8unp")
 
 [node name="EnemyComponent" parent="." unique_id=741055310 instance=ExtResource("2_5f34s")]
+max_health = 25
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1084560480]
 sprite_frames = SubResource("SpriteFrames_0srin")

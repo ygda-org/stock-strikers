@@ -27,6 +27,9 @@ var bullet_size: float
 var roll_speed: float
 var knockback: float
 
+const MIN_FIRE_RATE = .2
+const MIN_ROLL_CD = .3
+
 var other_effects_list: Array[String] = []
 var other_effects_strengths: Dictionary[String, float] = {}
 
@@ -42,12 +45,12 @@ func _ready(): # probably load stats from gamestate right
 	speed = PlayerStats.current_stats[Stock.stats.MOVE_SPEED]
 	vision = PlayerStats.current_stats[Stock.stats.VISION]
 	base_damage = PlayerStats.current_stats[Stock.stats.DAMAGE]
-	$ShotCD.wait_time = PlayerStats.current_stats[Stock.stats.FIRE_RATE]
+	$ShotCD.wait_time = MIN_FIRE_RATE + 0.3/(2.7**PlayerStats.current_stats[Stock.stats.FIRE_RATE])
 	bullet_speed = PlayerStats.current_stats[Stock.stats.BULLET_SPEED]
 	bullet_size = PlayerStats.current_stats[Stock.stats.BULLET_SIZE]
 	$DodgeDur.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
 	roll_speed = PlayerStats.current_stats[Stock.stats.ROLL_SPEED]
-	$DodgeCD.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_CD]
+	$DodgeCD.wait_time = MIN_ROLL_CD + 0.4/(2.7**PlayerStats.current_stats[Stock.stats.ROLL_CD])
 	knockback = PlayerStats.current_stats[Stock.stats.KNOCKBACK]
 	
 	for stock in PlayerStats.stocks: # other effects will need to be added manually
@@ -199,7 +202,7 @@ func process_damage_multipliers(dmg):
 	if "premium_bullets" in other_effects_list:
 		additive_dmg_mult += other_effects_strengths["premium_bullets"]
 	if "desperation" in other_effects_list: # not additive cuz hech yeah YGDA
-		dmg *= other_effects_strengths["desperation"] * ((max_health-current_health)/max_health)
+		dmg *= abs(other_effects_strengths["desperation"] * ((max_health-current_health)/max_health))
 	# space for the rest of 'em
 	dmg *= additive_dmg_mult
 	return dmg

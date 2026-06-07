@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://8qrjt1jxqtm2"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_4r8i0"]
+
+[resource]
+script = ExtResource("1_4r8i0")
+high_volatile_range = Vector2(-0.05, 0.05)
+med_volatile_range = Vector2(-0.03, 0.03)
+low_volatile_range = Vector2(-0.01, 0.01)
+changed_stat = 4
+change_amount = 0.3
+company_ticker = "FRR8"
+cost_multi = 180.0
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"

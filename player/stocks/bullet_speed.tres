@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://dc5jycvbttaii"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_uysgq"]
+
+[resource]
+script = ExtResource("1_uysgq")
+high_volatile_range = Vector2(-8, 8)
+low_volatile_range = Vector2(-3, 3)
+changed_stat = 5
+change_amount = 20.0
+company_ticker = "BTSP"
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"

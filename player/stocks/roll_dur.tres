@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://ceahvey05f2hx"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_57ab6"]
+
+[resource]
+script = ExtResource("1_57ab6")
+high_volatile_range = Vector2(-0.02, 0.02)
+med_volatile_range = Vector2(-0.01, 0.01)
+low_volatile_range = Vector2(-0.005, 0.005)
+changed_stat = 7
+change_amount = 0.1
+company_ticker = "RLDR"
+cost_multi = 90.0
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"

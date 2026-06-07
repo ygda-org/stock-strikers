@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://snk3vbbt8s4a"]
+
+[ext_resource type="Script" uid="uid://cgypua0rq6rtn" path="res://player/stocks/base_stock.gd" id="1_b2ksh"]
+
+[resource]
+script = ExtResource("1_b2ksh")
+high_volatile_range = Vector2(-2, 2)
+med_volatile_range = Vector2(-1, 1)
+low_volatile_range = Vector2(-0.5, 0.5)
+changed_stat = 1
+change_amount = 10.0
+company_ticker = "MVSP"
+cost_multi = 8.0
+metadata/_custom_type_script = "uid://cgypua0rq6rtn"
