@@ -18,6 +18,8 @@ var room_entered := false
 var has_enemies := true
 var my_enemies : Array = []
 
+var tilemaps : Array[TileMapLayer] = []
+
 func _ready() -> void:
 	var coin_room = GameState.roll_coin_room()
 	for poz in spawns:
@@ -32,6 +34,9 @@ func _ready() -> void:
 		enemy.get_node("EnemyComponent").set_scalar(GameState.get_current_scalar())
 		my_enemies.append(enemy)
 		add_child(enemy)
+	for node in get_children():
+		if node is TileMapLayer:
+			tilemaps.append(node)
 
 func select_enemy():
 	var cum_percent : float = 0
@@ -71,3 +76,8 @@ func check_enemies():
 func on_all_enemies_dead():
 	has_enemies = false
 	GameState.on_room_clear(global_position)
+
+func set_floors(new_floor):
+	pass
+func set_walls(new_walls):
+	pass

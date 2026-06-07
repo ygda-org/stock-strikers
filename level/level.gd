@@ -43,7 +43,7 @@ func _ready() -> void:
 		max_room_count += int(PlayerStats.permanent_upgrades_loaded["max_room_ct"])
 	if "min_room_ct" in PlayerStats.permanent_upgrades_loaded.keys():
 		min_room_count += int(PlayerStats.permanent_upgrades_loaded["min_room_ct"])
-	for room_file in DirAccess.get_files_at("res://level/rooms/room_for_real/"):
+	for room_file in ResourceLoader.list_directory("res://level/rooms/room_for_real/"):# DirAccess.get_files_at("res://level/rooms/room_for_real/"):
 		pool.append(load("res://level/rooms/room_for_real/" + room_file))
 	if starting_room == null:
 		starting_room = pool.pick_random()
@@ -55,6 +55,7 @@ func _ready() -> void:
 			generate()
 	check_top_replacements()
 	place_doors()
+	randomize_tilemaps()
 
 func generate() -> void:
 	for child in get_children():
@@ -182,3 +183,11 @@ func place_doors():
 
 func _on_debt_timer_timeout():
 	PlayerStats.interest()
+
+func randomize_tilemaps():
+	var floor = 0
+	var walls = 0
+	for room_pos in rooms_after_placement.keys():
+		var room = rooms_after_placement[room_pos]
+		#room.set_floor(floor)
+		#room.set_walls(walls)
