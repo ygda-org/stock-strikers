@@ -128,6 +128,8 @@ func on_room_clear(room_pos):
 		if "stock_market_volatility" in PlayerStats.permanent_upgrades_loaded.keys():
 			delta *= PlayerStats.permanent_upgrades_loaded["stock_market_volatility"]
 		s.change_amount += delta
+		if s.change_amount < 0:
+			s.change_amount = 0
 		last_stock_dir[s] = sign(delta)
 		update_stock_tickers.emit()
 
