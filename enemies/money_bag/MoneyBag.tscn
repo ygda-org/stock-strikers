@@ -169,3 +169,6 @@ shape = SubResource("RectangleShape2D_024g7")
 money_on_kill = 35
 max_health = 35
 contact_damage = 20
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=576777107]
+debug_enabled = true

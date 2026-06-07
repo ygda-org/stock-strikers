@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://chpfeteer6muy" path="res://level/rooms/room.gd" id="1_ty2mg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ty2mg"]
+vertices = PackedVector2Array(134, 90, 166, 90, 166, 230, 90, 230, 90, 166, 100.140625, 106, 26, 166, 26, 106, 122, 84.140625, 134, 74, 122, 74)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(4, 6, 7, 5), PackedInt32Array(0, 5, 8, 9), PackedInt32Array(9, 8, 10)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(176, 80, 176, 240, 80, 240, 80, 176, 16, 176, 16, 96, 96, 96, 112, 80, 112, 64, 144, 64, 144, 80)])
 
 [node name="Nsw3" type="Node2D" unique_id=522862986]

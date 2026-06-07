@@ -10,16 +10,40 @@ var bullet_damage: int = 25
 @onready var enemy_component = $EnemyComponent
 @onready var hurtbox:CollisionShape2D = $CollisionShape2D
 
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+var movement_delta: float
+
 const BULLET = preload("uid://b3rg1vs3nw1es")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
+func set_movement_target(movement_target: Vector2):
+	navigation_agent.set_target_position(movement_target)
+
+func _on_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+
+func pathfind():
+	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
+		return
+	if navigation_agent.is_navigation_finished():
+		return
+
+	movement_delta = wallet_speed
+	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_delta
+	if navigation_agent.avoidance_enabled:
+		navigation_agent.set_velocity(new_velocity)
+	else:
+		_on_velocity_computed(new_velocity)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if GameState.player and !enemy_component.is_stunned and enemy_component.is_alive:
-		velocity = (GameState.player.global_position - global_position).normalized() * wallet_speed
+		#velocity = (GameState.player.global_position - global_position).normalized() * wallet_speed
+		set_movement_target(GameState.player.position)
+		pathfind()
 	var collisions = [] # need these 4 lines in every enemy's physics process
 	for i in get_slide_collision_count():
 		collisions.append(get_slide_collision(i))
