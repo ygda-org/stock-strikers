@@ -62,14 +62,6 @@ offset_bottom = 475.0
 grow_horizontal = 0
 grow_vertical = 1
 
-[node name="DebugSeed" type="Label" parent="." unique_id=1268367578]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-
 [node name="Panel" type="Panel" parent="." unique_id=1518553701]
 offset_top = 475.0
 offset_right = 125.0
@@ -95,3 +87,12 @@ theme = ExtResource("2_ma5vl")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "hiii"
+
+[node name="DebugSeed" type="Label" parent="." unique_id=1268367578]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "adsdsa"
