@@ -47,11 +47,9 @@ func _ready() -> void:
 		pool.append(load("res://level/rooms/room_for_real/" + room_file))
 	if starting_room == null:
 		starting_room = pool.pick_random()
-	randomize()
 	generate()
 	if "no_four_split" in PlayerStats.permanent_upgrades_loaded.keys():
 		while check_four_split():
-			randomize()
 			generate()
 	check_top_replacements()
 	place_doors()
