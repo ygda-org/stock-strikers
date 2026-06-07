@@ -78,6 +78,7 @@ texture = SubResource("GradientTexture2D_txs3d")
 shape = SubResource("CircleShape2D_473kp")
 
 [node name="Timer" type="Timer" parent="." unique_id=451219250]
+wait_time = 6.0
 one_shot = true
 autostart = true
 
