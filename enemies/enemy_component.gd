@@ -138,4 +138,4 @@ func set_scalar(s):
 	max_health *= s
 	contact_damage *= s
 	if "bullet_damage" in get_parent():
-		get_parent().bullet_damage *= s/2
+		get_parent().bullet_damage *= s/6
