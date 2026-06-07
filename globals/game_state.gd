@@ -69,8 +69,9 @@ func roll_volitility():
 func get_all_stocks():
 	var dir_name := "res://player/stocks/"
 	# This "open" method returns an instance for accessing your dir
-	var dir := DirAccess.open(dir_name)
-	var file_names := dir.get_files()
+	#var dir := DirAccess.open(dir_name)
+	#var file_names := dir.get_files()
+	var file_names = ResourceLoader.list_directory(dir_name)
 	for file_name in file_names:
 		if 'tres' not in file_name:
 			continue
@@ -78,8 +79,9 @@ func get_all_stocks():
 
 func get_all_upgrades():
 	var dir_name := "res://player/permanent_upgrades/"
-	var dir := DirAccess.open(dir_name)
-	var file_names := dir.get_files()
+	#var dir := DirAccess.open(dir_name)
+	#var file_names := dir.get_files()
+	var file_names = ResourceLoader.list_directory(dir_name)
 	for file_name in file_names:
 		if 'tres' not in file_name:
 			continue

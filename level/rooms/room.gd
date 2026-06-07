@@ -78,6 +78,7 @@ func on_all_enemies_dead():
 	GameState.on_room_clear(global_position)
 
 func set_floors(new_floor):
-	pass
+	for tilemap: TileMapLayer in tilemaps:
+		pass
 func set_walls(new_walls):
 	pass
