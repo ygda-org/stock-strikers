@@ -204,6 +204,6 @@ func set_player_position():
 			closest_room = room
 			min_dist = dist
 	player_pos = closest_room.player_spawn
-	for enemy in closest_room.my_enemies:
-		enemy.queue_free()
-		closest_room.on_all_enemies_dead()
+	#for enemy in closest_room.my_enemies:
+	#	enemy.queue_free()
+	#	closest_room.on_all_enemies_dead()
