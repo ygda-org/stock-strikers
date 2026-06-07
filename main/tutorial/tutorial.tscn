@@ -41,6 +41,7 @@ position = Vector2(256, 256)
 position = Vector2(512, 256)
 
 [node name="Text" type="Control" parent="Gameplay" unique_id=1147624723]
+z_index = 1000
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -48,11 +49,12 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Gameplay/Text" unique_id=1745670129]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 21.0
-offset_right = 72.0
-offset_bottom = 44.0
-text = "WASD to move"
+offset_left = -113.0
+offset_top = 51.0
+offset_right = 3.0
+offset_bottom = 126.0
+text = "WASD to move, right click to dodge"
+autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="Gameplay/Text" unique_id=796895677]
 layout_mode = 0
@@ -96,10 +98,10 @@ shape = SubResource("RectangleShape2D_2df2v")
 
 [node name="ColorRect" type="ColorRect" parent="Gameplay" unique_id=684629900]
 z_index = -1000
-offset_left = -209.0
-offset_top = -163.0
-offset_right = 1248.0
-offset_bottom = 1022.0
+offset_left = -372.0
+offset_top = -165.0
+offset_right = 1085.0
+offset_bottom = 1020.0
 color = Color(0.011764706, 0, 0.18431373, 1)
 
 [node name="CreditCard" parent="Gameplay" unique_id=391192466 instance=ExtResource("10_h7g1w")]
