@@ -171,4 +171,3 @@ max_health = 35
 contact_damage = 20
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=576777107]
-debug_enabled = true

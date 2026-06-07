@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bp6yp3tp6amlh" path="res://enemies/enemy_component.gd" id="1_exhe8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exhe8"]
+bg_color = Color(0.5019608, 0, 0, 1)
+
 [sub_resource type="Gradient" id="Gradient_exhe8"]
 offsets = PackedFloat32Array(0, 0.6729323)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -29,6 +32,7 @@ offset_right = 10.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_exhe8")
 show_percentage = false
 
 [node name="BleedTimer" type="Timer" parent="." unique_id=843158090]
