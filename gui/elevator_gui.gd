@@ -137,6 +137,10 @@ func pay_debt(debt_node):
 		PlayerStats.debts.remove_at(PlayerStats.debts.find(debt_node.debt_resource))
 		debt_node.queue_free()
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
+	elif PlayerStats.money:
+		debt_node.debt_resource.debt -= PlayerStats.money
+		PlayerStats.money = 0
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess) 
 	else:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuyFail) 
 	update_debt_options()
