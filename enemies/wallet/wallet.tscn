@@ -231,4 +231,7 @@ animation = &"death"
 wait_time = 2.0
 autostart = true
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=552904970]
+debug_enabled = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

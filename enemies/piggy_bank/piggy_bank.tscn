@@ -230,6 +230,9 @@ money_on_kill = 30
 max_health = 50
 contact_damage = 5
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=644322210]
+debug_enabled = true
+
 [connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]
 [connection signal="frame_changed" from="Anim" to="." method="_on_anim_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

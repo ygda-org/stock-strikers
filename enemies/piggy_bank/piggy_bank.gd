@@ -16,17 +16,65 @@ var regular_times := 3
 var times := 0
 var is_stopped := false
 
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+var movement_delta: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation.play("side")
+	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+
+func choose_target() -> Vector2:
+	#var hide_offsets : Array[Vector2] = [
+		#Vector2(0,0),
+		#Vector2(128,0),
+		#Vector2(256,0),
+		#Vector2(0,128),
+		#Vector2(256,128),
+		#Vector2(0,256),
+		#Vector2(128,256),
+		#Vector2(256,256),
+	#]
+	#var player_poz := GameState.player.position
+	#var room_cord : Vector2 = Vector2i(256 * int(position.x / 256), 256 * int(position.y / 256))
+	#var hide_to_dist : Dictionary[Vector2, float] = {}
+	#for off in hide_offsets:
+		#var poz := room_cord + off
+		#hide_to_dist[poz] = (player_poz - poz).length_squared() + (position - poz).length_squared()
+	#var min_dist = hide_to_dist.values().min()
+	#return hide_to_dist.find_key(min_dist)
+	return -(GameState.player.global_position - global_position).normalized() * 50 + global_position
+
+func set_movement_target(movement_target: Vector2):
+	navigation_agent.set_target_position(movement_target)
+
+func _on_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+
+func pathfind():
+	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
+		return
+	if navigation_agent.is_navigation_finished():
+		return
+
+	movement_delta = pig_speed
+	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_delta
+	if navigation_agent.avoidance_enabled:
+		navigation_agent.set_velocity(new_velocity)
+	else:
+		_on_velocity_computed(new_velocity)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if GameState.player and !enemy_component.is_stunned and !is_stopped:
-		var distance = GameState.player.global_position - global_position  
-		velocity = distance.normalized() * pig_speed
+		#var distance = GameState.player.global_position - global_position  
+		#velocity = distance.normalized() * pig_speed
+		var target : Vector2 = choose_target()
+		set_movement_target(target)
+		pathfind()
 		choose_anim(velocity)
+		print(0)
 	if is_stopped:
 		velocity = Vector2.ZERO
 	var collisions = [] # need these 4 lines in every enemy's physics process
