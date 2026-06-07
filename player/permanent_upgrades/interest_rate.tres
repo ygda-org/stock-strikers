@@ -5,4 +5,10 @@
 [resource]
 script = ExtResource("1_e0h7y")
 modified = 11
+change_amount = -0.01
+name = "interest_rate"
+display_name = "Credit Score"
+attribute_text = "Decreases interest rate."
+flavor_text = "Trust takes time to build... or not."
+cost = 800.0
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

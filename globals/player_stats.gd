@@ -53,7 +53,10 @@ func reload_upgrades():
 
 func interest():
 	for debt in debts:
-		debt.debt = snapped(debt.debt * INTEREST_RATE, .01)
+		var interest_rate = INTEREST_RATE
+		if "interest_rate" in permanent_upgrades_loaded.keys():
+			interest_rate -= permanent_upgrades_loaded["interest_rate"]
+		debt.debt = snapped(debt.debt * interest_rate, .01)
 
 func reset_stats():
 	money = 10
