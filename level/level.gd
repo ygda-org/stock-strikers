@@ -56,6 +56,7 @@ func _ready() -> void:
 	check_top_replacements()
 	place_doors()
 	randomize_tilemaps()
+	set_player_position()
 
 func generate() -> void:
 	for child in get_children():
@@ -191,3 +192,15 @@ func randomize_tilemaps():
 		var room = rooms_after_placement[room_pos]
 		room.set_floor(floor)
 		room.set_walls(walls)
+
+func set_player_position():
+	var player_pos = get_parent().get_node("Player").position
+	var min_dist = 100000000
+	var closest_room
+	for room_cord in rooms_after_placement.keys():
+		var room = rooms_after_placement[room_cord]
+		var dist = (player_pos - room.player_spawn).length()
+		if dist < min_dist:
+			closest_room = room
+			min_dist = dist
+	player_pos = closest_room.player_spawn

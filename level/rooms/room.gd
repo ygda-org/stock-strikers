@@ -11,6 +11,7 @@ class_name Room
 @export var full_size: bool = false
 
 @export var spawns: Array[Vector2] = [Vector2(128,128)]
+@export var player_spawn := Vector2(128,128)
 
 @onready var center : Vector2 = position + Vector2(128,128)
 
