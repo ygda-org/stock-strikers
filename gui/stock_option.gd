@@ -38,7 +38,7 @@ func _ready() -> void:
 	$VBoxContainer/Desc.text = desc
 	$VBoxContainer/EffectRow/Panel/MarginContainer/Effect.text = str(effect_amount) + " " + effect_name
 	$Tooltip/MarginContainer/TooltipDesc.text = tooltip_desc
-	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(cost_per) + " *"
+	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(snappedf(cost_per,.01)) + " *"
 	if not is_shop_stock:
 		$VBoxContainer/BuyingRow/Dividends.visible = false
 		$VBoxContainer/EffectRow/PerTag.text = 'total'
@@ -58,7 +58,7 @@ func _on_info_button_toggled(toggled_on: bool) -> void:
 	$Tooltip.visible = toggled_on
 
 func update_value():
-	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(cost_per)
+	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(snappedf(cost_per, .01))
 
 func _on_buy_button_pressed() -> void:
 	var dividend_ct : SpinBox = $VBoxContainer/BuyingRow/Dividends

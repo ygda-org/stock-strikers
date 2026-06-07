@@ -39,7 +39,7 @@ func update_debt_options() -> void:
 		$MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer.add_child(debt_option)
 
 func update_balance():
-	$MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/Balance.text = '$' + str(PlayerStats.money)
+	$MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/Balance.text = '$' + str(snappedf(PlayerStats.money,.01))
 
 func update_owned_stocks():
 	var your_stocks_holder : VBoxContainer = $"StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer"

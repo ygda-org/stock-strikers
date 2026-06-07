@@ -8,7 +8,7 @@ func _ready() -> void:
 	$DebugSeed.text = "DEBUG: " + str(GameState.chosen_seed)
 
 func _process(_delta):
-	$Panel/VBoxContainer/Money.text = "$" + str(PlayerStats.money)
+	$Panel/VBoxContainer/Money.text = "$" + str(snapped(PlayerStats.money,0.01))
 	$Panel/VBoxContainer/Debt.text = "$" + str(PlayerStats.get_total_debt())
 
 func on_update_stock_tickers():

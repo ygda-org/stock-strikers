@@ -206,6 +206,7 @@ text = "Cost: $20 *"
 custom_minimum_size = Vector2(60, 26)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
+min_value = 1.0
 value = 1.0
 
 [node name="BuyButton" type="Button" parent="VBoxContainer/BuyingRow" unique_id=127888415]
