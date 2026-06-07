@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
+signal death_anim_complete
+
 @onready var enemy_component = $EnemyComponent
 @onready var animation:AnimatedSprite2D = $Anim
+@onready var hurtbox:CollisionShape2D = $CollisionShape2D
 
 var speed: int = 100
 # Called when the node enters the scene tree for the first time.
@@ -19,8 +22,17 @@ func _process(delta: float) -> void:
 		collisions.append(get_slide_collision(i))
 	enemy_component.process_collisions(collisions)
 	move_and_slide()
-	choose_anim(velocity)
+	if !enemy_component.is_stunned and enemy_component.is_alive:
+		choose_anim(velocity)
 
+func die():
+	hurtbox.disabled = true
+	enemy_component.is_stunned = true
+	animation.play("death")
+	animation.flip_h = false
+	await animation.animation_finished
+	death_anim_complete.emit()
+	return
 
 func choose_anim(vel:Vector2):
 	if vel.angle() > (3*PI)/4 or vel.angle() < -(3*PI)/4:
