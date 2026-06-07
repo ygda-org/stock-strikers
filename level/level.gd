@@ -185,9 +185,9 @@ func _on_debt_timer_timeout():
 	PlayerStats.interest()
 
 func randomize_tilemaps():
-	var floor = 0
-	var walls = 0
+	var floor = randi() % 4
+	var walls = randi() % 3
 	for room_pos in rooms_after_placement.keys():
 		var room = rooms_after_placement[room_pos]
-		#room.set_floor(floor)
-		#room.set_walls(walls)
+		room.set_floor(floor)
+		room.set_walls(walls)

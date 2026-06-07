@@ -77,8 +77,23 @@ func on_all_enemies_dead():
 	has_enemies = false
 	GameState.on_room_clear(global_position)
 
-func set_floors(new_floor):
+func set_floor(new_floor):
 	for tilemap: TileMapLayer in tilemaps:
-		pass
+		#var array = tilemap.get_tile_map_data_as_array()
+		#for i in range(len(array)):
+		#	array[i] = 5
+		#tilemap.set_tile_map_data_from_array(array)
+		for cell in tilemap.get_used_cells():
+			if tilemap.get_cell_atlas_coords(cell) == Vector2i(2,0) and tilemap.get_cell_source_id(cell) == 1:
+				tilemap.set_cell(cell, 1, Vector2(new_floor,0), 0)
 func set_walls(new_walls):
-	pass
+	for tilemap: TileMapLayer in tilemaps:
+		for cell in tilemap.get_used_cells():
+			if tilemap.get_cell_source_id(cell) != 0 and tilemap.get_cell_source_id(cell) != 3:
+				continue
+			if tilemap.get_cell_atlas_coords(cell) == Vector2i(2,3):
+				tilemap.set_cell(cell, 0, Vector2(new_walls,3), 0)
+			if tilemap.get_cell_atlas_coords(cell) == Vector2i(2,4):
+				tilemap.set_cell(cell, 0, Vector2(new_walls,4), 0)
+			if tilemap.get_cell_atlas_coords(cell) == Vector2i(2,5):
+				tilemap.set_cell(cell, 0, Vector2(new_walls,5), 0)
