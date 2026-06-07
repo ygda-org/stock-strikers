@@ -60,3 +60,9 @@ func reset_stats():
 	debts = []
 	stocks = []
 	permanent_upgrades = []
+
+func get_total_debt():
+	var debt = 0
+	for debt_resource in debts:
+		debt += debt_resource.debt
+	return debt
