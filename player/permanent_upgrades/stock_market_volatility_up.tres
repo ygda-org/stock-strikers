@@ -10,5 +10,5 @@ name = "stock_market_volatility"
 display_name = "Stock Volatility"
 attribute_text = "Increases volatility of all stocks."
 flavor_text = "No risk, no reward"
-cost = 100.0
+cost = 750.0
 metadata/_custom_type_script = "uid://b84t6wgyld4v8"

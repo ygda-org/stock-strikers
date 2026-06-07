@@ -22,6 +22,7 @@ func _ready() -> void:
 	for poz in spawns:
 		var enemy : CharacterBody2D = select_enemy().instantiate()
 		enemy.position = poz
+		enemy.get_node("EnemyComponent").set_scalar(GameState.get_current_scalar())
 		add_child(enemy)
 		my_enemies.append(enemy)
 

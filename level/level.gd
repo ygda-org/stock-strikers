@@ -165,10 +165,10 @@ func place_doors():
 			placements.append(room_cord*256+Vector2(128,0))
 			orientations.append(0)
 		if room.has_east:
-			placements.append(room_cord*256+room_cord*256+Vector2(256,128))
+			placements.append(room_cord*256+Vector2(256,128))
 			orientations.append(1)
 		if room.has_south:
-			placements.append(room_cord*256+room_cord*256+Vector2(128,256))
+			placements.append(room_cord*256+Vector2(128,256))
 			orientations.append(0)
 		if room.has_west:
 			placements.append(room_cord*256+Vector2(0,128))

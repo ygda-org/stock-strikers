@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c5gleu1i84j0m" path="res://globals/audio/sfx_manager.gd" id="1_dtfen"]
 [ext_resource type="Script" uid="uid://drm365q6gg1o6" path="res://globals/audio/sfx_settings.gd" id="2_d580q"]
-[ext_resource type="AudioStream" uid="uid://bvksuuyv4utcm" path="res://assets/audio/sfx/buy_success.mp3" id="3_npaok"]
 [ext_resource type="AudioStream" uid="uid://d2ef5wxs536yc" path="res://assets/audio/sfx/buy_fail.wav" id="4_sx6ju"]
+[ext_resource type="AudioStream" uid="uid://c7d7oa1e30lfb" path="res://assets/audio/sfx/bulletbounce.wav" id="5_5ixn8"]
 [ext_resource type="AudioStream" uid="uid://dsdiignjerl3g" path="res://assets/audio/sfx/coin.wav" id="5_npaok"]
-
-[sub_resource type="Resource" id="Resource_pbncl"]
-script = ExtResource("2_d580q")
-stream = ExtResource("3_npaok")
-audio_start_offset = 0.37
-metadata/_custom_type_script = "uid://drm365q6gg1o6"
+[ext_resource type="AudioStream" uid="uid://bne31wj4abyki" path="res://assets/audio/sfx/dodgeroll.wav" id="6_aumr2"]
+[ext_resource type="AudioStream" uid="uid://c3dr6xmyykepl" path="res://assets/audio/sfx/dodgerollbutfastiguess.wav" id="7_fb6si"]
+[ext_resource type="AudioStream" uid="uid://f40k4r8stufo" path="res://assets/audio/sfx/piggybankshot.wav" id="8_qv5mm"]
 
 [sub_resource type="Resource" id="Resource_5ixn8"]
 script = ExtResource("2_d580q")
@@ -25,10 +22,44 @@ stream = ExtResource("5_npaok")
 volume = 2.0
 metadata/_custom_type_script = "uid://drm365q6gg1o6"
 
+[sub_resource type="Resource" id="Resource_qu8yd"]
+script = ExtResource("2_d580q")
+label = 3
+stream = ExtResource("5_5ixn8")
+metadata/_custom_type_script = "uid://drm365q6gg1o6"
+
+[sub_resource type="Resource" id="Resource_3bq1l"]
+script = ExtResource("2_d580q")
+label = 4
+stream = ExtResource("6_aumr2")
+metadata/_custom_type_script = "uid://drm365q6gg1o6"
+
+[sub_resource type="Resource" id="Resource_k8yts"]
+script = ExtResource("2_d580q")
+label = 5
+stream = ExtResource("7_fb6si")
+metadata/_custom_type_script = "uid://drm365q6gg1o6"
+
+[sub_resource type="Resource" id="Resource_o6q53"]
+script = ExtResource("2_d580q")
+label = 6
+metadata/_custom_type_script = "uid://drm365q6gg1o6"
+
+[sub_resource type="Resource" id="Resource_osuvr"]
+script = ExtResource("2_d580q")
+label = 7
+stream = ExtResource("8_qv5mm")
+metadata/_custom_type_script = "uid://drm365q6gg1o6"
+
 [node name="SfxManager" type="Node" unique_id=936414398]
 script = ExtResource("1_dtfen")
 sound_effect_dict = Dictionary[int, ExtResource("2_d580q")]({
-0: SubResource("Resource_pbncl"),
+0: null,
 1: SubResource("Resource_5ixn8"),
-2: SubResource("Resource_sx6ju")
+2: SubResource("Resource_sx6ju"),
+3: SubResource("Resource_qu8yd"),
+4: SubResource("Resource_3bq1l"),
+5: SubResource("Resource_k8yts"),
+6: SubResource("Resource_o6q53"),
+7: SubResource("Resource_osuvr")
 })

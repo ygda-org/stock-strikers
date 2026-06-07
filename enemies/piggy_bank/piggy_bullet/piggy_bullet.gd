@@ -51,6 +51,7 @@ func shoot(delta:float):
 	shot = true 
 
 func die():
+	SfxManager.create_audio(SFXSettings.SFX_LABEL.PiggyBankShot)
 	global_position = target
 	var explosion = EXPLOSION.instantiate()
 	get_parent().add_child(explosion)

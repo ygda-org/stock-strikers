@@ -4,7 +4,7 @@ signal death_anim_complete
 
 var wallet_speed: int = 50
 var bullet_speed: int = 100
-var bullet_damage: int = 5
+var bullet_damage: int = 25
 
 @onready var animation:AnimatedSprite2D = $Anim
 @onready var enemy_component = $EnemyComponent

@@ -133,3 +133,9 @@ func _on_bleed_timer_timeout():
 		current_bleed = 0
 		return
 	$BleedTimer.start()
+
+func set_scalar(s):
+	max_health *= s
+	contact_damage *= s
+	if "bullet_damage" in get_parent():
+		get_parent().bullet_damage *= s/2

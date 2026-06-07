@@ -3,7 +3,7 @@ extends Node
 
 var money = 10
 var debts = []
-const INTEREST_RATE = 1.05
+const INTEREST_RATE = 1.08
 
 const BASE_STATS = [100, 100, 0, 20, 0, 200, 1, 0.3, 250, 0, 0.2, 20, null] # parallel array to enum in resource
 var current_stats = []
@@ -53,7 +53,7 @@ func reload_upgrades():
 
 func interest():
 	for debt in debts:
-		debt.debt = debt.debt * INTEREST_RATE
+		debt.debt = snapped(debt.debt * INTEREST_RATE, .01)
 
 func reset_stats():
 	money = 10

@@ -1,13 +1,13 @@
 extends Control
 
 @onready var perm_panel : Panel = $PermPanel
-@onready var perm_button : Button = $Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/PermButton
+@onready var perm_button : Button = $Background/Taskbar/MarginContainer/HBoxContainer/PermButton
 
 @onready var stock_panel : Panel = $StockPanel
-@onready var stock_button : Button = $Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StockButton
+@onready var stock_button : Button = $Background/Taskbar/MarginContainer/HBoxContainer/StockButton
 
 @onready var money_panel : Panel = $MoneyPanel
-@onready var money_button : Button = $Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/MoneyButton
+@onready var money_button : Button = $Background/Taskbar/MarginContainer/HBoxContainer/MoneyButton
 
 const STOCK_OPTION = preload("uid://c4m8hryyag1e6")
 const DEBT_OPTION = preload("uid://dnt1y0yhe38ki")
@@ -19,6 +19,7 @@ func _ready() -> void:
 	update_trendings_stocks()
 	update_available_upgrades()
 	update_owned_stocks()
+	update_debt_options()
 	PlayerStats.stocks_modified.connect(update_owned_stocks)
 	pass # Replace with function body.
 

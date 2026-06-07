@@ -30,6 +30,9 @@ func _ready() -> void:
 	desc = stock.stock_description
 	tooltip_desc = stock.effect_description
 	cost_per = stock.change_amount * stock.cost_multi
+	if stock.changed_stat == Stock.stats.OTHER:
+		$VBoxContainer/BuyingRow/Dividends.editable = false
+	
 	
 	$Title.text = title
 	$VBoxContainer/Desc.text = desc

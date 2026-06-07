@@ -8,7 +8,7 @@ extends CharacterBody2D
 const LASER = preload("uid://csveghgjktsk8")
 var laser
 var speed: int = 20
-var bullet_damage: int = 5
+var bullet_damage: int = 20
 
 var laser_point
 # Called when the node enters the scene tree for the first time.

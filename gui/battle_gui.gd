@@ -7,6 +7,10 @@ func _ready() -> void:
 	on_update_stock_tickers()
 	$DebugSeed.text = "DEBUG: " + str(GameState.chosen_seed)
 
+func _process(_delta):
+	$Panel/VBoxContainer/Money.text = "$" + str(PlayerStats.money)
+	$Panel/VBoxContainer/Debt.text = "$" + str(PlayerStats.get_total_debt())
+
 func on_update_stock_tickers():
 	var half : int = int(PlayerStats.stocks.size()/2.0)
 	$TickerTape.update_stocks(PlayerStats.stocks.slice(0, half))

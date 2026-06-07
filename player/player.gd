@@ -139,6 +139,7 @@ func hurt(hp_damage:int):
 		player_hp_update.emit(max_health,current_health)
 	
 func dodge():
+	SfxManager.create_audio(SFXSettings.SFX_LABEL.DodgeRoll)
 	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
 	squash_stretch(velocity.normalized(), -0.3)
 	if not velocity:
@@ -171,6 +172,7 @@ func squash_stretch(dir: Vector2, strength):
 
 ## creates a bullet and sets its initial values. Does not add child.
 func create_bullet_to_spawn(dmg):
+	#SfxManager.create_audio(SFXSettings.SFX_LABEL.Gun)
 	var bullet = BULLET.instantiate()
 	bullet.velocity = (get_global_mouse_position()-global_position).normalized()*bullet_speed
 	bullet.speed = bullet_speed

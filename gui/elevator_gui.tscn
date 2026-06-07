@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cpn4wboo43nvd"]
 
 [ext_resource type="Script" uid="uid://c5cae0htj8ybr" path="res://gui/elevator_gui.gd" id="1_biksv"]
-[ext_resource type="Texture2D" uid="uid://bqw6yg4h10b0o" path="res://assets/tempoary_assets/elevator.png" id="1_nhbi5"]
-[ext_resource type="Texture2D" uid="uid://c624yv0rmuxws" path="res://assets/tempoary_assets/monitor.png" id="2_4mvcn"]
+[ext_resource type="Texture2D" uid="uid://58funske8mbo" path="res://assets/ui/elevator1.png" id="2_h2vk8"]
 [ext_resource type="Texture2D" uid="uid://bw7bnogec8q7l" path="res://assets/tempoary_assets/windows95_uibox.png" id="3_2dwxg"]
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="3_svwi6"]
 [ext_resource type="Texture2D" uid="uid://tp2aemj1cblw" path="res://assets/tempoary_assets/penguin.png" id="4_jra5y"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cmw80urymyqxg" path="res://assets/tempoary_assets/frogdaq.png" id="4_w5gor"]
 [ext_resource type="Texture2D" uid="uid://c7ievlotd7oph" path="res://assets/tempoary_assets/sahara.png" id="5_kne5f"]
 [ext_resource type="Texture2D" uid="uid://bkhodffw8f468" path="res://assets/tempoary_assets/lowercasetwo.png" id="6_kne5f"]
+[ext_resource type="Texture2D" uid="uid://b7mcrga0fenv5" path="res://assets/ui/compute rscreen.png" id="9_h2vk8"]
 [ext_resource type="Texture2D" uid="uid://b6vt4te58eg6g" path="res://assets/tempoary_assets/windows95_indentbox.png" id="11_fjy6l"]
 [ext_resource type="AudioStream" uid="uid://cxpuyn8efbu2u" path="res://assets/audio/startupsoundforshoptheme.mp3" id="12_biksv"]
 [ext_resource type="Script" uid="uid://bfdam4gm8l713" path="res://gui/upgrade_button.gd" id="12_h2vk8"]
@@ -75,9 +75,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_nhbi5")
+texture = ExtResource("2_h2vk8")
+
+[node name="Monitor" type="TextureRect" parent="Background" unique_id=1570154785]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+mouse_filter = 2
+texture = ExtResource("9_h2vk8")
 
 [node name="DesktopBg" type="ColorRect" parent="Background" unique_id=1513326048]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,20 +101,23 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.101960786, 0.47843137, 0.47843137, 1)
 
-[node name="Taskbar" type="Panel" parent="Background/DesktopBg" unique_id=1114086752]
+[node name="Taskbar" type="Panel" parent="Background" unique_id=1114086752]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -29.0
+offset_left = 199.0
+offset_top = -173.0
+offset_right = -181.0
+offset_bottom = -144.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 theme_override_styles/panel = SubResource("StyleBoxTexture_d2mul")
 
-[node name="MarginContainer" type="MarginContainer" parent="Background/DesktopBg/Taskbar" unique_id=1581623878]
+[node name="MarginContainer" type="MarginContainer" parent="Background/Taskbar" unique_id=1581623878]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,22 +130,22 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/DesktopBg/Taskbar/MarginContainer" unique_id=888939278]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Taskbar/MarginContainer" unique_id=888939278]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="StartButton" type="Button" parent="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer" unique_id=1687193267]
+[node name="StartButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=1687193267]
 layout_mode = 2
 toggle_mode = true
 icon = ExtResource("4_jra5y")
 
-[node name="PermButton" type="Button" parent="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer" unique_id=769714251]
+[node name="PermButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=769714251]
 layout_mode = 2
 toggle_mode = true
 text = "Sahara"
 icon = ExtResource("5_kne5f")
 
-[node name="StockButton" type="Button" parent="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer" unique_id=296420838]
+[node name="StockButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=296420838]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -142,25 +153,18 @@ toggle_mode = true
 text = "FrogDaq"
 icon = ExtResource("4_w5gor")
 
-[node name="MoneyButton" type="Button" parent="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer" unique_id=604286391]
+[node name="MoneyButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=604286391]
 layout_mode = 2
 toggle_mode = true
 text = "Lowercase Two"
 icon = ExtResource("6_kne5f")
 
-[node name="Monitor" type="TextureRect" parent="Background" unique_id=1570154785]
-layout_mode = 0
-offset_right = 800.0
-offset_bottom = 600.0
-mouse_filter = 2
-texture = ExtResource("2_4mvcn")
-
 [node name="StockPanel" type="Panel" parent="." unique_id=655216269]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 151.0
-offset_right = 660.0
-offset_bottom = 416.0
+offset_left = 202.0
+offset_top = 132.0
+offset_right = 611.0
+offset_bottom = 397.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
@@ -230,10 +234,10 @@ mouse_filter = 2
 
 [node name="PermPanel" type="Panel" parent="." unique_id=1795233922]
 layout_mode = 0
-offset_left = 107.0
-offset_top = 200.0
-offset_right = 464.0
-offset_bottom = 434.0
+offset_left = 203.0
+offset_top = 191.0
+offset_right = 560.0
+offset_bottom = 425.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
@@ -398,10 +402,10 @@ script = ExtResource("12_h2vk8")
 
 [node name="MoneyPanel" type="Panel" parent="." unique_id=1104745353]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 231.0
-offset_right = 689.0
-offset_bottom = 431.0
+offset_left = 374.0
+offset_top = 177.0
+offset_right = 615.0
+offset_bottom = 377.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
@@ -499,9 +503,9 @@ stream = SubResource("AudioStreamPlaylist_m6y2a")
 autoplay = true
 playback_type = 1
 
-[connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/PermButton" to="." method="_on_perm_button_pressed"]
-[connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/StockButton" to="." method="_on_stock_button_pressed"]
-[connection signal="pressed" from="Background/DesktopBg/Taskbar/MarginContainer/HBoxContainer/MoneyButton" to="." method="_on_money_button_pressed"]
+[connection signal="pressed" from="Background/Taskbar/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Background/Taskbar/MarginContainer/HBoxContainer/PermButton" to="." method="_on_perm_button_pressed"]
+[connection signal="pressed" from="Background/Taskbar/MarginContainer/HBoxContainer/StockButton" to="." method="_on_stock_button_pressed"]
+[connection signal="pressed" from="Background/Taskbar/MarginContainer/HBoxContainer/MoneyButton" to="." method="_on_money_button_pressed"]
 [connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button" to="." method="_on_upgrade_1_button_pressed"]
 [connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button" to="." method="_on_upgrade_2_button_pressed"]

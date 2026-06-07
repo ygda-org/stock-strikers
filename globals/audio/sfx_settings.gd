@@ -6,6 +6,12 @@ enum SFX_LABEL{
 	BuySuccess,
 	BuyFail,
 	Coin,
+	BulletBounce,
+	DodgeRoll,
+	DodgeRollFast,
+	Gun,
+	PiggyBankShot,
+	Ping
 }
 
 @export var label : SFX_LABEL

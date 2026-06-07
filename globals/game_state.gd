@@ -34,6 +34,7 @@ var all_upgrades: Array[Upgrade]
 
 var chosen_seed : int
 var doors = []
+var cleared_floors = 0
 
 func _ready() -> void:
 	chosen_seed = randi() % 100000
@@ -52,6 +53,7 @@ func _process(_delta):
 
 func cleared_floor():
 	in_game = false
+	cleared_floors += 1
 	get_tree().change_scene_to_file("res://gui/elevator_gui.tscn")
 
 func roll_volitility():
@@ -126,3 +128,6 @@ func on_room_clear(room_pos):
 		s.change_amount += delta
 		last_stock_dir[s] = sign(delta)
 		update_stock_tickers.emit()
+
+func get_current_scalar():
+	return 1.2**cleared_floors + cleared_floors/2

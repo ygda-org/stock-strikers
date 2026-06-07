@@ -42,6 +42,7 @@ func hit(norm):
 	if not ricochet:
 		self.call_deferred("queue_free")
 	else:
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.BulletBounce)
 		ricochet -= 1
 		velocity = velocity.bounce(norm)
 

@@ -208,7 +208,7 @@ motion_mode = 1
 script = ExtResource("1_2331h")
 pig_speed = 10
 bullet_speed = 100
-bullet_damage = 20
+bullet_damage = 40
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1990987845]
 sprite_frames = SubResource("SpriteFrames_jby03")
@@ -226,8 +226,9 @@ autostart = true
 position = Vector2(-1, 0)
 
 [node name="EnemyComponent" parent="." unique_id=741055310 instance=ExtResource("3_bgkm8")]
-money_on_kill = 50
+money_on_kill = 30
 max_health = 50
+contact_damage = 5
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]
 [connection signal="frame_changed" from="Anim" to="." method="_on_anim_frame_changed"]
