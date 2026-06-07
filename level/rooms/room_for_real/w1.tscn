@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://chpfeteer6muy" path="res://level/rooms/room.gd" id="1_dayg6"]
 [ext_resource type="TileSet" uid="uid://by732a8y26a0o" path="res://assets/level/level_tileset.tres" id="2_s3dxn"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dayg6"]
+vertices = PackedVector2Array(230, 26, 230, 54, 150, 54, 26, 26, 26, 230, 150, 154, 230, 230, 230, 154)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(16, 16, 240, 16, 240, 64, 160, 64, 160, 144, 240, 144, 240, 240, 16, 240)])
+
 [node name="W1" type="Node2D" unique_id=1287023855]
 script = ExtResource("1_dayg6")
 has_west = true
@@ -21,3 +26,6 @@ tile_set = ExtResource("2_s3dxn")
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=679988934]
 tile_map_data = PackedByteArray("AAANAAQACgAGAAMAAAAFAAQACgAEAAMAAAAHAAUACgACAAMAAAAJAAUACgACAAMAAAALAAUACgACAAMAAAAKAAIACgAEAAMAAAALAAcAAgAAAAYAAAALAP//AgAAAAYAAAAMAAEAAgACAAIAAAAMAAkAAgACAAIAAAAHAAMABwAAAAEAAAAJAAMABwABAAIAAAALAAMABwADAAEAAAAMAAsABwADAAEAAAAJAAsABwABAAEAAAAIAAsABwABAAIAAAAHAAsABwAAAAAAAAA=")
 tile_set = ExtResource("2_s3dxn")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=820421795]
+navigation_polygon = SubResource("NavigationPolygon_dayg6")
