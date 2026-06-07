@@ -4,8 +4,13 @@
 
 [resource]
 script = ExtResource("1_j2j1s")
+high_volatile_range = Vector2(-0.2, 0.2)
+med_volatile_range = Vector2(-0.1, 0.1)
+low_volatile_range = Vector2(-0.05, 0.05)
 changed_stat = 12
 change_amount = 2.0
 other_effect_name = "strong_single_shots"
+effect_description = "Drastically increases bullet damage in exchange for halving fire rate."
 company_ticker = "STRB"
+cost_multi = 75.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

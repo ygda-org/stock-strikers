@@ -4,7 +4,12 @@
 
 [resource]
 script = ExtResource("1_1k2at")
+high_volatile_range = Vector2(-0.01, 0.01)
+med_volatile_range = Vector2(-0.005, 0.005)
+low_volatile_range = Vector2(-0.003, 0.003)
 changed_stat = 12
-change_amount = 1.1
+change_amount = 1.05
 other_effect_name = "berserk"
+effect_description = "Increases damage for every enemy killed."
+cost_multi = 250.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

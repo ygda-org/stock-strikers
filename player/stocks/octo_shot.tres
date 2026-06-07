@@ -4,7 +4,12 @@
 
 [resource]
 script = ExtResource("1_hufh3")
+high_volatile_range = Vector2(-0.05, 0.05)
+med_volatile_range = Vector2(-0.02, 0.02)
+low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 12
-change_amount = 0.2
+change_amount = 0.1
 other_effect_name = "octo_shot"
+effect_description = "Shoot 8 bullets at once in a circular spread."
+cost_multi = 3000.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"
