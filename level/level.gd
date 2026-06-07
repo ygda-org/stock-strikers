@@ -204,6 +204,10 @@ func set_player_position():
 			closest_room = room
 			min_dist = dist
 	player_pos = closest_room.player_spawn
+	for room_cord in rooms_after_placement.keys():
+		var room = rooms_after_placement[room_cord]
+		if room != closest_room:
+			room.spawn_enemies() # only spawn enemies in rooms which aren't the closest room to the player spawn
 	#for enemy in closest_room.my_enemies:
 	#	enemy.queue_free()
 	#	closest_room.on_all_enemies_dead()

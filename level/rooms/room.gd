@@ -30,14 +30,17 @@ func _ready() -> void:
 			coin.value = 25
 			add_child(coin)
 			continue
+	for node in get_children():
+		if node is TileMapLayer:
+			tilemaps.append(node)
+
+func spawn_enemies():
+	for poz in spawns:
 		var enemy: CharacterBody2D = select_enemy().instantiate()
 		enemy.position = poz
 		enemy.get_node("EnemyComponent").set_scalar(GameState.get_current_scalar())
 		my_enemies.append(enemy)
 		add_child(enemy)
-	for node in get_children():
-		if node is TileMapLayer:
-			tilemaps.append(node)
 
 func select_enemy():
 	var cum_percent : float = 0
