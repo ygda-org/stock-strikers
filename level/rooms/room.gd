@@ -19,17 +19,24 @@ var has_enemies := true
 var my_enemies : Array = []
 
 func _ready() -> void:
+	var coin_room = GameState.roll_coin_room()
 	for poz in spawns:
-		var enemy : CharacterBody2D = select_enemy().instantiate()
+		if coin_room:
+			var coin = load("uid://d1hijr3si4jyw").instantiate()
+			coin.position = poz
+			coin.value = 25
+			add_child(coin)
+			continue
+		var enemy: CharacterBody2D = select_enemy().instantiate()
 		enemy.position = poz
 		enemy.get_node("EnemyComponent").set_scalar(GameState.get_current_scalar())
-		add_child(enemy)
 		my_enemies.append(enemy)
+		add_child(enemy)
 
 func select_enemy():
 	var cum_percent : float = 0
 	var val := randf()
-	for k in GameState.enemy_rate.keys():
+	for k in (GameState.enemy_rate.keys()):
 		cum_percent += GameState.enemy_rate[k]
 		if val < cum_percent:
 			return k

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_lb5gl")
 modified = 9
+change_amount = 2.0
 name = "max_room_ct"
 display_name = "Bonus Coin Rooms"
 attribute_text = "Increases chance of rooms being filled with coins."

@@ -131,3 +131,9 @@ func on_room_clear(room_pos):
 
 func get_current_scalar():
 	return 1.2**cleared_floors + cleared_floors/2
+
+func roll_coin_room():
+	var chance = 10
+	if "bonus_coin_rooms" in PlayerStats.permanent_upgrades_loaded.keys():
+		chance -= PlayerStats.permanent_upgrades_loaded["bonus_coin_rooms"]
+	return not (randi()%chance)
