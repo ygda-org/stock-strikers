@@ -38,6 +38,7 @@ func _ready() -> void:
 	for node in get_children():
 		if node is TileMapLayer:
 			tilemaps.append(node)
+			node.y_sort_enabled = true
 
 func select_enemy():
 	var cum_percent : float = 0
