@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dh8i3pi010sjg"]
 
 [ext_resource type="Script" uid="uid://bp6yp3tp6amlh" path="res://enemies/enemy_component.gd" id="1_exhe8"]
+[ext_resource type="Texture2D" uid="uid://cidcmc07ibh70" path="res://assets/ui/pointer.png" id="2_fqvkt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exhe8"]
 bg_color = Color(0.5019608, 0, 0, 1)
@@ -45,4 +46,14 @@ energy = 0.7
 blend_mode = 2
 texture = SubResource("GradientTexture2D_fqvkt")
 
+[node name="EnemyMarker" type="TextureRect" parent="." unique_id=5034709]
+z_index = 1000
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_fqvkt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1806005127]
+
 [connection signal="timeout" from="BleedTimer" to="." method="_on_bleed_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
