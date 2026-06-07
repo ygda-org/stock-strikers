@@ -37,6 +37,7 @@ var doors = []
 
 func _ready() -> void:
 	chosen_seed = randi() % 100000
+	chosen_seed = 52738
 	print('seed:', chosen_seed)
 	seed(chosen_seed)
 	get_all_stocks()
