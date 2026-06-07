@@ -4,9 +4,14 @@
 
 [resource]
 script = ExtResource("1_mc8hk")
+high_volatile_range = Vector2(-0.5, 0.5)
+med_volatile_range = Vector2(-0.25, 0.25)
+low_volatile_range = Vector2(-0.1, 0.1)
 changed_stat = 12
 stat_unit = "hp per s"
-change_amount = 2.0
+change_amount = 1.0
 other_effect_name = "bleed"
+effect_description = "Inflicts a stacking damage over time effect on enemies."
 company_ticker = "BLED"
+cost_multi = 350.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

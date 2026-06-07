@@ -56,3 +56,7 @@ func get_nearest_enemy():
 			min_dist = distance
 			min_enemy = e
 	return min_enemy
+
+
+func _on_timer_timeout():
+	$AnimationPlayer.play("time_out")
