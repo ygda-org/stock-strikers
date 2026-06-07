@@ -78,7 +78,7 @@ func _process(delta):
 	$Camera2D.position = Vector2(mouse_pos_diff.x/5, mouse_pos_diff.y/5)
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
 		dodge()
-	if (not $DodgeDur.is_stopped()) or (not $ExtraEffects/RecoilTimer.is_stopped()):
+	if (not $DodgeDur.is_stopped()) or (not $ExtraEffects/RecoilTimer.is_stopped()) or $AnimationPlayer.is_playing():
 		move_and_slide()
 		return
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -137,6 +137,8 @@ func hurt(hp_damage:int):
 		itimer.start()
 		current_health -= hp_damage
 		player_hp_update.emit(max_health,current_health)
+	if current_health <= 0:
+		die()
 	
 func dodge():
 	SfxManager.create_audio(SFXSettings.SFX_LABEL.DodgeRoll)
@@ -192,6 +194,22 @@ func create_bullet_to_spawn(dmg):
 	if "guided_shots" in other_effects_list:
 		bullet.guiding = other_effects_strengths["guided_shots"]
 	return bullet
+
+func die():
+	velocity = Vector2(0,0)
+	for i in range(8):
+		var coin = load("uid://d1hijr3si4jyw").instantiate()
+		coin.value = 25
+		coin.target_position = global_position + Vector2(30,0).rotated(i*2*PI/8)
+		coin.monitoring = false
+		get_parent().add_child(coin)
+		coin.global_position = global_position
+	if not $AnimationPlayer.is_playing():
+		$AnimationPlayer.play("die")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	get_tree().change_scene_to_file("uid://6i6mv001enok")
 
 ###########################################
 # past this point is special effects

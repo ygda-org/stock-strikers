@@ -101,6 +101,43 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="Animation" id="Animation_qjkh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yw30f"]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.66, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjkh3"]
+_data = {
+&"RESET": SubResource("Animation_qjkh3"),
+&"die": SubResource("Animation_yw30f")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=453716687 groups=["Player"]]
 collision_layer = 9
 collision_mask = 4
@@ -156,8 +193,12 @@ collision_mask = 4
 [node name="MoneyLeakCD" type="Timer" parent="ExtraEffects" unique_id=1069823950]
 wait_time = 5.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=901616845]
+libraries/ = SubResource("AnimationLibrary_qjkh3")
+
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
 [connection signal="timeout" from="DodgeDur" to="." method="_on_dodge_dur_timeout"]
 [connection signal="timeout" from="DodgeInvincibilityDur" to="." method="_on_dodge_invincibility_dur_timeout"]
 [connection signal="timeout" from="ExtraEffects/ExtraFireCD" to="." method="_on_extra_fire_cd_timeout"]
 [connection signal="timeout" from="ExtraEffects/MoneyLeakCD" to="." method="_on_money_leak_cd_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
