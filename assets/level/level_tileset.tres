@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bnlpk6uud51h2" path="res://assets/level/flooring.png" id="2_5qgfy"]
 [ext_resource type="Texture2D" uid="uid://deg3c1cpbj1yx" path="res://assets/level/decor.png" id="3_c4bpl"]
 [ext_resource type="Texture2D" uid="uid://bgpt6q3xp2odg" path="res://assets/level/wallpaper-1-updated.png" id="3_h16gl"]
+[ext_resource type="Texture2D" uid="uid://buaova6i6gi4" path="res://assets/level/meeting_room.png" id="3_uqhpk"]
 [ext_resource type="Texture2D" uid="uid://wmg0arhk81po" path="res://assets/level/jasper_temp_decor.png" id="5_qae0t"]
 [ext_resource type="Texture2D" uid="uid://b0ttr8b50bqge" path="res://assets/level/s_floor_assets.png" id="6_bn71f"]
 [ext_resource type="Texture2D" uid="uid://irlyyyn2k4ga" path="res://assets/level/s_wall_assets.png" id="7_bvk6k"]
 [ext_resource type="Texture2D" uid="uid://cca0kw1vf4lgl" path="res://assets/level/table_decor.png" id="8_bvk6k"]
+[ext_resource type="Texture2D" uid="uid://dnoloihpxhfnt" path="res://assets/level/computer.png" id="10_o3gt3"]
+[ext_resource type="Texture2D" uid="uid://61bxsn8dkoy0" path="res://assets/level/computer_and_desk.png" id="11_w6jal"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_bn71f"]
 tile_data = PackedInt32Array(0, 131072, 3, 65536, 131072, 4, 131072, 131072, 5)
@@ -84,6 +87,34 @@ texture = ExtResource("2_5qgfy")
 6:0/0 = 0
 6:0/0/z_index = -9
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x61l0"]
+texture = ExtResource("3_uqhpk")
+0:3/size_in_atlas = Vector2i(2, 3)
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(-8, 16)
+0:3/0/z_index = -1
+2:3/size_in_atlas = Vector2i(2, 3)
+2:3/0 = 0
+2:3/0/texture_origin = Vector2i(-8, 16)
+4:3/size_in_atlas = Vector2i(2, 3)
+4:3/0 = 0
+4:3/0/texture_origin = Vector2i(-8, 16)
+6:3/size_in_atlas = Vector2i(2, 3)
+6:3/0 = 0
+6:3/0/texture_origin = Vector2i(-8, 16)
+0:0/size_in_atlas = Vector2i(6, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-40, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -12, 88, -12, 88, 4, -8, 4)
+2:6/size_in_atlas = Vector2i(2, 2)
+2:6/0 = 0
+2:6/0/texture_origin = Vector2i(-8, 8)
+2:6/0/z_index = 1
+0:6/size_in_atlas = Vector2i(2, 2)
+0:6/0 = 0
+0:6/0/texture_origin = Vector2i(-8, 8)
+0:6/0/z_index = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bn71f"]
 texture = ExtResource("3_c4bpl")
@@ -239,6 +270,14 @@ texture = ExtResource("8_bvk6k")
 2:2/0 = 0
 3:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5kw7"]
+texture = ExtResource("10_o3gt3")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3puo"]
+texture = ExtResource("11_w6jal")
+0:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_5qgfy")
@@ -249,4 +288,7 @@ sources/4 = SubResource("TileSetAtlasSource_bvk6k")
 sources/5 = SubResource("TileSetAtlasSource_d5ovy")
 sources/6 = SubResource("TileSetAtlasSource_b13fx")
 sources/7 = SubResource("TileSetAtlasSource_uqhpk")
+sources/8 = SubResource("TileSetAtlasSource_k5kw7")
+sources/9 = SubResource("TileSetAtlasSource_n3puo")
+sources/10 = SubResource("TileSetAtlasSource_x61l0")
 pattern_0 = SubResource("TileMapPattern_bn71f")

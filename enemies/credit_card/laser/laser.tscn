@@ -5,15 +5,15 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mnss1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3kua"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnss1"]
 atlas = ExtResource("2_r3s25")
-region = Rect2(0, 0, 32, 24)
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_viyxm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l3kua")
+"texture": SubResource("AtlasTexture_mnss1")
 }],
 "loop": true,
 "name": &"laser",
@@ -21,14 +21,16 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_mnss1"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 metadata/_snap_enabled = true
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_r3s25"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r3s25"]
 gradient = SubResource("Gradient_mnss1")
-width = 64
+
+[sub_resource type="Gradient" id="Gradient_r3s25"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l3kua"]
+gradient = SubResource("Gradient_r3s25")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ooaxc"]
 size = Vector2(6, 24)
@@ -48,10 +50,16 @@ animation = &"laser"
 frame_progress = 0.48178402
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1886802501]
-position = Vector2(0, -4.7683716e-07)
-scale = Vector2(1, 24)
-texture = SubResource("GradientTexture1D_r3s25")
+position = Vector2(-10.499999, -1.9073486e-06)
+scale = Vector2(0.14062499, 0.25)
+texture = SubResource("GradientTexture2D_r3s25")
+
+[node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1001667821]
+position = Vector2(10.5, 0)
+scale = Vector2(0.140625, 0.24999999)
+texture = SubResource("GradientTexture2D_l3kua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510979464]
+visible = false
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_ooaxc")

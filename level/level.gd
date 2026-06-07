@@ -35,7 +35,7 @@ const TOP_FIX = preload("uid://cuiyvc7560r16")
 const TOP_FIX_ENTRANCE = preload("uid://c8rfeoo72jgoo")
 const TOP_FIX_ENTRANCE3 = preload("uid://bj8jigk37cq0h")
 
-const DOOR = preload("uid://d3ft6b0qtjr4v")
+const DOOR = preload("res://level/rooms/door.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

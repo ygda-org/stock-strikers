@@ -97,6 +97,14 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_t3xd4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s1cob"]
+gradient = SubResource("Gradient_t3xd4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e38rg"]
 size = Vector2(14, 8)
 
@@ -114,6 +122,10 @@ animation = &"fly"
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1195258754]
 position = Vector2(0, 13)
 texture = ExtResource("4_s1cob")
+
+[node name="PointLight2D" type="PointLight2D" parent="Shadow" unique_id=105274091]
+visible = false
+texture = SubResource("GradientTexture2D_s1cob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1710013614]
 position = Vector2(0, 1)
