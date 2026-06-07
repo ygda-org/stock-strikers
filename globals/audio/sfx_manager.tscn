@@ -32,6 +32,7 @@ metadata/_custom_type_script = "uid://drm365q6gg1o6"
 script = ExtResource("2_d580q")
 label = 3
 stream = ExtResource("5_5ixn8")
+volume = 0.3999999999999986
 metadata/_custom_type_script = "uid://drm365q6gg1o6"
 
 [sub_resource type="Resource" id="Resource_3bq1l"]
