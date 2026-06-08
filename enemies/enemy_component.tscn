@@ -19,6 +19,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
 [node name="EnemyComponent" type="Node2D" unique_id=741055310]
+process_mode = 3
 script = ExtResource("1_exhe8")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=723046078]
