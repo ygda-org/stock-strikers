@@ -22,6 +22,8 @@ func _process(delta):
 			enemy_component.knockback(self,knockback)
 			if vampire:
 				GameState.player.current_health += vampire * damage
+				if GameState.player.current_health > GameState.player.max_health:
+					GameState.player.current_health = GameState.player.max_health
 				GameState.player.player_hp_update.emit(GameState.player.max_health, GameState.player.current_health)
 		if body.is_in_group("Player"):
 			pass

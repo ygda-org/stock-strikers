@@ -100,7 +100,7 @@ func choose_anim(vel:Vector2):
 		animation.flip_h = false
 		animation.set_frame_and_progress(current_frame, current_progress)
 		return
-	if vel.angle() < (3*PI)/4 and vel.angle() < -PI/4:
+	if vel.angle() > -(3*PI)/4 and vel.angle() < -PI/4:
 		if not animation.animation == "back":
 			animation.play("back")
 		animation.flip_h = false

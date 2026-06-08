@@ -206,7 +206,7 @@ collision_layer = 2
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_2331h")
-pig_speed = 10
+pig_speed = 30
 bullet_speed = 100
 bullet_damage = 40
 
