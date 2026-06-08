@@ -121,10 +121,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 195.0
-offset_top = 89.0
-offset_right = -76.0
-offset_bottom = 11.0
+offset_left = 194.0
+offset_top = 63.0
+offset_right = -77.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 16
@@ -136,7 +136,10 @@ Yao
 MrPuffyWuff
 PomeloTea
 Froqqo
-ChocolateGirl "
+ChocolateGirl 
+
+Writer:
+Vinter"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=422114820]
 stream = ExtResource("2_tus5k")
