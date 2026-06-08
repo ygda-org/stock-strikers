@@ -111,6 +111,7 @@ func _process(delta):
 				invincible = true
 
 func shoot():
+	SfxManager.create_audio(SFXSettings.SFX_LABEL.Gunshot)
 	$ShotCD.start()
 	var target_position = get_global_mouse_position()
 	var bullet = create_bullet_to_spawn(damage)
@@ -241,6 +242,7 @@ func triple_shot(target_position):
 	bullet3.global_position = global_position
 
 func money_shield_take_damage(dmg):
+	SfxManager.create_audio(SFXSettings.SFX_LABEL.LosingCoin)
 	var multiplier = other_effects_strengths["money_shield"]
 	set_collision_layer_value(1,false)
 	itimer.start()
@@ -274,9 +276,11 @@ func _on_extra_fire_cd_timeout():
 	shoot()
 
 func _on_money_leak_cd_timeout():
+	SfxManager.create_audio(SFXSettings.SFX_LABEL.LosingCoin)
 	PlayerStats.money -= MONEY_LEAK
 
 func perfection_hit():
+	SfxManager.create_audio(SFXSettings.SFX_LABEL.LosingCoin)
 	PlayerStats.money = int(PlayerStats.money * 0.9)
 
 func extra_random_shot():

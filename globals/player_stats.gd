@@ -52,6 +52,8 @@ func reload_upgrades():
 		permanent_upgrades_loaded[upgrade.name] = upgrade.change_amount
 
 func interest():
+	if debts:
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.LosingCoin)
 	for debt in debts:
 		var interest_rate = INTEREST_RATE
 		if "interest_rate" in permanent_upgrades_loaded.keys():

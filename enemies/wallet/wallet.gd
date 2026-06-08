@@ -13,6 +13,8 @@ var bullet_damage: int = 25
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 var movement_delta: float
 
+var wallet = 1
+
 const BULLET = preload("uid://b3rg1vs3nw1es")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -85,6 +87,7 @@ func die():
 
 func shoot():
 	if GameState.player:
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.WalletAttack)
 		var bullet = BULLET.instantiate()
 		var distance = GameState.player.global_position - global_position
 		get_parent().add_child(bullet)
