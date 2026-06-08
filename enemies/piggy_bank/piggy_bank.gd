@@ -16,6 +16,8 @@ var regular_times := 3
 var times := 0
 var is_stopped := false
 
+var piggy_bank = 1
+
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 var movement_delta: float
 
