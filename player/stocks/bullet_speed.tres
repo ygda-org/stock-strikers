@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-8, 8)
 low_volatile_range = Vector2(-3, 3)
 changed_stat = 5
 change_amount = 20.0
+stock_description = "Diplomacy, the foreign nation negotiations company! They also make a hit board game."
 effect_description = "Changes the speed of your bullets."
 company_ticker = "DIPL"
 cost_multi = 4.0

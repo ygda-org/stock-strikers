@@ -9,6 +9,7 @@ med_volatile_range = Vector2(-0.03, 0.03)
 low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 4
 change_amount = 0.3
+stock_description = "Smashsung, the electronics company! Known for making phones and defense *tools*! All of their tools are very fast... very, very fast... "
 effect_description = "Changes your fire rate."
 company_ticker = "SSNG"
 cost_multi = 360.0

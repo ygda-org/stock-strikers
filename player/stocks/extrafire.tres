@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.05, 0.05)
 changed_stat = 12
 change_amount = 1.5
 other_effect_name = "extrafire"
+stock_description = "Wake Up!, the clock company! Their alarms scare me... I almost punched my alarm clock last time :("
 effect_description = "Automatically shoot an extra bullet on a timer."
 company_ticker = "WAKE"
 cost_multi = 250.0

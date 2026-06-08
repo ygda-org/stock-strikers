@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-15, 15)
 changed_stat = 12
 change_amount = 150.0
 other_effect_name = "recoil"
+stock_description = "Shark Kirka's personal utility company! Singer of the hit song \"Waists won't lie\", a song that'll blast you off your feet! "
 effect_description = "Shooting flings you backward."
 company_ticker = "SKRA"
 cost_multi = 1.0

@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.34, 0.34)
 changed_stat = 12
 change_amount = 2.0
 other_effect_name = "ricochet"
+stock_description = "M.I.K.U., the software and song company! They're especially good with sound reflections and physical collisions. Such a silly company :D"
 effect_description = "Bullets bounce when they hit walls or enemies."
 company_ticker = "MIKU"
 cost_multi = 200.0

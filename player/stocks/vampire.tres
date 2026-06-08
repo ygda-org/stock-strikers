@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 12
 change_amount = 0.2
 other_effect_name = "vampire"
+stock_description = "Vampuum Air, the fluid pump company! They make pumps and motors for anything! Air conditioning, water sprayers, even medical purposes!"
 effect_description = "Dealing damage heals you."
 company_ticker = "VAMP"
 cost_multi = 1750.0

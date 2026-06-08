@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.001, 0.001)
 changed_stat = 12
 change_amount = 0.01
 other_effect_name = "money_damage_increase"
+stock_description = "Lowercase Two, the banking company! Invest in their bank and watch as your interest (and power) grows!"
 effect_description = "Increases your damage the more money you have."
 company_ticker = "LTWO"
 cost_multi = 60000.0

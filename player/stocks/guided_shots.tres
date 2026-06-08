@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.75, 0.75)
 changed_stat = 12
 change_amount = 10.0
 other_effect_name = "guided_shots"
+stock_description = "Traxxis, the remote control toy company! They can make remote control anythings, no matter how small. "
 effect_description = "Fired bullets try to follow your cursor."
 company_ticker = "ICUP"
 cost_multi = 9.0

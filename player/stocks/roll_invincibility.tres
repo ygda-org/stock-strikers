@@ -9,6 +9,7 @@ med_volatile_range = Vector2(-0.005, 0.005)
 low_volatile_range = Vector2(-0.003, 0.003)
 changed_stat = 10
 change_amount = 0.05
+stock_description = "Coolmath, the cool, awesome, super duper math education software company. They're basically [Title Card]. "
 effect_description = "Changes the invincibility duration of your dodge roll."
 company_ticker = "CMTH"
 cost_multi = 8000.0

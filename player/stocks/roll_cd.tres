@@ -9,6 +9,7 @@ med_volatile_range = Vector2(-0.03, 0.03)
 low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 9
 change_amount = 0.3
+stock_description = "Lamemath. They're lame."
 effect_description = "Changes the cooldown of your dodge roll"
 company_ticker = "LMTH"
 cost_multi = 400.0

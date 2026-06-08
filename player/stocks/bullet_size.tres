@@ -9,6 +9,7 @@ med_volatile_range = Vector2(-0.02, 0.02)
 low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 6
 change_amount = 0.1
+stock_description = "Yell, the PC and hardware company! You bought a bulky PC from them a while ago. It barely works, but their devices make better ammunition than hardware."
 effect_description = "Changes the size of your bullets."
 company_ticker = "YELL"
 cost_multi = 1100.0

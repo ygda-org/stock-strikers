@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.75, 0.75)
 changed_stat = 12
 change_amount = 15.0
 other_effect_name = "homing"
+stock_description = "ClosedAI, the assistive AI company! They insist on installing AI into everything. Sometimes useful, often ignored."
 effect_description = "Fired bullets will try to home in on ememies."
 company_ticker = "HOMM"
 cost_multi = 26.0

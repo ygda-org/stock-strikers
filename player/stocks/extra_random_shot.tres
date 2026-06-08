@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.025, 0.025)
 changed_stat = 12
 change_amount = 0.6
 other_effect_name = "extra_random_shots"
+stock_description = "Dissonance, the online chatroom company! Have your friends backseat your gameplay and fire a shot for you!"
 effect_description = "Shoot an extra bullet in a random direction every time you shoot."
 company_ticker = "DSSC"
 cost_multi = 100.0

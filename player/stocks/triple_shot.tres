@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.02, 0.02)
 changed_stat = 12
 change_amount = 0.4
 other_effect_name = "triple_shot"
+stock_description = "TipTab, the entertainment and media company! One of the first quick content platforms! Watch on three screens at once! X3"
 effect_description = "Shoot three bullets at once."
 company_ticker = "TPTB"
 cost_multi = 1125.0

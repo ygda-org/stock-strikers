@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.25, 0.25)
 changed_stat = 12
 change_amount = 1.0
 other_effect_name = "coin_magnet"
+stock_description = "Baby Chick Productions, the magnet company! They attract a lot of customers... Hahahaha"
 effect_description = "Draws coins towards you."
 company_ticker = "CHIK"
 cost_multi = 150.0

@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-2, 2)
 changed_stat = 12
 change_amount = 5.0
 other_effect_name = "thorns"
+stock_description = "Wokia, the personal electronics company! They make the strongest personal devices. Strong enough that it hurts you when you drop it."
 effect_description = "Enemies take damage when they hit you."
 company_ticker = "WKIA"
 cost_multi = 10.0

@@ -9,6 +9,7 @@ med_volatile_range = Vector2(-3, 3)
 low_volatile_range = Vector2(-2, 2)
 changed_stat = 8
 change_amount = 15.0
+stock_description = "Sahara, the delivery company! Buy anything, anywhere! They'll dash over to you in seconds! "
 effect_description = "Changes the speed of your dodge roll."
 company_ticker = "SHRA"
 cost_multi = 15.0

@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.1, 0.1)
 changed_stat = 12
 change_amount = 1.5
 other_effect_name = "roll_bullets"
+stock_description = "Future Cal, the exercise and diet company! A subscription with them and you'll get fit in no time!"
 effect_description = "Shoot a bullet backward when you dodge roll."
 company_ticker = "FCAL"
 cost_multi = 133.333

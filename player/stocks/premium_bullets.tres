@@ -11,6 +11,7 @@ changed_stat = 12
 change_amount = 1.1
 other_effect_name = "premium_bullets"
 stock_name = "Premium Bullets"
+stock_description = "Orange, the personal electronics company! Rival of Smashsung and creator of the UBullet, the most premium ammo on the market!"
 effect_description = "Bullets deal much more damage but cost $3 per shot."
 company_ticker = "ORNG"
 cost_multi = 636.364

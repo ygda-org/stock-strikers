@@ -10,6 +10,7 @@ low_volatile_range = Vector2(-0.3, 0.3)
 changed_stat = 11
 stat_unit = "px"
 change_amount = 3.0
+stock_description = "Ace, the bodyspray and deodorant company! They have a really strong smell... Please... Don't use that near me..."
 effect_description = "Changes the knockback inflicted on enemies."
 company_ticker = "ABSP"
 cost_multi = 40.0
