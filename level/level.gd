@@ -193,19 +193,9 @@ func randomize_tilemaps():
 
 func set_player_position():
 	var player_pos = get_parent().get_node("Player").position
-	var min_dist = 100000000
-	var closest_room
 	for room_cord in rooms_after_placement.keys():
 		var room = rooms_after_placement[room_cord]
-		var dist = (player_pos - room.player_spawn).length()
-		if dist < min_dist:
-			closest_room = room
-			min_dist = dist
-	player_pos = closest_room.player_spawn
-	for room_cord in rooms_after_placement.keys():
-		var room = rooms_after_placement[room_cord]
-		if room != closest_room:
+		if Vector2i(int(room.position.x/128),int(room.position.y/128)) == Vector2i.ZERO:
+			player_pos = room.player_spawn
+		else:
 			room.spawn_enemies() # only spawn enemies in rooms which aren't the closest room to the player spawn
-	#for enemy in closest_room.my_enemies:
-	#	enemy.queue_free()
-	#	closest_room.on_all_enemies_dead()

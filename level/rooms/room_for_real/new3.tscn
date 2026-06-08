@@ -13,7 +13,7 @@ script = ExtResource("1_w6fl8")
 has_north = true
 has_east = true
 has_west = true
-spawns = Array[Vector2]([Vector2(208, 128), Vector2(48, 128)])
+spawns = Array[Vector2]([Vector2(72, 152), Vector2(184, 152)])
 player_spawn = Vector2(128, 150)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=940642580]
