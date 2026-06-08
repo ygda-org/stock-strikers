@@ -11,6 +11,6 @@ changed_stat = 12
 change_amount = 0.4
 other_effect_name = "triple_shot"
 effect_description = "Shoot three bullets at once."
-company_ticker = "TRIS"
+company_ticker = "TPTB"
 cost_multi = 1125.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

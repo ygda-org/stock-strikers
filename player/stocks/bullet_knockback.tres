@@ -11,6 +11,6 @@ changed_stat = 11
 stat_unit = "px"
 change_amount = 3.0
 effect_description = "Changes the knockback inflicted on enemies."
-company_ticker = "BUKB"
+company_ticker = "ABSP"
 cost_multi = 40.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

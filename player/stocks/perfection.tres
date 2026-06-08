@@ -13,6 +13,6 @@ change_amount = 1.7
 other_effect_name = "perfection"
 stock_name = "Perfection"
 stock_description = "Increases money gained on defeating enemies. In exchange, getting hit causes you to lose 10% of your current money."
-company_ticker = "PERF"
+company_ticker = "GEKO"
 cost_multi = 470.588
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

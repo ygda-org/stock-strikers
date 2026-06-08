@@ -10,6 +10,6 @@ low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 4
 change_amount = 0.3
 effect_description = "Changes your fire rate."
-company_ticker = "FRR8"
+company_ticker = "SSNG"
 cost_multi = 360.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

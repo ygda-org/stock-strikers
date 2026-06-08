@@ -11,6 +11,6 @@ changed_stat = 12
 change_amount = 150.0
 other_effect_name = "recoil"
 effect_description = "Shooting flings you backward."
-company_ticker = "RCOL"
+company_ticker = "SKRA"
 cost_multi = 1.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

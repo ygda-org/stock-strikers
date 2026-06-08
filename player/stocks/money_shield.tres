@@ -11,6 +11,6 @@ changed_stat = 12
 change_amount = 1.5
 other_effect_name = "money_shield"
 effect_description = "Lose money instead of health when hit."
-company_ticker = "MNSH"
+company_ticker = "WZNY"
 cost_multi = 100.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"
