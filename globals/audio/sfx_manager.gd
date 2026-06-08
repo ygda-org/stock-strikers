@@ -15,6 +15,11 @@ func _process(delta: float) -> void:
 	if get_child_count() == 0 and len(queue) > 0:
 		current_track = queue.pop_front()
 		create_audio(current_track)
+	else:
+		for child in get_children():
+			if child.playing:
+				continue
+			#child.queue_free()
 	
 
 func _on_audio_finished(source : AudioStreamPlayer):
@@ -23,16 +28,17 @@ func _on_audio_finished(source : AudioStreamPlayer):
 
 func create_audio(type : SFXSettings.SFX_LABEL):
 	var audioplayer : AudioStreamPlayer = AudioStreamPlayer.new()
-	add_child(audioplayer)
 	var sound_effect_setting = sound_effect_dict[type]
 	audioplayer.stream = sound_effect_setting.stream
 	audioplayer.volume_linear = sound_effect_setting.volume
 	audioplayer.pitch_scale = sound_effect_setting.pitch
-	audioplayer.finished.connect(audioplayer.queue_free)
+	#audioplayer.finished.connect(audioplayer.queue_free)
 	audioplayer.name = str(sound_effect_setting.label)
 	audioplayer.finished.connect(_on_audio_finished.bind(audioplayer))
+	audioplayer.autoplay = true
+	add_child(audioplayer)
 	audioplayer.play(sound_effect_setting.audio_start_offset)
-	#GlobalLog.log("Playing: " + str(sound_effect_setting.label))
+	#GlobalLog.log("Playing: " +dd str(sound_effect_setting.label))
 
 func create_audio_with_variance(type : SFXSettings.SFX_LABEL, pitch_range : Vector2):
 	var audioplayer : AudioStreamPlayer = AudioStreamPlayer.new()
@@ -41,7 +47,7 @@ func create_audio_with_variance(type : SFXSettings.SFX_LABEL, pitch_range : Vect
 	audioplayer.stream = sound_effect_setting.stream
 	audioplayer.volume_linear = sound_effect_setting.volume
 	audioplayer.pitch_scale = rng.randf_range(pitch_range.x,pitch_range.y)
-	audioplayer.finished.connect(audioplayer.queue_free)
+	#audioplayer.finished.connect(audioplayer.queue_free)
 	audioplayer.name = str(sound_effect_setting.label)
 	audioplayer.finished.connect(_on_audio_finished.bind(audioplayer))
 	audioplayer.play(sound_effect_setting.audio_start_offset)
