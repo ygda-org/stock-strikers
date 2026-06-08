@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cm5hkbcle54sb" path="res://assets/ui/main_page.png" id="2_2vbak"]
 [ext_resource type="AudioStream" uid="uid://cws2b4vinhrl8" path="res://assets/audio/menu-intro.mp3" id="2_tus5k"]
 [ext_resource type="FontFile" uid="uid://bhpl6r7q02fgg" path="res://assets/ui/Font.png" id="3_umy21"]
+[ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="4_gmmep"]
 
 [node name="StartMenu" type="Control" unique_id=1499241315]
 layout_mode = 3
@@ -57,38 +58,50 @@ text = "TUTORIAL"
 
 [node name="Credits" type="Control" parent="." unique_id=957842868]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 213.0
+offset_top = 143.0
+offset_right = 253.0
+offset_bottom = 183.0
+theme = ExtResource("4_gmmep")
 
-[node name="Back" type="Button" parent="Credits" unique_id=1509909068]
+[node name="Panel" type="Panel" parent="Credits" unique_id=1106071090]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 333.0
-offset_right = 170.0
-offset_bottom = 386.0
+offset_right = 371.0
+offset_bottom = 332.0
+
+[node name="Back" type="Button" parent="Credits/Panel" unique_id=1509909068]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -53.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "GO BACK"
 
-[node name="Label" type="Label" parent="Credits" unique_id=1373214616]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 386.0
-offset_right = 425.0
-offset_bottom = 435.0
+[node name="Label" type="Label" parent="Credits/Panel" unique_id=1373214616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 23.0
+offset_right = -10.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
 text = "Made using Godot: https://godotengine.org/license/
 
 Programmers:
 Penguinja
 MrPuffyWuff
 stonkola
-Artists:
-SASHASAUCE
-InfinitePrograms
-Soireepeche
-Yao
-MrPuffyWuff
-PomeloTea
-Froqqo
+
 Musicians:
 Cavedin
 fwugneo
@@ -99,8 +112,30 @@ Llama
 Kiwi
 controlMage23
 
-"
+YGDA Studio Production"
 autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Credits/Panel" unique_id=1632657692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = 89.0
+offset_right = -76.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "Artists:
+SASHASAUCE
+InfinitePrograms
+Soireepeche
+Yao
+MrPuffyWuff
+PomeloTea
+Froqqo
+ChocolateGirl "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=422114820]
 stream = ExtResource("2_tus5k")
@@ -110,4 +145,4 @@ playback_type = 1
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Main/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Credits/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Credits/Panel/Back" to="." method="_on_back_pressed"]

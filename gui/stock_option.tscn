@@ -127,7 +127,7 @@ custom_minimum_size = Vector2(50, 52)
 layout_mode = 2
 theme = ExtResource("1_l2qqs")
 theme_override_font_sizes/font_size = 12
-text = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market"
+text = "An entrepreneurial, indie power house with hit releases such as Arizona 2 and Towercide, YGDA quickly dominated the market dfsdfdsfdsffdsfddsffdsdfsfdsfds"
 autowrap_mode = 3
 clip_text = true
 

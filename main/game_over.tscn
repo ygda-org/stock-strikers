@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cq6jit3lw1n3m" path="res://main/game_over.gd" id="1_g410v"]
 [ext_resource type="Texture2D" uid="uid://bym0nfw2npm46" path="res://assets/ui/game_over_piskel.png" id="1_hd263"]
+[ext_resource type="FontFile" uid="uid://b2r2akjuqowjn" path="res://assets/tempoary_assets/PressStart2P.ttf" id="3_bottq"]
+[ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="3_mqrur"]
 
 [sub_resource type="Animation" id="Animation_hd263"]
 length = 0.001
@@ -57,10 +59,17 @@ _data = {
 &"fade_out": SubResource("Animation_bottq")
 }
 
-[node name="GameOver" type="Node2D" unique_id=477756633]
+[node name="GameOver" type="Control" unique_id=864673099]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_g410v")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1207686290]
+layout_mode = 0
 offset_left = -40.99994
 offset_top = -23.0
 offset_right = 843.00006
@@ -77,19 +86,55 @@ libraries/ = SubResource("AnimationLibrary_bottq")
 autoplay = &"fade in"
 
 [node name="Button" type="Button" parent="." unique_id=277716183]
-offset_left = 312.0
-offset_top = 372.0
-offset_right = 454.0
-offset_bottom = 403.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.25
+offset_top = 89.0
+offset_right = 164.75
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_mqrur")
 text = "RETURN TO TITLE"
 
+[node name="Button2" type="Button" parent="." unique_id=501992104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = 142.0
+offset_right = 165.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_mqrur")
+text = "REPLAY"
+
 [node name="Label" type="Label" parent="." unique_id=1660382640]
-offset_left = 287.0
-offset_top = 334.0
-offset_right = 476.0
-offset_bottom = 357.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 32.5
+offset_right = 140.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_bottq")
+theme_override_font_sizes/font_size = 20
 text = "Highest floor:"
 horizontal_alignment = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
