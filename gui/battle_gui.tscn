@@ -73,7 +73,8 @@ layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 48.0
-offset_bottom = 48.0
+offset_bottom = 104.0
+alignment = 1
 
 [node name="Money" type="Label" parent="Panel/VBoxContainer" unique_id=1078030748]
 layout_mode = 2
@@ -87,6 +88,11 @@ theme = ExtResource("2_ma5vl")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "hiii"
+
+[node name="Floor" type="Label" parent="Panel/VBoxContainer" unique_id=1464524103]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Floor"
 
 [node name="DebugSeed" type="Label" parent="." unique_id=1268367578]
 anchors_preset = 2
