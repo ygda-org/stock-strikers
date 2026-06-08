@@ -23,7 +23,8 @@ enum SFX_LABEL{
 	WalletAttack,
 	WalletRustle,
 	WalletSomething,
-	Whoosh
+	Whoosh,
+	ElevatorDing
 }
 
 @export var label : SFX_LABEL

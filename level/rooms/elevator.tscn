@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bi7vyd1do2cpe" path="res://level/rooms/elevator.gd" id="1_e4fox"]
 [ext_resource type="Texture2D" uid="uid://blsasboijncf2" path="res://assets/level/elevator.png" id="2_7xou8"]
+[ext_resource type="AudioStream" uid="uid://dkp6jj1eovfhh" path="res://assets/audio/sfx/elevator_arrive.wav" id="3_i4mq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4mq5"]
 size = Vector2(31, 38)
@@ -76,5 +77,9 @@ shape = SubResource("RectangleShape2D_i4mq5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1318342901]
 sprite_frames = SubResource("SpriteFrames_n33pc")
 animation = &"open"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=607801896]
+stream = ExtResource("3_i4mq5")
+volume_db = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

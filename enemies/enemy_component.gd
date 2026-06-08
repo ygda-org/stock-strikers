@@ -93,7 +93,7 @@ func knockback(object,speed:float):
 
 func hurt(health, bleed = 0):
 	if "piggy_bank" in parent:
-		SfxManager.create_audio(SFXSettings.SFX_LABEL.PiggyBankShot)
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.PiggyDeath)
 	elif "wallet" in parent:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.WalletSomething)
 	current_health -= health

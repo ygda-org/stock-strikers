@@ -9,10 +9,10 @@ const WALLET = preload("uid://dmtq0eq4tnvrw")
 const MONEY_BAG = preload("uid://cqybob226gurn")
 
 var enemy_rate : Dictionary[Variant, float]= {
-	CREDIT_CARD : 0.1,
-	PIGGY_BANK : 0.1,
-	WALLET : 0.3,
-	MONEY_BAG : 0.5,
+	CREDIT_CARD : 0.2,
+	PIGGY_BANK : 0.2,
+	WALLET : 0.4,
+	MONEY_BAG : 0.4,
 }
 
 var in_game : bool = false

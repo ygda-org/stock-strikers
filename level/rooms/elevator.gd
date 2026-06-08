@@ -4,6 +4,7 @@ var open := false
 
 func _process(delta: float) -> void:
 	if not open and GameState.enemies.is_empty():
+		$AudioStreamPlayer2D.playing = true
 		$AnimatedSprite2D.play("open")
 		open = true
 
