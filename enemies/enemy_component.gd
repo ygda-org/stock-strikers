@@ -92,6 +92,10 @@ func knockback(object,speed:float):
 			animation.stop()
 
 func hurt(health, bleed = 0):
+	if "piggy_bank" in parent:
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.PiggyBankShot)
+	elif "wallet" in parent:
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.WalletSomething)
 	current_health -= health
 	health_bar.value = current_health
 	if current_health <= 0:

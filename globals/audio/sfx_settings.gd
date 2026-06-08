@@ -11,7 +11,19 @@ enum SFX_LABEL{
 	DodgeRollFast,
 	Gun,
 	PiggyBankShot,
-	Ping
+	Ping,
+	CreditCardLaser,
+	CreditCardWing,
+	DollarBill,
+	Gunshot,
+	LosingCoin,
+	PiggyDeath,
+	PiggyShotImpact,
+	Sans,
+	WalletAttack,
+	WalletRustle,
+	WalletSomething,
+	Whoosh
 }
 
 @export var label : SFX_LABEL
