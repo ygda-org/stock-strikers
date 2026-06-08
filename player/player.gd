@@ -83,7 +83,21 @@ func _process(delta):
 	$Camera2D.position = Vector2(mouse_pos_diff.x/5, mouse_pos_diff.y/5)
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
 		dodge()
+	$Anim.speed_scale = 1
 	if (not $DodgeDur.is_stopped()) or (not $ExtraEffects/RecoilTimer.is_stopped()) or $AnimationPlayer.is_playing():
+		var dodge_duration : float = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
+		var dodge_scale = 1 / dodge_duration
+		$Anim.speed_scale = dodge_scale
+		if abs(velocity.x) > abs(velocity.y):
+			if velocity.x < 0:
+				$Anim.play("roll_left")
+			else:
+				$Anim.play("roll_right")
+		else:
+			if velocity.y < 0:
+				$Anim.play("roll_north")
+			else:
+				$Anim.play("roll_south")
 		move_and_slide()
 		return
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -184,7 +198,7 @@ func hurt(hp_damage:int):
 func dodge():
 	SfxManager.create_audio(SFXSettings.SFX_LABEL.DodgeRoll)
 	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
-	squash_stretch(velocity.normalized(), -0.3)
+	#squash_stretch(velocity.normalized(), -0.3)
 	if not velocity:
 		return
 	$DodgeDur.start()

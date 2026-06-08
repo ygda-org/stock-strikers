@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cpn4wboo43nvd" path="res://gui/elevator_gui.tscn" id="1_fkxky"]
 [ext_resource type="Script" uid="uid://71u4w7v5iss7" path="res://main/tutorial/tutorial_elevator.gd" id="1_vll30"]
+[ext_resource type="LabelSettings" uid="uid://dytvkso6nu8d" path="res://assets/ui/tutorial_label.tres" id="3_vcy3t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vll30"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="TutorialElevator" type="Control" unique_id=916280041]
 layout_mode = 3
@@ -22,6 +26,7 @@ offset_top = 33.0
 offset_right = 587.0
 offset_bottom = 108.0
 text = "Welcome to the elevator! Here you can buy and sell stocks, or take out loans to buy permanent upgrades."
+label_settings = ExtResource("3_vcy3t")
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="." unique_id=1662075078]
@@ -29,9 +34,11 @@ visible = false
 layout_mode = 0
 offset_left = 23.0
 offset_top = 470.0
-offset_right = 756.0
-offset_bottom = 493.0
+offset_right = 708.0
+offset_bottom = 521.0
 text = "Access different tabs here. And press the Penguin to leave the elevator and start the next level."
+label_settings = ExtResource("3_vcy3t")
+autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="." unique_id=1270262131]
 visible = false
@@ -41,6 +48,7 @@ offset_top = 106.0
 offset_right = 741.0
 offset_bottom = 216.0
 text = "This is FrogDaq. Here you can see what stocks are available for purchase, or view your own to sell them."
+label_settings = ExtResource("3_vcy3t")
 autowrap_mode = 2
 
 [node name="Label4" type="Label" parent="." unique_id=1094032973]
@@ -51,6 +59,7 @@ offset_top = 106.0
 offset_right = 741.0
 offset_bottom = 216.0
 text = "Stocks give effects that change after every room. They're risky, but they can really pay off if you choose smartly."
+label_settings = ExtResource("3_vcy3t")
 autowrap_mode = 2
 
 [node name="Label5" type="Label" parent="." unique_id=1966859338]
@@ -61,25 +70,28 @@ offset_top = 188.0
 offset_right = 104.0
 offset_bottom = 497.0
 text = "This is Sahara. These upgrades are permanent and unchanging, but expensive."
+label_settings = ExtResource("3_vcy3t")
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="." unique_id=1089536442]
 visible = false
 layout_mode = 0
 offset_top = 155.0
-offset_right = 98.0
+offset_right = 132.0
 offset_bottom = 542.0
 text = "If you don't have the money to buy from Sahara, it will prompt you if you want to take out a loan. Loans incur constant interest though, so watch out."
+label_settings = ExtResource("3_vcy3t")
 autowrap_mode = 2
 
 [node name="Label7" type="Label" parent="." unique_id=846683805]
 visible = false
 layout_mode = 0
-offset_left = 485.0
-offset_top = 431.0
-offset_right = 774.0
-offset_bottom = 818.0
+offset_left = 633.0
+offset_top = 135.0
+offset_right = 798.0
+offset_bottom = 522.0
 text = "Finally, here is LowercaseTwo. You can view your current money and see and pay off your debts."
+label_settings = ExtResource("3_vcy3t")
 autowrap_mode = 2
 
 [node name="Label8" type="Label" parent="." unique_id=1854510950]
@@ -90,4 +102,11 @@ offset_top = 74.0
 offset_right = 521.0
 offset_bottom = 149.0
 text = "I'll give you some stocks and upgrades to try out in another level."
+label_settings = ExtResource("3_vcy3t")
 autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=656816883]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vll30")

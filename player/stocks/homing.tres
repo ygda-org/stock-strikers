@@ -12,6 +12,6 @@ change_amount = 15.0
 other_effect_name = "homing"
 stock_description = "ClosedAI, the assistive AI company! They insist on installing AI into everything. Sometimes useful, often ignored."
 effect_description = "Fired bullets will try to home in on ememies."
-company_ticker = "HOMM"
+company_ticker = "ICUP"
 cost_multi = 26.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

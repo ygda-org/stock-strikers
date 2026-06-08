@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpoh5n0cdm2du"]
 
-[ext_resource type="Script" uid="uid://wrjoobv26rcv" path="res://main/tutorial/tutorial_2.gd" id="1_rp4o8"]
+[ext_resource type="Script" path="res://main/tutorial/tutorial_2.gd" id="1_rp4o8"]
 [ext_resource type="PackedScene" uid="uid://dqak3awcpfb8w" path="res://main/main.tscn" id="2_rp4o8"]
 
 [node name="Tutorial2" type="Node2D" unique_id=1245368737]
