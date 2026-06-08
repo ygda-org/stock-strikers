@@ -33,6 +33,8 @@ const MIN_ROLL_CD = .3
 var other_effects_list: Array[String] = []
 var other_effects_strengths: Dictionary[String, float] = {}
 
+@onready var active_arm = $ArmPivotNS
+
 @onready var collision_shape:CollisionShape2D = $CollisionShape2D
 @onready var itimer:Timer = $InvincibleTimer
 @onready var camera : Camera2D = $Camera2D
@@ -84,24 +86,54 @@ func _process(delta):
 		return
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_dir.x:
+		active_arm = $ArmPivotEW
 		velocity.x = velocity.x + acceleration_curve.sample(abs(velocity.x/speed)) * input_dir.x * ACCELERATION * delta
+		if input_dir.x > 0:
+			if not input_dir.y:
+				$Anim.play("Right")
+			active_arm.scale = Vector2(1, -1)
+			active_arm.z_index = -1
+		else:
+			if not input_dir.y:
+				$Anim.play("Left")
+			active_arm.scale = Vector2(1, 1)
+			active_arm.z_index = 0
 	else:
 		velocity.x = 0
 	if input_dir.y:
+		active_arm = $NSCenter/ArmPivotNS
 		if input_dir.y > 0:
 			$Anim.play("Forward")
+			$NSCenter.scale = Vector2(1, 1)
 		else:
+			$NSCenter.scale = Vector2(-1, 1)
 			$Anim.play("Backward")
 		velocity.y = velocity.y + acceleration_curve.sample(abs(velocity.y/speed)) * input_dir.y * ACCELERATION * delta
-	else:
+	if not input_dir:
+		active_arm = $NSCenter/ArmPivotNS
+		$NSCenter.scale = Vector2(1,1)
 		$Anim.play("idle")
 		velocity.y = 0
 	velocity = velocity.limit_length(speed)
 		#velocity = lerp(velocity, Vector2.ZERO, DECELERATION * delta)
+	active_arm.visible = true
+	if "EW" in active_arm.name:
+		$NSCenter/ArmPivotNS.visible = false
+	else:
+		$ArmPivotEW.visible = false
 	
 	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped():
 		shoot()
-	
+	active_arm.rotation = 0
+	active_arm.look_at(get_global_mouse_position())
+	if "NS" in active_arm.name:
+		active_arm.rotation += PI
+		if active_arm.rotation > PI/2 and active_arm.rotation < 3*PI/2:
+			active_arm.get_node("Arm").flip_v = true
+		else:
+			active_arm.get_node("Arm").flip_v = false
+	elif "EW" in active_arm.name:
+		active_arm.rotation -= PI/2 * $ArmPivotEW.scale.y
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -116,7 +148,7 @@ func shoot():
 	var target_position = get_global_mouse_position()
 	var bullet = create_bullet_to_spawn(damage)
 	get_parent().add_child(bullet)
-	bullet.global_position = global_position
+	bullet.global_position = active_arm.get_node("Arm/Gun").global_position
 	if "triple_shot" in other_effects_list:
 		triple_shot(target_position)
 	if "recoil" in other_effects_list:
@@ -125,6 +157,9 @@ func shoot():
 		extra_random_shot()
 	if "octo_shot" in other_effects_list:
 		octo_shot()
+
+func add_bullet(bullet):
+	get_parent().add_child(bullet)
 
 func hurt(hp_damage:int):
 	if !invincible:
@@ -259,7 +294,7 @@ func roll_bullets():
 	var bullet = create_bullet_to_spawn(damage*other_effects_strengths["roll_bullets"])
 	bullet.velocity = -velocity/2
 	get_parent().add_child(bullet)
-	bullet.global_position = global_position
+	bullet.global_position = active_arm.get_node("Arm/Gun").global_position
 
 func teleport():
 	var target_tp_pos = velocity.normalized() * other_effects_strengths["teleport"]
@@ -286,14 +321,14 @@ func perfection_hit():
 func extra_random_shot():
 	var rando_bullet = create_bullet_to_spawn(damage * other_effects_strengths["extra_random_shots"])
 	get_parent().add_child(rando_bullet)
-	rando_bullet.global_position = global_position
+	rando_bullet.global_position = active_arm.get_node("Arm/Gun").global_position
 	rando_bullet.velocity = rando_bullet.velocity.rotated(randf_range(0,2*PI))
 
 func octo_shot():
 	for i in range(7):
 		var bullet = create_bullet_to_spawn(damage * other_effects_strengths["octo_shot"])
 		get_parent().add_child(bullet)
-		bullet.global_position = global_position
+		bullet.global_position = active_arm.get_node("Arm/Gun").global_position
 		bullet.velocity = bullet.velocity.rotated(i*PI/4 + PI/4)
 
 func berserk_kill():
