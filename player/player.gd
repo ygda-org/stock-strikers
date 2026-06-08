@@ -251,7 +251,7 @@ func die():
 
 func _on_animation_player_animation_finished(anim_name):
 	PlayerStats.reset_stats()
-	get_tree().change_scene_to_file("uid://6i6mv001enok")
+	get_tree().change_scene_to_file("uid://crqhiu1beolia")
 
 ###########################################
 # past this point is special effects
