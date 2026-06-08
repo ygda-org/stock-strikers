@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bym0nfw2npm46" path="res://assets/ui/game_over_piskel.png" id="1_hd263"]
 [ext_resource type="FontFile" uid="uid://b2r2akjuqowjn" path="res://assets/tempoary_assets/PressStart2P.ttf" id="3_bottq"]
 [ext_resource type="Theme" uid="uid://qlk0jixls6nn" path="res://assets/tempoary_assets/windows_95.tres" id="3_mqrur"]
+[ext_resource type="AudioStream" uid="uid://b678afm65vw3u" path="res://assets/audio/game over.ogg" id="5_3tev8"]
 
 [sub_resource type="Animation" id="Animation_hd263"]
 length = 0.001
@@ -134,6 +135,10 @@ theme_override_fonts/font = ExtResource("3_bottq")
 theme_override_font_sizes/font_size = 20
 text = "Highest floor:"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1250643163]
+stream = ExtResource("5_3tev8")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
