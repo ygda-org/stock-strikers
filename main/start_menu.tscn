@@ -56,26 +56,51 @@ theme_override_font_sizes/font_size = 32
 text = "TUTORIAL"
 
 [node name="Credits" type="Control" parent="." unique_id=957842868]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Back" type="Button" parent="Credits" unique_id=1509909068]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 483.0
-offset_right = 149.0
-offset_bottom = 514.0
-text = "Go Back"
+offset_left = 23.0
+offset_top = 333.0
+offset_right = 170.0
+offset_bottom = 386.0
+theme_override_font_sizes/font_size = 32
+text = "GO BACK"
 
 [node name="Label" type="Label" parent="Credits" unique_id=1373214616]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 551.0
-offset_right = 578.0
-offset_bottom = 574.0
-text = "Made using Godot: https://godotengine.org/license/"
+offset_left = 11.0
+offset_top = 386.0
+offset_right = 425.0
+offset_bottom = 435.0
+text = "Made using Godot: https://godotengine.org/license/
+
+Programmers:
+Penguinja
+MrPuffyWuff
+stonkola
+Artists:
+SASHASAUCE
+InfinitePrograms
+Soireepeche
+Yao
+MrPuffyWuff
+PomeloTea
+Froqqo
+Musicians:
+Cavedin
+fwugneo
+yoyoyonono
+altieri
+External Playtesters:
+Llama
+Kiwi
+controlMage23
+
+"
+autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=422114820]
 stream = ExtResource("2_tus5k")
