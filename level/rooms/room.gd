@@ -67,7 +67,8 @@ func _process(delta: float) -> void:
 	var sq_dist_to_player := (GameState.player.position - center).length_squared()
 	# 128**2 = 16384
 	# 118**2 = 13924
-	if sq_dist_to_player < 13924:
+	# 112**2 = 12544
+	if sq_dist_to_player < 12544:
 		room_entered = true
 		for door in GameState.doors:
 			if not door:

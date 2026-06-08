@@ -71,9 +71,9 @@ func pathfind():
 func _physics_process(_delta: float) -> void:
 	if GameState.player and !enemy_component.is_stunned and !is_stopped:
 		#var distance = GameState.player.global_position - global_position  
-		#velocity = distance.normalized() * pig_speed
-		var target : Vector2 = choose_target()
-		set_movement_target(target)
+		#velocity = distance.noaaaaaaaaaaadddddrmalized() * pig_speed
+		#var target : Vector2 = choose_target()
+		set_movement_target(GameState.player.position)
 		pathfind()
 		choose_anim(velocity)
 		print(0)

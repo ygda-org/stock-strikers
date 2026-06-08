@@ -57,6 +57,7 @@ theme_override_font_sizes/font_size = 32
 text = "TUTORIAL"
 
 [node name="Credits" type="Control" parent="." unique_id=957842868]
+visible = false
 anchors_preset = 0
 offset_left = 213.0
 offset_top = 143.0
