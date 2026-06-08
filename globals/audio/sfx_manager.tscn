@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://culeys77itynm" path="res://assets/audio/sfx/walletRustling.wav" id="18_o2y6d"]
 [ext_resource type="AudioStream" uid="uid://qur7onxq1w8i" path="res://assets/audio/sfx/walletSomething.wav" id="19_i3ewk"]
 [ext_resource type="AudioStream" uid="uid://tblxp0uienfv" path="res://assets/audio/sfx/whoosh.wav" id="20_y0yxb"]
+[ext_resource type="AudioStream" uid="uid://bj0aarxr7ih2a" path="res://assets/audio/sfx/moneybagshitsfx.wav" id="21_mbhit"]
 
 [sub_resource type="Resource" id="Resource_2bsey"]
 script = ExtResource("2_d580q")
@@ -191,6 +192,12 @@ label = 20
 stream = ExtResource("20_y0yxb")
 metadata/_custom_type_script = "uid://drm365q6gg1o6"
 
+[sub_resource type="Resource" id="Resource_mbhit"]
+script = ExtResource("2_d580q")
+label = 22
+stream = ExtResource("21_mbhit")
+metadata/_custom_type_script = "uid://drm365q6gg1o6"
+
 [node name="SfxManager" type="Node" unique_id=936414398]
 script = ExtResource("1_dtfen")
 sound_effect_dict = Dictionary[int, ExtResource("2_d580q")]({
@@ -215,5 +222,6 @@ sound_effect_dict = Dictionary[int, ExtResource("2_d580q")]({
 18: SubResource("Resource_c4fjk"),
 19: SubResource("Resource_fieyo"),
 20: SubResource("Resource_22d10"),
-21: null
+21: null,
+22: SubResource("Resource_mbhit")
 })

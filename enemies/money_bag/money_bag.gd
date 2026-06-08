@@ -7,7 +7,6 @@ signal death_anim_complete
 @onready var hurtbox:CollisionShape2D = $CollisionShape2D
 
 var speed: int = 100
-# Called when the node enters the scene tree for the first time.
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 var movement_delta: float

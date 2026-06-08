@@ -96,6 +96,8 @@ func hurt(health, bleed = 0):
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.PiggyDeath)
 	elif "wallet" in parent:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.WalletSomething)
+	elif "money_bag" in parent:
+		SfxManager.create_audio(SFXSettings.SFX_LABEL.MoneyBagHit)
 	current_health -= health
 	health_bar.value = current_health
 	if current_health <= 0:
