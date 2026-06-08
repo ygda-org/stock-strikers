@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbl54bs86upm2" path="res://main/main_menu.gd" id="1_c75ke"]
 [ext_resource type="Texture2D" uid="uid://cm5hkbcle54sb" path="res://assets/ui/main_page.png" id="2_2vbak"]
 [ext_resource type="AudioStream" uid="uid://cws2b4vinhrl8" path="res://assets/audio/menu-intro.mp3" id="2_tus5k"]
+[ext_resource type="FontFile" uid="uid://bhpl6r7q02fgg" path="res://assets/ui/Font.png" id="3_umy21"]
 
 [node name="StartMenu" type="Control" unique_id=1499241315]
 layout_mode = 3
@@ -30,7 +31,9 @@ offset_left = 40.0
 offset_top = 340.0
 offset_right = 136.0
 offset_bottom = 371.0
-text = "Start Game"
+theme_override_fonts/font = ExtResource("3_umy21")
+theme_override_font_sizes/font_size = 32
+text = "START GAME"
 
 [node name="Credits" type="Button" parent="Main" unique_id=643673050]
 layout_mode = 0
@@ -38,7 +41,9 @@ offset_left = 40.0
 offset_top = 440.0
 offset_right = 103.0
 offset_bottom = 471.0
-text = "Credits"
+theme_override_fonts/font = ExtResource("3_umy21")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
 
 [node name="Tutorial" type="Button" parent="Main" unique_id=414135059]
 layout_mode = 0
@@ -46,7 +51,9 @@ offset_left = 40.0
 offset_top = 390.0
 offset_right = 109.0
 offset_bottom = 421.0
-text = "Tutorial"
+theme_override_fonts/font = ExtResource("3_umy21")
+theme_override_font_sizes/font_size = 32
+text = "TUTORIAL"
 
 [node name="Credits" type="Control" parent="." unique_id=957842868]
 visible = false
