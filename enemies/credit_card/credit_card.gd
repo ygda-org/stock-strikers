@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot(target,delta):
+	SfxManager.create_audio(SFXSettings.SFX_LABEL.CreditCardLaser)
 	if not laser:
 		laser_point = Vector2.DOWN * (GameState.player.global_position - global_position)
 		laser = LASER.instantiate()

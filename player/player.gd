@@ -4,8 +4,10 @@ extends CharacterBody2D
 
 signal player_hp_update(max_health,current_health)
 
-const ACCELERATION = 3000
+const ACCELERATION = 9000
 const DECELERATION = 120
+
+const MAX_SPEED = 1000
 
 const RECOIL_STRENGTH = 100
 const PREMIUM_BULLET_COST = 3
@@ -115,6 +117,7 @@ func _process(delta):
 		$Anim.play("idle")
 		velocity.y = 0
 	velocity = velocity.limit_length(speed)
+	velocity = velocity.limit_length(MAX_SPEED)
 		#velocity = lerp(velocity, Vector2.ZERO, DECELERATION * delta)
 	active_arm.visible = true
 	if "EW" in active_arm.name:
@@ -165,7 +168,8 @@ func hurt(hp_damage:int):
 	if !invincible:
 		if "money_shield" in other_effects_list:
 			money_shield_take_damage(hp_damage)
-			return
+			if current_health > 0:
+				return
 		if "perfection" in other_effects_list:
 			perfection_hit()
 		squash_stretch(Vector2(1,0), .7)
