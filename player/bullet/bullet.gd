@@ -4,6 +4,7 @@ var speed = 100
 
 var damage = 0
 var knockback = 20
+var number_times_ricocheted = 0
 
 var ricochet = 0
 var bleed = 0
@@ -41,7 +42,8 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 
 func hit(norm):
-	if not ricochet:
+	number_times_ricocheted += 1
+	if not ricochet or number_times_ricocheted == 3:
 		self.call_deferred("queue_free")
 	else:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BulletBounce)
