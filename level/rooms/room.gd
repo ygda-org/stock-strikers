@@ -66,8 +66,14 @@ func _process(delta: float) -> void:
 
 	var sq_dist_to_player := (GameState.player.position - center).length_squared()
 	# 128**2 = 16384
-	if sq_dist_to_player < 16384:
+	# 118**2 = 13924
+	if sq_dist_to_player < 13924:
 		room_entered = true
+		for door in GameState.doors:
+			if not door:
+				continue
+			if (door.global_position - center).length() < 140:
+				door.close()
 		for child in get_children():
 			if child is TileMapLayer:
 				continue

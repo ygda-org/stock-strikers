@@ -2,7 +2,7 @@ extends Node2D
 
 ## 0 vert, 1 horizontal
 var orientation = 0 
-var path
+var path : Sprite2D
 
 
 func _ready():
@@ -15,4 +15,10 @@ func _ready():
 		path = $Vertical
 
 func open(): 
-	queue_free() # for now just die
+	path.visible = false
+	path.find_child("CollisionShape2D").disabled = true
+	#queue_free() # for now just die
+
+func close():
+	path.visible = true
+	path.find_child("CollisionShape2D").disabled = false
