@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://diupkd5kr2tpw" path="res://enemies/credit_card/credit_card.tscn" id="10_h7g1w"]
 [ext_resource type="PackedScene" uid="uid://dmtq0eq4tnvrw" path="res://enemies/wallet/wallet.tscn" id="11_h7g1w"]
 [ext_resource type="AudioStream" uid="uid://bop2wwbu67egg" path="res://assets/audio/battle theme 1.ogg" id="12_2wm1q"]
+[ext_resource type="PackedScene" uid="uid://cqybob226gurn" path="res://enemies/money_bag/MoneyBag.tscn" id="12_ptbno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2df2v"]
 size = Vector2(52, 37.25)
@@ -117,11 +118,11 @@ position = Vector2(80, 108)
 
 [node name="Piggies" type="Node2D" parent="." unique_id=518429511]
 
-[node name="PiggyBank" parent="Piggies" unique_id=104104915 instance=ExtResource("9_oay10")]
-position = Vector2(712, 297)
-
 [node name="PiggyBank2" parent="Piggies" unique_id=89554802 instance=ExtResource("9_oay10")]
 position = Vector2(731, 456)
+
+[node name="MoneyBag" parent="Piggies" unique_id=297857764 instance=ExtResource("12_ptbno")]
+position = Vector2(710, 285)
 
 [node name="PiggyActivation" type="Area2D" parent="." unique_id=1757360759]
 
