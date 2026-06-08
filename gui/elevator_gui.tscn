@@ -162,9 +162,9 @@ icon = ExtResource("6_kne5f")
 [node name="StockPanel" type="Panel" parent="." unique_id=655216269]
 layout_mode = 0
 offset_left = 217.0
-offset_top = 114.0
+offset_top = 149.0
 offset_right = 626.0
-offset_bottom = 379.0
+offset_bottom = 414.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
@@ -235,9 +235,9 @@ mouse_filter = 2
 [node name="PermPanel" type="Panel" parent="." unique_id=1795233922]
 layout_mode = 0
 offset_left = 149.0
-offset_top = 158.0
+offset_top = 189.0
 offset_right = 506.0
-offset_bottom = 392.0
+offset_bottom = 423.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
@@ -403,9 +403,9 @@ script = ExtResource("12_h2vk8")
 [node name="MoneyPanel" type="Panel" parent="." unique_id=1104745353]
 layout_mode = 0
 offset_left = 415.0
-offset_top = 219.0
+offset_top = 100.0
 offset_right = 656.0
-offset_bottom = 419.0
+offset_bottom = 300.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
