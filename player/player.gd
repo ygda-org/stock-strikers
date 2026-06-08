@@ -260,7 +260,7 @@ func _on_animation_player_animation_finished(anim_name):
 func process_damage_multipliers(dmg):
 	var additive_dmg_mult = 1
 	if "money_damage_increase" in other_effects_list:
-		additive_dmg_mult += other_effects_strengths["money_damage_increase"] * PlayerStats.money
+		additive_dmg_mult += other_effects_strengths["money_damage_increase"] * (8/(1+1.005^-PlayerStats.money)-4)
 	if "premium_bullets" in other_effects_list:
 		additive_dmg_mult += other_effects_strengths["premium_bullets"]
 	if "desperation" in other_effects_list: # not additive cuz hech yeah YGDA

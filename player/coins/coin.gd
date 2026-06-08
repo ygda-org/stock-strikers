@@ -17,7 +17,8 @@ func _process(delta):
 	if target_position:
 		global_position = global_position.lerp(target_position, delta)
 	if "coin_magnet" in GameState.player.other_effects_list:
-		global_position = global_position.lerp(GameState.player.global_position, delta*GameState.player.other_effects_strengths["coin_magnet"])
+		if (global_position - GameState.player.global_position).length() < GameState.player.other_effects_strengths["coin_magnet"] * 100:
+			global_position = global_position.lerp(GameState.player.global_position, delta*GameState.player.other_effects_strengths["coin_magnet"])
 
 
 func _on_body_entered(body):
