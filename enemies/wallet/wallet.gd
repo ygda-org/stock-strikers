@@ -86,6 +86,8 @@ func die():
 	return
 
 func shoot():
+	if $Anim.is_playing() and $Anim.animation == "death":
+		return
 	if GameState.player:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.WalletAttack)
 		var bullet = BULLET.instantiate()
