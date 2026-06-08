@@ -4,8 +4,8 @@
 [ext_resource type="TileSet" uid="uid://by732a8y26a0o" path="res://assets/level/level_tileset.tres" id="2_lqgwv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ipnvb"]
-vertices = PackedVector2Array(202, 218, 230, 230, 26, 230, 134, 218, 230, 98, 202, 102, 134, 98, 134, 102, 26, 116.421875, 107.86719, 42, 134, 42)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(7, 3, 2, 8, 9), PackedInt32Array(6, 7, 9), PackedInt32Array(10, 6, 9)])
+vertices = PackedVector2Array(202, 218, 230, 230, 26, 230, 134, 218, 230, 98, 202, 102, 134, 98, 134, 102, 26, 117, 83.328125, 74, 122, 74, 134, 42, 122, 42)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(7, 3, 2, 8, 9, 10), PackedInt32Array(6, 7, 10), PackedInt32Array(11, 6, 10, 12)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(240, 88, 240, 240, 192, 240, 192, 88), PackedVector2Array(144, 32, 144, 240, 16, 240, 16, 112, 80, 64, 112, 64, 112, 32), PackedVector2Array(144, 112, 192, 112, 192, 88, 144, 88), PackedVector2Array(192, 208, 144, 208, 144, 240, 192, 240)])
 
 [node name="Nw1" type="Node2D" unique_id=385432540]

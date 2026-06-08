@@ -22,17 +22,28 @@ var my_enemies : Array = []
 var tilemaps : Array[TileMapLayer] = []
 
 func _ready() -> void:
-	var coin_room = GameState.roll_coin_room()
-	for poz in spawns:
-		if coin_room:
-			var coin = load("uid://d1hijr3si4jyw").instantiate()
-			coin.position = poz
-			coin.value = 25
-			add_child(coin)
-			continue
+	#var coin_room = GameState.roll_coin_room()
+	#for poz in spawns:
+		#if coin_room:
+			#var coin = load("uid://d1hijr3si4jyw").instantiate()
+			#coin.position = poz
+			#coin.value = 25
+			#add_child(coin)
+			#continue
 	for node in get_children():
 		if node is TileMapLayer:
 			tilemaps.append(node)
+
+func spawn_coins():
+	for poz in spawns:
+		var coin = load("uid://d1hijr3si4jyw").instantiate()
+		coin.position = poz
+		coin.value = 25
+		add_child(coin)
+	for node in get_children():
+		if node is TileMapLayer:
+			tilemaps.append(node)
+			node.y_sort_enabled = true
 
 func spawn_enemies():
 	for poz in spawns:

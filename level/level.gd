@@ -198,4 +198,8 @@ func set_player_position():
 		if Vector2i(int(room.position.x/128),int(room.position.y/128)) == Vector2i.ZERO:
 			player_pos = room.player_spawn
 		else:
-			room.spawn_enemies() # only spawn enemies in rooms which aren't the closest room to the player spawn
+			var coin_room = GameState.roll_coin_room()
+			if coin_room:
+				room.spawn_coins()
+			else:
+				room.spawn_enemies()
