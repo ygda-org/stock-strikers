@@ -57,7 +57,6 @@ theme_override_font_sizes/font_size = 32
 text = "TUTORIAL"
 
 [node name="Credits" type="Control" parent="." unique_id=957842868]
-visible = false
 anchors_preset = 0
 offset_left = 213.0
 offset_top = 143.0
@@ -68,7 +67,7 @@ theme = ExtResource("4_gmmep")
 [node name="Panel" type="Panel" parent="Credits" unique_id=1106071090]
 layout_mode = 0
 offset_right = 371.0
-offset_bottom = 332.0
+offset_bottom = 357.0
 
 [node name="Back" type="Button" parent="Credits/Panel" unique_id=1509909068]
 layout_mode = 1
@@ -108,6 +107,7 @@ Cavedin
 fwugneo
 yoyoyonono
 altieri
+
 External Playtesters:
 Llama
 Kiwi
