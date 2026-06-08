@@ -1,10 +1,95 @@
 [gd_scene format=3 uid="uid://crqhiu1beolia"]
 
+[ext_resource type="Script" uid="uid://cq6jit3lw1n3m" path="res://main/game_over.gd" id="1_g410v"]
 [ext_resource type="Texture2D" uid="uid://bym0nfw2npm46" path="res://assets/ui/game_over_piskel.png" id="1_hd263"]
 
+[sub_resource type="Animation" id="Animation_hd263"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g410v"]
+resource_name = "fade in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bottq"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bottq"]
+_data = {
+&"RESET": SubResource("Animation_hd263"),
+&"fade in": SubResource("Animation_g410v"),
+&"fade_out": SubResource("Animation_bottq")
+}
+
 [node name="GameOver" type="Node2D" unique_id=477756633]
+script = ExtResource("1_g410v")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1207686290]
+offset_left = -40.99994
+offset_top = -23.0
+offset_right = 843.00006
+offset_bottom = 657.0
+color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1629711056]
 position = Vector2(400, 300)
 scale = Vector2(10, 10)
 texture = ExtResource("1_hd263")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1319583002]
+libraries/ = SubResource("AnimationLibrary_bottq")
+autoplay = &"fade in"
+
+[node name="Button" type="Button" parent="." unique_id=277716183]
+offset_left = 312.0
+offset_top = 372.0
+offset_right = 454.0
+offset_bottom = 403.0
+text = "RETURN TO TITLE"
+
+[node name="Label" type="Label" parent="." unique_id=1660382640]
+offset_left = 287.0
+offset_top = 334.0
+offset_right = 476.0
+offset_bottom = 357.0
+text = "Highest floor:"
+horizontal_alignment = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
