@@ -12,6 +12,6 @@ change_amount = 1.1
 other_effect_name = "premium_bullets"
 stock_name = "Premium Bullets"
 effect_description = "Bullets deal much more damage but cost $3 per shot."
-company_ticker = "PREB"
+company_ticker = "ORNG"
 cost_multi = 636.364
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

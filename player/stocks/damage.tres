@@ -10,6 +10,6 @@ low_volatile_range = Vector2(-0.2, 0.2)
 changed_stat = 3
 change_amount = 5.0
 effect_description = "Changes your damage."
-company_ticker = "DAMG"
+company_ticker = "CYRL"
 cost_multi = 30.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

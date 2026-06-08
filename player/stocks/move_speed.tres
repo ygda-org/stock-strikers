@@ -10,6 +10,6 @@ low_volatile_range = Vector2(-0.5, 0.5)
 changed_stat = 1
 change_amount = 10.0
 effect_description = "Changes your movement speed."
-company_ticker = "MVSP"
+company_ticker = "NICE"
 cost_multi = 16.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

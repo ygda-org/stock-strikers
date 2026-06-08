@@ -11,6 +11,6 @@ changed_stat = 12
 change_amount = 1.5
 other_effect_name = "roll_bullets"
 effect_description = "Shoot a bullet backward when you dodge roll."
-company_ticker = "ROLL"
+company_ticker = "FCAL"
 cost_multi = 133.333
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

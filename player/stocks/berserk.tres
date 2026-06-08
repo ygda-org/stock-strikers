@@ -11,6 +11,6 @@ changed_stat = 12
 change_amount = 1.05
 other_effect_name = "berserk"
 effect_description = "Increases damage for every enemy killed."
-company_ticker = "BERS"
+company_ticker = "WOLF"
 cost_multi = 250.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

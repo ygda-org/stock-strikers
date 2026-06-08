@@ -11,6 +11,6 @@ changed_stat = 12
 change_amount = 40.0
 other_effect_name = "teleport"
 effect_description = "Turns your dodge roll into a teleport."
-company_ticker = "TELE"
+company_ticker = "CAKE"
 cost_multi = 4.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"
