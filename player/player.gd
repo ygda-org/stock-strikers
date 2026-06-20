@@ -196,6 +196,8 @@ func hurt(hp_damage:int):
 		die()
 	
 func dodge():
+	$ArmPivotEW.visible = false
+	$NSCenter/ArmPivotNS.visible = false
 	SfxManager.create_audio(SFXSettings.SFX_LABEL.DodgeRoll)
 	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * roll_speed
 	#squash_stretch(velocity.normalized(), -0.3)

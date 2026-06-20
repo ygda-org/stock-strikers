@@ -94,11 +94,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Floor"
 
-[node name="DebugSeed" type="Label" parent="." unique_id=1268367578]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-text = "adsdsa"
+[node name="Panel2" type="Panel" parent="." unique_id=814598088]
+offset_left = 675.0
+offset_top = 474.0
+offset_right = 800.0
+offset_bottom = 600.0
+theme = ExtResource("2_ma5vl")
+
+[node name="Panel3" type="Panel" parent="." unique_id=118643711]
+offset_left = 125.0
+offset_top = 592.0
+offset_right = 675.0
+offset_bottom = 600.0
+theme = ExtResource("2_ma5vl")

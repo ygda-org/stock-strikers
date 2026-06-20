@@ -5,7 +5,7 @@ extends CanvasLayer
 func _ready() -> void:
 	GameState.update_stock_tickers.connect(on_update_stock_tickers)
 	on_update_stock_tickers()
-	$DebugSeed.text = "DEBUG: " + str(GameState.chosen_seed)
+	#$DebugSeed.text = "DEBUG: " + str(GameState.chosen_seed)
 
 func _process(_delta):
 	$Panel/VBoxContainer/Money.text = "$" + str(snapped(PlayerStats.money,0.01))
