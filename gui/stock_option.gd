@@ -26,7 +26,7 @@ func _ready() -> void:
 	
 	title = stock.company_ticker
 	effect_amount = stock.change_amount
-	effect_name = stock.stat_unit
+	effect_name = ""#stock.stat_unit
 	desc = stock.stock_description
 	tooltip_desc = stock.effect_description
 	cost_per = stock.change_amount * stock.cost_multi

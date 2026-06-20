@@ -59,6 +59,7 @@ mouse_filter = 2
 theme = ExtResource("1_l2qqs")
 
 [node name="StockDisplay" type="Panel" parent="." unique_id=968934865]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -105,10 +106,10 @@ stretch_mode = 4
 
 [node name="Title" type="Label" parent="." unique_id=1534166836]
 layout_mode = 0
-offset_left = 152.0
+offset_left = 16.0
 offset_top = 10.0
-offset_right = 281.0
-offset_bottom = 34.0
+offset_right = 145.0
+offset_bottom = 42.0
 theme = ExtResource("1_l2qqs")
 theme_override_fonts/font = ExtResource("4_xlh3x")
 theme_override_font_sizes/font_size = 32
@@ -116,9 +117,9 @@ text = "YGDA"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1558107968]
 layout_mode = 0
-offset_left = 154.0
+offset_left = 10.0
 offset_top = 43.0
-offset_right = 353.0
+offset_right = 194.0
 offset_bottom = 155.0
 mouse_filter = 2
 
@@ -136,6 +137,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="InfoButton" type="Button" parent="VBoxContainer/EffectRow" unique_id=620645840]
+visible = false
 layout_mode = 2
 toggle_mode = true
 text = " ? "
@@ -214,12 +216,11 @@ layout_mode = 2
 text = "BUY"
 
 [node name="Tooltip" type="Panel" parent="." unique_id=460809676]
-visible = false
 layout_mode = 0
-offset_left = 180.0
-offset_top = 66.0
-offset_right = 329.0
-offset_bottom = 151.0
+offset_left = 205.0
+offset_top = 10.0
+offset_right = 349.0
+offset_bottom = 94.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_welxv")
 
 [node name="MarginContainer" type="MarginContainer" parent="Tooltip" unique_id=1438476390]
