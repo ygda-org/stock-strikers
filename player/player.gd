@@ -188,6 +188,7 @@ func hurt(hp_damage:int):
 			perfection_hit()
 		squash_stretch(Vector2(1,0), .7)
 		set_collision_layer_value(1,false)
+		set_collision_layer_value(4,false)
 		invincible = true
 		itimer.start()
 		current_health -= hp_damage
@@ -206,6 +207,7 @@ func dodge():
 	$DodgeDur.start()
 	$DodgeInvincibilityDur.start()
 	set_collision_layer_value(1,false)
+	set_collision_layer_value(4,false)
 	if "roll_bullets" in other_effects_list:
 		roll_bullets()
 	if "teleport" in other_effects_list:
@@ -214,6 +216,7 @@ func dodge():
 func _on_invincible_timer_timeout() -> void:
 	invincible = false
 	set_collision_layer_value(1,true)
+	set_collision_layer_value(4,true)
 
 
 func _on_dodge_dur_timeout():
@@ -223,6 +226,7 @@ func _on_dodge_dur_timeout():
 func _on_dodge_invincibility_dur_timeout():
 	if not invincible:
 		set_collision_layer_value(1,true)
+		set_collision_layer_value(4,true)
 
 func squash_stretch(dir: Vector2, strength):
 	var tween = get_tree().create_tween()
@@ -299,6 +303,7 @@ func money_shield_take_damage(dmg):
 	SfxManager.create_audio(SFXSettings.SFX_LABEL.LosingCoin)
 	var multiplier = other_effects_strengths["money_shield"]
 	set_collision_layer_value(1,false)
+	set_collision_layer_value(4,false)
 	itimer.start()
 	PlayerStats.money -= int(dmg * multiplier)
 	if PlayerStats.money < 0:
