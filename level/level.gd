@@ -141,7 +141,7 @@ func check_top_replacements():
 		if above in room_cord_neighbors.keys() and rooms_after_placement[coord].north_edge_fix:
 			if rooms_after_placement[coord].full_size:
 				var top_fix
-				if not rooms_after_placement[coord].has_north:
+				if not rooms_after_placement[coord].has_north or rooms_after_placement[above].force_fix_one: 
 					top_fix = TOP_FIX.instantiate()
 				elif above in rooms_after_placement.keys() and rooms_after_placement[above].full_size:
 					top_fix = TOP_FIX_ENTRANCE.instantiate()

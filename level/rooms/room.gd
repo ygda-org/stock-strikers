@@ -9,6 +9,7 @@ class_name Room
 
 @export var north_edge_fix: bool = false
 @export var full_size: bool = false
+@export var force_fix_one: bool = false
 
 @export var spawns: Array[Vector2] = [Vector2(128,128)]
 @export var player_spawn := Vector2(128,128)
