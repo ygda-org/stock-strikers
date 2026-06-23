@@ -398,7 +398,7 @@ acceleration_curve = SubResource("Curve_rkbax")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1229762298]
 sprite_frames = SubResource("SpriteFrames_g6k8r")
-animation = &"roll_south"
+animation = &"Backward"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860238636]
 position = Vector2(0, 4)

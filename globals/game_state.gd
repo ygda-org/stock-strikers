@@ -133,7 +133,7 @@ func on_room_clear(room_pos):
 		update_stock_tickers.emit()
 
 func get_current_scalar():
-	return 1.2**(cleared_floors/3) + cleared_floors/2
+	return 1.2**(cleared_floors/3) + cleared_floors/3
 
 func roll_coin_room():
 	var chance = 10
