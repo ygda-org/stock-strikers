@@ -71,7 +71,7 @@ func _ready(): # probably load stats from gamestate right
 				$ExtraEffects/MoneyLeakCD.start()
 			if stock.other_effect_name == "strong_single_shots":
 				base_damage *= stock.change_amount
-				$ShotCD.wait_time = $ShotCD.wait_time / 2
+				$ShotCD.wait_time = $ShotCD.wait_time * 2
 
 	current_health = max_health
 
