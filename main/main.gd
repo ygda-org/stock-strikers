@@ -10,3 +10,5 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if GameState.enemies.is_empty():
 		$AudioStreamPlayer.bus = &"Low"
+	if Input.is_action_just_pressed("pause_game"):
+		get_tree().paused = true

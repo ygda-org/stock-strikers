@@ -48,7 +48,7 @@ func align_enemy_marker():
 		$EnemyMarker.visible = false
 		return
 	var from_p_to_self : Vector2 = global_position - GameState.player.camera.global_position
-	if from_p_to_self.length() < 16*30 and GameState.enemies.size() > 6:
+	if GameState.enemies.size() > 6:
 		$EnemyMarker.visible = false
 		return
 	else:
