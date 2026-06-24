@@ -94,6 +94,8 @@ func knockback(object,speed:float):
 			animation.stop()
 
 func hurt(health, bleed = 0):
+	if health < 1:
+		health = 1
 	if "piggy_bank" in parent:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.PiggyDeath)
 	elif "wallet" in parent:

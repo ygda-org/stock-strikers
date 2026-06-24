@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_x3n63")
 modified = 4
-change_amount = 0.6
+change_amount = 0.5
 name = "enemy_move_speed"
 display_name = "Enemy tranquilizer"
 attribute_text = "Decreases movement speed of enemies."
