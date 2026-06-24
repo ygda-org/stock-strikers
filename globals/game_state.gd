@@ -36,6 +36,8 @@ var chosen_seed : int
 var doors = []
 var cleared_floors = 0
 
+var music_volume : float = 1.0
+
 func _ready() -> void:
 	chosen_seed = randi() % 100000
 	print('seed:', chosen_seed)
