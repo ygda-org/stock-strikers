@@ -291,11 +291,11 @@ func process_damage_multipliers(dmg):
 func triple_shot(target_position):
 	var dmg_multiplier = other_effects_strengths["triple_shot"]
 	var bullet2 = create_bullet_to_spawn(dmg_multiplier * damage)
-	bullet2.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(PI/4)
+	bullet2.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(PI/6)
 	get_parent().add_child(bullet2)
 	bullet2.global_position = global_position
 	var bullet3 = create_bullet_to_spawn(dmg_multiplier * damage)
-	bullet3.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(-PI/4)
+	bullet3.velocity = ((target_position-global_position).normalized()*bullet_speed).rotated(-PI/6)
 	get_parent().add_child(bullet3)
 	bullet3.global_position = global_position
 
