@@ -161,6 +161,6 @@ func _on_bleed_timer_timeout():
 
 func set_scalar(s):
 	max_health *= s
-	contact_damage *= s
+	contact_damage *= 1 + s/4
 	if "bullet_damage" in get_parent():
-		get_parent().bullet_damage *= s/6
+		get_parent().bullet_damage *= 1 + s/6
