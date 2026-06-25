@@ -49,7 +49,11 @@ func _ready() -> void:
 		starting_room = pool.pick_random()
 	generate()
 	if "no_four_split" in PlayerStats.permanent_upgrades_loaded.keys():
-		while check_four_split():
+		for i in range(10000):
+			if not check_four_split():
+				break
+			randomize()
+			rooms_after_placement = {}
 			generate()
 	check_top_replacements()
 	place_doors()
@@ -151,7 +155,8 @@ func check_top_replacements():
 				add_child(top_fix)
 
 func check_four_split(): # returns true if has four split
-	for k in room_cord_neighbors.keys():
+	for key in room_cord_neighbors.keys():
+		var k = rooms_after_placement[key]
 		if k.has_north and k.has_east and k.has_south and k.has_west:
 			return true
 	return false

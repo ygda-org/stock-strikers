@@ -14,6 +14,13 @@ const DEBT_OPTION = preload("uid://dnt1y0yhe38ki")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerStats.money < 0:
+		var new_debt = Loan.new()
+		new_debt.title = "Outstanding Debt"
+		new_debt.debt = -PlayerStats.money
+		new_debt.time = "huh?"
+		PlayerStats.money = 0
+		PlayerStats.debts.append(new_debt)
 	GameState.generate_stock_options()
 	GameState.generate_upgrade_options()
 	update_trendings_stocks()
@@ -21,7 +28,6 @@ func _ready() -> void:
 	update_owned_stocks()
 	update_debt_options()
 	PlayerStats.stocks_modified.connect(update_owned_stocks)
-	pass # Replace with function body.
 
 func _process(delta: float) -> void:
 	update_balance()
@@ -69,14 +75,28 @@ func update_available_upgrades():
 	var vbox2 = $PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer
 	var upgrade1 = GameState.upgrade_options[0]
 	var upgrade2 = GameState.upgrade_options[1]
-	vbox1.get_node("TitlePanel/Title").text = upgrade1.display_name
-	vbox1.get_node("Desc").text = upgrade1.flavor_text
-	vbox1.get_node("Attribute").text = upgrade1.attribute_text
-	vbox1.get_node("Upgrade1Button").text = "BUY $" + str(upgrade1.cost)
-	vbox2.get_node("TitlePanel/Title").text = upgrade2.display_name
-	vbox2.get_node("Desc").text = upgrade2.flavor_text
-	vbox2.get_node("Attribute").text = upgrade2.attribute_text
-	vbox2.get_node("Upgrade2Button").text = "BUY $" + str(upgrade2.cost)
+	if upgrade1:
+		vbox1.get_node("TitlePanel/Title").text = upgrade1.display_name
+		vbox1.get_node("Desc").text = upgrade1.flavor_text
+		vbox1.get_node("Attribute").text = upgrade1.attribute_text
+		vbox1.get_node("Upgrade1Button").text = "BUY $" + str(upgrade1.cost)
+	else:
+		vbox1.get_node("TitlePanel/Title").text = "SOLD OUT"
+		vbox1.get_node("Desc").text = "For the true monopolies"
+		vbox1.get_node("Attribute").text = "You can't buy anymore upgrades"
+		vbox1.get_node("Upgrade1Button").text = "NO"
+		vbox1.get_node("Upgrade1Button").disabled = true
+	if upgrade2:
+		vbox2.get_node("TitlePanel/Title").text = upgrade2.display_name
+		vbox2.get_node("Desc").text = upgrade2.flavor_text
+		vbox2.get_node("Attribute").text = upgrade2.attribute_text
+		vbox2.get_node("Upgrade2Button").text = "BUY $" + str(upgrade2.cost)
+	else:
+		vbox2.get_node("TitlePanel/Title").text = "SOLD OUT"
+		vbox2.get_node("Desc").text = "For the true monopolies"
+		vbox2.get_node("Attribute").text = "You can't buy anymore upgrades"
+		vbox2.get_node("Upgrade2Button").text = "NO"
+		vbox2.get_node("Upgrade2Button").disabled = true
 
 func _on_perm_button_pressed() -> void:
 	move_child(perm_panel,-1)

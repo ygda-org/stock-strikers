@@ -3,7 +3,7 @@ extends Node
 
 var money = 10
 var debts = []
-const INTEREST_RATE = 1.08
+const INTEREST_RATE = 1.07
 
 const BASE_STATS = [100, 120, 0, 20, 0, 200, 1, 0.3, 250, 0, 0.25, 20, null] # parallel array to enum in resource
 var current_stats = []
@@ -12,7 +12,8 @@ var stocks: Array[Stock] = []
 var stock_to_mult : Dictionary[Stock, int] = {}
 var extra_effects: Array[String]
 
-var permanent_upgrades: Array[Upgrade] = [load("uid://crghvea6e7g7h")]
+var permanent_upgrades: Array[Upgrade] = []
+#var permanent_upgrades: Array[Upgrade] = [load("uid://ba4wpivrl3ecn"), load("uid://cisowgq6cq23"), load("uid://bi55lojalcku7"), load("uid://b5i8u8rteh6ig"), load("uid://b8nl6e38tuyvj"), load("uid://dciglotjs1626"), load("uid://01jebi1rf38g"), load("uid://bc631dr4yw316")]
 var permanent_upgrades_loaded: Dictionary[String, float]
 
 signal stocks_modified

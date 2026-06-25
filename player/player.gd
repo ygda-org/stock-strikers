@@ -10,7 +10,7 @@ const DECELERATION = 120
 const MAX_SPEED = 1000
 
 const RECOIL_STRENGTH = 100
-const PREMIUM_BULLET_COST = 3
+const PREMIUM_BULLET_COST = 2
 const MONEY_LEAK = 5
 
 const BULLET = preload("uid://ckwbgunr68qm")
@@ -191,7 +191,10 @@ func hurt(hp_damage:int):
 		set_collision_layer_value(4,false)
 		invincible = true
 		itimer.start()
-		current_health -= hp_damage
+		if current_health == max_health and hp_damage > current_health:
+			current_health = 1
+		else:
+			current_health -= hp_damage
 		player_hp_update.emit(max_health,current_health)
 	if current_health <= 0:
 		die()

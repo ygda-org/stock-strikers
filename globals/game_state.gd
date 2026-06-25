@@ -95,6 +95,18 @@ func generate_stock_options():
 func generate_upgrade_options():
 	all_upgrades.shuffle()
 	upgrade_options = all_upgrades.slice(0,2)
+	var upgrades_had = []
+	for upgrade: Upgrade in PlayerStats.permanent_upgrades:
+		upgrades_had.append(upgrade.name)
+	for i in range(len(upgrade_options)):
+		if upgrade_options[i].name in upgrades_had:
+			for upgrade: Upgrade in all_upgrades:
+				if upgrade.name not in upgrades_had:
+					upgrade_options[i] = upgrade
+					upgrades_had.append(upgrade.name)
+	for i in range(len(upgrade_options)):
+		if upgrade_options[i].name in upgrades_had:
+			upgrade_options[i] = null
 
 func clear_enemies():
 	var indices = []

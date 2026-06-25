@@ -22,7 +22,7 @@ tile_map_data = PackedByteArray("AAAAAAsAAAAEAAIAAAABAAsAAAABAAAAAAACAAsAAAABAAA
 tile_set = ExtResource("1_t32k3")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=268583864]
-tile_map_data = PackedByteArray("AAAGAAMABgADAAAAAAAGAAQABgADAAEAAAAJAAMABgADAAAAAAAJAAQABgADAAEAAAA=")
+tile_map_data = PackedByteArray("AAAGAAMABgADAAAAAAAGAAQABgADAAEAAAAJAAMABgADAAAAAAAJAAQABgADAAEAAAAAAAUAAAACAAQAAAA=")
 tile_set = ExtResource("1_t32k3")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=955156653]
