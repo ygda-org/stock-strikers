@@ -91,6 +91,15 @@ func get_all_upgrades():
 func generate_stock_options():
 	all_stocks.shuffle()
 	stock_options = all_stocks.slice(0, 5)
+	var stocks_had = []
+	for stock: Stock in PlayerStats.stocks:
+		stocks_had.append(stock.stock_name)
+	for i in range(len(stock_options)):
+		if stock_options[i].changed_stat == Stock.stats.OTHER and stock_options[i].stock_name in stocks_had:
+			for stock: Stock in all_stocks:
+				if stock.stock_name not in stocks_had:
+					stock_options[i] = stock
+					stocks_had.append(stock.stock_name)
 
 func generate_upgrade_options():
 	all_upgrades.shuffle()
