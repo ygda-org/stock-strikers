@@ -53,7 +53,6 @@ func _ready() -> void:
 			if not check_four_split():
 				break
 			randomize()
-			rooms_after_placement = {}
 			generate()
 	check_top_replacements()
 	place_doors()
@@ -61,12 +60,15 @@ func _ready() -> void:
 	set_player_position()
 
 func generate() -> void:
+	rooms_after_placement = {}
 	for child in get_children():
 		if child.name == "Effects":
 			continue
 		child.queue_free()
 	generate_placement()
-	place_rooms()
+	var elevator_placed = place_rooms()
+	if not elevator_placed:
+		generate()
 
 func generate_placement():
 	var q : Array[Vector2] = [Vector2.ZERO]
@@ -138,6 +140,8 @@ func place_rooms():
 				elevator_placed = true
 			add_child(room)
 			break
+	return elevator_placed
+		
 
 func check_top_replacements():
 	for coord in rooms_after_placement.keys():
