@@ -9,7 +9,7 @@ const BASE_STATS = [100, 120, 0, 20, 0, 200, 1, 0.3, 250, 0, 0.25, 20, null] # p
 var current_stats = []
 
 var stocks: Array[Stock] = []
-var stock_to_mult : Dictionary[Stock, int] = {}
+var stock_to_mult : Dictionary[String, int] = {} # stock name to int
 var extra_effects: Array[String]
 
 var permanent_upgrades: Array[Upgrade] = []
@@ -27,17 +27,21 @@ func update_stats():
 	for stock in stocks:
 		if stock.changed_stat == Stock.stats.OTHER:
 			continue # add functionality here
-		current_stats[stock.changed_stat] += stock.change_amount * stock_to_mult[stock]
+		current_stats[stock.changed_stat] += stock.change_amount * stock_to_mult[stock.stock_name]
 	
 
 
 func add_stock(s : Stock, mult : int):
 	stocks.append(s)
-	stock_to_mult[s] = mult
+	if s.stock_name in stock_to_mult.keys():
+		stock_to_mult[s.stock_name] += mult
+	else:
+		stock_to_mult[s.stock_name] = mult
 	stocks_modified.emit()
 
 func remove_stock(s : Stock):
 	stocks.remove_at(stocks.find(s))
+	stock_to_mult[s.stock_name] = 0
 	stocks_modified.emit()
 
 func add_permanent_upgrade(u: Upgrade):

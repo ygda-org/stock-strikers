@@ -46,13 +46,6 @@ func _ready() -> void:
 		$VBoxContainer/VolatitlityRow.visible = true
 		$VBoxContainer/BuyingRow/BuyButton.text = 'SELL'
 		$VBoxContainer/VolatitlityRow/VolatilityAmount.text = str(volatility)
-		
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_info_button_toggled(toggled_on: bool) -> void:
 	$Tooltip.visible = toggled_on

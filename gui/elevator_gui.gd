@@ -57,7 +57,7 @@ func update_owned_stocks():
 		option.is_shop_stock = false
 		option.volatility = GameState.stock_to_volatility[s]
 		your_stocks_holder.add_child(option)
-		option.cost_per *= PlayerStats.stock_to_mult[s]
+		option.cost_per *= PlayerStats.stock_to_mult[s.stock_name]
 		option.update_value()
 
 func update_trendings_stocks():
