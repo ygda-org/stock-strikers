@@ -25,9 +25,11 @@ func _ready() -> void:
 	GameState.generate_upgrade_options()
 	update_trendings_stocks()
 	update_available_upgrades()
+	update_owned_upgrades()
 	update_owned_stocks()
 	update_debt_options()
 	PlayerStats.stocks_modified.connect(update_owned_stocks)
+	PlayerStats.upgrades_modified.connect(update_owned_upgrades)
 
 func _process(delta: float) -> void:
 	update_balance()
@@ -71,8 +73,8 @@ func update_trendings_stocks():
 		your_stocks_holder.add_child(option)
 
 func update_available_upgrades():
-	var vbox1 = $PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer
-	var vbox2 = $PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer
+	var vbox1 = $PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer
+	var vbox2 = $PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer
 	var upgrade1 = GameState.upgrade_options[0]
 	var upgrade2 = GameState.upgrade_options[1]
 	if upgrade1:
@@ -98,6 +100,16 @@ func update_available_upgrades():
 		vbox2.get_node("Upgrade2Button").text = "NO"
 		vbox2.get_node("Upgrade2Button").disabled = true
 
+func update_owned_upgrades():
+	for node in $PermPanel/MarginContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer.get_children():
+		node.queue_free()
+	for upgrade: Upgrade in PlayerStats.permanent_upgrades:
+		var indicator = load("uid://trbk5ybtblcv").instantiate()
+		indicator.get_node("Title").text = upgrade.display_name
+		indicator.get_node("Flavor").text = upgrade.flavor_text
+		indicator.get_node("Tooltip/MarginContainer/Attribute").text = upgrade.attribute_text
+		$PermPanel/MarginContainer/VBoxContainer/TabContainer/ScrollContainer/VBoxContainer.add_child(indicator)
+
 func _on_perm_button_pressed() -> void:
 	move_child(perm_panel,-1)
 	stock_button.button_pressed = false
@@ -121,11 +133,11 @@ func _on_start_button_pressed() -> void:
 
 func _on_upgrade_1_button_pressed():
 	var upgrade = GameState.upgrade_options[0]
-	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button)
+	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button)
 
 func _on_upgrade_2_button_pressed():
 	var upgrade = GameState.upgrade_options[0]
-	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button)
+	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button)
 
 
 func buy_upgrade(upgrade, button) -> void:
@@ -137,14 +149,14 @@ func buy_upgrade(upgrade, button) -> void:
 		PlayerStats.money = 0
 		PlayerStats.debts.append(loan)
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
-		PlayerStats.permanent_upgrades.append(upgrade)
+		PlayerStats.add_permanent_upgrade(upgrade)
 		button.disabled = true
 		update_debt_options()
 		return
 	if PlayerStats.money > upgrade.cost:
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
 		PlayerStats.money -= upgrade.cost
-		PlayerStats.permanent_upgrades.append(upgrade)
+		PlayerStats.add_permanent_upgrade(upgrade)
 		button.disabled = true
 	else:
 		button.text = "Not enough money! Take out loan?"

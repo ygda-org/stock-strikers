@@ -17,6 +17,7 @@ var permanent_upgrades: Array[Upgrade] = []
 var permanent_upgrades_loaded: Dictionary[String, float]
 
 signal stocks_modified
+signal upgrades_modified
 
 func _ready():
 	reload_upgrades()
@@ -47,10 +48,12 @@ func remove_stock(s : Stock):
 func add_permanent_upgrade(u: Upgrade):
 	permanent_upgrades.append(u)
 	reload_upgrades()
+	upgrades_modified.emit()
 
 func remove_permanent_upgrade(u: Upgrade):
 	permanent_upgrades.remove_at(permanent_upgrades.find(u))
 	reload_upgrades()
+	upgrades_modified.emit()
 
 func reload_upgrades():
 	for upgrade in permanent_upgrades: # adding this here lol no better place :D

@@ -234,10 +234,10 @@ mouse_filter = 2
 
 [node name="PermPanel" type="Panel" parent="." unique_id=1795233922]
 layout_mode = 0
-offset_left = 149.0
-offset_top = 189.0
-offset_right = 506.0
-offset_bottom = 423.0
+offset_left = 140.0
+offset_top = 159.0
+offset_right = 507.0
+offset_bottom = 424.0
 mouse_filter = 2
 theme = ExtResource("3_svwi6")
 
@@ -248,13 +248,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_svwi6")
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer" unique_id=1211424506]
+[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer" unique_id=1517824339]
 layout_mode = 2
+theme = ExtResource("3_svwi6")
 
 [node name="ColorRect" type="ColorRect" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1236929955]
 custom_minimum_size = Vector2(0, 18)
@@ -285,18 +287,29 @@ text = "
  ./* § Welcome to Sahâra § *\\.
 "
 
-[node name="Label" type="Label" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1912588946]
+[node name="TabContainer" type="TabContainer" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=100437700]
+layout_mode = 2
+current_tab = 0
+tab_0/title = "Buy Upgrades"
+tab_1/title = "Your Upgrades"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1211424506]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "Buy Upgrades"
+
+[node name="Label" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer" unique_id=1912588946]
 layout_mode = 2
 text = "  Premium One week Shipping
 "
 
-[node name="Upgrade1" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1045849536]
+[node name="Upgrade1" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer" unique_id=1045849536]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_68ai3")
 
-[node name="MarginContainer" type="MarginContainer" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1" unique_id=233975656]
+[node name="MarginContainer" type="MarginContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1" unique_id=233975656]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -308,15 +321,15 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer" unique_id=371248901]
+[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer" unique_id=371248901]
 layout_mode = 2
 
-[node name="TitlePanel" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=927328771]
+[node name="TitlePanel" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=927328771]
 custom_minimum_size = Vector2(0, 17)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_biksv")
 
-[node name="Title" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/TitlePanel" unique_id=619814507]
+[node name="Title" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/TitlePanel" unique_id=619814507]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -331,27 +344,27 @@ text = "UPGRADE!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Desc" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1465852222]
+[node name="Desc" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1465852222]
 layout_mode = 2
 text = "Does your gameplay suck? Buy the solution RIGHT NOW!!!!"
 
-[node name="Attribute" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=143485955]
+[node name="Attribute" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=143485955]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "+20 Damage"
 
-[node name="Upgrade1Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1298725552]
+[node name="Upgrade1Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1298725552]
 layout_mode = 2
 text = "BUY BUY BUY ($\\s)"
 script = ExtResource("12_h2vk8")
 
-[node name="Upgrade2" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=1348818133]
+[node name="Upgrade2" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer" unique_id=1348818133]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_h2vk8")
 
-[node name="MarginContainer" type="MarginContainer" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2" unique_id=133222310]
+[node name="MarginContainer" type="MarginContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2" unique_id=133222310]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -363,15 +376,15 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer" unique_id=1081136615]
+[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer" unique_id=1081136615]
 layout_mode = 2
 
-[node name="TitlePanel" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=542919126]
+[node name="TitlePanel" type="Panel" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=542919126]
 custom_minimum_size = Vector2(0, 17)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m6y2a")
 
-[node name="Title" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/TitlePanel" unique_id=1924215934]
+[node name="Title" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/TitlePanel" unique_id=1924215934]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -386,19 +399,30 @@ text = "UPGRADE!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Desc" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=1077226849]
+[node name="Desc" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=1077226849]
 layout_mode = 2
 text = "Does your gameplay suck? Buy the solution RIGHT NOW!!!!"
 
-[node name="Attribute" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=1502796504]
+[node name="Attribute" type="Label" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=1502796504]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "+20 Damage"
 
-[node name="Upgrade2Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=576159107]
+[node name="Upgrade2Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=576159107]
 layout_mode = 2
 text = "BUY BUY BUY ($\\s)"
 script = ExtResource("12_h2vk8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1618210416]
+visible = false
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme = ExtResource("3_svwi6")
+metadata/_tab_index = 1
+metadata/_tab_name = "Your Upgrades"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/ScrollContainer" unique_id=2009479887]
+layout_mode = 2
 
 [node name="MoneyPanel" type="Panel" parent="." unique_id=1104745353]
 layout_mode = 0
@@ -507,5 +531,5 @@ playback_type = 1
 [connection signal="pressed" from="Background/Taskbar/MarginContainer/HBoxContainer/PermButton" to="." method="_on_perm_button_pressed"]
 [connection signal="pressed" from="Background/Taskbar/MarginContainer/HBoxContainer/StockButton" to="." method="_on_stock_button_pressed"]
 [connection signal="pressed" from="Background/Taskbar/MarginContainer/HBoxContainer/MoneyButton" to="." method="_on_money_button_pressed"]
-[connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button" to="." method="_on_upgrade_1_button_pressed"]
-[connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button" to="." method="_on_upgrade_2_button_pressed"]
+[connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button" to="." method="_on_upgrade_1_button_pressed"]
+[connection signal="pressed" from="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button" to="." method="_on_upgrade_2_button_pressed"]
