@@ -136,7 +136,7 @@ func _on_upgrade_1_button_pressed():
 	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button)
 
 func _on_upgrade_2_button_pressed():
-	var upgrade = GameState.upgrade_options[0]
+	var upgrade = GameState.upgrade_options[1]
 	buy_upgrade(upgrade, $PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button)
 
 
@@ -144,7 +144,7 @@ func buy_upgrade(upgrade, button) -> void:
 	if button.showing_loan:
 		var loan = Loan.new()
 		loan.time = "blahblah"
-		loan.title = upgrade.name
+		loan.title = upgrade.display_name
 		loan.debt += upgrade.cost - PlayerStats.money
 		PlayerStats.money = 0
 		PlayerStats.debts.append(loan)
