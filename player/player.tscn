@@ -187,7 +187,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hg6s5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Backward",
 "speed": 7.0
 }, {
@@ -204,7 +204,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yllr7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Forward",
 "speed": 7.0
 }, {
@@ -221,7 +221,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tqiix")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Left",
 "speed": 7.0
 }, {
@@ -238,7 +238,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x7c3f")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Right",
 "speed": 7.0
 }, {
@@ -246,7 +246,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bjvpn")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle",
 "speed": 0.0
 }, {
@@ -269,7 +269,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rptt4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"roll_left",
 "speed": 6.0
 }, {
@@ -289,7 +289,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gswnw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"roll_north",
 "speed": 6.0
 }, {
@@ -312,7 +312,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_55jnj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"roll_right",
 "speed": 6.0
 }, {
@@ -332,7 +332,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5ejfk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"roll_south",
 "speed": 6.0
 }]
@@ -388,6 +388,15 @@ _data = {
 &"RESET": SubResource("Animation_qjkh3"),
 &"die": SubResource("Animation_yw30f")
 }
+
+[sub_resource type="Gradient" id="Gradient_2ieo8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.37111905, 0.37111905, 0.37111905, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ieo8"]
+gradient = SubResource("Gradient_2ieo8")
+width = 4
+height = 4
 
 [node name="Player" type="CharacterBody2D" unique_id=453716687 groups=["Player"]]
 collision_layer = 9
@@ -470,6 +479,19 @@ flip_h = true
 
 [node name="Gun" type="Marker2D" parent="NSCenter/ArmPivotNS/Arm" unique_id=609694909]
 position = Vector2(-8, -2)
+
+[node name="ShotParticles" type="CPUParticles2D" parent="." unique_id=238734343]
+visible = false
+z_index = 1
+emitting = false
+texture = SubResource("GradientTexture2D_2ieo8")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 6.0
 
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
 [connection signal="timeout" from="DodgeDur" to="." method="_on_dodge_dur_timeout"]

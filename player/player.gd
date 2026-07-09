@@ -163,9 +163,13 @@ func shoot():
 	SfxManager.create_audio(SFXSettings.SFX_LABEL.Gunshot)
 	$ShotCD.start()
 	var target_position = get_global_mouse_position()
+	var spawn_position = active_arm.get_node("Arm/Gun").global_position
+	$ShotParticles.global_position = spawn_position
+	$ShotParticles.direction = (target_position-spawn_position).normalized()
+	$ShotParticles.emitting = true
 	var bullet = create_bullet_to_spawn(damage)
 	get_parent().add_child(bullet)
-	bullet.global_position = active_arm.get_node("Arm/Gun").global_position
+	bullet.global_position = spawn_position
 	if "triple_shot" in other_effects_list:
 		triple_shot(target_position)
 	if "recoil" in other_effects_list:
