@@ -154,6 +154,7 @@ func on_room_clear(room_pos):
 			s.change_amount = 0
 		last_stock_dir[s] = sign(delta)
 		update_stock_tickers.emit()
+	PlayerStats.update_stats()
 
 func get_current_scalar():
 	return 1.2**(cleared_floors/3) + cleared_floors/3

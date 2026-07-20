@@ -44,7 +44,7 @@ func _ready() -> void:
 	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(snappedf(cost_per,.01)) + " *"
 	if not is_shop_stock:
 		$VBoxContainer/BuyingRow/Dividends.visible = false
-		$VBoxContainer/EffectRow/PerTag.text = 'total'
+		$EffectRow/PerTag.text = 'total'
 		$VBoxContainer/Desc.visible = false
 		$VBoxContainer/VolatitlityRow.visible = true
 		$VBoxContainer/BuyingRow/BuyButton.text = 'SELL'

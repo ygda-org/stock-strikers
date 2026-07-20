@@ -15,5 +15,5 @@ stock_name = "Perfection"
 stock_description = "Gekko Insurance, the insurance company! The better you survive, the higher the payout. Don't let your safety score drop!"
 effect_description = "Increases money gained, lose 10% of money on hit."
 company_ticker = "GEKO"
-cost_multi = 470.588
+cost_multi = 250.0
 metadata/_custom_type_script = "uid://cgypua0rq6rtn"

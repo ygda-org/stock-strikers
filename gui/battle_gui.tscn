@@ -101,6 +101,33 @@ offset_right = 800.0
 offset_bottom = 600.0
 theme = ExtResource("2_ma5vl")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2" unique_id=959590849]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 68.0
+offset_bottom = 83.0
+
+[node name="DMG" type="Label" parent="Panel2/VBoxContainer" unique_id=1009358843]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Dmg:"
+
+[node name="HP" type="Label" parent="Panel2/VBoxContainer" unique_id=458505592]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Mx Hp:"
+
+[node name="MS" type="Label" parent="Panel2/VBoxContainer" unique_id=105545832]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "MS:"
+
+[node name="ShotCD" type="Label" parent="Panel2/VBoxContainer" unique_id=1838804102]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "ShotCD:"
+
 [node name="Panel3" type="Panel" parent="." unique_id=118643711]
 offset_left = 125.0
 offset_top = 592.0

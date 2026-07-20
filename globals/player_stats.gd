@@ -1,7 +1,7 @@
 extends Node
 # this script will handle all the player money, stock, loan stuff
 
-var money = 10
+var money = 1000
 var debts = []
 const INTEREST_RATE = 1.07
 
@@ -19,6 +19,8 @@ var permanent_upgrades_loaded: Dictionary[String, float]
 signal stocks_modified
 signal upgrades_modified
 
+signal stats_updated
+
 func _ready():
 	reload_upgrades()
 
@@ -29,7 +31,7 @@ func update_stats():
 		if stock.changed_stat == Stock.stats.OTHER:
 			continue # add functionality here
 		current_stats[stock.changed_stat] += stock.change_amount * stock_to_mult[stock.stock_name]
-	
+	stats_updated.emit()
 
 
 func add_stock(s : Stock, mult : int):

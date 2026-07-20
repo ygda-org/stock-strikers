@@ -44,19 +44,10 @@ var other_effects_strengths: Dictionary[String, float] = {}
 func _ready(): # probably load stats from gamestate right
 	GameState.player = self
 	player_hp_update.emit(max_health,current_health)
+	PlayerStats.stats_updated.connect(load_stats)
 	# load stats
 	PlayerStats.update_stats()
-	max_health = PlayerStats.current_stats[Stock.stats.HEALTH]
-	speed = PlayerStats.current_stats[Stock.stats.MOVE_SPEED]
-	vision = PlayerStats.current_stats[Stock.stats.VISION]
-	base_damage = PlayerStats.current_stats[Stock.stats.DAMAGE]
-	$ShotCD.wait_time = MIN_FIRE_RATE + 0.3/(2.7**PlayerStats.current_stats[Stock.stats.FIRE_RATE])
-	bullet_speed = PlayerStats.current_stats[Stock.stats.BULLET_SPEED]
-	bullet_size = PlayerStats.current_stats[Stock.stats.BULLET_SIZE]
-	$DodgeDur.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
-	roll_speed = PlayerStats.current_stats[Stock.stats.ROLL_SPEED]
-	$DodgeCD.wait_time = MIN_ROLL_CD + 0.4/(2.7**PlayerStats.current_stats[Stock.stats.ROLL_CD])
-	knockback = PlayerStats.current_stats[Stock.stats.KNOCKBACK]
+	
 	
 	for stock in PlayerStats.stocks: # other effects will need to be added manually
 		if stock.changed_stat == Stock.stats.OTHER and stock.other_effect_name:
@@ -75,10 +66,22 @@ func _ready(): # probably load stats from gamestate right
 
 	current_health = max_health
 
+func load_stats():
+	max_health = PlayerStats.current_stats[Stock.stats.HEALTH]
+	speed = PlayerStats.current_stats[Stock.stats.MOVE_SPEED]
+	vision = PlayerStats.current_stats[Stock.stats.VISION]
+	base_damage = PlayerStats.current_stats[Stock.stats.DAMAGE]
+	$ShotCD.wait_time = MIN_FIRE_RATE + 0.3/(2.7**PlayerStats.current_stats[Stock.stats.FIRE_RATE])
+	bullet_speed = PlayerStats.current_stats[Stock.stats.BULLET_SPEED]
+	bullet_size = PlayerStats.current_stats[Stock.stats.BULLET_SIZE]
+	$DodgeDur.wait_time = PlayerStats.current_stats[Stock.stats.ROLL_DURATION]
+	roll_speed = PlayerStats.current_stats[Stock.stats.ROLL_SPEED]
+	$DodgeCD.wait_time = MIN_ROLL_CD + 0.4/(2.7**PlayerStats.current_stats[Stock.stats.ROLL_CD])
+	knockback = PlayerStats.current_stats[Stock.stats.KNOCKBACK]
+
 func _process(delta):
 	z_index = position.y/256
-	damage = base_damage
-	damage = process_damage_multipliers(damage)
+	damage = process_damage_multipliers(base_damage)
 	var mouse_pos_diff = get_global_mouse_position() - global_position
 	$Camera2D.position = Vector2(mouse_pos_diff.x/5, mouse_pos_diff.y/5)
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
