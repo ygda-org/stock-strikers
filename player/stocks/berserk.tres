@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.01, 0.01)
 med_volatile_range = Vector2(-0.005, 0.005)
 low_volatile_range = Vector2(-0.003, 0.003)
 changed_stat = 12
+stat_unit = "x dmg per kill"
 change_amount = 1.05
 other_effect_name = "berserk"
 stock_description = "WereWOLF, the protein company! Be the alpha you were always meant to be! AWOOOOO!"

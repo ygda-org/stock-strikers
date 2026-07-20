@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.2, 0.2)
 med_volatile_range = Vector2(-0.1, 0.1)
 low_volatile_range = Vector2(-0.05, 0.05)
 changed_stat = 12
+stat_unit = "s per shot"
 change_amount = 1.5
 other_effect_name = "extrafire"
 stock_description = "Wake Up!, the clock company! Their alarms scare me... I almost punched my alarm clock last time :("

@@ -26,7 +26,10 @@ func _ready() -> void:
 	
 	title = stock.company_ticker
 	effect_amount = stock.change_amount
-	effect_name = ""#stock.stat_unit
+	if stock.stat_unit == "temp":
+		effect_name = ""
+	else:
+		effect_name = stock.stat_unit
 	desc = stock.stock_description
 	tooltip_desc = stock.effect_description
 	cost_per = stock.change_amount * stock.cost_multi
@@ -36,7 +39,7 @@ func _ready() -> void:
 	
 	$Title.text = title
 	$VBoxContainer/Desc.text = desc
-	$VBoxContainer/EffectRow/Panel/MarginContainer/Effect.text = str(effect_amount) + " " + effect_name
+	$EffectRow/Panel/MarginContainer/Effect.text = str(effect_amount) + " " + effect_name
 	$Tooltip/MarginContainer/TooltipDesc.text = tooltip_desc
 	$VBoxContainer/BuyingRow/DividendCost.text = "$" + str(snappedf(cost_per,.01)) + " *"
 	if not is_shop_stock:

@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.05, 0.05)
 med_volatile_range = Vector2(-0.02, 0.02)
 low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 12
+stat_unit = "x dmg dealt restores health"
 change_amount = 0.2
 other_effect_name = "vampire"
 stock_description = "Vampuum Air, the fluid pump company! They make pumps and motors for anything! Air conditioning, water sprayers, even medical purposes!"

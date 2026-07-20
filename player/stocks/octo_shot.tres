@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.05, 0.05)
 med_volatile_range = Vector2(-0.02, 0.02)
 low_volatile_range = Vector2(-0.01, 0.01)
 changed_stat = 12
+stat_unit = "x dmg on extra shots"
 change_amount = 0.1
 other_effect_name = "octo_shot"
 stock_description = "Lolligo, the mediterranean deep-sea fishing company! They export a large amount of the world's octopus and squid supply."

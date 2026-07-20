@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-40, 40)
 med_volatile_range = Vector2(-25, 25)
 low_volatile_range = Vector2(-15, 15)
 changed_stat = 12
+stat_unit = "force"
 change_amount = 150.0
 other_effect_name = "recoil"
 stock_description = "Shark Kirka's personal utility company! Singer of the hit song \"Waists won't lie\", a song that'll blast you off your feet! "

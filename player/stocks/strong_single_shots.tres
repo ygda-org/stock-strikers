@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.2, 0.2)
 med_volatile_range = Vector2(-0.1, 0.1)
 low_volatile_range = Vector2(-0.05, 0.05)
 changed_stat = 12
+stat_unit = "x dmg"
 change_amount = 2.0
 other_effect_name = "strong_single_shots"
 stock_description = "Camera Kinetics Incorperated, the optics company! Somehow, under the lead of their AI G.L.A.D.E.A.S., they discovered teleportation techonology."

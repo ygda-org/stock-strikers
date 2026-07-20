@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-30, 30)
 med_volatile_range = Vector2(-15, 15)
 low_volatile_range = Vector2(-5, 5)
 changed_stat = 12
+stat_unit = "distance"
 change_amount = 40.0
 other_effect_name = "teleport"
 effect_description = "Turns your dodge roll into a teleport."

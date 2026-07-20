@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.02, 0.02)
 med_volatile_range = Vector2(-0.01, 0.01)
 low_volatile_range = Vector2(-0.005, 0.005)
 changed_stat = 7
+stat_unit = "s"
 change_amount = 0.1
 stock_description = "Yyon Immobile Oil, the gasoline and oil company! They like oil. A lot. Like a lot, a lot. Like, enough that they would use it on themselves to slide further."
 effect_description = "Changes the duration of your dodge roll."

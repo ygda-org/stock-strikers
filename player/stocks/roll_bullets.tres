@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.4, 0.4)
 med_volatile_range = Vector2(-0.2, 0.2)
 low_volatile_range = Vector2(-0.1, 0.1)
 changed_stat = 12
+stat_unit = "x dmg on extra shot"
 change_amount = 1.5
 other_effect_name = "roll_bullets"
 stock_description = "Future Cal, the exercise and diet company! A subscription with them and you'll get fit in no time!"

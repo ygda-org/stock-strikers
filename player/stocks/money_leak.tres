@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.5, 0.5)
 med_volatile_range = Vector2(-0.3, 0.3)
 low_volatile_range = Vector2(-0.1, 0.1)
 changed_stat = 12
+stat_unit = "x speed"
 change_amount = 2.0
 other_effect_name = "money_leak"
 stock_name = "Money Leak"

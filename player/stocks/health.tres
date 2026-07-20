@@ -7,6 +7,7 @@ script = ExtResource("1_ba63f")
 high_volatile_range = Vector2(-2, 2)
 med_volatile_range = Vector2(-1, 1)
 low_volatile_range = Vector2(-0.5, 0.5)
+stat_unit = "hp"
 change_amount = 10.0
 stock_description = "CNSK Stock? It's stock! Made of chickens! Chicken Noodle Soup makes everything better :3"
 effect_description = "Changes your maximum health."

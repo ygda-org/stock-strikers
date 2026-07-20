@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.4, 0.4)
 med_volatile_range = Vector2(-0.15, 0.15)
 low_volatile_range = Vector2(-0.05, 0.05)
 changed_stat = 12
+stat_unit = "x dmg taken lost on hit"
 change_amount = 1.5
 other_effect_name = "money_shield"
 stock_description = "Wizney Studios, the media company! They make a lot of movies and children's shows! They have really good lawyers to protect you."

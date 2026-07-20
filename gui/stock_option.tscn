@@ -16,13 +16,6 @@ texture_margin_bottom = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1w4h"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1w4h"]
-texture = ExtResource("2_kmgha")
-texture_margin_left = 1.0
-texture_margin_top = 1.0
-texture_margin_right = 1.0
-texture_margin_bottom = 1.0
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_welxv"]
 texture = ExtResource("2_kmgha")
 texture_margin_left = 2.0
@@ -35,6 +28,13 @@ bg_color = Color(1, 1, 0.5058824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_welxv"]
 bg_color = Color(0, 0, 0, 0.5294118)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1w4h"]
+texture = ExtResource("2_kmgha")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
 
 [node name="StockOption" type="Control" unique_id=1011788072]
 custom_minimum_size = Vector2(360, 160)
@@ -132,53 +132,6 @@ text = "An entrepreneurial, indie power house with hit releases such as Arizona 
 autowrap_mode = 3
 clip_text = true
 
-[node name="EffectRow" type="HBoxContainer" parent="VBoxContainer" unique_id=612997778]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="InfoButton" type="Button" parent="VBoxContainer/EffectRow" unique_id=620645840]
-visible = false
-layout_mode = 2
-toggle_mode = true
-text = " ? "
-
-[node name="Panel" type="Panel" parent="VBoxContainer/EffectRow" unique_id=1521882151]
-custom_minimum_size = Vector2(144, 19)
-layout_mode = 2
-mouse_filter = 2
-theme = ExtResource("1_l2qqs")
-theme_override_styles/panel = SubResource("StyleBoxTexture_v1w4h")
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/EffectRow/Panel" unique_id=157983895]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 1
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 1
-theme_override_constants/margin_bottom = 1
-
-[node name="Effect" type="Label" parent="VBoxContainer/EffectRow/Panel/MarginContainer" unique_id=1936898777]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_l2qqs")
-theme_override_font_sizes/font_size = 16
-text = "+20 damage"
-
-[node name="PerTag" type="Label" parent="VBoxContainer/EffectRow" unique_id=1232994059]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 16
-text = "per"
-
 [node name="VolatitlityRow" type="HBoxContainer" parent="VBoxContainer" unique_id=34677134]
 visible = false
 layout_mode = 2
@@ -193,6 +146,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "HIGH"
+
+[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=383438290]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
 
 [node name="BuyingRow" type="HBoxContainer" parent="VBoxContainer" unique_id=979023355]
 custom_minimum_size = Vector2(0, 18)
@@ -258,5 +215,52 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_welxv")
 
-[connection signal="toggled" from="VBoxContainer/EffectRow/InfoButton" to="." method="_on_info_button_toggled"]
+[node name="EffectRow" type="HBoxContainer" parent="." unique_id=612997778]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 98.0
+offset_right = 346.0
+offset_bottom = 117.0
+mouse_filter = 2
+
+[node name="InfoButton" type="Button" parent="EffectRow" unique_id=620645840]
+visible = false
+custom_maximum_size = Vector2(0, -1)
+layout_mode = 2
+toggle_mode = true
+text = " ? "
+
+[node name="Panel" type="PanelContainer" parent="EffectRow" unique_id=984510613]
+custom_minimum_size = Vector2(144, 19)
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_l2qqs")
+theme_override_styles/panel = SubResource("StyleBoxTexture_v1w4h")
+
+[node name="MarginContainer" type="MarginContainer" parent="EffectRow/Panel" unique_id=157983895]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Effect" type="Label" parent="EffectRow/Panel/MarginContainer" unique_id=1936898777]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_l2qqs")
+theme_override_font_sizes/font_size = 16
+text = "+20 damage"
+
+[node name="PerTag" type="Label" parent="EffectRow" unique_id=1232994059]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 16
+text = "per"
+
 [connection signal="pressed" from="VBoxContainer/BuyingRow/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="toggled" from="EffectRow/InfoButton" to="." method="_on_info_button_toggled"]

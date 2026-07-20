@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-1, 1)
 med_volatile_range = Vector2(-0.5, 0.5)
 low_volatile_range = Vector2(-0.2, 0.2)
 changed_stat = 3
+stat_unit = "dmg"
 change_amount = 5.0
 stock_description = "Chewyroll, the anime platform! They have SO MUCH action anime. So much fighting... Fight like they do!"
 effect_description = "Changes your damage."

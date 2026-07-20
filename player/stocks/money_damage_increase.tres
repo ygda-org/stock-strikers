@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-0.003, 0.003)
 med_volatile_range = Vector2(-0.002, 0.002)
 low_volatile_range = Vector2(-0.001, 0.001)
 changed_stat = 12
+stat_unit = "x dmg per $"
 change_amount = 0.01
 other_effect_name = "money_damage_increase"
 stock_description = "Lowercase Two, the banking company! Invest in their bank and watch as your interest (and power) grows!"

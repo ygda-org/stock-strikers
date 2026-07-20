@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-2, 2)
 med_volatile_range = Vector2(-1, 1)
 low_volatile_range = Vector2(-0.5, 0.5)
 changed_stat = 1
+stat_unit = "speed"
 change_amount = 10.0
 stock_description = "NICE, the renowned sportswear and shoe company! I heard they hide springs in their shoes to make you faster."
 effect_description = "Changes your movement speed."

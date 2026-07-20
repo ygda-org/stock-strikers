@@ -8,6 +8,7 @@ high_volatile_range = Vector2(-4, 4)
 med_volatile_range = Vector2(-3, 3)
 low_volatile_range = Vector2(-2, 2)
 changed_stat = 12
+stat_unit = "x dmg taken returned"
 change_amount = 5.0
 other_effect_name = "thorns"
 stock_description = "Wokia, the personal electronics company! They make the strongest personal devices. Strong enough that it hurts you when you drop it."
