@@ -1,7 +1,7 @@
 extends Node
 # this script will handle all the player money, stock, loan stuff
 
-var money = 1000
+var money = 10
 var debts = []
 const INTEREST_RATE = 1.07
 
