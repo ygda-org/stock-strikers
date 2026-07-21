@@ -49,6 +49,7 @@ func _ready() -> void:
 		$VBoxContainer/VolatitlityRow.visible = true
 		$VBoxContainer/BuyingRow/BuyButton.text = 'SELL'
 		$VBoxContainer/VolatitlityRow/VolatilityAmount.text = str(volatility)
+		$EffectRow.position.y += 30
 
 func _on_info_button_toggled(toggled_on: bool) -> void:
 	$Tooltip.visible = toggled_on

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://b2xkwci1p0ld0"]
+
+[ext_resource type="Script" uid="uid://b84t6wgyld4v8" path="res://player/permanent_upgrades/base_upgrade.gd" id="1_prnso"]
+
+[resource]
+script = ExtResource("1_prnso")
+change_amount = 0.7
+name = "investment_up"
+display_name = "Investmet Returns"
+attribute_text = "Massively increases passive banking revenue"
+flavor_text = "No work, tons of pay!"
+cost = 1000.0
+metadata/_custom_type_script = "uid://b84t6wgyld4v8"

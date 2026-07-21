@@ -4,6 +4,8 @@ extends Node
 var money = 10
 var debts = []
 const INTEREST_RATE = 1.07
+const INVESTMENT_RETURN = 0.5
+var money_to_be_earned = 0
 
 const BASE_STATS = [100, 120, 0, 20, 0, 200, 1, 0.3, 250, 0, 0.25, 20, null] # parallel array to enum in resource
 var current_stats = []
@@ -69,6 +71,12 @@ func interest():
 		if "interest_rate" in permanent_upgrades_loaded.keys():
 			interest_rate -= permanent_upgrades_loaded["interest_rate"]
 		debt.debt = snapped(debt.debt * interest_rate, .01)
+
+func update_money_to_be_earned():
+	var mult = INVESTMENT_RETURN
+	if "investment_up" in permanent_upgrades_loaded.keys():
+		mult += permanent_upgrades_loaded["investment_up"]
+	money_to_be_earned = money * mult
 
 func reset_stats():
 	money = 10

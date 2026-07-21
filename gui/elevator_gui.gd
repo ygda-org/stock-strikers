@@ -21,6 +21,8 @@ func _ready() -> void:
 		new_debt.time = "huh?"
 		PlayerStats.money = 0
 		PlayerStats.debts.append(new_debt)
+	else:
+		PlayerStats.money += PlayerStats.money_to_be_earned
 	GameState.generate_stock_options()
 	GameState.generate_upgrade_options()
 	update_trendings_stocks()
@@ -47,7 +49,12 @@ func update_debt_options() -> void:
 		$MoneyPanel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer.add_child(debt_option)
 
 func update_balance():
+	PlayerStats.update_money_to_be_earned()
 	$MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/Balance.text = '$' + str(snappedf(PlayerStats.money,.01))
+	if PlayerStats.money > 0:
+		$MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/Profit.text = "$" + str(snappedf(PlayerStats.money_to_be_earned, 0.01))
+	else:
+		$MoneyPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/Profit.text = "$0.00"
 
 func update_owned_stocks():
 	var your_stocks_holder : VBoxContainer = $"StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks/VBoxContainer"
