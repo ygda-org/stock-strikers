@@ -14,7 +14,8 @@ enum modifiers {
 	ENEMY_DETECTION_RANGE,
 	BONUS_COINS_ROOM,
 	STOCK_MARKET_VOLATILITY,
-	INTEREST_RATE
+	INTEREST_RATE,
+	INVESTMENT_UP
 }
 
 ## what thing we're modifying lol

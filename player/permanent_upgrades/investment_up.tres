@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_prnso")
+modified = 12
 change_amount = 0.7
 name = "investment_up"
 display_name = "Investmet Returns"
