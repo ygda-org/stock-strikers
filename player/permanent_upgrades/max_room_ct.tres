@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b84t6wgyld4v8" path="res://player/permanent_upgrades/base_upgrade.gd" id="1_tsyr5"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_tsyr5")
 modified = 1
 change_amount = 2.0

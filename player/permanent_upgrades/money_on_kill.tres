@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b84t6wgyld4v8" path="res://player/permanent_upgrades/base_upgrade.gd" id="1_t8iro"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_t8iro")
 change_amount = 2.5
 name = "money_on_kill"

@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://b84t6wgyld4v8" path="res://player/permanent_upgrades/base_upgrade.gd" id="1_x3n63"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_x3n63")
 modified = 4
-change_amount = 0.5
+change_amount = 0.4
 name = "enemy_move_speed"
 display_name = "Enemy tranquilizer"
 attribute_text = "Decreases movement speed of enemies."

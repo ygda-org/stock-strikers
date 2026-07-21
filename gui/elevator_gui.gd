@@ -85,10 +85,11 @@ func update_available_upgrades():
 	var upgrade1 = GameState.upgrade_options[0]
 	var upgrade2 = GameState.upgrade_options[1]
 	if upgrade1:
+		upgrade1.cost = upgrade1.cost * GameState.get_current_scalar()/2 + 100
 		vbox1.get_node("TitlePanel/Title").text = upgrade1.display_name
 		vbox1.get_node("Desc").text = upgrade1.flavor_text
 		vbox1.get_node("Attribute").text = upgrade1.attribute_text
-		vbox1.get_node("Upgrade1Button").text = "BUY $" + str(upgrade1.cost)
+		vbox1.get_node("Upgrade1Button").text = "BUY $" + str(snappedf(upgrade1.cost,0.01))
 	else:
 		vbox1.get_node("TitlePanel/Title").text = "SOLD OUT"
 		vbox1.get_node("Desc").text = "For the true monopolies"
@@ -96,10 +97,11 @@ func update_available_upgrades():
 		vbox1.get_node("Upgrade1Button").text = "NO"
 		vbox1.get_node("Upgrade1Button").disabled = true
 	if upgrade2:
+		upgrade2.cost = upgrade2.cost * GameState.get_current_scalar()/2 + 100
 		vbox2.get_node("TitlePanel/Title").text = upgrade2.display_name
 		vbox2.get_node("Desc").text = upgrade2.flavor_text
 		vbox2.get_node("Attribute").text = upgrade2.attribute_text
-		vbox2.get_node("Upgrade2Button").text = "BUY $" + str(upgrade2.cost)
+		vbox2.get_node("Upgrade2Button").text = "BUY $" + str(snappedf(upgrade2.cost,0.01))
 	else:
 		vbox2.get_node("TitlePanel/Title").text = "SOLD OUT"
 		vbox2.get_node("Desc").text = "For the true monopolies"
