@@ -136,11 +136,15 @@ mouse_filter = 2
 
 [node name="StartButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=1687193267]
 layout_mode = 2
+focus_neighbor_left = NodePath("../MoneyButton")
+focus_neighbor_right = NodePath("../PermButton")
 toggle_mode = true
 icon = ExtResource("4_jra5y")
 
 [node name="PermButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=769714251]
 layout_mode = 2
+focus_neighbor_left = NodePath("../StartButton")
+focus_neighbor_right = NodePath("../StockButton")
 toggle_mode = true
 text = "Sahara"
 icon = ExtResource("5_kne5f")
@@ -149,12 +153,16 @@ icon = ExtResource("5_kne5f")
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_left = NodePath("../PermButton")
+focus_neighbor_right = NodePath("../MoneyButton")
 toggle_mode = true
 text = "FrogDaq"
 icon = ExtResource("4_w5gor")
 
 [node name="MoneyButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=604286391]
 layout_mode = 2
+focus_neighbor_left = NodePath("../StockButton")
+focus_neighbor_right = NodePath("../StartButton")
 toggle_mode = true
 text = "Lowercase Two"
 icon = ExtResource("6_kne5f")

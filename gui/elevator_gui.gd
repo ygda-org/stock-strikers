@@ -14,6 +14,7 @@ const DEBT_OPTION = preload("uid://dnt1y0yhe38ki")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Background/Taskbar/MarginContainer/HBoxContainer/StockButton.grab_focus()
 	if PlayerStats.money < 0:
 		var new_debt = Loan.new()
 		new_debt.title = "Outstanding Debt"
