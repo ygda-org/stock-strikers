@@ -493,9 +493,13 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 6.0
 initial_velocity_max = 6.0
 
+[node name="ArcadeShotTimer" type="Timer" parent="." unique_id=2012844035]
+one_shot = true
+
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
 [connection signal="timeout" from="DodgeDur" to="." method="_on_dodge_dur_timeout"]
 [connection signal="timeout" from="DodgeInvincibilityDur" to="." method="_on_dodge_invincibility_dur_timeout"]
 [connection signal="timeout" from="ExtraEffects/ExtraFireCD" to="." method="_on_extra_fire_cd_timeout"]
 [connection signal="timeout" from="ExtraEffects/MoneyLeakCD" to="." method="_on_money_leak_cd_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="ArcadeShotTimer" to="." method="_on_arcade_shot_timer_timeout"]

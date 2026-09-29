@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	$Main/Start.grab_focus()
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file("uid://dqak3awcpfb8w")

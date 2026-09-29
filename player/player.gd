@@ -41,7 +41,15 @@ var other_effects_strengths: Dictionary[String, float] = {}
 @onready var itimer:Timer = $InvincibleTimer
 @onready var camera : Camera2D = $Camera2D
 
+var mouse_pos: Vector2 = Vector2()
+var mouse_indicator: Sprite2D = null
+
 func _ready(): # probably load stats from gamestate right
+	if GameState.arcade_mode:
+		mouse_indicator = Sprite2D.new()
+		mouse_indicator.texture = load("uid://cct2vkfp7bdsf")
+		mouse_indicator.scale = Vector2(0.5,0.5)
+		add_child(mouse_indicator)
 	GameState.player = self
 	player_hp_update.emit(max_health,current_health)
 	PlayerStats.stats_updated.connect(load_stats)
@@ -80,9 +88,15 @@ func load_stats():
 	knockback = PlayerStats.current_stats[Stock.stats.KNOCKBACK]
 
 func _process(delta):
+	if GameState.arcade_mode:
+		var aim_input = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+		mouse_pos = global_position + aim_input * 50
+		mouse_indicator.global_position = mouse_pos
+	else:
+		mouse_pos = get_global_mouse_position()
 	z_index = position.y/256
 	damage = process_damage_multipliers(base_damage)
-	var mouse_pos_diff = get_global_mouse_position() - global_position
+	var mouse_pos_diff = mouse_pos - global_position
 	$Camera2D.position = Vector2(mouse_pos_diff.x/5, mouse_pos_diff.y/5)
 	if Input.is_action_just_pressed("dodge") and $DodgeCD.is_stopped() and $DodgeDur.is_stopped():
 		dodge()
@@ -142,10 +156,10 @@ func _process(delta):
 	else:
 		$ArmPivotEW.visible = false
 	
-	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped():
+	if (Input.is_action_just_pressed("shoot") or Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")) and $ShotCD.is_stopped():
 		shoot()
 	active_arm.rotation = 0
-	active_arm.look_at(get_global_mouse_position())
+	active_arm.look_at(mouse_pos)
 	if "NS" in active_arm.name:
 		active_arm.rotation += PI
 		if active_arm.rotation > PI/2 and active_arm.rotation < 3*PI/2:
@@ -165,7 +179,7 @@ func _process(delta):
 func shoot():
 	SfxManager.create_audio(SFXSettings.SFX_LABEL.Gunshot)
 	$ShotCD.start()
-	var target_position = get_global_mouse_position()
+	var target_position = mouse_pos
 	var spawn_position = active_arm.get_node("Arm/Gun").global_position
 	$ShotParticles.global_position = spawn_position
 	$ShotParticles.direction = (target_position-spawn_position).normalized()
@@ -247,7 +261,7 @@ func squash_stretch(dir: Vector2, strength):
 func create_bullet_to_spawn(dmg):
 	#SfxManager.create_audio(SFXSettings.SFX_LABEL.Gun)
 	var bullet = BULLET.instantiate()
-	bullet.velocity = (get_global_mouse_position()-global_position).normalized()*bullet_speed
+	bullet.velocity = (mouse_pos-global_position).normalized()*bullet_speed
 	bullet.speed = bullet_speed
 	bullet.damage = dmg
 	bullet.scale = Vector2(bullet_size, bullet_size)
@@ -322,7 +336,7 @@ func money_shield_take_damage(dmg):
 
 func recoil():
 	$ExtraEffects/RecoilTimer.start()
-	velocity -= (get_global_mouse_position() - global_position).normalized()*other_effects_strengths["recoil"]
+	velocity -= (mouse_pos - global_position).normalized()*other_effects_strengths["recoil"]
 
 func roll_bullets():
 	var bullet = create_bullet_to_spawn(damage*other_effects_strengths["roll_bullets"])
