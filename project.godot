@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://c2fhac3jtp3tk"
 GameState="*uid://c68mu4sl0ig8k"
 PlayerStats="*uid://dhx2tphh0mfdf"
 SfxManager="*uid://bffbhh8mo48ok"
+Leaderboard="*uid://bmx4fxahopnge"
 
 [display]
 

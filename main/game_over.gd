@@ -2,7 +2,18 @@ extends Control
 
 var is_replay := false
 
+const NameBox = preload("uid://dwxlu6qt3yy6a")
+
 func _ready():
+	Leaderboard.game_finished()
+	if Leaderboard.new_best_score != -1:
+		var box = NameBox.instantiate()
+		add_child(box)
+		box.grab_focus()
+		await box.name_entered
+		Leaderboard.names[Leaderboard.new_best_score] = box.entered_name
+		Leaderboard.save()
+		Leaderboard.new_best_score = -1
 	$Label.text = "Highest floor: " + str(GameState.cleared_floors)
 
 func _on_button_pressed():

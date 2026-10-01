@@ -184,6 +184,20 @@ texture_margin_right = 13.0
 texture_margin_bottom = 3.0
 region_rect = Rect2(0, 0, 16, 13)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2rwc"]
+texture = ExtResource("1_ytuhu")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abxee"]
+texture = ExtResource("1_kff6g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivxw8"]
 texture = ExtResource("1_kff6g")
 texture_margin_left = 2.0
@@ -261,6 +275,10 @@ TabContainer/styles/panel = SubResource("StyleBoxTexture_el21k")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_vwe8g")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_ua0l5")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_21uxi")
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/font_sizes/font_size = 40
+TextEdit/styles/focus = SubResource("StyleBoxTexture_i2rwc")
+TextEdit/styles/normal = SubResource("StyleBoxTexture_abxee")
 VBoxContainer/constants/separation = 1
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_ivxw8")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_rmfxv")
