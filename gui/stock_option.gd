@@ -21,6 +21,8 @@ var tooltip_desc : String = "COOL DESC OSDKPOSDK"
 var volatility : String
 var value_total : float = 0.01
 
+@onready var buy_button: Button = $VBoxContainer/BuyingRow/BuyButton
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -35,6 +37,8 @@ func _ready() -> void:
 	cost_per = stock.change_amount * stock.cost_multi
 	if stock.changed_stat == Stock.stats.OTHER:
 		$VBoxContainer/BuyingRow/Dividends.editable = false
+		buy_button.focus_neighbor_left = buy_button.get_path()
+		buy_button.focus_neighbor_right = buy_button.get_path()
 	
 	
 	$Title.text = title
@@ -50,6 +54,17 @@ func _ready() -> void:
 		$VBoxContainer/BuyingRow/BuyButton.text = 'SELL'
 		$VBoxContainer/VolatitlityRow/VolatilityAmount.text = str(volatility)
 		$EffectRow.position.y += 30
+	
+	await get_tree().process_frame
+	var index = get_index()
+	if index >= get_parent().get_children().size()-1:
+		buy_button.focus_neighbor_bottom = GameState.elevator.stock_button.get_path()
+	else:
+		buy_button.focus_neighbor_bottom = get_parent().get_child(index+1).get_path()
+	if index == 0:
+		buy_button.focus_neighbor_top = GameState.elevator.stock_tab_bar.get_path()
+	else:
+		buy_button.focus_neighbor_top = get_parent().get_child(index-1).get_path()
 
 func _on_info_button_toggled(toggled_on: bool) -> void:
 	$Tooltip.visible = toggled_on
@@ -71,3 +86,8 @@ func _on_buy_button_pressed() -> void:
 		PlayerStats.money += cost_per
 		PlayerStats.remove_stock(stock)
 		SfxManager.create_audio(SFXSettings.SFX_LABEL.BuySuccess)
+
+
+func _on_focus_entered() -> void:
+	await get_tree().process_frame
+	buy_button.grab_focus()

@@ -44,6 +44,7 @@ anchor_bottom = 0.26700002
 offset_bottom = -0.2000122
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 mouse_filter = 2
 theme = ExtResource("1_l2qqs")
 script = ExtResource("2_v1w4h")
@@ -164,12 +165,17 @@ text = "Cost: $20 *"
 [node name="Dividends" type="SpinBox" parent="VBoxContainer/BuyingRow" unique_id=242017968]
 custom_minimum_size = Vector2(60, 26)
 layout_mode = 2
+focus_neighbor_left = NodePath("../BuyButton")
+focus_neighbor_right = NodePath("../BuyButton")
+focus_mode = 2
 theme = ExtResource("1_l2qqs")
 min_value = 1.0
 value = 1.0
 
 [node name="BuyButton" type="Button" parent="VBoxContainer/BuyingRow" unique_id=127888415]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Dividends")
+focus_neighbor_right = NodePath("../Dividends")
 text = "BUY"
 
 [node name="Tooltip" type="Panel" parent="." unique_id=460809676]
@@ -262,5 +268,6 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 16
 text = "per"
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="VBoxContainer/BuyingRow/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="toggled" from="EffectRow/InfoButton" to="." method="_on_info_button_toggled"]

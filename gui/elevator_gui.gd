@@ -9,11 +9,15 @@ extends Control
 @onready var money_panel : Panel = $MoneyPanel
 @onready var money_button : Button = $Background/Taskbar/MarginContainer/HBoxContainer/MoneyButton
 
+@onready var perm_tab_bar: TabBar = $PermPanel/MarginContainer/VBoxContainer/TabContainer.get_child(0, true).get_child(0)
+@onready var stock_tab_bar: TabBar = $StockPanel/MarginContainer/VBoxContainer/TabContainer.get_child(0, true).get_child(0)
+
 const STOCK_OPTION = preload("uid://c4m8hryyag1e6")
 const DEBT_OPTION = preload("uid://dnt1y0yhe38ki")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameState.elevator = self
 	$Background/Taskbar/MarginContainer/HBoxContainer/StockButton.grab_focus()
 	if PlayerStats.money < 0:
 		var new_debt = Loan.new()
@@ -33,6 +37,13 @@ func _ready() -> void:
 	update_debt_options()
 	PlayerStats.stocks_modified.connect(update_owned_stocks)
 	PlayerStats.upgrades_modified.connect(update_owned_upgrades)
+	perm_tab_bar.focus_neighbor_top = perm_tab_bar.get_path()
+	perm_tab_bar.focus_neighbor_right = perm_tab_bar.get_path()
+	perm_tab_bar.focus_neighbor_left = perm_tab_bar.get_path()
+	stock_tab_bar.focus_neighbor_top = stock_tab_bar.get_path()
+	stock_tab_bar.focus_neighbor_right = stock_tab_bar.get_path()
+	stock_tab_bar.focus_neighbor_left = stock_tab_bar.get_path()
+	stock_tab_bar.focus_neighbor_bottom = $"StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks/VBoxContainer".get_child(0).get_node("VBoxContainer/BuyingRow/BuyButton").get_path()
 
 func _process(delta: float) -> void:
 	update_balance()
@@ -124,17 +135,21 @@ func _on_perm_button_pressed() -> void:
 	move_child(perm_panel,-1)
 	stock_button.button_pressed = false
 	money_button.button_pressed = false
+	perm_tab_bar.grab_focus()
 
 
 func _on_stock_button_pressed() -> void:
 	move_child(stock_panel,-1)
 	perm_button.button_pressed = false
 	money_button.button_pressed = false
+	stock_tab_bar.grab_focus()
+	
 
 func _on_money_button_pressed() -> void:
 	move_child(money_panel,-1)
 	stock_button.button_pressed = false
 	perm_button.button_pressed = false
+	
 
 
 func _on_start_button_pressed() -> void:

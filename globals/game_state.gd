@@ -1,5 +1,6 @@
 extends Node
 var player : CharacterBody2D
+var elevator: Control
 
 var enemies = []
 

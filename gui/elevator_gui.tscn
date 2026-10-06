@@ -137,14 +137,18 @@ mouse_filter = 2
 [node name="StartButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=1687193267]
 layout_mode = 2
 focus_neighbor_left = NodePath("../MoneyButton")
+focus_neighbor_top = NodePath("../MoneyButton")
 focus_neighbor_right = NodePath("../PermButton")
+focus_neighbor_bottom = NodePath("../PermButton")
 toggle_mode = true
 icon = ExtResource("4_jra5y")
 
 [node name="PermButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=769714251]
 layout_mode = 2
 focus_neighbor_left = NodePath("../StartButton")
+focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_right = NodePath("../StockButton")
+focus_neighbor_bottom = NodePath("../StockButton")
 toggle_mode = true
 text = "Sahara"
 icon = ExtResource("5_kne5f")
@@ -154,7 +158,9 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_neighbor_left = NodePath("../PermButton")
+focus_neighbor_top = NodePath("../PermButton")
 focus_neighbor_right = NodePath("../MoneyButton")
+focus_neighbor_bottom = NodePath("../MoneyButton")
 toggle_mode = true
 text = "FrogDaq"
 icon = ExtResource("4_w5gor")
@@ -162,7 +168,9 @@ icon = ExtResource("4_w5gor")
 [node name="MoneyButton" type="Button" parent="Background/Taskbar/MarginContainer/HBoxContainer" unique_id=604286391]
 layout_mode = 2
 focus_neighbor_left = NodePath("../StockButton")
+focus_neighbor_top = NodePath("../StockButton")
 focus_neighbor_right = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../StartButton")
 toggle_mode = true
 text = "Lowercase Two"
 icon = ExtResource("6_kne5f")
@@ -225,6 +233,7 @@ current_tab = 0
 custom_minimum_size = Vector2(0, 198)
 layout_mode = 2
 theme = ExtResource("3_svwi6")
+follow_focus = true
 metadata/_tab_index = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Trending Stocks" unique_id=919951880]
@@ -234,6 +243,7 @@ layout_mode = 2
 visible = false
 custom_minimum_size = Vector2(0, 198)
 layout_mode = 2
+follow_focus = true
 metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StockPanel/MarginContainer/VBoxContainer/TabContainer/Your Stocks" unique_id=221374261]
@@ -297,12 +307,18 @@ text = "
 
 [node name="TabContainer" type="TabContainer" parent="PermPanel/MarginContainer/VBoxContainer" unique_id=100437700]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../../Background/Taskbar/MarginContainer/HBoxContainer/PermButton")
+focus_neighbor_bottom = NodePath("VBoxContainer/Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button")
 current_tab = 0
 tab_0/title = "Buy Upgrades"
 tab_1/title = "Your Upgrades"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer" unique_id=1211424506]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../../../Background/Taskbar/MarginContainer/HBoxContainer/PermButton")
+focus_neighbor_top = NodePath("../../../../../Background/Taskbar/MarginContainer/HBoxContainer/PermButton")
+focus_neighbor_right = NodePath("../ScrollContainer")
+focus_neighbor_bottom = NodePath("Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button")
 metadata/_tab_index = 0
 metadata/_tab_name = "Buy Upgrades"
 
@@ -363,6 +379,8 @@ text = "+20 Damage"
 
 [node name="Upgrade1Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade1/MarginContainer/VBoxContainer" unique_id=1298725552]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../../../Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button")
+focus_neighbor_bottom = NodePath("../../../../Upgrade2/MarginContainer/VBoxContainer/Upgrade2Button")
 text = "BUY BUY BUY ($\\s)"
 script = ExtResource("12_h2vk8")
 
@@ -418,6 +436,10 @@ text = "+20 Damage"
 
 [node name="Upgrade2Button" type="Button" parent="PermPanel/MarginContainer/VBoxContainer/TabContainer/VBoxContainer/Upgrade2/MarginContainer/VBoxContainer" unique_id=576159107]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../../Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button")
+focus_neighbor_top = NodePath("../../../../Upgrade1/MarginContainer/VBoxContainer/Upgrade1Button")
+focus_neighbor_right = NodePath("../../../../../../../../../Background/Taskbar/MarginContainer/HBoxContainer/PermButton")
+focus_neighbor_bottom = NodePath("../../../../../../../../../Background/Taskbar/MarginContainer/HBoxContainer/PermButton")
 text = "BUY BUY BUY ($\\s)"
 script = ExtResource("12_h2vk8")
 
@@ -426,6 +448,7 @@ visible = false
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 theme = ExtResource("3_svwi6")
+follow_focus = true
 metadata/_tab_index = 1
 metadata/_tab_name = "Your Upgrades"
 
